@@ -41,42 +41,42 @@
 		 * @param init min 最小值 
 		 * @param init max 最大值
 	     */
-		...
+	 
 		function rand(min,max)
 		{
 			return mt_rand(min,max);
 		}
-
-	 	...
+ 
+ 
 	   9.大括号 {} 使用规则
 		大括号放于关键词后方并换行
 		实例：
-		...
+ 
 		if($res)
 		{
 			...	
 		}
-		...
+	 
 	   10.逻辑注释
 		  逻辑语句注释常用 // ，多行注释使用 /*	*/;
 		实例： 
 		
 		// 检测结果
-		...
+ 
 		if（$res == true）
 		{
 			...
 		}
-		...
+ 
 		/** 检测结果是否存在，不存在
 		进行跳转操作
 		 */
-		...
+ 
 		if($res == false)
 		{
 			...
 		}
-		...
+ 
 	   11.namespace 以及 use 声明
 		namespace 声明后 必须 插入一个空白行。
 		
@@ -87,7 +87,7 @@
 		use 声明语句块后 必须 要有一个空白行。
 		
 		例如：
-		...
+ 
 		<?php
 		namespace Vendor\Package;
 		
@@ -96,8 +96,8 @@
 		use OtherVendor\OtherPackage\BazClass;
 		
 		// ... additional PHP code ...
-		...
-	  
+ 
+
 ### 二. 程序文件名 目录名
 
 	   1.文件命名
