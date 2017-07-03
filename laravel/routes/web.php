@@ -14,3 +14,28 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+// 栏目主页
+Route::get('/admin/column/index','Admin\ColumnController@index');
+// 添加栏目
+Route::get('/admin/column/add','Admin\ColumnController@add');
+// 执行添加
+Route::post('/admin/column/insert','Admin\ColumnController@insert');
+// 编辑栏目
+Route::get('/admin/column/edit/{id}','Admin\ColumnController@edit');
+// 执行修改
+Route::post('/admin/column/update','Admin\ColumnController@update');
+// 删除栏目
+Route::get('/admin/column/delete/{id}','Admin\ColumnController@delete');
+
+
+// ajax 操作
+Route::post('/admin/column/ajaxrename','Admin\ColumnController@ajaxRename');
+
+
+// 添加文章
+Route::get('/admin/article/add','Admin\ArticleController@add');
+// 执行添加
+Route::post('/admin/article/insert','Admin\ArticleController@insert');
+// 文章列表主页
+Route::get('/admin/article/index','Admin\ArticleController@index');
