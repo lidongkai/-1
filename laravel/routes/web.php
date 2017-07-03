@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -39,3 +40,13 @@ Route::get('/admin/article/add','Admin\ArticleController@add');
 Route::post('/admin/article/insert','Admin\ArticleController@insert');
 // 文章列表主页
 Route::get('/admin/article/index','Admin\ArticleController@index');
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// 商品分类管理
+Route::resource('/admin/goods',"Admin\GoodsController");
+Route::resource('/admin/goodsDetail',"Admin\GoodsDetailController");
+Route::get('/admin/getAllGoods',"Admin\GoodsController@get");
+
