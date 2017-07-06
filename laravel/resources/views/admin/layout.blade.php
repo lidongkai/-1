@@ -348,7 +348,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-<<<<<<< HEAD
+ 
             <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> 用户添加</a></li>
             <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
           </ul>
@@ -363,8 +363,8 @@
           <ul class="treeview-menu">
             <li class="active"><a href="{{ url('/admin/goods/create') }}"><i class="fa fa-circle-o"></i> 分类添加</a></li>
             <li><a href="{{ url('/admin/goods') }}"><i class="fa fa-circle-o"></i> 分类列表</a></li>
-=======
->>>>>>> 8e62021eb9bfdd5d6446701cc18b21039c3941f0
+ 
+ 
           </ul>
         </li>
         <li class="active treeview">
@@ -555,14 +555,7 @@
 
   @yield('content')
 
-  <!-- <!-- /.content-wrapper -->
-  <!-- <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b>Version</b> 2.3.8
-    </div>
-    <strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
-    reserved.
-  </footer> --> 
+ 
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -801,12 +794,7 @@
 
 @yield('js')
 
-<!-- Button trigger modal -->
-<!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Launch demo modal
-</button> -->
-
-<!-- Modal -->
+ 
 
  
 

@@ -12,9 +12,9 @@
 */
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // 栏目主页
 Route::get('/admin/column/index','Admin\ColumnController@index');
@@ -54,7 +54,7 @@ Route::post('/admin/article/ajaxstatus','Admin\ArticleController@ajaxStatus');
 
 // 商品分类管理
 Route::resource('/admin/goods',"Admin\GoodsController");
-<<<<<<< HEAD
+ 
 // 商品管理
 Route::resource('/admin/goodsDetail',"Admin\GoodsDetailController"); 
 // 递归
@@ -64,9 +64,9 @@ Route::get('/admin/getAllGoods',"Admin\GoodsController@get");
 Route::get('/admin/order/index',"Admin\OrderController@index"); 
 Route::get('/admin/order/delete/{id}',"Admin\OrderController@delete");
 Route::post('/admin/order/update/{id}',"Admin\OrderController@update");
-=======
+ 
 Route::resource('/admin/goodsDetail',"Admin\GoodsDetailController");
 Route::get('/admin/getAllGoods',"Admin\GoodsController@get");
 
 
->>>>>>> 8e62021eb9bfdd5d6446701cc18b21039c3941f0
+ 
