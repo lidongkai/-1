@@ -10,16 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-<<<<<<< HEAD
-=======
-
->>>>>>> 2edfb2e8ba793e4226620dd5f271defb382505cc
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-<<<<<<< HEAD
+ 
 
 
 //群组
@@ -87,7 +78,7 @@ Route::get('/admin/send','Admin\MailController@send');
 //忘记密码
 Route::get('/admin/forgot','Admin\ForgotController@forgot');
 Route::post('/admin/sendemail','Admin\ForgotController@sendEmail');
-=======
+ 
 // 栏目主页
 Route::get('/admin/column/index','Admin\ColumnController@index');
 // 添加栏目
@@ -139,12 +130,7 @@ Route::post('/admin/order/update/{id}',"Admin\OrderController@update");
  
 Route::resource('/admin/goodsDetail',"Admin\GoodsDetailController");
 Route::get('/admin/getAllGoods',"Admin\GoodsController@get");
-
-// 友情链接
-// Route::get('/admin/link/index',"Admin\LinkController@index");
-// Route::get('/admin/link/add',"Admin\LinkController@add");
-// Route::post('/admin/link/insert',"Admin\LinkController@insert");
-// Route::get('/admin/link/edit/{id}',"Admin\LinkController@edit");
+ 
 
  
->>>>>>> 2edfb2e8ba793e4226620dd5f271defb382505cc
+ 
