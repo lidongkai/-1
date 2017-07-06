@@ -68,5 +68,10 @@ Route::post('/admin/order/update/{id}',"Admin\OrderController@update");
 Route::resource('/admin/goodsDetail',"Admin\GoodsDetailController");
 Route::get('/admin/getAllGoods',"Admin\GoodsController@get");
 
+// 友情链接
+// Route::get('/admin/link/index',"Admin\LinkController@index");
+// Route::get('/admin/link/add',"Admin\LinkController@add");
+// Route::post('/admin/link/insert',"Admin\LinkController@insert");
+// Route::get('/admin/link/edit/{id}',"Admin\LinkController@edit");
 
  

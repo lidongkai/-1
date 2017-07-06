@@ -15,7 +15,7 @@ class GoodsDetailController extends Controller
      */
     public function index(Request $request)
     {     
-        $num = $request->input('num',5); 
+        $num = $request->input('num',10); 
         $keywords = $request->input('keywords','');
      
         $data = \DB::table('goodsDetail')->where('goodsName','like','%'.$keywords.'%')->paginate($num);
