@@ -14,11 +14,10 @@
 
 
 
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-
-
 
 
 //群组
@@ -87,7 +86,8 @@ Route::get('/admin/send','Admin\MailController@send');
 Route::get('/admin/forgot','Admin\ForgotController@forgot');
 Route::post('/admin/sendemail','Admin\ForgotController@sendEmail');
 
-// 栏目主页
+ 
+
 Route::get('/admin/column/index','Admin\ColumnController@index');
 // 添加栏目
 Route::get('/admin/column/add','Admin\ColumnController@add');
@@ -138,7 +138,5 @@ Route::post('/admin/order/update/{id}',"Admin\OrderController@update");
  
 Route::resource('/admin/goodsDetail',"Admin\GoodsDetailController");
 Route::get('/admin/getAllGoods',"Admin\GoodsController@get");
-
-
  
 
