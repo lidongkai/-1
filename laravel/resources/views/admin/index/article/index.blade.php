@@ -23,7 +23,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">文章列表</h3>
+              <h3 class="box-title">请选择文章模块</h3>
             </div>
 
             <!-- /.box-header -->
@@ -33,82 +33,69 @@
             		{{session('info')}}
             	</div>
             @endif	
-				<!-- <form action="/admin/user/index" method="get">
-	                <div class="row">
-						<div class="col-md-2">
-							<div class="form-group">
-						     
-						      	<select class="form-control" name="num" >
-						        	<option vlaue="10"
-									@if(!empty($request['num']) && $request['num'] == '10')
-										selected="selected"	
-									@endif	
-						        	>10</option>
-						        	<option value="25"
-						        	@if(!empty($request['num']) && $request['num'] == '25')
-										selected="selected"	
-									@endif
-									>25</option>
-						        	<option value="50"
-						        	@if(!empty($request['num']) &&$request['num'] == '50')
-										selected="selected"	
-									@endif	
-						        	>50</option>
-						        	<option value="100"
-						        	@if(!empty($request['num']) && $request['num'] == '100')
-										selected="selected"	
-									@endif	
-						        	>100</option>
-						      	</select>
-						    </div>
-						</div>		
-						<div class="col-md-4 col-md-offset-6">
-						    <div class="input-group">
-						        <input value="{{ $request['keywords'] or '' }}" type="text" name="keywords" class="form-control">
-						        <span class="input-group-btn">
-						            <button type="submit" class="btn btn-info btn-flat">搜索</button>
-						        </span>
-						    </div>
-						</div>    
+				
+				<div class="row">
+				
+                <form action="/admin/article/index" method="post">
+                {{csrf_field()}}
+                	
+                	<div class="col-md-3">
+                	
+                	<select class="form-control" name="selid">
+                		@foreach($data1 as $k=>$v)
+                		<option value="{{$v->id}}"  >{{$v->name}}</option>
+                		@endforeach
+                	</select>
+                	</div>
+               
+             	<div class="col-md-3  ">
+             	<input value="{{ $request['keywords'] or '' }}" type="text" name="keywords" class="form-control" placeholder="搜索文章">
 					</div>
-				</form> -->
-              <table id="example2" class="table table-bordered table-hover">
+					<span class="input-group-btn">
+						    <button type="submit" class="btn btn-info btn-flat">搜索</button>
+						</span>	        
+						    
+				</form>
+				
+				</div>		 
+						
+               
+				
+
+                <table id="example2" class="table table-bordered table-hover">
                 <thead>
                 <tr>
                   <th>ID</th>
-                  
-                  <th>栏目ID</th>
-                  <th>所属栏目</th>
                   <th>标题</th>
                   <th>描述</th>
                   <!-- <th>内容</th> -->
                   <!-- <th>上传时间</th> -->
-                  <th>相关图片</th>
+                  
                   <th>作者</th>
+                  <th>状态</th>
                   <th>操作</th>
                 </tr>
                 </thead>
                 <tbody>
-
+					
 				@foreach($data as $key=>$val)
                 <tr class="parent">
                   <td class="ids">{{$val->id}}</td>
-                  <td class="ids">{{$val->cid}}</td>
-                  <td class="name">{{$val->cname}}</td>
-                  <td class="">{{$val->atitle}}</td>
-                  <td class="">{{$val->descript}}</td>
-                  <!-- <td class="">{{$val->content}}</td> -->
-                  <!-- <td class="">{{$val->ctime}}</td> -->
-                  <td class=""><img style="width:50px;height:50px" src="/uploads/img/{{$val->img}}"></td>
+                  <td class=""><a href="{{url('/admin/article/show')}}/{{$val->id}}">{{$val->atitle}}</a></td>
+                  <td class="" style="overflow:hidden;white-space:nowrap;">{{$val->descript}}</td>
+            
+                  
                   <td class="">{{$val->aname}}</td>
-                  <td><a href="{{url('/admin/column/edit')}}/{{$val->id}}">编辑</a> | <a class="del" href="#" data-toggle="modal" data-target="#myModal">删除</a></td>
+
+                  <td ><button class="tds" >{{$val->status ==1 ? "开启" : "禁用"}}</button></td>
+                  <td><a href="{{url('/admin/article/edit')}}/{{$val->id}}">编辑</a> | <a class="del" href="#" data-toggle="modal" data-target="#myModal">删除</a></td>
                 </tr>
 				@endforeach
 
-              	</tbody>	
-              </table>
+              	</tbody>
 
-              
+              </table>
+			{{ $data->appends($request)->links() }}	
             </div>
             <!-- /.box-body -->
           </div>
@@ -135,37 +122,44 @@
 	        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 	    }
 	});
-	$(".name").one('dblclick', aaa);
+	
+		
+	$('.tds').click(function(){
+		var id = $(this).parent().parent('.parent').find('.ids').html();
+		
+        var sta ='';	
+        var oldSta = $(this).html();
+        if(oldSta == "开启")
+    	{
+    		oldSta = "禁用";
+    	}else
+    	{
+    		oldSta = "开启";
+    	}
 
-	function aaa(){
+		
 
-		var td = $(this);
-		// 获取id
-		var id = $(this).parent('.parent').find('.ids').html();
-		// alert(id);
-		var inp = $("<input type='text'>");
-		var oldName = $(this).html();
-		inp.val(oldName);
-		$(this).html(inp);
-		// 直接选中
-		inp.select();
+    	if(oldSta == "开启")
+    	{
+    		sta = 1;
+    	}else
+    	{
+    		sta = 0;
+    	}
+		$(this).html(oldSta);
+    	 
 
-		inp.on('blur',function(){
 
-			var newName = inp.val();
-			// 执行ajax
-			$.ajax('/admin/column/ajaxrename',{
+  	
+    	$.ajax('/admin/article/ajaxstatus',{
 				type:'POST',
-				data:{id:id,name:newName},
+				data:{id:id,status:sta},
 				success:function(data){
 					
-					if(data == '0')
+					
+					if(data == '1')
 					{
-						alert('文章名已存在');
-						td.html(lodName);
-					}else if(data == '1')
-					{
-						td.html(newName);
+						
 					}else
 					{
 						alert('修改失败');
@@ -177,15 +171,44 @@
 				dataType:'json',
 			});
 
-			td.one('dblclick',aaa);
+    });
 
-		});
 
-	}
+
+
 	var id = 0;
 	$(".del").on('click',function(){
 		id = $(this).parents('.parent').find('.ids').html();
 	});
-</script>
 
+	
+
+    
+    
+</script>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">是否删除</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="close" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" id="delete" class="btn btn-primary">确认</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+	$("#delete").click(function(){
+      // alert(id);
+      location.href="/admin/article/delete/"+id;
+    });
+
+    
+ </script>
 @endsection

@@ -20,9 +20,8 @@ class CreateArticlesTable extends Migration
             $table->string('cid');
             $table->string('aname')->default('admin');
             $table->string('atitle');
-            $table->longText('content');
             $table->string('descript');
-            $table->string('img')->nullable();
+            $table->string('editor');
             $table->string('ctime');
             $table->tinyInteger('status')->default('1');
 

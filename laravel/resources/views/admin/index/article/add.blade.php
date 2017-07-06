@@ -65,18 +65,15 @@
                   <input type="text" name="descript" value="{{ old('descript')}}" class="form-control" id="exampleInputDescript" placeholder="请输入文章描述">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputContent">文章内容</label>
-                  <textarea name="content" placeholder="请输入文章内容" id="" class="form-control" cols="157" style=" resize : none;"  rows="10"></textarea>
+                   
+                  <script id="editor" type="text/plain" style="width:950px;height:350px;"></script>
+                  <script type="text/javascript">
+                    var ue = UE.getEditor('editor');
+                  </script>
+                
                 </div>
-                <div class="form-group">
-                  <b>相关图片</b>
-                  <input type="file" name="img" class="form-control" >
-                </div>
-                <div class="checkbox">
-                 <!--  <label>
-                    <input type="checkbox"> Check me out
-                  </label> -->
-                </div>
+                
+                
               </div>
               <!-- /.box-body -->
 
@@ -100,3 +97,7 @@
 </div>
 	
 @endsection
+
+<script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.all.min.js"> </script>
+<script type="text/javascript" charset="utf-8" src="/ueditor/lang/zh-cn/zh-cn.js"></script>

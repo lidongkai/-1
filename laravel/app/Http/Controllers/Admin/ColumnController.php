@@ -42,6 +42,8 @@ class ColumnController extends Controller
 	{
 		// dd($request->all());
 		$res=\DB::table('column')->where('name','=',$request->input('name'))->first();
+		\DB::table('articles')->where('cid',$request->input('id'))->update(['cname'=>$request->input('name')]);
+
 
 		if($res)
 		{
@@ -70,6 +72,10 @@ class ColumnController extends Controller
 	public function update(Request $request)
 	{
 		$data = $request -> except('_token','id');
+		$data1 = ['cname' => $request->name];
+	
+
+		\DB::table('articles')->where('cid',$request->id)->update($data1);
 
 		$res = \DB::table('column')->where('id',$request->id)->update($data);
 
@@ -85,6 +91,11 @@ class ColumnController extends Controller
 	public function delete($id)
 	{
 		// dd($id);
+		$res1 = \DB::table('articles')->where('cid',$id)->get();
+		if($res1)
+		{
+			return redirect('/admin/column/index')->with(['info'=>'栏目下有文章不可删除哟']);
+		}
 		$res = \DB::table('column')->where('id',$id)->delete();
 		if($res)
     	{

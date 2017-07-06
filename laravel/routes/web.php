@@ -40,13 +40,21 @@ Route::get('/admin/article/add','Admin\ArticleController@add');
 Route::post('/admin/article/insert','Admin\ArticleController@insert');
 // 文章列表主页
 Route::get('/admin/article/index','Admin\ArticleController@index');
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::post('/admin/article/index','Admin\ArticleController@index');
+// 文章修改
+Route::get('/admin/article/edit/{id}','Admin\ArticleController@edit');
+// 执行修改
+Route::post('/admin/article/update','Admin\ArticleController@update');
+// 执行删除
+Route::get('/admin/article/delete/{id}','Admin\ArticleController@delete');
+// 文章详情页
+Route::get('/admin/article/show/{id}','Admin\ArticleController@show');
+// ajax更改状态
+Route::post('/admin/article/ajaxstatus','Admin\ArticleController@ajaxStatus');
 
 // 商品分类管理
 Route::resource('/admin/goods',"Admin\GoodsController");
 Route::resource('/admin/goodsDetail',"Admin\GoodsDetailController");
 Route::get('/admin/getAllGoods',"Admin\GoodsController@get");
+
 

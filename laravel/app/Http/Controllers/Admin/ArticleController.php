@@ -15,41 +15,25 @@ class ArticleController extends Controller
     }
 
     public function insert(Request $request)
-    {
+    {      
+        
 
     	$this->validate($request,[
     		'cid' => 'required',
     		'atitle' => 'required',
-    		'content' => 'required',
-    		'descript' => 'required',
-    		'img' => 'image'
+    		'descript' => 'required|max:30',
+            'editorValue' => 'required',
     		],[
     		'cid.required' => '栏目名不能为空',
     		'atitle.required' => '标题不能为空',
-    		'content.required' => '文章内容不能为空',
-    		'descript.required' => '描述内容不能为空',
-    		'img.image' => '您上传的不是一张图片'
-
+            'descript.required' => '描述内容不能为空',
+    		'descript.max' => '描述内容不能超过30个字符',
+            'editorValue.required' => '内容部分不能为空'
     		]);
 
  		$data = $request->except('_token');
 
-    	if($request->hasFile('img'))
-    	{	
-    		if($request->file('img')->isValid())
-    		{
-	    	$ext = $request->file('img')->extension();
-
-	    	$filename = time().mt_rand(1000000,9999999).'.'.$ext;
-
-	    	// dd($filename);
-	    	// 移动
-	    	$request->file('img')->move('./uploads/img',$filename);
-
-	    	$data['img'] = $filename;
-	    	}
-    	}
-
+    	
     	$data['ctime'] = date('Y-m-d H:i:s');
 
     	$cid = $request->cid;
@@ -63,21 +47,107 @@ class ArticleController extends Controller
 
     	
     	if($res)
-    	{
-    		return  redirect('/admin/article/index')->with(['info'=>'添加成功']);
-    	}else
-    	{
-    		return back()->with(['info'=>'添加失败']);
-    	}
+        {
+            return  redirect('/admin/article/index')->with(['info'=>'添加成功']);
+        }else
+        {
+            return back()->with(['info'=>'修改失败']);
+        }
 
 
 
     }
 
 
-    public function index()
+    public function index(Request $request)
     {	
-    	$data = \DB::table('articles')->orderBy('cid')->get();
-    	return view('admin.index.article.index',['data'=>$data,'title'=>'文章管理']);
+        $keywords = $request->input('keywords','');
+        $data1 = \DB::table('column')->get();
+        if(empty($request->selid))
+        {
+            $request->selid = 1;
+        }
+    	$data = \DB::table('articles')->where([
+            ['cid',$request->selid], 
+            ['atitle','like','%'.$keywords.'%']
+
+            ])->paginate(10);
+        
+        
+    	return view('admin.index.article.index',['request'=>$request->all(),'data1'=>$data1,'data'=>$data,'title'=>'文章管理']);
     }
+
+    public function edit($id)
+    {   
+
+        $data = \DB::table('articles')->where('id',$id)->first();
+        return view('admin.index.article.edit',['data'=>$data,'title'=>'文章修改']);
+    }
+
+    public function update(Request $request)
+    {   
+
+       $this->validate($request,[
+            'atitle' => 'required',
+            'descript' => 'required|max:30',
+            'editorValue' => 'required',
+            ],[
+            'atitle.required' => '标题不能为空',
+            'descript.required' => '描述内容不能为空',
+            'descript.max' => '描述内容不能超过30个字符',
+            'editorValue.required' => '内容部分不能为空'
+            ]);
+        $data = $request->except('id','_token');
+
+       
+
+        $data['ctime'] = date('Y-m-d H:i:s');
+
+        $res = \DB::table('articles')->where('id',$request->id)->update($data);
+        
+        if($res)
+        {
+            return  redirect('/admin/article/index')->with(['info'=>'修改成功']);
+        }else
+        {
+            return back()->with(['info'=>'修改失败']);
+        }
+     }
+
+    public function delete($id)
+    {
+        // dd($id);
+        $res = \DB::table('articles')->where('id',$id)->delete();
+        if($res)
+        {
+            return  redirect('/admin/article/index')->with(['info'=>'删除成功']);
+        }else
+        {
+            return back()->with(['info'=>'删除失败']);
+        }
+    }
+
+    public function show($id)
+    {   
+
+        $data = \DB::table('articles')->where('id',$id)->first();
+        return view('admin.index.article.show',['data'=>$data,'title'=>'文章详情页']);
+    }
+
+
+    public function ajaxStatus(Request $request)
+    {
+
+        $res=\DB::table('articles')->where('id',$request->id)->update(['status'=>$request->status]);
+        
+        if($res)
+        {
+            return response()->json('1');
+        }else
+        {
+            return response()->json('2');
+        }
+    }
+
+    
 }
