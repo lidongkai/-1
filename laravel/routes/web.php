@@ -11,10 +11,15 @@
 |
 */
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2edfb2e8ba793e4226620dd5f271defb382505cc
 // Route::get('/', function () {
 //     return view('welcome');
 // });
 
+<<<<<<< HEAD
 
 
 //群组
@@ -82,3 +87,59 @@ Route::get('/admin/send','Admin\MailController@send');
 //忘记密码
 Route::get('/admin/forgot','Admin\ForgotController@forgot');
 Route::post('/admin/sendemail','Admin\ForgotController@sendEmail');
+=======
+// 栏目主页
+Route::get('/admin/column/index','Admin\ColumnController@index');
+// 添加栏目
+Route::get('/admin/column/add','Admin\ColumnController@add');
+// 执行添加
+Route::post('/admin/column/insert','Admin\ColumnController@insert');
+// 编辑栏目
+Route::get('/admin/column/edit/{id}','Admin\ColumnController@edit');
+// 执行修改
+Route::post('/admin/column/update','Admin\ColumnController@update');
+// 删除栏目
+Route::get('/admin/column/delete/{id}','Admin\ColumnController@delete');
+
+
+// ajax 操作
+Route::post('/admin/column/ajaxrename','Admin\ColumnController@ajaxRename');
+
+
+// 添加文章
+Route::get('/admin/article/add','Admin\ArticleController@add');
+// 执行添加
+Route::post('/admin/article/insert','Admin\ArticleController@insert');
+// 文章列表主页
+Route::get('/admin/article/index','Admin\ArticleController@index');
+Route::post('/admin/article/index','Admin\ArticleController@index');
+// 文章修改
+Route::get('/admin/article/edit/{id}','Admin\ArticleController@edit');
+// 执行修改
+Route::post('/admin/article/update','Admin\ArticleController@update');
+// 执行删除
+Route::get('/admin/article/delete/{id}','Admin\ArticleController@delete');
+// 文章详情页
+Route::get('/admin/article/show/{id}','Admin\ArticleController@show');
+// ajax更改状态
+Route::post('/admin/article/ajaxstatus','Admin\ArticleController@ajaxStatus');
+
+// 商品分类管理
+Route::resource('/admin/goods',"Admin\GoodsController");
+ 
+// 商品管理
+Route::resource('/admin/goodsDetail',"Admin\GoodsDetailController"); 
+// 递归
+Route::get('/admin/getAllGoods',"Admin\GoodsController@get");
+
+// 订单管理
+Route::get('/admin/order/index',"Admin\OrderController@index"); 
+Route::get('/admin/order/delete/{id}',"Admin\OrderController@delete");
+Route::post('/admin/order/update/{id}',"Admin\OrderController@update");
+ 
+Route::resource('/admin/goodsDetail',"Admin\GoodsDetailController");
+Route::get('/admin/getAllGoods',"Admin\GoodsController@get");
+
+
+ 
+>>>>>>> 2edfb2e8ba793e4226620dd5f271defb382505cc
