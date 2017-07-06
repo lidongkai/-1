@@ -39,7 +39,7 @@ class GoodsController extends Controller
         // 处理
         foreach($data as $key=>$val){
 
-            $num = substr_count($val->path,',');
+            $num = substr_count($val->path,','); 
             $data[$key]->name = str_repeat('|---', $num).$data[$key]->name;
         }
         return view('admin.goods.add',['data'=>$data,'title'=>'分类添加']);
@@ -53,7 +53,13 @@ class GoodsController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
+         
+          $this->validate($request, [
+            'name' => 'required|unique:posts|max:255', 
+        ],[
+            'name.required' => '分类名称不能为空',
+            'name.unique' => '分类名称已存在',
+        ]);
         $data = $request->except('_token');
 
         if($data['pid'] == 0){
@@ -63,6 +69,12 @@ class GoodsController extends Controller
        
             // 查询父类path
             $parent_path = \DB::table('goods')->where('id',$data['pid'])->first()->path;
+            $num = substr_count($parent_path,','); 
+           
+            if($num > 1)
+            {
+                return back()->with(['info'=>'对不起，此分类下不可有子分类']);
+            }
             $data['path'] = $parent_path.','.$data['pid'];
             $data['status'] = 1; 
         }
@@ -161,24 +173,24 @@ class GoodsController extends Controller
         }
     }
 
-    // 递归查询多级分类
-    public function getGoodsByPid($pid){
+    // // 递归查询多级分类
+    // public function getGoodsByPid($pid){
 
-        // 根据pid查询子分类
-        $data = \DB::table('goods')->where('pid',$pid)->get();
+    //     // 根据pid查询子分类
+    //     $data = \DB::table('goods')->where('pid',$pid)->get();
 
-        $allData = [];
-        foreach($data as $key=>$val){
-            $val->sub = $this->getGoodsByPid($val->id);
-            $allData[] = $val;
-        }
+    //     $allData = [];
+    //     foreach($data as $key=>$val){
+    //         $val->sub = $this->getGoodsByPid($val->id);
+    //         $allData[] = $val;
+    //     }
 
-        return $allData;
-    }
+    //     return $allData;
+    // }
 
-    public function get(){
+    // public function get(){
 
-        $data = $this->getGoodsByPid(0);
-        dd($data);
-    }
+    //     $data = $this->getGoodsByPid(0);
+    //     dd($data);
+    // }
 }

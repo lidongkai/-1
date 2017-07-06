@@ -53,32 +53,50 @@
               
               	<div class="form-group">
                   <label for="exampleInputName">商品名称</label>
-                  <input type="text" value="" name="goodsName" class="form-control" id="exampleInputName" placeholder="请输入用户名">
+                  <input type="text" value="" name="goodsName" class="form-control" id="exampleInputName" placeholder="请输入商品名称">
                 </div> 
-                <div class="form-group">
-                  <label for="exampleInputIntroduce">商品介绍</label>
-                  
-                  <textarea name="introduce" value="" class="form-control" id="exampleInputIntroduce" placeholder="请输入商品介绍"></textarea>
-                </div> 
+               
                 <div class="form-group">
                   <label for="exampleInputPrice">商品价格</label>
                   <input type="text" value="" name="price" class="form-control" id="exampleInputPrice" placeholder="请输入商品价格">
-              </div>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPrice">库存量</label>
+                  <input type="text" value="" name="stock" class="form-control" id="exampleInputPrice" placeholder="请输入库存量">
+                </div>
                 <div class="form-group">
                   <label for="exampleInputPicture">商品图片</label>
                   <input type="file" value="" name="picture" class="form-control" id="exampleInputPicture">
                 </div>
                 <div class="form-group">
-                	<label for="exampleInputName">分类名称</label>
+                	<label for="exampleInputName">商品分类</label>
                 	<select name="tid" class="form-control">
-                    <option value="0">根分类</option>
-                		@foreach($data as $key=>$val)
-                		<option value="{{$val->id}}">{{ $val->name }}</option>
-                		@endforeach
+                    <option></option>
+                		@foreach($data as $key=>$val) 
+                		<option  
+                    @if((substr_count($val->path,',')) <=1)
+                    disabled="disabled"
+                    @endif
+                    value="{{$val->id}}">{{ $val->name }}</option>
+                	  @endforeach
                 	</select>
                 		
                 </div>
               </div>
+              <div class="form-group">
+                  <label for="exampleInputIntroduce">商品介绍</label>
+                   <!-- 加载编辑器的容器 -->
+                  <script id="container" name="introduce" type="text/plain"> 
+                  </script>
+                  <!-- 配置文件 -->
+                  <script type="text/javascript" src="{{ asset('ue/ueditor.config.js')}}"></script>
+                  <!-- 编辑器源码文件 -->
+                  <script type="text/javascript" src="{{ asset('ue/ueditor.all.js')}}"></script>
+                  <!-- 实例化编辑器 -->
+                  <script type="text/javascript">
+                      var ue = UE.getEditor('container');
+                  </script>  
+                </div> 
               <!-- /.box-body -->
 
               <div class="box-footer">
@@ -88,4 +106,14 @@
           </div>
           <!-- /.box --> 
 
+@endsection
+@section('js')
+
+<script type="text/javascript"> 
+  $(".alert").on('click',function(){
+    $(".alert").hide();
+  });
+
+</script>
+ 
 @endsection

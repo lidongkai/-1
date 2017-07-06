@@ -343,7 +343,7 @@
         </li>
         <li class="active treeview">
           <a href="#">
-            <i class="fa fa-dashboard"></i> <span>分类管理</span>
+            <i class="fa fa-dashboard"></i> <span>商品分类管理</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -351,6 +351,29 @@
           <ul class="treeview-menu">
             <li class="active"><a href="{{ url('/admin/goods/create') }}"><i class="fa fa-circle-o"></i> 分类添加</a></li>
             <li><a href="{{ url('/admin/goods') }}"><i class="fa fa-circle-o"></i> 分类列表</a></li>
+          </ul>
+        </li>
+        <li class="active treeview">
+          <a href="#">
+            <i class="fa fa-dashboard"></i> <span>商品管理</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="active"><a href="{{ url('/admin/goodsDetail/create') }}"><i class="fa fa-circle-o"></i> 商品添加</a></li>
+            <li><a href="{{ url('/admin/goodsDetail') }}"><i class="fa fa-circle-o"></i> 商品列表</a></li>
+          </ul>
+        </li>
+        <li class="active treeview">
+          <a href="#">
+            <i class="fa fa-dashboard"></i> <span>订单管理</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="active"><a href="{{ url('/admin/order/index') }}"><i class="fa fa-circle-o"></i> 订单列表</a></li> 
           </ul>
         </li>
         <li class="treeview">
@@ -516,14 +539,14 @@
 
   @yield('content')
 
-  <!-- /.content-wrapper -->
-  <footer class="main-footer">
+  <!-- <!-- /.content-wrapper -->
+  <!-- <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.3.8
     </div>
     <strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
     reserved.
-  </footer>
+  </footer> --> 
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">

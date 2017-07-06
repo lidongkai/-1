@@ -37,8 +37,14 @@
 				<div class="col-md-2">
 					<div class="form-group"> 
 	                  <select name="num" class="form-control"> 
-	                    <option value="10"  
-					 	@if(!empty($request['num']) && $request['num'] == 10)
+	                    <option value="5"  
+					 	@if(!empty($request['num']) && $request['num'] == 5)
+					 		selected="selected"
+					 	@endif 
+	                    >5</option>
+
+	                    <option value="20"
+						@if(!empty($request['10']) && $request['num'] == 10)
 					 		selected="selected"
 					 	@endif 
 	                    >10</option>
@@ -47,20 +53,7 @@
 						@if(!empty($request['num']) && $request['num'] == 20)
 					 		selected="selected"
 					 	@endif 
-	                    >20</option>
-
-	                    <option value="50"
-						@if(!empty($request['num']) && $request['num'] == 50)
-					 		selected="selected"
-					 	@endif 
-	                    >50</option>
-
-	                    <option value="100"
-						@if(!empty($request['num']) && $request['num'] == 100)
-					 		selected="selected"
-					 	@endif 
-	                    >100</option> 
-
+	                    >20</option> 
 	                  </select>
 	                </div>
 				</div>
@@ -118,6 +111,9 @@
 <script type="text/javascript">
   $(".del").on('click',function(){
       $(this).parent().next().submit();
+  });
+  $(".alert").on('click',function(){
+    $(".alert").hide();
   });
 
 </script>

@@ -76,3 +76,13 @@
           <!-- /.box --> 
 
 @endsection
+@section('js')
+
+<script type="text/javascript"> 
+  $(".alert").on('click',function(){
+    $(".alert").hide();
+  });
+
+</script>
+ 
+@endsection

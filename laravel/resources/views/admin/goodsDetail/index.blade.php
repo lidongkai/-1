@@ -1,7 +1,21 @@
 @extends('admin.layout')
 
 @section('content')
-	
+<style>
+  .example-modal .modal {
+    position: relative;
+    top: auto;
+    bottom: auto;
+    right: auto;
+    left: auto;
+    display: block;
+    z-index: 1;
+  }
+
+  .example-modal .modal {
+    background: transparent !important;
+  }
+</style>
 	   	<!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -37,8 +51,9 @@
 				<div class="col-md-2">
 					<div class="form-group"> 
 	                  <select name="num" class="form-control"> 
-	                    <option value="10"  
-					 	@if(!empty($request['num']) && $request['num'] == 10)
+	                     
+	                    <option value="10"
+						@if(!empty($request['num']) && $request['num'] == 10)
 					 		selected="selected"
 					 	@endif 
 	                    >10</option>
@@ -49,17 +64,11 @@
 					 	@endif 
 	                    >20</option>
 
-	                    <option value="50"
-						@if(!empty($request['num']) && $request['num'] == 50)
+	                    <option value="30"
+						@if(!empty($request['num']) && $request['num'] == 30)
 					 		selected="selected"
 					 	@endif 
-	                    >50</option>
-
-	                    <option value="100"
-						@if(!empty($request['num']) && $request['num'] == 100)
-					 		selected="selected"
-					 	@endif 
-	                    >100</option> 
+	                    >30</option> 
 
 	                  </select>
 	                </div>
@@ -80,10 +89,10 @@
                 <tr>
                   <th>ID</th>
                   <th>商品名称</th> 
-                  <th>分类名称</th> 
-                  <th>商品介绍</th> 
+                  <th>商品分类</th>  
                   <th>商品图片</th> 
                   <th>商品价格</th> 
+                  <th>库存量</th> 
                   <th>操作</th>
                 </tr>
                 </thead>
@@ -91,19 +100,16 @@
 				@foreach($data as $key=>$val)
                 <tr class="parent">
                   <td class="ids">{{ $val->id }}</td>
-                  <td class="goodsName">{{ $val->goodsName }}</td> 
-                  <td class="tid">{{ $val->good_name }}</td> 
-                  <td class="introduce">{{ $val->introduce }}</td> 
-                  <td class="picture"><img style="width:50px;height:50px" src="/uploads/avatar/{{ $val->picture }}"></td> 
+                  <td class="goodsName"><a href="{{ url('/admin/goodsDetail') }}/{{ $val->id }}">{{ $val->goodsName }}</a> </td> 
+                  <td class="tid">{{ $val->good_name }}</td>  
+                  <td class="picture"><a href="{{ url('/admin/goodsDetail') }}/{{ $val->id }}"><img style="width:50px;height:50px" src="/uploads/avatar/{{ $val->picture }}"></a></td> 
                   <td class="price">{{ $val->price }}</td> 
+                  <td class="price">{{ $val->stock }}</td> 
                   <td>
+                  <!-- <a href="{{ url('/admin/goodsDetail') }}/{{ $val->id }}">详情</a>  -->
                   <a href="{{ url('/admin/goodsDetail') }}/{{ $val->id }}/edit">编辑</a> 
-                  <a class="del" href="#">删除</a>
-                  </td> 
-                  <form style="display:none" action="{{ url('/admin/goodsDetail') }}/{{ $val->id }}" method="post">
-                    {{ method_field('DELETE') }}
-                    {{ csrf_field() }} 
-                  </form>
+                  <a class="del" href="#" data-toggle="modal" data-target="#myModal">删除</a>
+                  </td>  
                 </tr> 
 				@endforeach
                 </tbody> 
@@ -119,16 +125,40 @@
     </section>
     <!-- /.content -->
   </div>
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">确定删除此信息吗?</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="close" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="button" id="delete" class="btn btn-primary">确认删除</button>
+      </div>
+      <form style="display:none" action="{{ url('/admin/goodsDetail') }}/{{ $val->id }}" method="post">
+          {{ method_field('DELETE') }}
+          {{ csrf_field() }} 
+       </form>
+    </div>
+  </div>
+</div>
 
 @endsection
 
 @section('js')
 
-<script type="text/javascript">
-  $(".del").on('click',function(){
-      $(this).parent().next().submit();
+<script type="text/javascript">  
+  $(".alert").on('click',function(){
+    $(".alert").hide();
   });
-
-</script>
  
+  $('#delete').on('click',function(){
+     $(this).parent().next().submit(); 
+   });
+
+</script>  
 @endsection
