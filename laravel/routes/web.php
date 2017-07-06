@@ -11,11 +11,83 @@
 |
 */
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 2edfb2e8ba793e4226620dd5f271defb382505cc
 // Route::get('/', function () {
 //     return view('welcome');
 // });
 
+<<<<<<< HEAD
+
+
+//群组
+Route::group(['middleware'=>'adminlogin'],function(){
+
+			//后台主页
+			Route::get('/admin/index','Admin\IndexController@index');
+
+			//后台用户
+			Route::get('/admin/user/add','Admin\UserController@add');
+
+			//用户编辑
+			Route::get('/admin/user/edit/{id}','Admin\UserController@edit');
+
+			//修改
+			Route::post('/admin/user/update','Admin\UserController@update');
+
+			//用户删除
+			Route::get('/admin/user/delete/{id}','Admin\UserController@delete');
+
+			//后台用户添加
+			Route::post('/admin/user/insert','Admin\UserController@insert');
+
+			//用户添加主页
+			Route::get('/admin/user/index','Admin\UserController@index');
+
+			// 链接管理
+			Route::get('/admin/links/index','Admin\LinksController@index');
+			Route::get('/admin/links/add','Admin\LinksController@add');
+			// 修改链接
+			Route::get('/admin/links/edit/{id}','Admin\LinksController@edit');
+			// 删除链接
+			Route::get('/admin/links/delete/{id}','Admin\LinksController@delete');
+			//修改
+			Route::post('/admin/links/update','Admin\LinksController@update');
+			Route::post('/admin/links/insert','Admin\LinksController@insert');
+});
+
+
+
+//ajax
+Route::post('/admin/user/ajaxrename','Admin\UserController@ajaxRename');
+
+//后台登录
+Route::get('/admin/login','Admin\LoginController@login');
+
+//执行登录
+Route::post('/admin/dologin','Admin\LoginController@doLogin');
+
+//退出
+Route::get('/admin/logout','Admin\LoginController@logout');
+
+//验证码
+Route::get('kit/captcha/{tmp}', 'Admin\KitController@captcha');
+
+// ajax更改状态
+Route::post('/admin/user/ajaxstatus','Admin\UserController@ajaxStatus');
+
+Route::post('/admin/links/ajaxstatus','Admin\LinksController@ajaxStatus');
+
+Route::post('/admin/links/ajaxrename','Admin\LinksController@ajaxRename');
+//邮件
+Route::get('/admin/send','Admin\MailController@send');
+
+//忘记密码
+Route::get('/admin/forgot','Admin\ForgotController@forgot');
+Route::post('/admin/sendemail','Admin\ForgotController@sendEmail');
+=======
 // 栏目主页
 Route::get('/admin/column/index','Admin\ColumnController@index');
 // 添加栏目
@@ -75,3 +147,4 @@ Route::get('/admin/getAllGoods',"Admin\GoodsController@get");
 // Route::get('/admin/link/edit/{id}',"Admin\LinkController@edit");
 
  
+>>>>>>> 2edfb2e8ba793e4226620dd5f271defb382505cc
