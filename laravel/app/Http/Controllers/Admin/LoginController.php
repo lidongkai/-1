@@ -18,7 +18,7 @@ class LoginController extends Controller
     {
     	$data = $request->except('_token');
     	// dd($data);
-    	// $code = session('code');
+    	$code = session('code');
 
     	//验证是否记住我
     	$remember_token = \Cookie::get('remember_token');
@@ -32,16 +32,16 @@ class LoginController extends Controller
 
     		return redirect('/admin/index')->with(['info'=>'欢迎回来']);
     	}
-    	// //判断验证码是否正确
-    	// if($code != $data['code'])
-    	// {
-    	// 	return back()->with(['info'=>'验证码错误']);
-    	// }
+    	//判断验证码是否正确
+    	if($code != $data['code'])
+    	{
+    		return back()->with(['info'=>'验证码错误']);
+    	}
     	
 
     	//查询数据库用户数据
     	$res = \DB::table('users')->where('username',$data['name'])->first();
-// dd($res);
+
     	//判断
     	if(!$res)
     	{
@@ -49,25 +49,28 @@ class LoginController extends Controller
     	}
     	
 
-    	//判断密码
-    	$password = decrypt($res->password);
-    	if($password != $data['password'])
-    	{
-    		return back()->with(['info'=>'用户名或密码错误']);
-    	}
+    	// //判断密码
+        $password = $res->password;
+        if(\Hash::check($data['password'] , $password))
+        {
+            //将登录信息存入session
+        session(['master'=>$res]);
 
-    	//将登录信息存入session
-    	session(['master'=>$res]);
+        //写入cookie
+        if($request->has('remember_me'))
+        {
+            \Cookie::queue('remember_token',$res->remember_token,10);
+        }
+        
 
-    	//写入cookie
-    	if($request->has('remember_me'))
-    	{
-    		\Cookie::queue('remember_token',$res->remember_token,10);
-    	}
+        //登录成功跳转到主页
+        return redirect('/admin/index')->with(['info'=>'登录成功']);
+        }else{
+            return back()->with(['info'=>'密码不正确']);
+        }
+
+
     	
-
-    	//登录成功跳转到主页
-    	return redirect('/admin/index')->with(['info'=>'登录成功']);
     }
 
     	public function logout(Request $request)

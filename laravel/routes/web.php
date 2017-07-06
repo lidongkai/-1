@@ -11,15 +11,14 @@
 |
 */
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 2edfb2e8ba793e4226620dd5f271defb382505cc
+
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
 
-<<<<<<< HEAD
+
 
 
 //群组
@@ -87,7 +86,7 @@ Route::get('/admin/send','Admin\MailController@send');
 //忘记密码
 Route::get('/admin/forgot','Admin\ForgotController@forgot');
 Route::post('/admin/sendemail','Admin\ForgotController@sendEmail');
-=======
+
 // 栏目主页
 Route::get('/admin/column/index','Admin\ColumnController@index');
 // 添加栏目
@@ -142,4 +141,4 @@ Route::get('/admin/getAllGoods',"Admin\GoodsController@get");
 
 
  
->>>>>>> 2edfb2e8ba793e4226620dd5f271defb382505cc
+

@@ -40,7 +40,7 @@ class UserController extends Controller
 		$data = $request->except('_token');
 
 		//密码加密
-		$data['password'] = encrypt($data['password']);
+		$data['password'] = \Hash::make($data['password']);
 
 		//处理上传头像
 		if($request->hasFile('photo'))

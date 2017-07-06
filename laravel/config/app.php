@@ -12,11 +12,9 @@ return [
     | any other location as required by the application or its packages.
     */
 
-<<<<<<< HEAD
-    'name' => env('APP_NAME', 'CMS新闻管理系统'),
-=======
+
     'name' => env('APP_NAME', '雷锋网'),
->>>>>>> 2edfb2e8ba793e4226620dd5f271defb382505cc
+
 
     /*
     |--------------------------------------------------------------------------
