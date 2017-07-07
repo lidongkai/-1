@@ -302,8 +302,7 @@
                 <div class="pull-right">
 
                   <a href="{{ url('/admin/logout') }}" class="btn btn-default btn-flat">退出</a>
-
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+ 
 
                 </div>
               </li>
@@ -348,7 +347,7 @@
 
 
 
-          <li class="active treeview">
+          <li class="treeview">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>用户管理</span>
             <span class="pull-right-container">
