@@ -302,8 +302,7 @@
                 <div class="pull-right">
 
                   <a href="{{ url('/admin/logout') }}" class="btn btn-default btn-flat">退出</a>
-
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+ 
 
                 </div>
               </li>
@@ -348,7 +347,7 @@
 
 
 
-          <li class="active treeview">
+          <li class="treeview">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>用户管理</span>
             <span class="pull-right-container">
@@ -671,7 +670,7 @@
 <script src="{{ asset('/admin/adminlte/bootstrap/js/bootstrap.min.js')}}"></script>
 <!-- Morris.js charts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-<script src="{{ asset('/admin/adminlte/plugins/morris/morris.min.js')}}"></script>
+<!-- <script src="{{ asset('/admin/adminlte/plugins/morris/morris.min.js')}}"></script> -->
 <!-- Sparkline -->
 <script src="{{ asset('/admin/adminlte/plugins/sparkline/jquery.sparkline.min.js')}}"></script>
 <!-- jvectormap -->
@@ -693,7 +692,7 @@
 <!-- AdminLTE App -->
 <script src="{{ asset('/admin/adminlte/dist/js/app.min.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{ asset('/admin/adminlte/dist/js/pages/dashboard.js')}}"></script>
+<!-- <script src="{{ asset('/admin/adminlte/dist/js/pages/dashboard.js')}}"></script> -->
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('/admin/adminlte/dist/js/demo.js')}}"></script>
 
