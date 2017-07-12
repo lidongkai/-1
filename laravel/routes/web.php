@@ -139,4 +139,21 @@ Route::post('/admin/order/update/{id}',"Admin\OrderController@update");
 Route::resource('/admin/goodsDetail',"Admin\GoodsDetailController");
 Route::get('/admin/getAllGoods',"Admin\GoodsController@get");
  
+//前台登录主页
+Route::get('/home/layout','Home\LoginController@layout');
+
+//前台登录ajax方法
+Route::post('/home/login/ajaxlogin',"Home\LoginController@ajaxLogin");
+
+//前台注册方法
+Route::post('/home/login/register','Home\LoginController@register');
+
+//前台退出
+Route::get('/home/loginout','Home\LoginController@Loginout');
+
+//前台用户中心页
+Route::get('/home/user/index','Home\UserController@index');
+
+//前台用户详情
+// Route::
 
