@@ -65,6 +65,10 @@
                   <input type="text" name="descript" value="{{ old('descript')}}" class="form-control" id="exampleInputDescript" placeholder="请输入文章描述">
                 </div>
                 <div class="form-group">
+                  <label for="exampleInputPicture">封面图片</label>
+                  <input type="file" name="picture" value="{{ old('picture')}}" class="form-control" id="exampleInputPicture" placeholder="请输入文章描述">
+                </div>
+                <div class="form-group">
                    
                   <script id="editor" type="text/plain" style="width:950px;height:350px;"></script>
                   <script type="text/javascript">
