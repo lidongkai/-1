@@ -154,6 +154,14 @@ Route::get('/home/loginout','Home\LoginController@Loginout');
 //前台用户中心页
 Route::get('/home/user/index','Home\UserController@index');
 
-//前台用户详情
-// Route::
+//前台完善资料
+Route::get('/home/user/information','Home\UserController@information');
 
+//前台完善添加信息
+Route::post('/home/user/add','Home\UserController@add');
+
+//前台更改密码模板
+Route::get('/home/user/safe','Home\UserController@safe');
+
+//用户前台修改密码
+Route::post('/home/user/update','Home\UserController@update');

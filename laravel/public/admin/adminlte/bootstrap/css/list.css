@@ -1,0 +1,98 @@
+﻿/*
+	雷锋网文章列表页面list.css
+*/
+.list-picShow{background: transparent;}
+.list-picShow .list-slider{width: 510px;height: 322px;border-right: 0;}
+.list-picShow .list-slider li{width: 510px;height: 322px;}
+.list-picShow .list-slider li .txt{width: 450px;}
+
+.list-topPush{overflow: hidden;padding-left: 10px;}
+.list-topPush li{width: 260px;height: 156px;position: relative;overflow: hidden;margin-top: 10px;}
+.list-topPush li.first{margin-top: 0;}
+.list-topPush li img{display: block;}
+.list-topPush li .shadow{position: absolute;
+    width: 100%;
+    height: 25%;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    background-image: -webkit-linear-gradient(180deg, rgba(0,0,0,0.01) 5%, rgba(0,0,0,0.4) 100%);
+    background-image: -moz-linear-gradient(180deg, rgba(0,0,0,0.01) 5%, rgba(0,0,0,0.4) 100%);
+    background-image: linear-gradient(180deg, rgba(0,0,0,0.01) 5%, rgba(0,0,0,0.4) 100%);
+}
+.list-topPush li .pop{
+	position: absolute;
+    -webkit-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+    color: #fff;
+    width: 86%;
+    padding: 4% 7% 6% 7%;
+    height: 90%;
+    line-height: 26px;
+    left: 0px;
+    top: 75%;
+    font-size: 14px;
+    z-index: 2;
+    text-align: center;
+    font-weight: bold;
+}
+.list-topPush li:hover .pop table{height: 100%}
+.list-topPush li:hover .pop{top: 0;background: rgba(0,0,0,0.5);}
+
+/*文章列表*/
+.lph-pageList{padding-top:40px;}
+
+.lph-right .right-ads img,
+.lph-right .right-item-sw img{vertical-align: top;}
+
+.weekly-choice{margin-top: 10px;}
+
+
+
+/*右侧硬创公开课*/
+.ycLesson-item {margin-top: 40px;}
+.ycLesson-item .title{font-size: 16px;color: #31424e;font-weight: bold;padding-bottom: 12px;}
+.ycLesson-item .main{background: #fff;padding-bottom: 20px;overflow: hidden;}
+.ycLesson-item .main .slider{width: 312px;height: 244px;position: relative;}
+.ycLesson-item .main .slider ul{position: absolute;height: 204px;overflow: hidden;}
+.ycLesson-item .main .slider li{float: left;width: 312px;height: 204px;position: relative;}
+.ycLesson-item .main .slider li a{display: block;}
+.ycLesson-item .main .slider li a .pic{width: 312px;height: 204px;overflow: hidden;background:#EAEDF2;}
+.ycLesson-item .main .slider li a .name{
+    position: absolute;
+    width: 272px;
+  /*  height: 52px;*/
+    line-height: 20px;
+    padding: 6px 20px;
+    left: 0px;
+    bottom: 0px;
+    font-size: 14px;
+    color: #fff;
+    font-weight: bold;
+    background-image: -webkit-linear-gradient(180deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.6) 100%);
+    background-image: -moz-linear-gradient(180deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.6) 100%);
+    background-image: linear-gradient(180deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.6) 100%);
+    display: none;
+}
+.ycLesson-item .main .slider li a .pic img{
+    width: 538px;
+    margin-left: -98px;
+    margin-top: 1px;
+}
+.ycLesson-item .main .slider li .time{position: absolute;z-index: 2;width: 160px;height: 60px;padding: 15px 0;left: 76px;top:32px;background: #c8461b;border-radius: 3px;-webkit-border-radius:3px;}
+.ycLesson-item .main .slider li .time .ycLogo{width: 79px;text-align: center; float: left;}
+.ycLesson-item .main .slider li .time .lesson-time{font-size: 15px;font-weight: bold;color: #fff;border-left:1px solid #fca284;text-align: center;overflow: hidden;height: 54px;padding-top: 6px; }
+.ycLesson-item .main .slider li .time .lesson-time .p1{font-size: 20px;}
+.ycLesson-item .main .slider .btns{text-align: center;height: 11px;position: absolute;bottom: 16px;width: 100%;left: 0;font-size: 0;}
+.ycLesson-item .main .slider .btns a{display: inline-block;width: 11px;height: 11px;border-radius: 50%;-webkit-border-radius: 50%;margin: 0 5px;background: #7474a6;}
+.ycLesson-item .main .slider .btns a.cur{background: #db876b;}
+.ycLesson-item .main .past-ycLesson{padding: 0 25px;}
+.ycLesson-item .main .past-ycLesson .tit{font-size: 14px;color: #2a2a77;font-weight: bold;border-bottom:1px solid #E6E6E6;padding-bottom: 10px;text-align: center;}
+.ycLesson-item .main .past-ycLesson .list {padding-top: 3px;}
+.ycLesson-item .main .past-ycLesson .list p{padding-top: 8px;line-height: 20px;}
+.ycLesson-item .main .past-ycLesson .list a{font-size: 14px;color: #31424e;}
+.ycLesson-item .main .past-ycLesson .list p:hover a{color: #ee5b2e;}
+.ycLesson-item .main .past-ycLesson .more {text-align: center;padding-top: 10px;}
+.ycLesson-item .main .past-ycLesson .more a{display: inline-block;padding: 0 32px;font-size: 14px;color: #a8bbc9;height: 32px;line-height: 32px;border-radius: 17px;-webkit-border-radius: 17px;border:1px solid #97B4CA;}
+.ycLesson-item .main .past-ycLesson .more a:hover{background: rgba(151,180,202,0.6); color: #fff;}

@@ -1,0 +1,50 @@
+  *
+        {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #con
+        {
+            width: 389px;
+            height: 391px;
+            margin: 0 auto;
+            position: relative;
+            margin-top:50px; 
+            overflow: hidden;
+        }
+        #con ul
+        {
+            position: absolute;
+            width: 1556px;
+            height: 391px;
+        }
+        #con li
+        {
+            width: 389px;
+            height: 391px;
+            float: left;
+        }
+        #con li img
+        {
+            width: 389px;
+            height: 391px;
+        }
+        #sid
+        {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+        #sid span
+        {
+            float: left;
+            width: 30px;
+            height: 30px;
+            background: #ccc;
+            text-align: center;
+            line-height: 30px;
+            margin: 5px;
+            display: block;
+            color: #fff;
+        }

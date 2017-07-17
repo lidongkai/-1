@@ -4,48 +4,29 @@
   <meta charset="UTF-8"/>
   <title>雷锋网_读懂智能&amp;未来</title>
     <meta name="keywords" content="智能硬件,虚拟现实,VR,AR,移动互联网,互联网媒体,移动终端" />
-  <meta name="description" content="雷锋网是国内最早关注人工智能和智能硬件领域的互联网科技媒体，内容涵盖人工智能、智能硬件、机器人、智能驾驶、ARVR、网络安全、物联网、未来医疗、金融科技等9大领域。雷锋网致力于连接和服务学术界、工业界与投资界，为用户提供更专业的互联网科技资讯和培训服务，让用户读懂智能与未来。" />
+    <meta name="description" content="雷锋网是国内最早关注人工智能和智能硬件领域的互联网科技媒体，内容涵盖人工智能、智能硬件、机器人、智能驾驶、ARVR、网络安全、物联网、未来医疗、金融科技等9大领域。雷锋网致力于连接和服务学术界、工业界与投资界，为用户提供更专业的互联网科技资讯和培训服务，让用户读懂智能与未来。" />
     <meta name="sogou_site_verification" content="ilkqV8FehD"/>
     <meta name="renderer" content="webkit">
     <link rel="stylesheet" href="{{asset('/css/app.css')}}">
-
-        <link rel="stylesheet"  type="text/css" href="/leiphone/css/common.css"  />
-        
-      <link rel="stylesheet"  type="text/css" href="/leiphone/css/list.css" />
-
+    <link rel="stylesheet"  type="text/css" href="/leiphone/css/common.css"  />    
+    <link rel="stylesheet"  type="text/css" href="/leiphone/css/list.css" />
     <link rel="stylesheet" type="text/css" href="/leiphone/css/jquery.mcustomscrollbar.css"  />
     <link rel="stylesheet" type="text/css" href="/leiphone/css/calendar.css"  />
     <link rel="stylesheet" type="text/css" href="/leiphone/css/index.css"  />    
-    
-
-
-    
-    
-   
-   
-    <script  src="/leiphone/js/jquery-3.2.1.min.js"></script>
-   
-    <script  src="/leiphone/js/bootstrap.min.js"></script>
-   
+    <script  src="/leiphone/js/jquery-3.2.1.min.js"></script>  
+    <script  src="/leiphone/js/bootstrap.min.js"></script> 
     <link href="/leiphone/css/bootstrap.min.css" rel="stylesheet">
-
     <script  src="/leiphone/js/tips.js"></script>
     <script src="/leiphone/js/jquery-sea.js"></script>
     <script src="/leiphone/js/sea.js"></script>
-   
     <script  src="/leiphone/js/aq_auth.js"></script>
     <script  src="js/9052.js"></script>
-   
-   
-   
     <script src="/leiphone/js/list.js"></script>
     <script  src="/leiphone/js/mobilecheck.js"></script>
     <script  src="/leiphone/js/com_banner.js"></script>
-   
     <script  src="/leiphone/js/global.js"></script>
     <script  src="/leiphone/js/index.js"></script>
     <script  src="/leiphone/js/calendarNews.js"></script>  
-
 </head>
 <body>
 
@@ -61,15 +42,11 @@
         @if(session('master'))
          <div id="hidd">
             <div class="yp-header-message"  style="margin-top:22px;font-size:16px;">
-              <!--   <a href="https://home.leiphone.com/login/wechatLogin" class="bell">
-                     <i class="ico"></i>
-                     <em class="count"></em>   
-                </a> -->
-                <!-- <ul class="nav navbar-nav navbar-right"> -->
              <a href="/home/loginout">退出</a>
-              <!-- </ul> -->
               </div>
+              <div class="yp-header-message" style="margin-top:22px;font-size:16px;">积分:{{ session('master')->score }}</div>
               <div class="yp-header-message" style="margin-top:22px;font-size:16px;">{{ session('master')->username }}</div>
+
         </div>
 
         <div class="yp-header-user-box">
@@ -221,7 +198,7 @@ $.ajaxSetup({
         if(data == '0')
         {
           alert('恭喜,登录成功');
-          location.href = '/home/layout';
+          location.href = location.href;
           // $('#hidd').hide();
         }
         if(data == '1')
@@ -284,6 +261,9 @@ $.ajaxSetup({
 
 <footer class='yp-footer'>
 
+<div class="yp-footer-msg">
+<div>友情链接</div>
+</div>
    <div class="yp-footer-msg">
         <div class="wrapper clr">
             <!-- links -->
