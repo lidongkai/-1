@@ -210,6 +210,7 @@ class GoodsDetailController extends Controller
             return back()->with(['info' => '删除失败']);
         }
     }
+ 
 
     // 修改商品状态
     public function ajaxa(Request $request){
@@ -226,4 +227,5 @@ class GoodsDetailController extends Controller
         }
 
     }
+ 
 }

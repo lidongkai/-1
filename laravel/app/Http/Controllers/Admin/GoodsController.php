@@ -53,9 +53,14 @@ class GoodsController extends Controller
      */
     public function store(Request $request)
     {
+ 
 
+          
+ 
+         
           $this->validate($request, [
-            'name' => 'required|unique:goods|max:255', 
+            'name' => 'required|unique:posts|max:255', 
+ 
         ],[
             'name.required' => '分类名称不能为空',
             'name.unique' => '分类名称已存在',
@@ -69,7 +74,9 @@ class GoodsController extends Controller
        
             // 查询父类path
             $parent_path = \DB::table('goods')->where('id',$data['pid'])->first()->path;
+ 
             // dd($parent_path);
+ 
             $num = substr_count($parent_path,','); 
            
             if($num > 1)

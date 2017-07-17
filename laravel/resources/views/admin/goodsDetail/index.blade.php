@@ -93,7 +93,9 @@
                   <th>商品图片</th> 
                   <th>商品价格</th> 
                   <th>库存量</th> 
+ 
                   <th>商品状态</th>
+ 
                   <th>操作</th>
                 </tr>
                 </thead>
@@ -104,10 +106,15 @@
                   <td class="goodsName"><a href="{{ url('/admin/goodsDetail') }}/{{ $val->id }}">{{ $val->goodsName }}</a> </td> 
                   <td class="tid">{{ $val->good_name }}</td>  
                   <td class="picture"><a href="{{ url('/admin/goodsDetail') }}/{{ $val->id }}"><img style="width:50px;height:50px" src="/uploads/avatar/{{ $val->picture }}"></a></td> 
+ 
                   <td>{{ $val->price }}</td> 
                   <td>{{ $val->stock }}</td> 
                   <td>  
                   <button class="btn btn-primary tds">{{$val->status ==1 ? "推荐" : "普通"}}</button>   
+ 
+                  <td class="price">{{ $val->price }}</td> 
+                  <td class="price">{{ $val->stock }}</td> 
+ 
                   <td>
                   <!-- <a href="{{ url('/admin/goodsDetail') }}/{{ $val->id }}">详情</a>  -->
                   <a href="{{ url('/admin/goodsDetail') }}/{{ $val->id }}/edit">编辑</a> 
@@ -155,6 +162,7 @@
 @section('js')
 
 <script type="text/javascript">  
+ 
 
 $.ajaxSetup({
       headers: {
@@ -205,7 +213,7 @@ $('.tds').on('click',function(){
 
     });
 
-
+ 
   $(".alert").on('click',function(){
     $(".alert").hide();
   });
@@ -214,6 +222,8 @@ $('.tds').on('click',function(){
      $(this).parent().next().submit(); 
    });
 
+ 
 
+ 
 </script>  
 @endsection

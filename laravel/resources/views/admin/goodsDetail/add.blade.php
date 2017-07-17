@@ -65,6 +65,7 @@
                   <input type="text" value="" name="stock" class="form-control" id="exampleInputPrice" placeholder="请输入库存量">
                 </div>
                 <div class="form-group">
+ 
                   <label for="exampleInputName">商品分类</label>
                      <option value="0">普通</option>
                   <select name="status" class="form-control">
@@ -73,6 +74,7 @@
                   </select> 
                 </div>
                 <div class="form-group">
+ 
                   <label for="exampleInputPicture">商品图片</label>
                   <input type="file" value="" name="picture" class="form-control" id="exampleInputPicture">
                 </div>

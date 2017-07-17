@@ -1,18 +1,26 @@
-
-<!DOCTYPE html>
+ 
+<!DOCTYPE HTML>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>魅族官网商城-提供魅族手机 PRO系列、MX系列、魅蓝（Note）系列的预约和购买</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link href="//store.res.meizu.com/layout/img/favicon-2e71785f44.ico" rel="shortcut icon" type="image/x-icon" />
+  <meta charset="UTF-8"/>
+  <title>雷锋网_读懂智能&amp;未来</title>
+    <meta name="keywords" content="智能硬件,虚拟现实,VR,AR,移动互联网,互联网媒体,移动终端" />
+  <meta name="description" content="雷锋网是国内最早关注人工智能和智能硬件领域的互联网科技媒体，内容涵盖人工智能、智能硬件、机器人、智能驾驶、ARVR、网络安全、物联网、未来医疗、金融科技等9大领域。雷锋网致力于连接和服务学术界、工业界与投资界，为用户提供更专业的互联网科技资讯和培训服务，让用户读懂智能与未来。" />
+    <meta name="sogou_site_verification" content="ilkqV8FehD"/>
+    <meta name="renderer" content="webkit">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="stylesheet" href="{{asset('/css/app.css')}}">
+     <link href="//store.res.meizu.com/layout/img/favicon-2e71785f44.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="//store.res.meizu.com/layout/img/favicon-2e71785f44.ico" rel="icon" type="image/x-icon" />
-    <meta name="description" content="魅族在线商城是魅族面向全国服务的官方电商平台，提供魅族PRO系列、MX系列、魅蓝（Note）系列的手机、配件和智能硬件的预约和购买。官方正品，全场包邮。">
-    <meta name="Keywords" content="魅族手机官网商城、魅族官方在线商店、魅族在线商城、魅族官网在线商店、魅族商城">
-    <link rel="stylesheet" href="{{ asset('home/meizu/css/layout-51312a08ab.css')}}" /> 
+
+        <link rel="stylesheet"  type="text/css" href="/leiphone/css/common.css"  />
+        
+      <link rel="stylesheet"  type="text/css" href="/leiphone/css/list.css" />
+
+    <link rel="stylesheet" type="text/css" href="/leiphone/css/jquery.mcustomscrollbar.css"  />
+    <link rel="stylesheet" type="text/css" href="/leiphone/css/calendar.css"  />
+    <link rel="stylesheet" type="text/css" href="/leiphone/css/index.css"  />  
+     <link rel="stylesheet" href="{{ asset('home/meizu/css/layout-51312a08ab.css')}}" /> 
 
     <!--[if lt IE 9]>
     <script src="js/html5shiv-3ed50bb69a.js" type="text/javascript"></script>
@@ -21,7 +29,159 @@
 <link href="{{ asset('home/meizu/css/index-ae8b657ce8.css')}}" rel="stylesheet"/>
 <link href="{{ asset('home/meizu/css/search-00ea2bc25a.css')}}" rel="stylesheet" />
 </head>
-<body> 
+<body>
+
+<!-- header start-->
+<header class="yp-header">
+    <div class="yp-header-top clr">
+        <a class="yp-header-logo" href="/home/index">
+            <img src="/leiphone/picture/lph-headerlogo.png"  alt="雷锋网">
+                        <span>读懂<h1>智能</h1>&未来</span>
+        </a>
+        
+        <!-- 用户登录 -->
+        @if(session('master'))
+         <div id="hidd">
+            <div class="yp-header-message"  style="margin-top:22px;font-size:16px;">
+              <!--   <a href="https://home.leiphone.com/login/wechatLogin" class="bell">
+                     <i class="ico"></i>
+                     <em class="count"></em>   
+                </a> -->
+                <!-- <ul class="nav navbar-nav navbar-right"> -->
+             <a href="/home/loginout">退出</a>
+              <!-- </ul> -->
+              </div>
+              <div class="yp-header-message" style="margin-top:22px;font-size:16px;">{{ session('master')->username }}</div>
+        </div>
+
+        <div class="yp-header-user-box">
+            <div class="yp-header-user">
+                <!-- <input type="hidden" id="is_login_tag_status" value="1"> -->
+                <div class="user-main user-haslg">
+                    <div class="avatar"><a href="/home/user/index"><img width="36" height="36" src="/uploads/avatar/{{ session('master')->photo }}" alt=""></a></div>
+                </div>
+               
+            </div>
+        </div>
+         @else
+        <!-- 用户消息 -->
+        <div id="hidd">
+            <div class="yp-header-message"  style="margin-top:22px;font-size:16px;">
+            <a data-toggle="modal" data-target="#register" href="">注册</a>
+            </div>
+            <div class="yp-header-message" style="margin-top:22px;font-size:16px;">
+            <a data-toggle="modal" data-target="#login" href="">登录</a>
+            </div>
+        </div>
+        @endif
+
+        <div class="yp-header-search">
+           <form method="GET" name="allSearchForm" action="https://www.leiphone.com/search" style="height: 100%;">
+                <input type="hidden" name="site" value="">
+                <input class="text" type="text" name="s" autocomplete="off" value="">
+                <input class="submit" type="submit" value="">
+                <input class="submit2" type="submit" value="">
+            </form>
+        </div>
+        
+    </div>
+</header> 
+
+     <!-- 注册窗口 -->
+      <div id="register" class="modal fade" tabindex="-1" aria-hidden="true" data-backdrop="static">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-body">
+                      <button class="close" data-dismiss="modal">
+                          <span>&times;</span>
+                     </button>
+                </div>
+                  <div class="modal-title">
+                    <h1 class="text-center">注册</h1>
+                </div>
+
+        <div id="show" style="display:none" class="alert alert-danger"></div>
+
+                 <div class="modal-body">
+                      <!-- <form class="form-group" action="{{ url('home/login/register') }}" method="post"> -->
+                 
+                              {{ csrf_field() }}
+                              <div class="form-group">
+                                  <label for="">用户名</label>
+                                 <input id="rname" class="form-control" name="username" type="text" placeholder="6-15位字母或数字">
+                              </div>
+                             <div class="form-group">
+                                <label for="">密码</label>
+                                  <input id="rpass" class="form-control" name="password" type="password" placeholder="至少6位字母或数字">
+                             </div>
+                              <div class="form-group">
+                                  <label for="">再次输入密码</label>
+                                  <input id="repass" class="form-control" name="repass" type="password" placeholder="至少6位字母或数字">
+                              </div>
+                              <div class="form-group">
+                                  <label for="">邮箱</label>
+                                  <input id="email" class="form-control" name="email" type="email" placeholder="例如:123@123.com">
+                              </div>
+                                <!-- <div class="form-group has-feedback">
+                                <input id="code" type="text" name="code" class="form-control" placeholder="请输入验证码">
+                                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                                <a onclick="javascript:re_captcha();" ><img src="{{ URL('kit/captcha/1') }}"  alt="验证码" title="刷新图片" width="100" height="40" id="c2c98f0de5a04167a9e427d883690ff6" border="0"></a>
+                              </div> -->
+                              <div class="text-right">
+                                  <button id="subs" class="btn btn-primary" type="">提交</button>
+                                  <button class="btn btn-danger" data-dismiss="modal">取消</button>
+                              </div>
+                              <a href="" data-toggle="modal" data-dismiss="modal" data-target="#login">已有账号？点我登录</a>
+                      <!-- </form> -->
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- 登录窗口 -->
+    <div id="login" class="modal fade" aria-hidden="true" data-backdrop="static">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-body">
+                      <button class="close" data-dismiss="modal">
+                          <span>&times;</span>
+                      </button>
+                  </div>
+                  <div class="modal-title">
+                     <h1 class="text-center">登录</h1>                  
+                  </div>
+                  <div class="modal-body">
+                  @if(session('info'))
+              <div class="alert alert-danger">
+                {{ session('info') }}
+              </div>
+            @endif
+                <!-- <form class="form-group" action="{{ url('home/login/login') }}" method="post"> -->
+                <!-- <form class="form-group" onsubmit="return doSubmit()" action="" method="post"> -->
+                          {{ csrf_field() }}
+                   <label for="" >用户名</label>
+                   <input id='username' class="form-control" type="text" placeholder="请输入用户名" name="username">
+                   </div>
+                   <div class="form-group">
+                    <label for="">密码</label>
+                    <input id="password" class="form-control" type="password" placeholder="请输入密码" name="password">
+                    </div>
+                   <div class="text-right">
+                   <div class="checkbox icheck">
+                  <label>
+                  <input name="remember_me" type="checkbox">记住我
+                  </label>
+                  </div>
+                       <button id="btns" class="btn btn-primary" type="">登录</button>
+                      <!-- <input type="" id="bts" class="btn btn-primary" value="登录">
+                        --><button class="btn btn-danger" data-dismiss="modal">取消</button>
+                  </div>                             
+                  <a href="" data-toggle="modal" data-dismiss="modal" data-target="#register">还没有账号？点我注册</a>
+                <!-- </form>                  -->
+            </div>
+         </div>
+      </div>
+   </div>
+  
 <!-- common header -->
     <!--小广告-->
     <div class="home-settlement" style="background-color: rgb(255,255,255);" id="homeSettlement">
@@ -38,47 +198,7 @@
                    data-mdesc="顶通1"></a>
         </div>
     </div>
-<div class="layout-topbar clearfix" id="layoutTopbar">
-    <div class="mzcontainer">
-        <ul class="layout-topbar-left clearfix">
-            <li class="layout-topbar-left-links"><a class="layout-topbar-link" data-mdesc="页头中第1个" data-mtype="store_index_yt_1" target="_blank" href="http://www.meizu.com">魅族官网</a></li>
-            <li class="layout-topbar-left-links"><a class="layout-topbar-link" data-mdesc="页头中第2个" data-mtype="store_index_yt_2" href="http://store.meizu.com/index.html">魅族商城</a></li>
-            <li class="layout-topbar-left-links"><a class="layout-topbar-link" data-mdesc="页头中第3个" data-mtype="store_index_yt_3" target="_blank" href="http://www.flyme.cn">Flyme</a></li>
-            <li class="layout-topbar-left-links"><a class="layout-topbar-link" data-mdesc="页头中第4个" data-mtype="store_index_yt_4" target="_blank" href="http://retail.meizu.com/index.html">专卖店</a></li>
-            <li class="layout-topbar-left-links"><a class="layout-topbar-link" data-mdesc="页头中第5个" data-mtype="store_index_yt_5" target="_blank" href="http://service.meizu.com/index.html">服务</a></li>
-            <li class="layout-topbar-left-links"><a class="layout-topbar-link" data-mdesc="页头中第6个" data-mtype="store_index_yt_6" target="_blank" href="http://bbs.meizu.cn">社区</a></li>
-        </ul>
-        <ul class="layout-topbar-right clearfix" id="topbarRight">
-            <li class="layout-topbar-right-links layout-topbar-right-cart layout-topbar-right-cart-hide" id="layoutCart">
-                <a class="layout-topbar-link" data-mdesc="页头-购物车" data-mtype="store_index_yt_cart" id="layoutCartBtn" href="//cart.meizu.com/">
-                    <i class="layout-font layout-font-cart"></i>购物车<span class="layout-topbar-cart-quantity" id="layoutCartQuantity">0</span>
-                </a>
-                <div class="layout-cart" id="miniContent">
-                </div>
-            </li>
-
-            <li class="layout-topbar-right-links">
-                <a id="topbarOrderMsg" class="layout-topbar-link" data-mdesc="页头-我的订单" data-mtype="store_index_yt_order" target="_blank" href="//ordercenter.meizu.com/list/index.html">我的订单</a>
-            </li>
-            <li class="layout-topbar-right-links signin" id="topbarMsgBox">
-                <a id="topbarMsg" class="layout-topbar-link" data-mdesc="页头-消息" data-mtype="store_index_yt_msg" target="_blank" href="//me.meizu.com/member/message/index">消息</a>
-            </li>
-            <li class="layout-topbar-right-links signout"><a class="layout-topbar-link" data-mdesc="页头-未登录状态-登录" data-mtype="store_index_yt_login" href="javascript:window.location.href='https://login.flyme.cn/vCodeLogin?sid=unionlogin&service=store&autodirct=true&useruri=http://store.meizu.com/member/login.htm?useruri='+ encodeURIComponent(encodeURIComponent(window.location.href));">登录</a></li>
-            <li class="layout-topbar-right-links signout"><a class="layout-topbar-link" data-mdesc="页头-未登录状态-注册" data-mtype="store_index_yt_register" target="_blank" href="//member.meizu.com/register">注册</a></li>
-            <li class="layout-member signin">
-                <a class="layout-member-link" target="_blank" href="http://me.meizu.com/member/index"><span class="layout-member-username" id="topbarUser"></span>的商城<i class="layout-member-triangle"></i></a>
-                <ul class="layout-member-downmenu">
-                    <li class="layout-member-downmenu-item"><a class="layout-member-downmenu-link" data-mdesc="我的商城下拉框1" data-mtype="store_index_yt_my_1" target="_blank" href="//me.meizu.com/member/address/index">地址管理</a></li>
-                    <li class="layout-member-downmenu-item"><a class="layout-member-downmenu-link" data-mdesc="页头-收藏" data-mtype="store_index_yt_collect" target="_blank" href="//me.meizu.com/member/favorite/index">我的收藏</a></li>
-                    <li class="layout-member-downmenu-item"><a class="layout-member-downmenu-link" data-mdesc="我的商城下拉框2" data-mtype="store_index_yt_my_2" target="_blank" href="//mcycle.meizu.com/repo/ticket/list">我的回购券</a></li>
-                    <li class="layout-member-downmenu-item"><a class="layout-member-downmenu-link" data-mdesc="我的商城下拉框3" data-mtype="store_index_yt_my_3" target="_blank" href="//me.meizu.com/member/advice/index">问题反馈</a></li>
-                    <li class="layout-member-downmenu-item"><a class="layout-member-downmenu-link exit" data-mdesc="我的商城下拉框4" data-mtype="store_index_yt_my_4" href="javascript:window.location.href='http://store.meizu.com/member/logout.htm?useruri='+ encodeURIComponent(encodeURIComponent(window.location.href));">退出</a></li>
-                </ul>
-            </li>
-
-        </ul>
-    </div>
-</div>
+ >
 <script>
     var layoutHeaderData = {
         header: [{"id":25,"href":"https://lists.meizu.com/page/list?categoryid=73","commodityType":0,"name":"全部分类","children":[
@@ -134,7 +254,7 @@
         {"name":"雷柏无线超薄键鼠套装9060","href":"{{ url('/home/shop/detail/87') }}","price":169.000,"originalPrice":169.000,"pic":{"imgSrc":"{{ asset('/uploads/avatar/1499752909251908.png') }}"},"goodType":1,"tagColour":"","displayStartPriceTag":0,"displayOriginalPrice":0,"autoPrice":1,"pageGoodsDiscountMqSku":{"itemId":10802},"sellingPoint":"紧凑设计 简单便捷"}],"more":[]}]
     };
 </script>
-<div class="layout-header clearfix">
+<div class="layout-header clearfix">                            
     <div class="mzcontainer">
         <div class="layout-header-logo">
             <a target="_blank" href="http://www.meizu.com" class="layout-header-logo-link" alt="魅族科技"
@@ -171,7 +291,7 @@
         <div class="layout-header-nav-downmenu" id="layoutHeaderNavDownmenu"></div>
     </div>
 </div>  
-        <div class="home">
+<div class="home" style="width:1500px">
 <div class="home-carousel" id="homeCarousel">
     @foreach($data3 as $key=>$val)
         <div class="home-carousel-child" style="background-color: #FFFFFF;">
@@ -182,7 +302,7 @@
         </div> 
     @endforeach
 </div>
-<ul class="home-category" id="homeCategory">
+<ul class="home-category" id="homeCategory" style="height:500px">
         @foreach($data1 as $key=>$val)
         <li class="home-category-item lis" id="{{ $val->id }}">
             <a href="{{ url('/home/shop/show') }}" class="home-category-link" data-mtype="store_index_cdh_1" data-mdesc="侧边导航中第1个分类">
@@ -191,7 +311,7 @@
         </li> 
         @endforeach
         <div id="div" class="home-right" style="width:250px;height:480px;position: absolute;left:244px;top:0;background:#FFF;display:none">
-             <table id="example2" class="table table-bordered table-hover tab" style="border:1px;cellspacing="10" cellpadding="20"">
+             <table id="example2" class="table table-bordered table-hover tab" style="border:1px;cellspacing="10" cellpadding="30"">
                 
                 <tr class="trs">
                 <td></td>
@@ -401,8 +521,106 @@
         </div>
     </div>
 </div>
-
+ 
 <script src="{{ asset('home/meizu/js/layout-ca70dcecd0.js')}}" type="text/javascript"></script>
+  <script  src="/leiphone/js/jquery-3.2.1.min.js"></script>
+   
+    <script  src="/leiphone/js/bootstrap.min.js"></script>
+   
+    <link href="/leiphone/css/bootstrap.min.css" rel="stylesheet">
+
+    
+    <script src="/leiphone/js/jquery-sea.js"></script>
+    <script src="/leiphone/js/sea.js"></script>
+   
+    <script  src="/leiphone/js/aq_auth.js"></script>
+    
+   
+   
+   
+    <script src="/leiphone/js/list.js"></script>
+    <script  src="/leiphone/js/mobilecheck.js"></script>
+    <script  src="/leiphone/js/com_banner.js"></script>
+   
+    <script  src="/leiphone/js/global.js"></script>
+    <script  src="/leiphone/js/index.js"></script>
+    <script  src="/leiphone/js/calendarNews.js"></script>  
+   <script>
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
+  
+    $('#btns').click(function(){
+
+
+      var username = $('#username').val();
+      var password = $('#password').val();
+      $.ajax('/home/login/ajaxlogin',{
+      type:'post',
+      data:{username:username,password:password},
+      dataType:'json',
+      success:function(data)
+      {
+        if(data == '0')
+        {
+          alert('恭喜,登录成功');
+          location.href = '/home/layout';
+          // $('#hidd').hide();
+        }
+        if(data == '1')
+        {
+          alert('用户名不正确');
+        }
+        if(data == '2')
+        {
+          alert('密码不正确');
+        } 
+      },
+      error:function(data)
+      {
+        alert('数据异常');
+      }
+      });
+    });
+
+     $('#subs').click(function(){
+      var rname = $('#rname').val();
+      var rpass = $('#rpass').val();
+      var repass = $('#repass').val();
+      var email = $('#email').val();
+      $.ajax('/home/login/register',{
+      type:'post',
+      data:{username:rname,password:rpass,repwd:repass,email:email},
+      dataType:'json',
+      success:function(data)
+      {
+        if(data == '0' )
+        {
+          alert('恭喜您.注册成功');
+          location.href = '/home/layout';
+        }
+      },
+      error: function(msg) {
+      var username1=JSON.parse(msg.responseText).username;
+      var password1=JSON.parse(msg.responseText).password;
+      var email1=JSON.parse(msg.responseText).email;
+      username1 = username1 == undefined ? '' : username1;
+      password1 = password1 == undefined ? '' : password1;
+      email1 = email1 == undefined ? '' : email1;
+     
+      $('#show').css('display','block');
+
+      $('#show').html(username1+','+password1+','+email1);
+       
+     
+      },
+      });
+    });
+
+   </script>
 <script type="text/javascript">
     var global = {
         sysTime: 1499740287856,
@@ -482,7 +700,7 @@
              }); 
         },
         function(){
-             // $('#div').css('display','none');
+             $('#div').css('display','none');
         }
         );
 

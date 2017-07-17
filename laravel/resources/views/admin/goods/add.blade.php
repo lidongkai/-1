@@ -53,7 +53,11 @@
               
               	<div class="form-group">
                   <label for="exampleInputName">分类名</label>
+ 
                   <input type="text" value="" name="name" class="form-control" id="exampleInputName" placeholder="请输入用户名">
+ 
+                  <input type="text" value="{{ old('name') }}" name="name" class="form-control" id="exampleInputName" placeholder="请输入用户名">
+ 
                 </div> 
                 <div class="form-group">
                 	<label for="exampleInputName">父类名</label>

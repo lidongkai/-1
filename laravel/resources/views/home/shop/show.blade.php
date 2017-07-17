@@ -1,108 +1,284 @@
-    <!DOCTYPE html>
-    <html>
-    <head>
-    <meta charset="utf-8">
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <title>雷锋网_读懂智能&amp;未来</title>
+    <meta name="keywords" content="智能硬件,虚拟现实,VR,AR,移动互联网,互联网媒体,移动终端" />
+  <meta name="description" content="雷锋网是国内最早关注人工智能和智能硬件领域的互联网科技媒体，内容涵盖人工智能、智能硬件、机器人、智能驾驶、ARVR、网络安全、物联网、未来医疗、金融科技等9大领域。雷锋网致力于连接和服务学术界、工业界与投资界，为用户提供更专业的互联网科技资讯和培训服务，让用户读懂智能与未来。" />
+    <meta name="sogou_site_verification" content="ilkqV8FehD"/>
+    <meta name="renderer" content="webkit">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>雷锋网-积分商城</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link href="//store.res.meizu.com/layout/img/favicon-2e71785f44.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="{{asset('/css/app.css')}}">
+     <link href="//store.res.meizu.com/layout/img/favicon-2e71785f44.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="//store.res.meizu.com/layout/img/favicon-2e71785f44.ico" rel="icon" type="image/x-icon" />
-    <meta name="description" content="魅族商城提供各种全部商品产品，包括手机,智能设备,智能穿戴,游戏设备,数码影音,手机配件/移动电源,移动存储/办公设备,生活周边，品质保障，可按推荐、商品上架时间，价格等放心购买，魅族商城将为您提供最好的子类目名称产品，全场包邮，7天无理由退货，15天换货保障。">
-    <meta name="keywords" content="全部商品,手机,智能设备,智能穿戴,游戏设备,数码影音,手机配件/移动电源,移动存储/办公设备,生活周边，魅族，魅族手机，魅族商城">
-    <link rel="stylesheet" href="{{ asset('home/meizu/css/layout-51312a08ab.css')}}" />
+
+        <link rel="stylesheet"  type="text/css" href="/leiphone/css/common.css"  />
+        
+      <link rel="stylesheet"  type="text/css" href="/leiphone/css/list.css" />
+
+    <link rel="stylesheet" type="text/css" href="/leiphone/css/jquery.mcustomscrollbar.css"  />
+    <link rel="stylesheet" type="text/css" href="/leiphone/css/calendar.css"  />
+    <link rel="stylesheet" type="text/css" href="/leiphone/css/index.css"  />  
+     <link rel="stylesheet" href="{{ asset('home/meizu/css/layout-51312a08ab.css')}}" /> 
 
     <!--[if lt IE 9]>
     <script src="js/html5shiv-3ed50bb69a.js" type="text/javascript"></script>
     <script src="js/es5-shim-50bbaee56e.js" type="text/javascript"></script>
     <![endif]-->
-    <link href="{{ asset('home/meizu/css/search-00ea2bc25a.css')}}" rel="stylesheet" />
-    </head>
-    <body>
-        <!-- common header -->
-<!-- <div class="layout-topbar clearfix" id="layoutTopbar">
-    <div class="mzcontainer">
-        <ul class="layout-topbar-left clearfix">
-            <li class="layout-topbar-left-links"><a class="layout-topbar-link" data-mdesc="页头中第1个" data-mtype="store_index_yt_1" target="_blank" href="http://www.meizu.com">魅族官网</a></li>
-            <li class="layout-topbar-left-links"><a class="layout-topbar-link" data-mdesc="页头中第2个" data-mtype="store_index_yt_2" href="http://store.meizu.com/index.html">魅族商城</a></li>
-            <li class="layout-topbar-left-links"><a class="layout-topbar-link" data-mdesc="页头中第3个" data-mtype="store_index_yt_3" target="_blank" href="http://www.flyme.cn">Flyme</a></li>
-            <li class="layout-topbar-left-links"><a class="layout-topbar-link" data-mdesc="页头中第4个" data-mtype="store_index_yt_4" target="_blank" href="http://retail.meizu.com/index.html">专卖店</a></li>
-            <li class="layout-topbar-left-links"><a class="layout-topbar-link" data-mdesc="页头中第5个" data-mtype="store_index_yt_5" target="_blank" href="http://service.meizu.com/index.html">服务</a></li>
-            <li class="layout-topbar-left-links"><a class="layout-topbar-link" data-mdesc="页头中第6个" data-mtype="store_index_yt_6" target="_blank" href="http://bbs.meizu.cn">社区</a></li>
-        </ul>
-        <ul class="layout-topbar-right clearfix" id="topbarRight">
-            <li class="layout-topbar-right-links layout-topbar-right-cart layout-topbar-right-cart-hide" id="layoutCart">
-                <a class="layout-topbar-link" data-mdesc="页头-购物车" data-mtype="store_index_yt_cart" id="layoutCartBtn" href="//cart.meizu.com/">
-                    <i class="layout-font layout-font-cart"></i>购物车<span class="layout-topbar-cart-quantity" id="layoutCartQuantity">0</span>
-                </a>
-                <div class="layout-cart" id="miniContent">
-                </div>
-            </li>
+<link href="{{ asset('home/meizu/css/index-ae8b657ce8.css')}}" rel="stylesheet"/>
+<link href="{{ asset('home/meizu/css/search-00ea2bc25a.css')}}" rel="stylesheet" />
+</head>
+<body>
 
-            <li class="layout-topbar-right-links">
-                <a id="topbarOrderMsg" class="layout-topbar-link" data-mdesc="页头-我的订单" data-mtype="store_index_yt_order" target="_blank" href="//ordercenter.meizu.com/list/index.html">我的订单</a>
-            </li>
-            <li class="layout-topbar-right-links signin" id="topbarMsgBox">
-                <a id="topbarMsg" class="layout-topbar-link" data-mdesc="页头-消息" data-mtype="store_index_yt_msg" target="_blank" href="//me.meizu.com/member/message/index">消息</a>
-            </li>
-            <li class="layout-topbar-right-links signout"><a class="layout-topbar-link" data-mdesc="页头-未登录状态-登录" data-mtype="store_index_yt_login" href="javascript:window.location.href='https://login.flyme.cn/vCodeLogin?sid=unionlogin&service=store&autodirct=true&useruri=http://store.meizu.com/member/login.htm?useruri='+ encodeURIComponent(encodeURIComponent(window.location.href));">登录</a></li>
-            <li class="layout-topbar-right-links signout"><a class="layout-topbar-link" data-mdesc="页头-未登录状态-注册" data-mtype="store_index_yt_register" target="_blank" href="//member.meizu.com/register">注册</a></li>
-            <li class="layout-member signin">
-                <a class="layout-member-link" target="_blank" href="http://me.meizu.com/member/index"><span class="layout-member-username" id="topbarUser"></span>的商城<i class="layout-member-triangle"></i></a>
-                <ul class="layout-member-downmenu">
-                    <li class="layout-member-downmenu-item"><a class="layout-member-downmenu-link" data-mdesc="我的商城下拉框1" data-mtype="store_index_yt_my_1" target="_blank" href="//me.meizu.com/member/address/index">地址管理</a></li>
-                    <li class="layout-member-downmenu-item"><a class="layout-member-downmenu-link" data-mdesc="页头-收藏" data-mtype="store_index_yt_collect" target="_blank" href="//me.meizu.com/member/favorite/index">我的收藏</a></li>
-                    <li class="layout-member-downmenu-item"><a class="layout-member-downmenu-link" data-mdesc="我的商城下拉框2" data-mtype="store_index_yt_my_2" target="_blank" href="//mcycle.meizu.com/repo/ticket/list">我的回购券</a></li>
-                    <li class="layout-member-downmenu-item"><a class="layout-member-downmenu-link" data-mdesc="我的商城下拉框3" data-mtype="store_index_yt_my_3" target="_blank" href="//me.meizu.com/member/advice/index">问题反馈</a></li>
-                    <li class="layout-member-downmenu-item"><a class="layout-member-downmenu-link exit" data-mdesc="我的商城下拉框4" data-mtype="store_index_yt_my_4" href="javascript:window.location.href='http://store.meizu.com/member/logout.htm?useruri='+ encodeURIComponent(encodeURIComponent(window.location.href));">退出</a></li>
-                </ul>
-            </li>
-
-        </ul>
-    </div>
-</div><script>
-    var layoutHeaderData = {
-        header: [{"id":25,"href":"https://lists.meizu.com/page/list?categoryid=73","commodityType":0,"name":"全部分类","children":[{"name":"手机","href":"http://lists.meizu.com/page/list/?categoryid=76","price":0.000,"originalPrice":0.000,"pic":{"imgSrc":"//openfile.meizu.com/group1/M00/00/14/Cgbj0VjlsPGAIU-VAAqnoNZJkt8948.png"},"goodType":1,"tagColour":"","displayStartPriceTag":0,"displayOriginalPrice":0,"autoPrice":0},{"name":"数码影音","href":"http://lists.meizu.com/page/list/?categoryid=231","price":0.000,"originalPrice":0.000,"pic":{"imgSrc":"//openfile.meizu.com/group1/M00/01/41/Cgbj0FjlsPCAbjRmAAaQNt-KZ6Q072.png"},"goodType":1,"tagColour":"","displayStartPriceTag":0,"displayOriginalPrice":0,"autoPrice":0},{"name":"智能设备","href":"http://lists.meizu.com/page/list/?categoryid=153","price":0.000,"originalPrice":0.000,"pic":{"imgSrc":"//openfile.meizu.com/group1/M00/00/14/Cgbj0VjlsPKAc9eUAALQF0POZTo904.png"},"goodType":1,"tagColour":"","displayStartPriceTag":0,"displayOriginalPrice":0,"autoPrice":0},{"name":"智能穿戴","href":"http://lists.meizu.com/page/list/?categoryid=174","price":0.000,"originalPrice":0.000,"pic":{"imgSrc":"//openfile.meizu.com/group1/M00/01/41/Cgbj0FjlsPGAJIZIAATg2-3hRQ4628.png"},"goodType":1,"tagColour":"","displayStartPriceTag":0,"displayOriginalPrice":0,"autoPrice":0},{"name":"游戏设备","href":"http://lists.meizu.com/page/list/?categoryid=181","price":0.000,"originalPrice":0.000,"pic":{"imgSrc":"//openfile.meizu.com/group1/M00/01/41/Cgbj0FjlsPGALkdkAATOlMGeplg965.png"},"goodType":1,"tagColour":"","displayStartPriceTag":0,"displayOriginalPrice":0,"autoPrice":0},{"name":"手机配件","href":"http://lists.meizu.com/page/list/?categoryid=186","price":0.000,"originalPrice":0.000,"pic":{"imgSrc":"//openfile.meizu.com/group1/M00/01/41/Cgbj0FjlsPGAUklnAASPiYZvwZ8694.png"},"goodType":1,"tagColour":"","displayStartPriceTag":0,"displayOriginalPrice":0,"autoPrice":0},{"name":"办公存储","href":"http://lists.meizu.com/page/list/?categoryid=227","price":0.000,"originalPrice":0.000,"pic":{"imgSrc":"//openfile.meizu.com/group1/M00/00/14/Cgbj0VjlsPGAB1CDAAfX3jfKrg0412.png"},"goodType":1,"tagColour":"","displayStartPriceTag":0,"displayOriginalPrice":0,"autoPrice":0},{"name":"生活周边","href":"http://lists.meizu.com/page/list/?categoryid=222","price":0.000,"originalPrice":0.000,"pic":{"imgSrc":"//openfile.meizu.com/group1/M00/00/14/Cgbj0VjlsPCAecrdAAa_FIBfrjA141.png"},"goodType":1,"tagColour":"","displayStartPriceTag":0,"displayOriginalPrice":0,"autoPrice":0}],"more":[]},{"id":18,"href":"https://lists.meizu.com/page/list?categoryid=76&features=80%3A18778%2C21896%2C9%2C12529%2C22216%2C18382","commodityType":1,"name":"PRO手机","children":[{"name":"魅族PRO 6 Plus","href":"https://detail.meizu.com/item/pro6plus.html","price":2699.000,"originalPrice":2999.000,"pic":{"imgSrc":"//openfile.meizu.com/group1/M00/00/DC/CnQOjVhjjb6AcDdoABXIbr6WvK8260_126x126.png"},"goodType":0,"tagColour":"","displayStartPriceTag":0,"displayOriginalPrice":1,"autoPrice":0,"pageGoodsDiscountMqSku":{"itemId":10637},"sellingPoint":"性能旗舰 冷静表现"},{"name":"魅族PRO 6s","href":"https://detail.meizu.com/item/pro_6s.html","price":2299.000,"originalPrice":2499.000,"pic":{"imgSrc":"//openfile.meizu.com/group1/M00/00/C4/CnQOjVhAAfGATHD5AA1jPCtyxxQ710_126x126.png"},"goodType":1,"tagColour":"","displayStartPriceTag":0,"displayOriginalPrice":1,"autoPrice":0,"pageGoodsDiscountMqSku":{"itemId":10560}},{"name":"魅族PRO 6","href":"https://detail.meizu.com/item/meizu_pro6.html","price":2299.000,"originalPrice":0.000,"pic":{"imgSrc":"//openfile.meizu.com/group1/M00/00/30/Cgbj0VkP3IaAMo4RABG5x6Omz88935_126x126.png"},"goodType":0,"tagColour":"","displayStartPriceTag":1,"displayOriginalPrice":0,"autoPrice":0,"pageGoodsDiscountMqSku":{"itemId":10167},"sellingPoint":"最高立减400元"}],"more":[]},{"id":21,"href":"https://lists.meizu.com/page/list?categoryid=76&features=80%3A3%2C19475%2C5%2C10%2C11760%2C22119%2C868%2C1133%2C18237%2C22214%2C20724%2C22215%2C23107%2C19242%2C19243%2C20374%2C20100%2C21854%2C20579%2C20580%2C22463%2C18732","commodityType":1,"name":"魅蓝手机","children":[{"name":"魅蓝 A5","href":"https://detail.meizu.com/item/meilana5.html","price":699.000,"originalPrice":0.000,"pic":{"imgSrc":"//openfile.meizu.com/group1/M00/01/B2/Cgbj0VlcXwaAJ3syAABXVIBRp8M285_126x126.jpg"},"goodType":0,"tagColour":"","displayStartPriceTag":0,"displayOriginalPrice":0,"autoPrice":0,"pageGoodsDiscountMqSku":{"itemId":10947},"sellingPoint":"7月3日10:00 准时开售"},{"name":"魅蓝 E2","href":"https://detail.meizu.com/item/meilane2.html","price":1299.000,"originalPrice":0.000,"pic":{"imgSrc":"//openfile.meizu.com/group1/M00/01/59/Cgbj0FkAVOCASFx2AAB6yRT6jV8170_126x126.jpg"},"goodType":0,"tagColour":"","displayStartPriceTag":1,"displayOriginalPrice":0,"autoPrice":0,"pageGoodsDiscountMqSku":{"itemId":10911},"sellingPoint":"4月29日10点，首发开售，6期免息"},{"name":"魅蓝 5s","href":"http://detail.meizu.com/item/meilan5s.html","price":888.000,"originalPrice":0.000,"pic":{"imgSrc":"//openfile.meizu.com/group1/M00/01/28/CnQOjViwBUiAZjKqAAndI9Fz2pU065_126x126.png"},"goodType":0,"tagColour":"","displayStartPriceTag":1,"displayOriginalPrice":0,"autoPrice":0,"pageGoodsDiscountMqSku":{"itemId":10761},"sellingPoint":"32G套餐版，购机享3期免息"},{"name":"魅蓝 Note5","href":"https://detail.meizu.com/item/meilannote5.html","price":899.000,"originalPrice":999.000,"pic":{"imgSrc":"//openfile.meizu.com/group1/M00/01/35/CnQOjVjCTEWANnKrAAtuFSxnh1Q016_126x126.png"},"goodType":0,"tagColour":"","displayStartPriceTag":1,"displayOriginalPrice":1,"autoPrice":0,"pageGoodsDiscountMqSku":{"itemId":10638},"sellingPoint":"购64G版本，享6期免息"},{"name":"魅蓝 X","href":"https://detail.meizu.com/item/meilanx.html","price":1699.000,"originalPrice":1699.000,"pic":{"imgSrc":"//openfile.meizu.com/group1/M00/00/C3/CnQOjVg-j0uAWlJIAAj4ScedJ9k483_126x126.png"},"goodType":1,"tagColour":"","displayStartPriceTag":1,"displayOriginalPrice":0,"autoPrice":0,"pageGoodsDiscountMqSku":{"itemId":10618}},{"name":"魅蓝 5","href":"https://detail.meizu.com/item/meilan5.html","price":788.000,"originalPrice":0.000,"pic":{"imgSrc":"//openfile.meizu.com/group1/M00/00/DB/Cix_s1hhz22AIuezAAuqcqE5YHc854_126x126.png"},"goodType":1,"tagColour":"","displayStartPriceTag":1,"displayOriginalPrice":0,"autoPrice":0,"pageGoodsDiscountMqSku":{"itemId":10550},"sellingPoint":"大屏幕，大电池"},{"name":"魅蓝 E","href":"https://detail.meizu.com/item/meilan_e1.html","price":1099.000,"originalPrice":0.000,"pic":{"imgSrc":"//openfile.meizu.com/group1/M00/01/A2/Cgbj0FlZqBeAEpWNAAtHG2nRyAc153_126x126.png"},"goodType":0,"tagColour":"","displayStartPriceTag":0,"displayOriginalPrice":0,"autoPrice":0,"pageGoodsDiscountMqSku":{"itemId":10387},"sellingPoint":"领券减50元 购机再送自拍杆"},{"name":"魅蓝 Max","href":"https://detail.meizu.com/item/meilan_max1.html","price":1699.000,"originalPrice":1699.000,"pic":{"imgSrc":"//openfile.meizu.com/group1/M00/00/D0/CnQOjVhPyJ-AW1LQAAvjYcX8eAE808_126x126.png"},"goodType":1,"tagColour":"","displayStartPriceTag":0,"displayOriginalPrice":0,"autoPrice":0,"pageGoodsDiscountMqSku":{"itemId":10478}}],"more":[]},{"id":24,"href":"https://lists.meizu.com/page/list?categoryid=76&features=80%3A8%2C18136%2C20098","commodityType":1,"name":"MX手机","children":[{"name":"魅族 MX6","href":"https://detail.meizu.com/item/mx6.html","price":1599.000,"originalPrice":0.000,"pic":{"imgSrc":"//openfile.meizu.com/group1/M00/00/0E/Cgbj0VjZzjiAMGEuAA7OmPNvWD8625_126x126.png"},"goodType":0,"tagColour":"","displayStartPriceTag":1,"displayOriginalPrice":0,"autoPrice":1,"pageGoodsDiscountMqSku":{"itemId":10314}}],"more":[]},{"id":19,"href":"http://lists.meizu.com/page/list/?categoryid=231","commodityType":1,"name":"数码配件","children":[{"name":"魅族EP51蓝牙运动耳机","href":"https://detail.meizu.com/item/meizu_ep51.html?skuid=696","price":269.000,"originalPrice":269.000,"pic":{"imgSrc":"//openfile.meizu.com/group1/M00/01/9B/Cgbj0FlIhpOAZfAeAAHOwfpsRUs639_126x126.png"},"goodType":1,"tagColour":"","displayStartPriceTag":0,"displayOriginalPrice":0,"autoPrice":1,"pageGoodsDiscountMqSku":{"itemId":10155},"sellingPoint":"明亮清晰的高音 强有力的低音"},{"name":"魅族HD50头戴式耳机","href":"https://detail.meizu.com/item/meizu_hd50.html?skuid=839","price":399.000,"originalPrice":399.000,"pic":{"imgSrc":"//openfile.meizu.com/group1/M00/01/98/Cgbj0FlFVNOAf-qRAATZrGgT1ak741_126x126.png"},"goodType":1,"tagThings":"热卖","tagColour":"#f59646","displayStartPriceTag":0,"displayOriginalPrice":0,"autoPrice":1,"pageGoodsDiscountMqSku":{"itemId":10017},"sellingPoint":"清新简洁，有音质更有颜值"},{"name":"魅族 EP2X耳机","href":"https://detail.meizu.com/item/ep_2x.html?skuid=2505","price":129.000,"originalPrice":129.000,"pic":{"imgSrc":"//openfile.meizu.com/group1/M00/01/9B/Cgbj0FlIhkyAeuFqAAErzSizI8c740_126x126.png"},"goodType":1,"tagColour":"","displayStartPriceTag":0,"displayOriginalPrice":0,"autoPrice":1,"pageGoodsDiscountMqSku":{"itemId":10563},"sellingPoint":"契合声音的流动之美"},{"name":"魅族蓝牙通话耳机","href":"https://detail.meizu.com/item/meizu_erji.html?skuid=2823","price":89.000,"originalPrice":89.000,"pic":{"imgSrc":"//openfile.meizu.com/group1/M00/01/A8/Cgbj0VlIhwWAcxAiAAL5gzRzFIY024_126x126.png"},"goodType":1,"tagColour":"","displayStartPriceTag":0,"displayOriginalPrice":0,"autoPrice":1,"pageGoodsDiscountMqSku":{"itemId":10641},"sellingPoint":"经典小圆点，一键集大成"},{"name":"魅族蓝牙小音箱","href":"https://detail.meizu.com/item/meizu_yinxiang_a20.html?skuid=3569","price":169.000,"originalPrice":169.000,"pic":{"imgSrc":"//openfile.meizu.com/group1/M00/01/A8/Cgbj0VlIhnOAFP1PAAbboUvsAC4345_126x126.png"},"goodType":1,"tagColour":"","displayStartPriceTag":0,"displayOriginalPrice":0,"autoPrice":1,"pageGoodsDiscountMqSku":{"itemId":10760},"sellingPoint":"好音感 直达心灵"},{"name":"魅族移动电源（标准版）","href":"https://detail.meizu.com/item/mpower_m8e.html?skuid=1061","price":99.000,"originalPrice":99.000,"pic":{"imgSrc":"//openfile.meizu.com/group1/M00/01/A9/Cgbj0VlJ2E-AfJshAAKdyPUHRpQ241_126x126.png"},"goodType":1,"tagColour":"","displayStartPriceTag":0,"displayOriginalPrice":0,"autoPrice":1,"pageGoodsDiscountMqSku":{"itemId":10227},"sellingPoint":"素雅百搭 颜值典范"},{"name":"铁三角 ATH-EQ300M 耳机","href":"https://detail.meizu.com/item/ATH_EQ300M.html?skuid=3978","price":138.000,"originalPrice":138.000,"pic":{"imgSrc":"//openfile.meizu.com/group1/M00/01/9C/Cgbj0FlMyOeANQdKAACW7PIbLZU073_126x126.png"},"goodType":1,"tagColour":"","displayStartPriceTag":0,"displayOriginalPrice":0,"autoPrice":1,"pageGoodsDiscountMqSku":{"itemId":10842},"sellingPoint":"运动 出街利器 人声靓丽"},{"name":"JBL GO音乐金砖 蓝牙音响","href":"https://detail.meizu.com/item/JBL_JBLGO_LC.html?skuid=3078","price":268.000,"originalPrice":268.000,"pic":{"imgSrc":"//openfile.meizu.com/group1/M00/01/11/Cix_s1iZNteAYXd6AA8rGU1paRA348_126x126.png"},"goodType":1,"tagColour":"","displayStartPriceTag":0,"displayOriginalPrice":0,"autoPrice":1,"pageGoodsDiscountMqSku":{"itemId":10678},"sellingPoint":"降噪麦克风  一键接听通话"}],"more":[]},{"id":20,"href":"http://lists.meizu.com/page/list/?categoryid=153","commodityType":1,"name":"智能设备","children":[{"name":"魅族手环","href":"https://detail.meizu.com/item/meizu_shouhuan_h1.html?skuid=3455","price":229.000,"originalPrice":229.000,"pic":{"imgSrc":"//openfile.meizu.com/group1/M00/01/23/Cix_s1imq8-AZlLQAAOqzSlfPuA761_126x126.png"},"goodType":1,"tagColour":"","displayStartPriceTag":0,"displayOriginalPrice":0,"autoPrice":1,"pageGoodsDiscountMqSku":{"itemId":10722},"sellingPoint":"腕间流动的心率专家"},{"name":"魅族盒子","href":"https://detail.meizu.com/item/meizu_hezi.html?skuid=2463","price":399.000,"originalPrice":299.000,"pic":{"imgSrc":"//openfile.meizu.com/group1/M00/01/9B/Cgbj0FlIh2mAbWEnAAGoLQ8h81w399_126x126.png"},"goodType":1,"tagColour":"","displayStartPriceTag":0,"displayOriginalPrice":0,"autoPrice":1,"pageGoodsDiscountMqSku":{"itemId":10546},"sellingPoint":"一键找回遥控器"},{"name":"魅族路由器 极速版","href":"https://detail.meizu.com/item/router_f1.html?skuid=1112","price":199.000,"originalPrice":199.000,"pic":{"imgSrc":"//openfile.meizu.com/group1/M00/01/A8/Cgbj0VlIh62APAl_AABXVrwLVgU248_126x126.jpg"},"goodType":1,"tagThings":"特惠","tagColour":"#f0415f","displayStartPriceTag":0,"displayOriginalPrice":0,"autoPrice":1,"pageGoodsDiscountMqSku":{"itemId":10241},"sellingPoint":"天生不凡 快狠稳"},{"name":"魅族智能体脂秤","href":"https://detail.meizu.com/item/smartscale.html?skuid=4435","price":169.000,"originalPrice":169.000,"pic":{"imgSrc":"//openfile.meizu.com/group1/M00/01/9B/Cgbj0FlIh8GAPJnNAAGCK4nlrc0593_126x126.png"},"goodType":1,"tagThings":"特惠","tagColour":"#f0415f","displayStartPriceTag":0,"displayOriginalPrice":0,"autoPrice":1,"pageGoodsDiscountMqSku":{"itemId":10944},"sellingPoint":"精准的数字，才是真实的你"},{"name":"乐心心率手环MAMBO2","href":"https://detail.meizu.com/item/mambo2.html?skuid=2448","price":169.000,"originalPrice":169.000,"pic":{"imgSrc":"//openfile.meizu.com/group1/M00/00/E6/Cix_s1hrFXmAUuv8AAH8vdkEC9M905_126x126.png"},"goodType":1,"tagThings":"特惠","tagColour":"#f0415f","displayStartPriceTag":0,"displayOriginalPrice":0,"autoPrice":1,"pageGoodsDiscountMqSku":{"itemId":10541},"sellingPoint":"超长续航 防水性能"},{"name":"暴风魔镜S1 智能VR眼镜","href":"https://detail.meizu.com/item/BF_S1_android.html?skuid=3189","price":199.000,"originalPrice":199.000,"pic":{"imgSrc":"//openfile.meizu.com/group1/M00/01/14/CnQOjVidYEGALArbAAHFhtrFdCs403_126x126.png"},"goodType":1,"tagColour":"","displayStartPriceTag":0,"displayOriginalPrice":0,"autoPrice":1,"pageGoodsDiscountMqSku":{"itemId":10698},"sellingPoint":"轻出新境界  近视党福音"},{"name":"飞智黑武士蓝牙无线手柄","href":"https://detail.meizu.com/item/feizhi_shoubing.html?skuid=1442","price":116.000,"originalPrice":116.000,"pic":{"imgSrc":"//openfile.meizu.com/group1/M00/01/9C/Cgbj0FlMyX6Ae6ycAATDVSjZmTU411_126x126.png"},"goodType":1,"tagColour":"","displayStartPriceTag":0,"displayOriginalPrice":0,"autoPrice":1,"pageGoodsDiscountMqSku":{"itemId":10320},"sellingPoint":"正版游戏云端适配"},{"name":"雷柏无线超薄键鼠套装9060","href":"https://detail.meizu.com/item/RAPOO_9060.html?skuid=3746","price":169.000,"originalPrice":169.000,"pic":{"imgSrc":"//openfile.meizu.com/group1/M00/01/AA/Cgbj0VlQtVCAGxApAAR053u7D6s226_126x126.png"},"goodType":1,"tagColour":"","displayStartPriceTag":0,"displayOriginalPrice":0,"autoPrice":1,"pageGoodsDiscountMqSku":{"itemId":10802},"sellingPoint":"紧凑设计 简单便捷"}],"more":[]}]
-    };
-</script>
-<div class="layout-header clearfix">
-    <div class="mzcontainer">
-        <div class="layout-header-logo">
-            <a target="_blank" href="http://www.meizu.com" class="layout-header-logo-link" alt="魅族科技"
-               data-mdesc="魅族logo跳转链接" data-mtype="store_index_logo">
-                <i class="layout-font layout-font-logo"></i>
-            </a>
+<!-- header start-->
+<header class="yp-header">
+    <div class="yp-header-top clr">
+        <a class="yp-header-logo" href="/home/index">
+            <img src="/leiphone/picture/lph-headerlogo.png"  alt="雷锋网">
+                        <span>读懂<h1>智能</h1>&未来</span>
+        </a>
+        
+        <!-- 用户登录 -->
+        @if(session('master'))
+         <div id="hidd">
+            <div class="yp-header-message"  style="margin-top:22px;font-size:16px;">
+              <!--   <a href="https://home.leiphone.com/login/wechatLogin" class="bell">
+                     <i class="ico"></i>
+                     <em class="count"></em>   
+                </a> -->
+                <!-- <ul class="nav navbar-nav navbar-right"> -->
+             <a href="/home/loginout">退出</a>
+              <!-- </ul> -->
+              </div>
+              <div class="yp-header-message" style="margin-top:22px;font-size:16px;">{{ session('master')->username }}</div>
         </div>
-        <ul class="layout-header-nav clearfix" id="layoutHeaderNav">
-                <li class="layout-header-nav-item">
-                    <a href="https://lists.meizu.com/page/list?categoryid=73&click=store_index_dh_1" class="layout-header-nav-link" data-mdesc="导航第1个"
-                       data-mtype="store_index_dh_1">全部分类</a>
-                </li>
-                <li class="layout-header-nav-item">
-                    <a href="https://lists.meizu.com/page/list?categoryid=76&features=80%3A18778%2C21896%2C9%2C12529%2C22216%2C18382&click=store_index_dh_2" class="layout-header-nav-link" data-mdesc="导航第2个"
-                       data-mtype="store_index_dh_2">PRO手机</a>
-                </li>
-                <li class="layout-header-nav-item">
-                    <a href="https://lists.meizu.com/page/list?categoryid=76&features=80%3A3%2C19475%2C5%2C10%2C11760%2C22119%2C868%2C1133%2C18237%2C22214%2C20724%2C22215%2C23107%2C19242%2C19243%2C20374%2C20100%2C21854%2C20579%2C20580%2C22463%2C18732&click=store_index_dh_3" class="layout-header-nav-link" data-mdesc="导航第3个"
-                       data-mtype="store_index_dh_3">魅蓝手机</a>
-                </li>
-                <li class="layout-header-nav-item">
-                    <a href="https://lists.meizu.com/page/list?categoryid=76&features=80%3A8%2C18136%2C20098&click=store_index_dh_4" class="layout-header-nav-link" data-mdesc="导航第4个"
-                       data-mtype="store_index_dh_4">MX手机</a>
-                </li>
-                <li class="layout-header-nav-item">
-                    <a href="http://lists.meizu.com/page/list/?categoryid=231&click=store_index_dh_5" class="layout-header-nav-link" data-mdesc="导航第5个"
-                       data-mtype="store_index_dh_5">数码配件</a>
-                </li>
-                <li class="layout-header-nav-item">
-                    <a href="http://lists.meizu.com/page/list/?categoryid=153&click=store_index_dh_6" class="layout-header-nav-link" data-mdesc="导航第6个"
-                       data-mtype="store_index_dh_6">智能设备</a>
-                </li>
-        </ul>
-        <div class="layout-header-nav-downmenu" id="layoutHeaderNavDownmenu"></div>
+
+        <div class="yp-header-user-box">
+            <div class="yp-header-user">
+                <!-- <input type="hidden" id="is_login_tag_status" value="1"> -->
+                <div class="user-main user-haslg">
+                    <div class="avatar"><a href="/home/user/index"><img width="36" height="36" src="/uploads/avatar/{{ session('master')->photo }}" alt=""></a></div>
+                </div>
+               
+            </div>
+        </div>
+         @else
+        <!-- 用户消息 -->
+        <div id="hidd">
+            <div class="yp-header-message"  style="margin-top:22px;font-size:16px;">
+            <a data-toggle="modal" data-target="#register" href="">注册</a>
+            </div>
+            <div class="yp-header-message" style="margin-top:22px;font-size:16px;">
+            <a data-toggle="modal" data-target="#login" href="">登录</a>
+            </div>
+        </div>
+        @endif
+
+        <div class="yp-header-search">
+           <form method="GET" name="allSearchForm" action="https://www.leiphone.com/search" style="height: 100%;">
+                <input type="hidden" name="site" value="">
+                <input class="text" type="text" name="s" autocomplete="off" value="">
+                <input class="submit" type="submit" value="">
+                <input class="submit2" type="submit" value="">
+            </form>
+        </div>
+        
     </div>
-</div> -->
+</header> 
+
+     <!-- 注册窗口 -->
+      <div id="register" class="modal fade" tabindex="-1" aria-hidden="true" data-backdrop="static">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-body">
+                      <button class="close" data-dismiss="modal">
+                          <span>&times;</span>
+                     </button>
+                </div>
+                  <div class="modal-title">
+                    <h1 class="text-center">注册</h1>
+                </div>
+
+        <div id="show" style="display:none" class="alert alert-danger"></div>
+
+                 <div class="modal-body">
+                      <!-- <form class="form-group" action="{{ url('home/login/register') }}" method="post"> -->
+                 
+                              {{ csrf_field() }}
+                              <div class="form-group">
+                                  <label for="">用户名</label>
+                                 <input id="rname" class="form-control" name="username" type="text" placeholder="6-15位字母或数字">
+                              </div>
+                             <div class="form-group">
+                                <label for="">密码</label>
+                                  <input id="rpass" class="form-control" name="password" type="password" placeholder="至少6位字母或数字">
+                             </div>
+                              <div class="form-group">
+                                  <label for="">再次输入密码</label>
+                                  <input id="repass" class="form-control" name="repass" type="password" placeholder="至少6位字母或数字">
+                              </div>
+                              <div class="form-group">
+                                  <label for="">邮箱</label>
+                                  <input id="email" class="form-control" name="email" type="email" placeholder="例如:123@123.com">
+                              </div>
+                                <!-- <div class="form-group has-feedback">
+                                <input id="code" type="text" name="code" class="form-control" placeholder="请输入验证码">
+                                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                                <a onclick="javascript:re_captcha();" ><img src="{{ URL('kit/captcha/1') }}"  alt="验证码" title="刷新图片" width="100" height="40" id="c2c98f0de5a04167a9e427d883690ff6" border="0"></a>
+                              </div> -->
+                              <div class="text-right">
+                                  <button id="subs" class="btn btn-primary" type="">提交</button>
+                                  <button class="btn btn-danger" data-dismiss="modal">取消</button>
+                              </div>
+                              <a href="" data-toggle="modal" data-dismiss="modal" data-target="#login">已有账号？点我登录</a>
+                      <!-- </form> -->
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- 登录窗口 -->
+    <div id="login" class="modal fade" aria-hidden="true" data-backdrop="static">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-body">
+                      <button class="close" data-dismiss="modal">
+                          <span>&times;</span>
+                      </button>
+                  </div>
+                  <div class="modal-title">
+                     <h1 class="text-center">登录</h1>                  
+                  </div>
+                  <div class="modal-body">
+                  @if(session('info'))
+              <div class="alert alert-danger">
+                {{ session('info') }}
+              </div>
+            @endif
+                <!-- <form class="form-group" action="{{ url('home/login/login') }}" method="post"> -->
+                <!-- <form class="form-group" onsubmit="return doSubmit()" action="" method="post"> -->
+                          {{ csrf_field() }}
+                   <label for="" >用户名</label>
+                   <input id='username' class="form-control" type="text" placeholder="请输入用户名" name="username">
+                   </div>
+                   <div class="form-group">
+                    <label for="">密码</label>
+                    <input id="password" class="form-control" type="password" placeholder="请输入密码" name="password">
+                    </div>
+                   <div class="text-right">
+                   <div class="checkbox icheck">
+                  <label>
+                  <input name="remember_me" type="checkbox">记住我
+                  </label>
+                  </div>
+                       <button id="btns" class="btn btn-primary" type="">登录</button>
+                      <!-- <input type="" id="bts" class="btn btn-primary" value="登录">
+                        --><button class="btn btn-danger" data-dismiss="modal">取消</button>
+                  </div>                             
+                  <a href="" data-toggle="modal" data-dismiss="modal" data-target="#register">还没有账号？点我注册</a>
+                <!-- </form>                  -->
+            </div>
+         </div>
+      </div>
+   </div>
+    <script  src="/leiphone/js/jquery-3.2.1.min.js"></script>
+   
+    <script  src="/leiphone/js/bootstrap.min.js"></script>
+   
+    <link href="/leiphone/css/bootstrap.min.css" rel="stylesheet">
+
+    <script  src="/leiphone/js/tips.js"></script>
+    <script src="/leiphone/js/jquery-sea.js"></script>
+    <script src="/leiphone/js/sea.js"></script>
+   
+    <script  src="/leiphone/js/aq_auth.js"></script>
+    <script  src="js/9052.js"></script>
+   
+   
+   
+    <script src="/leiphone/js/list.js"></script>
+    <script  src="/leiphone/js/mobilecheck.js"></script>
+    <script  src="/leiphone/js/com_banner.js"></script>
+   
+    <script  src="/leiphone/js/global.js"></script>
+    <script  src="/leiphone/js/index.js"></script>
+    <script  src="/leiphone/js/calendarNews.js"></script>  
+   <script>
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
+  
+    $('#btns').click(function(){
+
+
+      var username = $('#username').val();
+      var password = $('#password').val();
+      $.ajax('/home/login/ajaxlogin',{
+      type:'post',
+      data:{username:username,password:password},
+      dataType:'json',
+      success:function(data)
+      {
+        if(data == '0')
+        {
+          alert('恭喜,登录成功');
+          location.href = '/home/layout';
+          // $('#hidd').hide();
+        }
+        if(data == '1')
+        {
+          alert('用户名不正确');
+        }
+        if(data == '2')
+        {
+          alert('密码不正确');
+        } 
+      },
+      error:function(data)
+      {
+        alert('数据异常');
+      }
+      });
+    });
+
+     $('#subs').click(function(){
+      var rname = $('#rname').val();
+      var rpass = $('#rpass').val();
+      var repass = $('#repass').val();
+      var email = $('#email').val();
+      $.ajax('/home/login/register',{
+      type:'post',
+      data:{username:rname,password:rpass,repwd:repass,email:email},
+      dataType:'json',
+      success:function(data)
+      {
+        if(data == '0' )
+        {
+          alert('恭喜您.注册成功');
+          location.href = '/home/layout';
+        }
+      },
+      error: function(msg) {
+      var username1=JSON.parse(msg.responseText).username;
+      var password1=JSON.parse(msg.responseText).password;
+      var email1=JSON.parse(msg.responseText).email;
+      username1 = username1 == undefined ? '' : username1;
+      password1 = password1 == undefined ? '' : password1;
+      email1 = email1 == undefined ? '' : email1;
+     
+      $('#show').css('display','block');
+
+      $('#show').html(username1+','+password1+','+email1);
+       
+     
+      },
+      });
+    });
+
+   </script>
+  
 
 <!--下面是模板标签，不可删除-->
 
@@ -405,7 +581,7 @@
 </div>
 
 </body>
-<!-- <div class="layout-footer clearfix">
+<div class="layout-footer clearfix">
     <div class="mzcontainer">
         <ul class="layout-footer-service clearfix">
             <li class="layout-footer-service-item">
@@ -517,8 +693,8 @@
             </a>
         </div>
     </div>
-</div> -->
-
+</div>
+ 
 <script src="{{ asset('/home/meizu/js/layout-ca70dcecd0.js')}}" type="text/javascript"></script>
 
 <script src="{{ asset('/home/meizu/js/search-08821fe9a8.js')}}"></script>

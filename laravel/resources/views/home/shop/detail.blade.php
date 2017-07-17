@@ -7,7 +7,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>{{ $val->goodsName }}-魅族商城</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="//store.res.meizu.com/layout/img/favicon-2e71785f44.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="//store.res.meizu.com/layout/img/favicon-2e71785f44.ico" rel="icon" type="image/x-icon" />
     <meta name="description" content="魅族桌面多口USB充电器，小身型 解决大问题，正品行货，另有魅族桌面多口USB充电器详细介绍、图片、价格、参数、售前咨询等，购买魅族桌面多口USB充电器上魅族商城，全场包邮，7天无理由退货，15天换货保障。">
@@ -106,7 +106,7 @@
                     </div>
                     <div class="property" id="property">
                             <div class="property-hd">
-                                <h1>{{ $val->goodsName }}</h1>
+                                <h1 id="goodsName">{{ $val->goodsName }}</h1>
 
                                 <p class="mod-info ">小身型 解决大问题</p>
                             </div>
@@ -119,6 +119,7 @@
                                         <div class="mod-price">
                                             <small>¥</small>
                                             <span id="J_price" class="vm-money">{{ $val->price }}</span>
+                                            <span style="display:none" id="J_id" class="vm-money">{{ $val->id }}</span>
                                         </div>
                                         <div class="mod-original" id="J_originalPrice" style="display:none;"></div>
                                         <div class="mod-activity">
@@ -180,19 +181,21 @@
                                     <dd class="clearfix">
                                         <div class="mod-control">
                                             <a title="减少" href="javascript:;" class="vm-minus">-</a>
-                                            <input type="text" value="1" id="J_quantity"
-                                                   data-max="5">
+                                            <input type="text" value="1" id="J_quantity"data-max="5">
                                             <a title="增加" href="javascript:;" class="vm-plus">+</a>
                                         </div>
                                     </dd>
                                 </dl>
                                 <div class="property-buy-action">
+
                                     <a data-mtype="store_de_buy" href="javascript:void(0);" id="J_btnBuy" class="btn btn-danger btn-lg mr20 "><i></i>立即购买</a>
+
                                     <a data-mtype="store_de_cart" href="javascript:void(0);" id="J_btnAddCart" class="btn btn-primary btn-lg"><i></i>加入购物车</a>
                                     <span class="vm-service" id="J_panicBuyingWrap"></span>
+
                                 </div>
                             </div>
-                        <div class="prod-addition">
+                        <!-- <div class="prod-addition">
                             <input type="hidden" id="servertime" value="1499691608595">
 
                             <div class="layer-promo" id="layerPromo" style="display:none;">
@@ -207,7 +210,7 @@
                                     </dl>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </section>
             </div>
@@ -270,12 +273,7 @@
                     </div>
                 </div>
             </section>
-        </main>
-       
-
-         
-
-
+        </main> 
     <div class="compare-bar" id="compareBar" style="position:fixed">
         <div class="diff-bar" id="diffBar">
             <div class="diff-bar-title">
@@ -418,8 +416,85 @@
 </div>
 
 <script src="{{ asset('/home/meizu/js/layout-ca70dcecd0.js')}}" type="text/javascript"></script>
-<script type="text/javascript"
-        src="{{ asset('/home/meizu/js/detail-dcc36a765c.js')}}"></script>
+<script type="text/javascript" src="{{ asset('/home/meizu/js/detail-dcc36a765c.js')}}"></script>
+
+<script type="text/javascript">
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
+    // 加操作
+    $('.vm-plus').on('click',function(){
+        // 计算数量
+        var num = $(this).prev().val();
+        if(num < 10){
+            num++;
+        }else{
+            alert('对不起，不能超过10件商品');
+            return;
+        }
+        // 将数量写入
+        $(this).prev().val(num);
+
+    });
+        // 减操作
+    $('.vm-minus').on('click',function(){
+        // 计算数量
+        var num = $(this).next().val();
+        if(num > 1){
+            num--;
+        }else{
+            alert('至少一件');
+            return;
+        }
+        // 将数量写入
+        $(this).next().val(num);
+
+
+    });
+
+    // 加入购物车 
+    $('#J_btnAddCart').on('click',function(){
+
+        // 商品名称
+        var name = $('#goodsName').html();
+        // 商品单价
+        var price = $('#J_price').html();
+        // 商品数量
+        var num = $('#J_quantity').val(); 
+        var gid = $('#J_id').html();
+
+        // 计算商品总价
+        var total = price * num;
+        $.ajax('/home/shopcar/ajaxc',{
+            type:'POST',
+            data:{name:name,price:price,num:num,total:total,gids:gid},
+            dataType:'json',
+            success:function(data){
+                 // console.log(data); 
+                 
+                 if(data == 1)
+                 {
+                    alert('加入成功');
+                 }
+                 if(data == 2)
+                 {
+                    alert('加入失败');
+                 }
+                 if(data == 3)
+                 {
+                    alert('请前往登录');
+                 }
+            },  
+            error:function(data){
+                alert('数据异常');
+            }
+        });
+
+    });
+</script>
 
          <script type="text/javascript">
         $('.stand').on('click',function(){
@@ -427,33 +502,34 @@
         });
         </script>
 <script>
-    var __mzt = __mzt || [];
-    (function () {
-        var hm = document.createElement("script");
-        hm.src = "//sccom.res.meizu.com/js/analytics-min.js";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
+    // var __mzt = __mzt || [];
+    // (function () {
+    //     var hm = document.createElement("script");
+    //     hm.src = "//sccom.res.meizu.com/js/analytics-min.js";
+    //     var s = document.getElementsByTagName("script")[0];
+    //     s.parentNode.insertBefore(hm, s);
+    // })();
 </script>
 
 <script type="text/javascript" charset="utf-8">
-    var _hmt = _hmt || [];
-    (function () {
-        var hm = document.createElement("script");
-        hm.src = ('https:' == document.location.protocol ? 'https://tongji-res.meizu.com' : 'http://tongji-res1.meizu.com') + '/resources/tongji/flow.js';
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
+    // var _hmt = _hmt || [];
+    // (function () {
+    //     var hm = document.createElement("script");
+    //     hm.src = ('https:' == document.location.protocol ? 'https://tongji-res.meizu.com' : 'http://tongji-res1.meizu.com') + '/resources/tongji/flow.js';
+    //     var s = document.getElementsByTagName("script")[0];
+    //     s.parentNode.insertBefore(hm, s);
+    // })();
 </script>
 
 <script type="text/javascript">
-    var _hmt = _hmt || [];
-    (function () {
-        var hm = document.createElement("script");
-        hm.src = "//hm.baidu.com/hm.js?2a0c04774115b182994cfcacf4c122e9";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
-</script></body>
+    // var _hmt = _hmt || [];
+    // (function () {
+    //     var hm = document.createElement("script");
+    //     hm.src = "//hm.baidu.com/hm.js?2a0c04774115b182994cfcacf4c122e9";
+    //     var s = document.getElementsByTagName("script")[0];
+    //     s.parentNode.insertBefore(hm, s);
+    // })();
+</script>
+</body>
 </html>
 

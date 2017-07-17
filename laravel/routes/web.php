@@ -15,9 +15,11 @@
 
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+ 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+ 
 
 
 //群组
@@ -128,7 +130,9 @@ Route::resource('/admin/goods',"Admin\GoodsController");
  
 // 商品管理
 Route::resource('/admin/goodsDetail',"Admin\GoodsDetailController"); 
+ 
 Route::post('/admin/goodsDetail/ajaxa',"Admin\GoodsDetailController@ajaxa"); 
+ 
 // 递归
 Route::get('/admin/getAllGoods',"Admin\GoodsController@get");
 
@@ -139,11 +143,21 @@ Route::post('/admin/order/update/{id}',"Admin\OrderController@update");
  
 Route::resource('/admin/goodsDetail',"Admin\GoodsDetailController");
 Route::get('/admin/getAllGoods',"Admin\GoodsController@get");
+ 
 
 // 前台积分商城
 Route::get('/home/shop/index',"home\ShopController@index");
 Route::get('/home/shop/show',"home\ShopController@show");
 Route::get('/home/shop/detail/{id}',"home\ShopController@detail");
+
+// 购物车
+Route::get('/home/shopcar/index',"home\ShopCarController@index");
+Route::post('/home/shopcar/ajaxc',"home\ShopCarController@ajaxc");
+Route::get('/home/shopcar/delete/{id}',"home\ShopCarController@delete");
+// 订单
+Route::get('/home/order/add',"home\OrderController@add");
+
+
 
 // ajax
 Route::post('/home/shop/ajax',"home\ShopController@ajax");
@@ -158,3 +172,24 @@ Route::post('/admin/turn/update/{id}',"admin\TurnController@update");
 Route::post('/admin/turn/delete/{id}',"admin\TurnController@delete"); 
 
 Route::post('/home/shop/ajaxb',"home\ShopController@ajaxb");
+ 
+ 
+//前台登录主页
+Route::get('/home/layout','Home\LoginController@layout');
+
+//前台登录ajax方法
+Route::post('/home/login/ajaxlogin',"Home\LoginController@ajaxLogin");
+
+//前台注册方法
+Route::post('/home/login/register','Home\LoginController@register');
+
+//前台退出
+Route::get('/home/loginout','Home\LoginController@Loginout');
+
+//前台用户中心页
+Route::get('/home/user/index','Home\UserController@index');
+
+//前台用户详情
+// Route::
+
+ 
