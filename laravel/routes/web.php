@@ -189,7 +189,16 @@ Route::get('/home/loginout','Home\LoginController@Loginout');
 //前台用户中心页
 Route::get('/home/user/index','Home\UserController@index');
 
-//前台用户详情
-// Route::
 
+// Route::
+// home
+//
+Route::get('/home/index','Home\IndexController@index');
+
+Route::get('/home/column/{id}','Home\IndexController@column');
+
+Route::get('/home/show/{id}','Home\IndexController@show');
+
+
+Route::get('/home/user/article','Home\ArticleController@index');
  
