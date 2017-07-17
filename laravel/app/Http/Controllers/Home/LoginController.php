@@ -154,6 +154,6 @@ class LoginController extends Controller
    public function Loginout(Request $request)
    {    
         $request->session()->forget('master');
-        return redirect('/home/layout');
+        return redirect('/home/index');
    }
 }

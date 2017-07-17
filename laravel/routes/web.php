@@ -154,6 +154,7 @@ Route::get('/home/loginout','Home\LoginController@Loginout');
 //前台用户中心页
 Route::get('/home/user/index','Home\UserController@index');
 
+
 //前台完善资料
 Route::get('/home/user/information','Home\UserController@information');
 
@@ -165,3 +166,19 @@ Route::get('/home/user/safe','Home\UserController@safe');
 
 //用户前台修改密码
 Route::post('/home/user/update','Home\UserController@update');
+
+
+// Route::
+// home
+//
+Route::get('/home/index','Home\IndexController@index');
+
+Route::get('/home/column/{id}','Home\IndexController@column');
+
+Route::get('/home/show/{id}','Home\IndexController@show');
+
+
+Route::get('/home/user/article','Home\ArticleController@index');
+
+Route::get('/home/user/addarticle','Home\ArticleController@addarticle');
+

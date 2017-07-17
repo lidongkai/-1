@@ -234,7 +234,7 @@ $.ajaxSetup({
         if(data == '0' )
         {
           alert('恭喜您.注册成功');
-          location.href = '/home/layout';
+          location.href = '/home/index';
         }
       },
       error: function(msg) {
