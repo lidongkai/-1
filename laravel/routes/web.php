@@ -54,6 +54,18 @@ Route::group(['middleware'=>'adminlogin'],function(){
 			//修改
 			Route::post('/admin/links/update','Admin\LinksController@update');
 			Route::post('/admin/links/insert','Admin\LinksController@insert');
+
+			//网络配置
+			Route::get('/admin/config/index','Admin\ConfigController@index');
+
+			//网络配置修改页
+			Route::get('admin/config/edit/{id}','Admin\ConfigController@edit');
+
+			//网络配置执行添加
+			Route::post('admin/config/update','Admin\ConfigController@update');
+
+			//ajax修改状态
+
 });
 
 
@@ -75,6 +87,8 @@ Route::get('kit/captcha/{tmp}', 'Admin\KitController@captcha');
 
 // ajax更改状态
 Route::post('/admin/user/ajaxstatus','Admin\UserController@ajaxStatus');
+
+Route::post('/admin/config/ajaxstatus','Admin\ConfigController@ajaxstatus');
 
 Route::post('/admin/links/ajaxstatus','Admin\LinksController@ajaxStatus');
 
@@ -168,10 +182,9 @@ Route::get('/home/user/safe','Home\UserController@safe');
 Route::post('/home/user/update','Home\UserController@update');
 
 
-// Route::
-// home
-//
 Route::get('/home/index','Home\IndexController@index');
+
+
 
 Route::get('/home/column/{id}','Home\IndexController@column');
 
@@ -181,4 +194,8 @@ Route::get('/home/show/{id}','Home\IndexController@show');
 Route::get('/home/user/article','Home\ArticleController@index');
 
 Route::get('/home/user/addarticle','Home\ArticleController@addarticle');
+
+//短信验证
+Route::post('/home/sendmessage','Home\SendMessageController@sendmessage');
+
 

@@ -468,6 +468,20 @@
 
 
  
-
+<div class="yp-footer-link">
+<div class="wrapper">
+<div class="tab_tit clr">
+<a href="javascript:;" class='cur'>友情链接</a>
+</div>
+<div class="tab_con">
+<ul>
+<li class='cur'>
+@foreach($data3 as $k=>$v)
+<a href="{{$v->weburl}}" target="_blank">{{ $v->webname }}</a>
+@endforeach
+</ul>
+</div>
+</div>
+</div>
 
 @endsection

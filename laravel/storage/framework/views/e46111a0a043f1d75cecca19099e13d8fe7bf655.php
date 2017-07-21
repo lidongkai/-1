@@ -18,6 +18,5 @@
                     <p><em>手机号：</em><i><?php echo e($tb->phone); ?></i></p>
                     </form>
                 </div>
-
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('home.user.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -37,7 +37,7 @@
             <img src="/leiphone/picture/lph-headerlogo.png"  alt="雷锋网">
                         <span>读懂<h1>智能</h1>&未来</span>
         </a>
-        
+
         <!-- 用户登录 -->
         <?php if(session('master')): ?>
          <div id="hidd">
@@ -264,39 +264,51 @@ $.ajaxSetup({
 
 <footer class='yp-footer'>
 
-<div class="yp-footer-msg">
-<div>友情链接</div>
+<!-- 友情链接，热门关键字 -->
+<div class="yp-footer-link">
+<div class="wrapper">
+<div class="tab_tit clr">
+
 </div>
-   <div class="yp-footer-msg">
-        <div class="wrapper clr">
-            <!-- links -->
-            <div class="links" style="text-align:center">
-                <a rel="nofollow" href="https://www.leiphone.com/us/concact">联系我们</a>
-                <a rel="nofollow" href="https://www.leiphone.com/us/index">关于我们</a>
-                <a rel="nofollow" href="https://www.leiphone.com/news/201611/0nOqnvNoxI6vX4L9.html">加入我们</a>
-                <a rel="nofollow" href="https://www.leiphone.com/us/feedback">意见反馈</a>
-                <a rel="nofollow" href="https://www.leiphone.com/contribute/index">投稿</a>
-            </div>
-            <!-- 下载app -->
-            <div class="downLoad-app">
-                <div class="qrcode">
-                    <!-- /site/download -->
-                    <img src="/leiphone/picture/downcode.jpg" width="96" height="96" alt="" />
-                </div>
-                <div class="txt">
-                    <p>下载雷锋网客户端</p>
-                    <a rel="nofollow" href="https://itunes.apple.com/cn/app/lei-feng-wang-yi-dong-hu-lian/id579529120?mt=8" target="_blank" class='iPhone'><em></em>iPhone</a>
-                    <a rel="nofollow" href="https://android.myapp.com/myapp/detail.htm?apkName=com.leiphone.app" target="_blank" class='Android'><em></em>Android</a>
-                </div>
-            </div>
-            <!-- 关注-->
-            <div class="contact">
-                <a rel="nofollow" href="mailto:web@leiphone.com " class='eml sub_a'><em></em></a>
-                <a rel="nofollow" href="https://www.weibo.com/p/1006062118746300" target="_blank" class='sina sub_a'><em></em></a>
-            </div>
-        </div>
-    </div>
-    <br/><br/><br/>
+<div class="tab_con">
+<ul>
+<li class='cur'>
+<a href="http://it.sohu.com/" target="_blank"></a>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="yp-footer-msg">
+<div class="wrapper clr">
+<!-- links -->
+<div class="links" style="text-align:center">
+<a rel="nofollow" href="https://www.leiphone.com/us/concact">联系我们</a>
+<a rel="nofollow" href="https://www.leiphone.com/us/index">关于我们</a>
+<a rel="nofollow" href="https://www.leiphone.com/news/201611/0nOqnvNoxI6vX4L9.html">加入我们</a>
+<a rel="nofollow" href="https://www.leiphone.com/us/feedback">意见反馈</a>
+<a rel="nofollow" href="https://www.leiphone.com/contribute/index">投稿</a>
+</div>
+<!-- 下载app -->
+<div class="downLoad-app">
+<div class="qrcode">
+<!-- /site/download -->
+<img src="/leiphone/picture/downcode.jpg" width="96" height="96" alt="" />
+</div>
+<div class="txt">
+<p>下载雷锋网客户端</p>
+<a rel="nofollow" href="https://itunes.apple.com/cn/app/lei-feng-wang-yi-dong-hu-lian/id579529120?mt=8" target="_blank" class='iPhone'><em></em>iPhone</a>
+<a rel="nofollow" href="https://android.myapp.com/myapp/detail.htm?apkName=com.leiphone.app" target="_blank" class='Android'><em></em>Android</a>
+</div>
+</div>
+<!-- 关注-->
+<div class="contact">
+<a rel="nofollow" href="mailto:web@leiphone.com " class='eml sub_a'><em></em></a>
+<a rel="nofollow" href="https://www.weibo.com/p/1006062118746300" target="_blank" class='sina sub_a'><em></em></a>
+</div>
+</div>
+</div>
+<br/><br/><br/>
     <!-- copyRight -->
     <div class="yp-copyright">
         <div class="wrapper">
