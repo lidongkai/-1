@@ -23,9 +23,9 @@ class OrderController extends Controller
     	
     	$res = \DB::table('order')->where('id',$id)->update(['status'=>$status]);
  		 if($res){
-            return redirect('/admin/order/index')->with(['info' => '添加成功']);
+            return redirect('/admin/order/index');
         }else{
-            return redirect('/admin/goodsDetail/create')->with(['info' => '添加失败']);
+            return redirect('/admin/goodsDetail/create')->with(['info' => '修改失败']);
         }
     	
     }

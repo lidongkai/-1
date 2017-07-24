@@ -156,7 +156,7 @@
                     @endif -->
                   </td>
                   <td> 
-                  <a href="">修改</a>
+                  <a style="display:none" href="">修改</a>
                   <a class="del" href="#" data-toggle="modal" data-target="#myModal">删除</a>
                   </td>  
                 </tr> 

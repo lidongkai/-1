@@ -7,18 +7,15 @@ use App\Http\Controllers\Controller;
 
 class ShopCarController extends Controller
 {
-     public function index(){
+     public function index(Request $request){
 
-     	$data = \DB::table('shopcar')
-            ->join('users', 'users.id', '=', 'shopcar.uid')  
-            ->join('goodsdetail', 'goodsdetail.id', '=', 'shopcar.gids')  
-            ->select('users.username','shopcar.*','goodsdetail.picture')
-            ->get(); 
-         $username = [];
-        foreach($data as $key=>$val){
-        	$username[] = $val->username;
-        }
-     	return view('home.shopcar.index',['data'=>$data,'username'=>$username]);
+        // 获取当前用户的id
+        $id = $request->session()->get('master')->id;
+        $username = $request->session()->get('master')->username; 
+        // 查询当前用户的购物车商品
+        $data = \DB::table('shopcar')->where('uid',$id)->get(); 
+        $data1 = \DB::table('shopcar')->where('uid',$id)->where('status',1)->get(); 
+     	return view('home.shopcar.index',['data'=>$data,'username'=>$username,'data1'=>$data1]);
      }
 
      public function ajaxc(Request $request){ 
@@ -33,37 +30,43 @@ class ShopCarController extends Controller
      		$uid = $request->session()->get('master')->id;
      		$gid = $request->input('gids');
      		// dd($gid);
-		    $res1 = \DB::table('shopcar')->where([['gids',$gid],['uid',$uid]])->get();
-		    dd($res1);
-		    
-		    if($res1 == []){
+		    $data1 = \DB::table('shopcar')->where([['gids',$gid],['uid',$uid]])->get(); 
+		    // dd($data1);
+            $data2 = []; 
+            foreach($data1 as $k=>$v){
+                 $data2['gids'] = $v->gids;
+                 $data2['num'] = $v->num;
+                 $data2['price'] = $v->price;
+            }
+            // dd($data2);
+            if(in_array($gid,$data2)){ 
      			
-     			// 取出session中的用户的id与用户名
-	     		// $id = $request->session()->get('master')->id;  
-	     		$data['uid']=$uid;  
-	     		// dd($data);
-	     		// 执行添加
-	     		$res = \DB::table('shopcar')->insert($data);
-	     			if($res)
-	     			{ 
-	     				return response()->json('1');
-		     		}else{
-		     			return response()->json('3');
-		     		} 
-     			
+     			// 修改数据库中num
+                $num = $data2['num'] + 1;
+                // dd($num);
+                // 修改数据库中total
+                $total = $num * $data2['price'].'.00';
+                // dd($total);
+                $res2 = \DB::table('shopcar')->where([['gids',$gid],['uid',$uid]])->update(['num'=>$num,'total'=>$total]);
+                    if($res2)
+                     { 
+                         return response()->json('1');
+                     }else{
+                         return response()->json('2');
+                     }  
      		}else{
 
-     			// 修改数据库中num
-     			$num = $request->input('num') + 1;
-     			$res2 = \DB::table('shopcar')->where([['gids',$gid],['uid',$uid]])->update(['num'=>$num]);
-     			if($res2)
-	     			{ 
-	     				return response()->json('1');
-		     		}else{
-		     			return response()->json('2');
-		     		} 
-     			return response()->json('0');
-	     		}
+                $data['uid']=$uid;  
+                // dd($data);
+                // 执行添加
+                $res = \DB::table('shopcar')->insert($data);
+                    if($res)
+                    { 
+                        return response()->json('1');
+                    }else{
+                        return response()->json('3');
+                    } 
+            } 
   
      	}else{
      	// 存入session
@@ -83,6 +86,33 @@ class ShopCarController extends Controller
             return redirect('/home/shopcar/index');
         }else{
             return back()->with(['info' => '删除失败']);
+        }
+     }
+
+     public function update(Request $request){
+        // dd($request->all());
+        $status = $request->input('status');
+        $id = $request->input('id');
+        $res = \DB::table('shopcar')->where('id',$id)->update(['status'=>$status]);
+
+        if($res){
+            return response()->json('0');
+        }else{
+            return response()->json('1');
+        }
+     }
+
+     public function update1(Request $request){
+        // dd($request->all());
+        $id = $request->session()->get('master')->id;
+        $status = $request->input('status');
+ 
+        $res = \DB::table('shopcar')->where('uid',$id)->update(['status'=>$status]);
+
+        if($res){
+            return response()->json('0');
+        }else{
+            return response()->json('1');
         }
      }
 }

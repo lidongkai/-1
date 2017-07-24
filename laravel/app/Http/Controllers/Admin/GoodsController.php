@@ -53,10 +53,7 @@ class GoodsController extends Controller
      */
     public function store(Request $request)
     {
- 
-
-          
- 
+  
          
           $this->validate($request, [
             'name' => 'required|unique:posts|max:255', 

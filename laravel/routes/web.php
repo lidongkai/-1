@@ -154,8 +154,22 @@ Route::get('/home/shop/detail/{id}',"home\ShopController@detail");
 Route::get('/home/shopcar/index',"home\ShopCarController@index");
 Route::post('/home/shopcar/ajaxc',"home\ShopCarController@ajaxc");
 Route::get('/home/shopcar/delete/{id}',"home\ShopCarController@delete");
+Route::post('/home/shopcar/update',"home\ShopCarController@update");
+Route::post('/home/shopcar/update1',"home\ShopCarController@update1");
 // 订单
 Route::get('/home/order/add',"home\OrderController@add");
+Route::get('/home/order/ajaxg',"home\OrderController@ajaxg");
+Route::post('/home/order/ajaxp',"home\OrderController@ajaxp");
+Route::get('/home/order/sureOrder',"home\OrderController@sureOrder");
+Route::post('/home/order/insert',"home\OrderController@insert");
+
+Route::post('/home/order/doadd',"home\OrderController@doadd");
+Route::get('/home/order/delete/{id}',"home\OrderController@delete");
+// 前台个人中心订单
+Route::get('/home/user/order',"home\OrderController@index");
+// 前台个人中心地址
+Route::get('/home/user/address',"home\AddressController@index");
+
 
 
 
@@ -188,6 +202,19 @@ Route::get('/home/loginout','Home\LoginController@Loginout');
 
 //前台用户中心页
 Route::get('/home/user/index','Home\UserController@index');
+
+
+//前台完善资料
+Route::get('/home/user/information','Home\UserController@information');
+
+//前台完善添加信息
+Route::post('/home/user/add','Home\UserController@add');
+
+//前台更改密码模板
+Route::get('/home/user/safe','Home\UserController@safe');
+
+//用户前台修改密码
+Route::post('/home/user/update','Home\UserController@update');
 
 
 // Route::

@@ -285,7 +285,7 @@ $.ajaxSetup({
 <main class="wrapper page-search" id="main">
     <div class="container">
         <section class="crumbs clearfix">
-            <a data-mtype="store_list_mbx_index" href="//store.meizu.com/index.html?click=store_list_mbx_index">首页</a> &nbsp;&gt;&nbsp;
+            <a data-mtype="store_list_mbx_index" href="{{ url('/home/shop/index') }}">首页</a> &nbsp;&gt;&nbsp;
             <span class="crumbs-level" id="crumbsLevel" data-mtype="">
                 全部商品
             </span>

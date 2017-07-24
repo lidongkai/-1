@@ -71,14 +71,14 @@
             <div class="container">
              
                 <section class="crumbs clearfix">
-                            <a data-mtype="store_de_mbx_1" href="http://store.meizu.com/index.html">首页</a>&nbsp;&gt;&nbsp;
+                            <a data-mtype="store_de_mbx_1" href="{{ url('/home/shop/index') }}">首页</a>&nbsp;&gt;&nbsp;
                             <a class="ellipsis crumbs-title">{{ $val->goodsName }}</a>
                 </section> 
                 <section class="row">
                     <div class="preview" id="preview">
                         <div class="preview-booth">
                             <a href="javascript:;" id="J_imgBooth">
-                                <img src="/uploads/avatar/{{ $val->picture }}" height="375" width="375"
+                                <img id="picture" val="{{ $val->picture }}" src="/uploads/avatar/{{ $val->picture }}" height="375" width="375"
                                      alt="">
                             </a>
                         </div>
@@ -414,6 +414,47 @@
         </div>
     </div>
 </div>
+<div tabindex="-1" id="one" style="position: absolute; outline: 0px; left: 500px; top: 350px; z-index: 1046; display:none" aria-labelledby="title:artAlert" aria-describedby="content:artAlert" class="ui-popup ui-popup-show ui-popup-focus" role="dialog"><div i="dialog" class="ui-dialog">
+      <div class="ui-dialog-arrow-a"></div><div class="ui-dialog-arrow-b"></div><table class="ui-dialog-grid"><tbody><tr><td i="header" class="ui-dialog-header" style="display: none;"><button i="close" class="ui-dialog-close" title="cancel">×</button><div i="title" class="ui-dialog-title" id="title:artAlert"></div></td></tr><tr><td i="body" class="ui-dialog-body"><div i="content" class="ui-dialog-content" id="content:artAlert" style="width: 360px;"><div class="bi-alert success">
+    <div class="bi-alert-bd">
+        
+            <p class="mod-message">
+                <span><i class="iconfont icon-success"></i>已成功加入购物车</span>
+            </p> 
+            <a class="mod-link" target="_blank" href="{{ url('/home/shopcar/index') }}">去购物车结算 &gt;</a>
+            
+        
+    </div>
+    <a class="bi-alert-close J_alertClose" href="javascript:;">
+        <i class="iconfont icon-chahao"></i>
+    </a>
+</div>
+</div></td></tr><tr><td i="footer" class="ui-dialog-footer" style="display: none;"><div i="statusbar" class="ui-dialog-statusbar" style="display: none;"></div><div i="button" class="ui-dialog-button"></div></td></tr></tbody></table></div></div>
+
+
+<div tabindex="-1" id="two" style="position: absolute; outline: 0px; left: 500px; top: 350px; z-index: 1046; display:none" aria-labelledby="title:artAlert" aria-describedby="content:artAlert" class="ui-popup ui-popup-show ui-popup-focus" role="dialog"><div i="dialog" class="ui-dialog">
+      <div class="ui-dialog-arrow-a"></div><div class="ui-dialog-arrow-b"></div><table class="ui-dialog-grid"><tbody><tr><td i="header" class="ui-dialog-header" style="display: none;"><button i="close" class="ui-dialog-close" title="cancel">×</button><div i="title" class="ui-dialog-title" id="title:artAlert"></div></td></tr><tr><td i="body" class="ui-dialog-body"><div i="content" class="ui-dialog-content" id="content:artAlert" style="width: 360px;"><div class="bi-alert success">
+    <div class="bi-alert-bd">
+        
+            <p class="mod-message">
+                <span><i class="iconfont icon-success"></i>已成功加入购物车</span>
+            </p>
+            
+            <p class="mod-tips">登录后可显示您账号中已加入的商品哦~</p>
+            
+            
+            <a class="mod-link" target="_blank" href="https://login.flyme.cn/vCodeLogin?useruri=http%3A%2F%2Fstore.meizu.com%2Fmember%2Flogin.htm%3Fuseruri%3Dhttps%3A%2F%2Fdetail.meizu.com%2Fitem%2Ffeizhi_shoubing.html%3Fskuid%3D1442%26click%3Dstore_index_cdh_4_g_1_3&amp;service=store&amp;sid=unionlogin&amp;autodirct=true">去登录 &gt;</a>
+            
+        
+    </div>
+    <a class="bi-alert-close J_alertClose" href="javascript:;">
+        <i class="iconfont icon-chahao"></i>
+    </a>
+</div>
+</div></td></tr><tr><td i="footer" class="ui-dialog-footer" style="display: none;"><div i="statusbar" class="ui-dialog-statusbar" style="display: none;"></div><div i="button" class="ui-dialog-button"></div></td></tr></tbody></table></div></div>
+
+
+    
 
 <script src="{{ asset('/home/meizu/js/layout-ca70dcecd0.js')}}" type="text/javascript"></script>
 <script type="text/javascript" src="{{ asset('/home/meizu/js/detail-dcc36a765c.js')}}"></script>
@@ -465,27 +506,29 @@ $.ajaxSetup({
         // 商品数量
         var num = $('#J_quantity').val(); 
         var gid = $('#J_id').html();
+        var picture = $('#picture').attr('val');
+        var status = 0;
 
         // 计算商品总价
         var total = price * num;
         $.ajax('/home/shopcar/ajaxc',{
             type:'POST',
-            data:{name:name,price:price,num:num,total:total,gids:gid},
+            data:{name:name,price:price,num:num,total:total,gids:gid,status:status,picture:picture},
             dataType:'json',
             success:function(data){
                  // console.log(data); 
                  
                  if(data == 1)
-                 {
-                    alert('加入成功');
+                 { 
+                     $('#one').css('display','block');
                  }
                  if(data == 2)
                  {
                     alert('加入失败');
                  }
                  if(data == 3)
-                 {
-                    alert('请前往登录');
+                 { 
+                    $('#two').css('display','block');
                  }
             },  
             error:function(data){
@@ -493,6 +536,11 @@ $.ajaxSetup({
             }
         });
 
+    });
+
+    // 购物车模态框
+    $('.icon-chahao').on('click',function(){ 
+        $('.ui-popup').css('display','none'); 
     });
 </script>
 

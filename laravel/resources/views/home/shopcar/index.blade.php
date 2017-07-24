@@ -86,16 +86,19 @@
             </tr>
             @foreach($data as $key=>$val)
             <tr class="cart-product">
-                <td class="cart-col-select">
-                    
-                    <div class="mz-checkbox minbox"></div>
-                    
-                    <a href="//detail.meizu.com/item/lexin_S1.html?skuId=977" class="cart-product-link" target="_blank" data-mdesc="购物车商品位" data-mtype="store_cart_prod">
+                <td class="cart-col-select"> 
+                    @if(($val->status) == 0)
+                    <div class="mz-checkbox minbox a" val="{{ $val->id }}"></div>
+                    @endif 
+                    @if(($val->status) == 1)
+                    <div class="mz-checkbox minbox a checked" val="{{ $val->id }}"></div>
+                    @endif
+                    <a href="{{ url('/home/shop/detail') }}/{{ $val->gids }}" class="cart-product-link" target="_blank" data-mdesc="购物车商品位" data-mtype="store_cart_prod">
                       <img src="/uploads/avatar/{{ $val->picture }}" class="cart-product-img" alt="">
                     </a>
                   </td>
                   <td class="cart-col-name">
-                    <a href="//detail.meizu.com/item/lexin_S1.html?skuId=977" class="cart-product-link" target="_blank" data-mdesc="购物车商品位" data-mtype="store_cart_prod">
+                    <a href="{{ url('/home/shop/detail') }}/{{ $val->gids }}" class="cart-product-link" target="_blank" data-mdesc="购物车商品位" data-mtype="store_cart_prod">
                       <p>{{ $val->name }}</p> 
                     </a>
                   </td>
@@ -124,13 +127,16 @@
                   <td class="cart-col-total">
                     <span class="cart-product-price total">{{ $val->total }}</span>
                   </td>
-                  <td style="display:none">{{ $val->id }}</td>
+                  <td style="display:none" class="idd">{{ $val->id }}</td>
                   <td class="cart-col-ctrl"> 
                   <a class="del" href="#" data-toggle="modal" data-target="#myModal"> <div class="cart-product-remove" data-mdesc="删除单个商品按钮" data-mtype="store_cart_del"></div></a>
                   </td>
             </tr>
             @endforeach
         </table>
+        @foreach($data1 as $k=>$v)
+        <span class="cart-product-price one" style="display:none" >{{ $v->total }}</span>
+        @endforeach
 
         <ul class="cart-merchant-list" id="merchantList"> 
 
@@ -172,7 +178,7 @@
         已优惠<span class="cart-footer-num red" id="totalDiscount">0.00</span>元， 合计(不含运费)：
                     <span class="cart-footer-total" id="totalPrice">0.00</span>
                     </span>
-                <div class="mz-btn success" disabled="disabled" id="cartSubmit" data-mdesc="去结算按钮" data-mtype="store_cart_checkout">去结算</div>
+                <a href="/home/order/add"><div class="mz-btn success" id="cartSubmit" data-mdesc="去结算按钮" data-mtype="store_cart_checkout">去结算</div></a>
             </div>
         </div>
     </div>
@@ -317,7 +323,7 @@ $.ajaxSetup({
         // alert(num);
         if(num < 10){
             num++;
-            total = price * num;
+            total = parseFloat(price * num).toFixed(2);
         }else{
             alert('对不起，不能超过10件商品');
             return;
@@ -334,7 +340,7 @@ $.ajaxSetup({
             var lprice = parseFloat($(this).parents('.cart-product').find('.price').html());
             allTotal += lprice;
             if(allTotal *10%2 ==0){
-                allTotal = allTotal + '.0';
+                allTotal = allTotal + '.00';
             }
             $('.cart-footer-total').html(allTotal);
         }
@@ -348,7 +354,7 @@ $.ajaxSetup({
         var price = $(this).parents('.cart-product').find('.price').html();
         if(num > 1){
             num--;
-             total = price * num;
+             total = parseFloat(price * num).toFixed(2);
         }else{
             alert('至少一件');
             return;
@@ -365,7 +371,7 @@ $.ajaxSetup({
             var lprice = parseFloat($(this).parents('.cart-product').find('.price').html());
             allTotal -= lprice;
             if(allTotal *10%2 ==0){
-                allTotal = allTotal + '.0';
+                allTotal = allTotal + '.00';
             }
             $('.cart-footer-total').html(allTotal);
         }
@@ -405,34 +411,155 @@ $.ajaxSetup({
             $('.cart-footer-total').html(allTotal);
         }
      }); 
+
+    // // 购物车小计函数
+    // function all0(){
+        
+    // }
    
-   // 商品的全选全不选
-   $('.maxbox').on('click',function(){
+   // 购物车总计函数
+   function all(){
 
-         
-        // 获取购物车总价
-        var allTotal = $('.cart-footer-total').html();  
-        allTotal = parseFloat(allTotal);
-        if($(this).hasClass('checked')){
-            $(this).removeClass("checked");
-            $('.minbox').removeClass("checked"); 
-            allTotal = 0.00; 
-            $('.cart-footer-total').html(allTotal);
-        }else{
-            $(this).addClass('checked'); 
-            $('.minbox').addClass('checked'); 
-           var list = $('.total');
-           for (var i = 0; i < list.length; i++) {
-                allTotal += parseInt($(list[i]).html()); 
-            }
-             
-            if(allTotal *10%2 ==0){
-                allTotal = allTotal + '.00';
-            }
-            $('.cart-footer-total').html(allTotal);
+        var allTotal = $('.cart-footer-total').html(); 
+            allTotal = parseFloat(allTotal);
+        var list = $('.one');   
+        for(var i=0;i<list.length;i++){
+            allTotal += parseFloat($(list[i]).html());
         }
-   });
+        $('.cart-footer-total').html(allTotal.toFixed(2)); 
 
+
+   }
+    all();
+
+    
+
+
+    function all1(){
+
+        var allTotal = $('.cart-footer-total').html(); 
+            allTotal = parseFloat(allTotal);
+            allTotal = 0.00;
+        var list = $('.total');   
+        for(var i=0;i<list.length;i++){
+            allTotal += parseFloat($(list[i]).html());
+        }
+        $('.cart-footer-total').html(allTotal.toFixed(2)); 
+   }
+    // 全选
+    function allcheck(){
+    // alert(11111);
+        var list0 = $('.minbox').length;
+        // console.log(list0);   
+        var list1 = $('.checked').length;
+        // console.log(list1);
+        if(list0 == list1){
+            $('.maxbox').addClass('checked'); 
+
+        } 
+   }
+   allcheck(); 
+
+ // 商品的全选全不选
+    $('.maxbox').on('click',function(){
+         var status = 0;
+        if($(this).hasClass('checked')){
+            status = 0;
+            $.ajax({
+                url:'/home/shopcar/update1',
+                type:'post',
+                data:{status:status},
+                dataType:'json',
+                success:function(data){ 
+                    if(data == 0){ 
+                        $('.maxbox').removeClass("checked");
+                        $('.minbox').removeClass('checked');
+                        $('.cart-footer-total').html(parseFloat(0).toFixed(2));  
+                    }else{
+                        alert('失败');
+                    }
+                },
+                error:function(data){
+                    alert('数据异常');
+                }
+
+                }); 
+        }else{
+             var status = 1;
+            $.ajax({
+                url:'/home/shopcar/update1',
+                type:'post',
+                data:{status:status},
+                dataType:'json',
+                success:function(data){ 
+                    if(data == 0){ 
+                        $('.maxbox').addClass("checked"); 
+                        $('.minbox').addClass("checked"); 
+                        all1();  
+                    }else{
+                        alert('失败');
+                    }
+                },
+                error:function(data){
+                    alert('数据异常');
+                }
+
+                }); 
+        }
+
+
+    }); 
+
+   // 商品的单选
+    $('.a').on('click',function(){
+        var idd = $(this).attr('val');  
+        // alert(idd);
+        var status = 0;
+        if($(this).hasClass('checked')){
+            status = 1;
+            $.ajax({
+                url:'/home/shopcar/update',
+                type:'post',
+                data:{id:idd,status:status},
+                dataType:'json',
+                success:function(data){ 
+                    if(data == 0){
+                         allcheck();   
+                    }else{
+                        alert('失败');
+                    }
+                },
+                error:function(data){
+                    alert('数据异常');
+                }
+
+                }); 
+             
+        }else{
+            status = 0;
+            $.ajax({
+                url:'/home/shopcar/update',
+                type:'post',
+                data:{id:idd,status:status},
+                dataType:'json',
+                success:function(data){ 
+                    if(data == 0){  
+                        $('.maxbox').removeClass("checked");
+                        allcheck(); 
+                    }else{
+                        alert('失败');
+                    }
+                },
+                error:function(data){
+                    alert('数据异常');
+                }
+
+                }); 
+        }
+            
+             
+    });
+     
     // 删除购物车中的商品
     var id = 0;
    $('.del').on('click',function(){
@@ -441,12 +568,7 @@ $.ajaxSetup({
    });
    $('#delete').on('click',function(){ 
      location.href = "/home/shopcar/delete/"+id; 
-    });
-
-   if(parseInt($('.cart-footer-total').html()) >= 0){
-        $('#cartSubmit').attr('disabled',false);
-   }
-
+    });  
 
 </script>
 <!-- <script src="{{ asset('home/meizu/js/cart-da2c5f831f.js')}}" type="text/javascript"></script> -->

@@ -1,0 +1,370 @@
+﻿/*
+	雷锋网首页index.csss
+*/
+
+.yp-secNav{border-bottom: 0;}
+.lph-main{margin-top: 0;}
+/*scroll 右侧*/
+.lph-picShow .module{overflow: hidden;}
+.lph-picShow .module .column{width: 195px;float: left;height:195px;position: relative;overflow: hidden;}
+.lph-picShow .module .rows .colTxt{background: #dde3e5;}
+.lph-picShow .module .rows .colTxt a{color: #30373B;}
+.lph-picShow .module .column.line{border-right:1px solid #fff;}
+.lph-picShow .module .column table{width: 90%;margin-left: 5%;display: block;text-align: center;}
+.lph-picShow .module .column table td{height: 195px;}
+.lph-picShow .module .column table a{font-size: 16px;color: #576b7c;line-height: 30px;font-weight: bold;display: block;padding: 0 24px;}
+.lph-picShow .module .rowOne .colTxt{background: #2b2d2e;}
+.lph-picShow .module .rowOne .colTxt a{color: #fff;}
+.lph-picShow .module .rowOne .column{border-bottom:1px solid #fff;}
+.lph-picShow .module .picTxt a{display: block;position: relative;}
+.lph-picShow .module .picTxt a .pic img{display: block;opacity: 0.8;filter:alpha(opacity=80);transition: all 0.3s ease-in-out;-webkit-transition: all 0.3s ease-in-out;-moz-transition: all 0.3s ease-in-out;}
+.lph-picShow .module .picTxt:hover .pic img{opacity: 1;filter:alpha(opacity=100);transform: scale(1.1);-webkit-transform: scale(1.1);-moz-transform: scale(1.1);}
+.lph-picShow .module .picTxt a .txt{position: absolute;width:147px;left: 24px;bottom:5px;text-align: center;font-size: 14px;color: #fff;line-height: 22px;font-weight: bold;z-index: 2 }
+.lph-picShow .module .rowOne .picTxt a .pic img{opacity: 1;filter:alpha(opacity=100);}
+.lph-picShow .module .picTxt a .cover{position: absolute;left: 0;top: 0;width: 100%;height: 100%;background: rgba(20,27,32,0.2);}
+
+.lph-right .right-ads,
+.lph-right .right-item-sw{margin-top: 71px;}
+/***精选导读***/
+.idx-selRead{margin-top: 45px;}
+.idx-selRead .title{font-size: 16px;padding-bottom: 15px;color: #31424e;font-weight: bold;}
+.idx-selRead .list li{float: left;padding: 15px;width: 240px;height: 205px;position: relative;left: -15px;top: -15px;
+	-webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+}
+.idx-selRead .list ul{width: 810px;left: -15px;right: -15px;}
+.idx-selRead .list li:hover{
+	background: #f7f7f7;
+	-webkit-box-shadow: 0 0 30px rgba(0,0,0,0.1);
+    box-shadow: 0 0 30px rgba(0,0,0,0.15);
+    -webkit-transform: translate3d(0, 1px, -2px);
+    transform: translate3d(0, 1px, -2px);
+}
+.idx-selRead .list li .pic img{width: 240px;height: 145px;vertical-align: top;}
+.idx-selRead .list li .txt{padding: 15px 5px 0 5px;line-height: 22px;height: 44px;overflow: hidden;}
+.idx-selRead .list li .txt a{font-size: 14px;color: #31424e;}
+.idx-selRead .list li .box{position: absolute;left:15px;top: 15px;width: 240px;}
+.idx-selRead .list li:hover .txt a{color: #ee5b2e;}
+/****业界资讯****/
+.traUni-news{width: 304px;height: 400px;position: relative;left:0;top:4px;}
+.traUni-news .box,
+.traUni-news .box2,
+.traUni-news .box3{position: relative;width: 304px;border:1px solid #e6e6e6;height: 380px;background: #fff;}
+.traUni-news .box{top:4px;right: 0px;z-index: 1}
+.traUni-news .box2{right: 4px;top:-4px;z-index: 2}
+.traUni-news .box3{right: 4px;top:-4px;z-index: 3}
+
+.traUni-news .title{margin-top: 14px;}
+.traUni-news .title span{height: 34px;line-height: 34px;padding: 0 15px 0 12px;background: #3e93d2;font-size: 15px;font-weight: bold;color: #fff;display: inline-block;border-bottom-right-radius: 17px;border-top-right-radius: 17px;-webkit-border-bottom-right-radius: 17px;-webkit-border-top-right-radius: 17px;}
+.traUni-news .box3 .list{padding: 15px 10px 0 20px;position: relative;overflow: hidden;height:306px;}
+.traUni-news .box3 .list:before{
+	content: '';
+    position: absolute;
+    left: 22px;
+    top: 15px;
+    width: 5px;
+    height: 3px;
+    background: #fff;
+    z-index: 2;
+}
+.traUni-news .box3 .list #scroll2{float: left; width: 260px;height: 306px;overflow: hidden;}
+.traUni-news .box3 .list .scroll-bar{width: 8px;float: left;height: 100%;position: relative;}
+.traUni-news .box3 .list .scroll-bar b{position: absolute;background: transparent;width: 8px;height: 35px;border-radius: 3px;cursor: pointer;}
+.traUni-news .box3 .list ul{
+	padding-left: 15px;
+	border-left:1px solid #CFE4F3;
+	margin-left: 3px;
+}
+.traUni-news .box3 .list ul.trans{
+	transition:all ease-in-out 0.3s;
+	-o-transition:all ease-in-out 0.3s;
+	-moz-transition:all ease-in-out 0.3s;
+	-webkit-transition:all ease-in-out 0.3s;
+}
+.traUni-news .box3 .list li{position: relative;padding-bottom: 9px;}
+.traUni-news .box3 .list li:before{
+	content: '';
+	width: 5px;
+	height: 5px;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	background: #4193D2;
+	left: -18px;
+	position: absolute;
+	top:3px;
+}
+.traUni-news .box3 .list li .time{color: #b7c7d2;font-size: 12px;line-height: 1;padding-bottom:2px;}
+.traUni-news .box3 .list li .headTit a{font-size: 14px;color: #31424e;font-weight: bold;}
+.traUni-news .box3 .list li:hover .headTit a{color: #ee5b2e;}
+.traUni-news .box3 .list .cover{
+	position: absolute;
+	width: 100%;
+	height: 32px;
+	left: 0;
+	bottom:0;
+	background-image: -webkit-linear-gradient(180deg, rgba(255,255,255,0.1) 5%, rgba(255,255,255,1) 100%);
+    background-image: -moz-linear-gradient(180deg, rgba(255,255,255,0.3) 5%, rgba(255,255,255,1) 100%);
+    background-image: linear-gradient(180deg, rgba(255,255,255,0.3) 5%, rgba(255,255,255,1) 100%);
+}
+.traUni-news .box3 .refresh{position: absolute;right: 24px;top: 0;transition:all 0.3s ease-in-out;-moz-transition:all 0.3s ease-in-out;-webkit-transition:all 0.3s ease-in-out;}
+.traUni-news .box3 .refresh .line{height:46px;width: 1px;background: #9AC5E4;position: relative;}
+.traUni-news .box3 .refresh .line .circle{position: absolute;z-index: 2;cursor: pointer;bottom:-12px;left:-18px;background: url(../images/yp_spirit.png) no-repeat -402px -6px;width: 37px;height: 37px;}
+.traUni-news .box3 .refresh .line .circle em{position: absolute;left: 12px;top: 5px;background: url(../images/yp_spirit.png) no-repeat -388px -12px;width: 13px;height: 15px;transition:all 0.3s ease-in-out;-moz-transition:all 0.3s ease-in-out;-webkit-transition:all 0.3s ease-in-out;}
+.traUni-news .box3 .refresh.push .line .circle em{
+	-webkit-transform: rotate(360deg);
+	-ms-transform: rotate(360deg);
+	-o-transform: rotate(360deg);
+	transform: rotate(360deg);
+}
+.traUni-news .box3 .refresh.push .line{height: 60px;}
+/*硬创公开课*/
+.ycLesson{margin-top: 10px;}
+.ycLesson .main a{display: block;position: relative;height: 204px;}
+.ycLesson .main a .tags{position:absolute;left:0;top:0;}
+.ycLesson .main .pic img{vertical-align: top;}
+.ycLesson .main .txt{position: absolute;z-index: 2;left: 18px;width:276;bottom:5px;font-size: 14px;color: #fff;font-weight: bold;line-height: 22px;}
+.ycLesson .main a .shadow{
+	position: absolute;
+    width: 100%;
+    height: 35%;
+    left: 0px;
+    bottom: 0px;
+    z-index: 1;
+    background-image: -webkit-linear-gradient(180deg, rgba(0,0,0,0.01) 5%, rgba(0,0,0,0.3) 100%);
+    background-image: -moz-linear-gradient(180deg, rgba(0,0,0,0.01) 5%, rgba(0,0,0,0.3) 100%);
+    background-image: linear-gradient(180deg, rgba(0,0,0,0.01) 5%, rgba(0,0,0,0.3) 100%);
+    -webkit-transition: all 0s ease-out;
+    -moz-transition: all 0s ease;
+    transition: all 0s ease;
+}
+
+/*热门作者*/
+.hot-author .list{border:1px solid #e6e6e6;padding: 0 25px;background: #fff;}
+.hot-author .list li{padding: 25px 0;overflow: hidden;border-bottom:1px dotted #E6E6E6;}
+.hot-author .list li .avater{float: left;width:70px;}
+.hot-author .list li .avater img{vertical-align: top;border-radius: 50%;-webkit-border-radius: 50%;}
+.hot-author .list li .txt{overflow: hidden;padding-left: 15px;}
+.hot-author .list li .txt .name{font-size: 15px;color: #ee5b2e;}
+.hot-author .list li .txt .name .gold{display: inline-block;vertical-align: -5px;margin-left: 8px;background: url(../images/yp_spirit.png) no-repeat -235px -45px;width: 21px;height: 25px;}
+.hot-author .list li .txt .intro{font-size: 14px;color: #5e6b73;line-height: 20px;padding-top: 5px;}
+.hot-author .list li:last-child{border-bottom:0;}
+
+/*业界速递*/
+.express .list{padding: 25px 25px 0 25px;border:1px solid #E6E6E6;background: #fff;}
+.express .list li{padding-bottom: 25px;overflow: hidden;}
+.express .list li .pic{overflow: hidden;padding-left: 20px;}
+.express .list li .pic img{vertical-align: top;}
+.express .list li .txt{width: 130px;float: left;font-size: 14px;color: #31424e;line-height: 22px;word-break: break-word;}
+.express .list li:hover a{color: #ee5b2e;}
+
+/*优质评论*/
+.good-comments .list{border:1px solid #E6E6E6;background: #fff;}
+.good-comments .list .box{padding: 0 20px 0 25px;width: 257px;float: left;height: 515px;overflow: hidden;}
+.good-comments .list .box li{padding:20px 0;border-bottom:1px dotted #E6E6E6; }
+.good-comments .list .box li:last-child{border-bottom:0;}
+.good-comments .list .box li .cmt{position: relative;border-radius: 3px;-webkit-border-radius: 3px;padding: 8px 12px;background: #F7F7F7;line-height: 20px;font-size: 13px;color: #31424e;}
+.good-comments .list .box li .cmt .arrow{position: absolute;left: 18px;border:10px solid transparent;border-left-color: #F7F7F7;bottom:-10px;}
+.good-comments .list .box li .perMsg{padding-top: 15px;}
+.good-comments .list .box li .perMsg .avater{float: left;width: 40px;}
+.good-comments .list .box li .perMsg .avater img{border-radius: 50%;-webkit-border-radius: 50%;vertical-align: top;}
+.good-comments .list .box li .perMsg .txt{overflow: hidden;padding-left: 12px;}
+.good-comments .list .box li .perMsg .txt .name{float: left;font-size: 12px;color: #9baab6;}
+.good-comments .list .box li .perMsg .txt .name span{color: #31424e;padding-right: 3px;float: left;max-width: 88px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+.good-comments .list .box li .perMsg .txt .time{float: right;font-size: 12px;color: #9baab6;}
+.good-comments .list .box li .artHeadTit a{font-size: 12px;color: #5e6b73;white-space: nowrap;overflow: hidden;text-overflow:ellipsis;}
+.good-comments .list .box li:hover .perMsg .txt .name span{color: #ee5b2e;}
+.good-comments .list .scroll-bar{float: left;width: 8px;height:495px;overflow: hidden;background: #fff;border-radius: 3px;position: relative;position: relative;top: 20px;}
+.good-comments .list .scroll-bar b{position: absolute;background: #c3c3c3;width: 8px;height: 35px;border-radius: 3px;cursor: pointer;}
+
+
+.lph-page{display: none;}
+
+/*左侧广告位*/
+.idx-left-ads{padding-bottom: 12px;}
+
+.slide-idxCode{
+	position: fixed;
+    z-index: 99;
+    left: 0;
+    top: 60%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    width: 186px;
+}
+.slide-idxCode img{width: 100%;}
+.slide-idxCode p{line-height: 1.8;color: #000;font-size: 12px;padding: 0 0 8px 0;}
+.minCode{
+	width: 80px;
+	display: none;
+	position: fixed;
+    z-index: 90;
+    left: 0;
+    top: 60%;
+    padding: 5px;
+    background:#fff;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+}
+.minCode img{width:100%;vertical-align: top;}
+.minCode .imgShow{display: none;}
+.minCode.show .imgShow{display: block;width: 182px;position: absolute;left: 0;top: 50%; transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);}
+@media screen and (max-width: 1440px){
+	.minCode{display: block;}
+	.slide-idxCode{display: none;}
+}
+@media screen and (max-width: 1200px){
+	.minCode{display: none;}
+	.slide-idxCode{display: none;}
+}
+
+.lph-right .kuaixun {margin-top: 20px;}
+.lph-right .kuaixun .kx-ul li{ border-bottom:dotted 1px #CBCBCB;}
+.lph-right .kuaixun .kx-ul li.hov{ border-bottom:dotted 1px #DB6D4C;}
+.lph-right .kuaixun .kx-ul li a{width: 100%; height: 100%; display: block;padding: 12px 0;}
+.lph-right .kuaixun .kx-ul li .time{float: left;width: 78px; height: 36px; line-height: 36px; text-align: center;color: #616161; font-size: 12px; background: #F2F2F2;font-family: arial;}
+.lph-right .kuaixun .kx-ul li .time span{display: inline-block; }
+.lph-right .kuaixun .kx-ul li .time span.r{font-size: 22px;   width:30px;margin-right: 2px; text-align: right;}
+.lph-right .kuaixun .kx-ul li .time span.y{font-size: 12px; margin-left: 5px; position: relative; bottom: 1px;}
+/*.lph-right .kuaixun .kx-ul li .time{-webkit-transition: all .3s;-o-transition: all .3s;transition: all .3s;}*/
+.lph-right .kuaixun .kx-ul li.hov .time{background: #DB6D4C; color: #fff;}
+.lph-right .kuaixun .kx-ul li .title{height: 36px; line-height: 18px; overflow: hidden; font-size: 14px; color: #3f3f3f; padding-left: 12px;}
+/*.lph-right .kuaixun .kx-ul li .title{-webkit-transition: all .3s;-o-transition: all .3s;transition: all .3s;}*/
+.lph-right .kuaixun .kx-ul li.hov .title{color: #DB6D4C;}
+
+/***/
+.calendarNews{
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	min-height: 300px;
+	position: relative;
+	z-index: 50;
+	background: #fff;
+	border: 1px solid #e6e6e6;
+}
+.calendarNews .monthly{
+	background: #fff;
+	position: absolute;
+	z-index: 50;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	transition: .25s;
+	transform: scale(0);
+}
+.calendarNews .monthly .monthly-header{
+	height: 35px;
+	line-height: 36px;
+	padding: 0 10px;
+	border-bottom: 1px solid #e6e6e6;
+	font-size: 14px;
+	position: relative;
+}
+.calendarNews .monthly .monthly-header a.btn-back{
+	position: absolute;
+	height: 100%;
+	left: 10px;
+	top: 0px;
+}
+.calendarNews .monthly .monthly-header a.btn-back em{
+	display: inline-block;
+	width: 11px;
+	height: 15px;
+	background: url("../images/yp_spirit.png") no-repeat -14px -300px;
+	vertical-align: middle;
+	margin-top: -1px;
+}
+.calendarNews .monthly .monthly-header .label-date{
+	padding: 0 60px;
+	text-align: center;
+	font-size: 16px;
+}
+.calendarNews .monthly .monthly-event-list{
+	height: 302px;
+	padding: 10px 0;
+	overflow: hidden;
+}
+.calendarNews .monthly .monthly-event-list .cont{
+	padding: 0 15px;
+}
+.calendarNews .monthly .monthly-event-list .monthly-list-item{
+	overflow: hidden;
+	display: none;
+}
+.calendarNews .monthly .monthly-event-list .monthly-list-item.show{
+	display: block;
+}
+.calendarNews .monthly .monthly-event-list .monthly-list-item p{
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.calendarNews .monthly .monthly-event-list .monthly-list-item a{
+	font-size: 14px;
+	line-height: 30px;
+	color: #31424e;
+}
+.calendarNews .monthly .monthly-event-list .monthly-list-item em{
+	display: inline-block;
+	vertical-align: 2px;
+	width: 5px;
+	height: 5px;
+	background: #8BBEE4;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	margin-right: 10px;
+}
+.calendarNews .monthly .monthly-event-list .monthly-list-item a:hover{
+	color: #ee5b2e;
+}
+.calendarNews .monthly .scroll-bar{
+	width: 8px;
+	height: 300px;
+	overflow: hidden;
+	background: #fff;
+	border-radius: 3px;
+	position: absolute;
+	top: 31px;
+	right: 0;
+}
+.calendarNews .monthly .scroll-bar b{
+	position: absolute;
+	background: #c3c3c3;
+	width: 8px;
+	height: 0px;
+	overflow: hidden;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.myCalNews.calendar .calendar-views .now{
+	background: #ff917a!important;
+}
+.myCalNews.calendar .calendar-views .selected{
+	color: inherit;
+	background: none!important;
+}
+.myCalNews.calendar .calendar-views .now.selected{
+	color: #fff;
+	background: #ff917a!important;
+}
+.myCalNews.calendar .calendar-views .days .old{
+	visibility: hidden;
+}
+
+.myCalNews.calendar .calendar-views .dot{
+	width: 16px;
+	height: 2px;
+	overflow: hidden;
+	background: #3e93d3;
+	border-radius: 0;
+	margin-left: -8px;
+	bottom: 7px;
+}
+.calendar-label{
+	z-index: 100;
+}

@@ -9,6 +9,11 @@
         <a href="/home/column/{{$val->id}}"  class=" ">{{$val->name}}</a>
         @endforeach
     </div>
+    <div class="wrapper">
+        
+        <a href="/home/shop/index"  class=" ">积分商城</a>
+      
+    </div>
    
 </nav>
 

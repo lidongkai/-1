@@ -23,20 +23,44 @@ class LoginController extends Controller
         $res = \DB::table('users')->where('username',$data['username'])->first();
         // dd($res);
         // $pwd = \DB::table('users')->where('password',$data['password'])->first();
- 
 
         if(!$res)
         {
             return response()->json('1');
         }
 
+        // //时间
+        // $lasttime = time();
 
         //判断密码
         $pwd = $res->password;
         // dd($pwd);
         if(\Hash::check($data['password'],$pwd))
-        {   //存session
+        {   
+            $time=date('Y-m-d h:i:s',time());
+            //获取最后一次登录时间
+            $exit['updated_at'] = $time;
+            //将数据库中最后一次登录的时间转换成时间戳
+            $beforetime=strtotime($res->updated_at);
+            // dump(time());
+            // dump($beforetime);
+            // dump(60*60*24);
+            // dd(time()-$beforetime);
+            //如果时间差大于一天,加积分
+            if (time()-$beforetime>5) {
+                $exit['score']=$res->score+10;
+            }
+            //更新数据库中最后一次登录时间和(积分)
+            $result=\DB::table('users')->where('username',$data['username'])->update($exit);
+            // dd($result);
+            
+            //存session
             session(['master'=>$res]);
+            //详情session
+             // dd($res['id']);
+            $ress=\DB::table('userdetail')->where('nickname',$data['username'])->first();
+            session(['userdetail'=>'']);
+            session(['userdetail'=>$ress]);
             
             return response()->json('0');
 
@@ -107,9 +131,18 @@ class LoginController extends Controller
 
         //添加注册
         $res = \DB::table('users')->insert($data);
+        $resaa = \DB::table('users')->where('username',$data['username'])->first();
+        // dd($resaa
+        $detail=array();
+        $detail['uid']=$resaa->id; 
+        $detail['photo']=$resaa->photo; 
+        $detail['email']=$resaa->email;  
+        // dd($detail);
+        $resbb = \DB::table('userdetail')->insert($detail);
 
         if($res)
-        {
+        {   
+            $exit['score'] = 100;
             return response()->json('0');
         }else
         {
@@ -121,6 +154,6 @@ class LoginController extends Controller
    public function Loginout(Request $request)
    {    
         $request->session()->forget('master');
-        return redirect('/home/layout');
+        return redirect('/home/index');
    }
 }
