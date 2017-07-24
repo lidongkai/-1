@@ -11,13 +11,33 @@ class IndexController extends Controller
     public function index(Request $request)
     {	
     	$data = \DB::table('column')->get();
-    	$data1 = \DB::table('articles')->where('status',1)->paginate(10);
+    	$data1 = \DB::table('articles')->where('status',1)->orderBy('ctime','desc')->paginate(10);
     	$data2 = \DB::table('articles')->where([
     			['status',1],
     			['chosen',1]
     			])->get();
+        if($request->skip)
+        {
+            $skip = $request->skip;
+        }else
+        {
+            $skip = 0;
+        }
 
-    	return view ('home.index.index',['request'=>$request->all(),'data'=>$data,'data1'=>$data1,'data2'=>$data2]);
+        $data3 = \DB::table('articles')->where('status',1)->skip($skip)->take(6)->orderBy('ctime','desc')->get();
+
+        $data4 = \DB::table('articles')->where([
+                ['status',1],
+                ['top',1]
+            ])->take(4)->get();
+
+        $data5 = \DB::table('articles')->where([
+                ['status',1],
+                ['lunbo',1]
+            ])->take(4)->get();
+
+    	return view ('home.index.index',['request'=>$request->all(),'data'=>$data,'data1'=>$data1,'data2'=>$data2,'data3'=>$data3,'data4'=>$data4,'data5'=>$data5]);
+
     }
 
     public function column(Request $request)
@@ -29,7 +49,7 @@ class IndexController extends Controller
     	$data1 = \DB::table('articles')->where([
     		['cid',$request->id],
     		['status',1]
-    		])->paginate(10);
+    		])->orderBy('ctime','desc')->paginate(10);
     	
     	return view ('home.index.column',['hname'=>$hname ,'request'=>$request->all(),'data'=>$data,'data1'=>$data1]);
     }
@@ -37,7 +57,31 @@ class IndexController extends Controller
     public function show(Request $request)
     {
         $data = \DB::table('articles')->where('id',$request->id)->first();
+        $data1 = \DB::table('comment')->where('aid',$request->id)->orderBy('ctime','desc')->get();
+      
+        return view('home.index.show',['data'=>$data,'data1'=>$data1]);
+    }
+
+
+    public function refresh(Request $request)
+    {
+        $data = \DB::table('column')->get();
+        $data1 = \DB::table('articles')->where('status',1)->orderBy('ctime','desc')->paginate(10);
+        $data2 = \DB::table('articles')->where([
+                ['status',1],
+                ['chosen',1]
+                ])->get();
+        if($request->skip)
+        {
+            $skip = $request->skip;
+        }else
+        {
+            $skip = 0;
+        }
+
+        $data3 = \DB::table('articles')->where('status',1)->skip($skip)->take(6)->orderBy('ctime','desc')->get();
         
-        return view('home.index.show',['data'=>$data]);
+        return response() -> json($data3);
+        
     }
 }

@@ -37,33 +37,27 @@
                 {{session('info')}}
               </div>
             @endif  
-            <form role="form" action="/home/user/insertarticle" method="post" enctype="multipart/form-data">
+            <form role="form" action="/home/article/update" method="post" enctype="multipart/form-data">
               <div class="box-body">
               {{csrf_field()}}
-                <div class="form-group">
-                <b>栏目名</b>
-                  <select class="form-control" name="cid">
-                  @foreach( $data as $key=>$val)
-                    <option value="{{$val->id}}" >{{$val->name}}</option>
-                  @endforeach  
-                  </select>
-                </div>
-
+                
+                <input type="hidden" name="id" value="{{$data->id}}">
               	<div class="form-group">
                   <label for="exampleInputName">文章标题</label>
-                  <input type="text" name="atitle" value="{{ old('atitle')}}" class="form-control" id="exampleInputName" placeholder="请输入文章名">
+                  <input type="text" name="atitle" value="{{ $data->atitle}}" class="form-control" id="exampleInputName" placeholder="请输入文章名">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputDescript">文章描述</label>
-                  <input type="text" name="descript" value="{{ old('descript')}}" class="form-control" id="exampleInputDescript" placeholder="请输入文章描述">
+                  <input type="text" name="descript" value="{{ $data->descript}}" class="form-control" id="exampleInputDescript" placeholder="请输入文章描述">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputPicture">封面图片</label>
-                  <input type="file" name="picture" value="{{ old('picture')}}" class="form-control" id="exampleInputPicture" placeholder="请输入文章描述">
+                  <label for="exampleInputPicture">封面图片</label><br/>
+                  <img style="width:100px;" src="/uploads/article/{{$data->picture}}" alt="">
+                  <input type="file" name="picture"  class="form-control" id="exampleInputPicture" placeholder="请输入文章描述">
                 </div>
                 <div class="form-group">
                    
-                  <script id="editor" type="text/plain" style="width:950px;height:350px;"></script>
+                  <script id="editor" type="text/plain" style="width:950px;height:350px;">{!! $data->editorValue!!}</script>
                   <script type="text/javascript">
                     var ue = UE.getEditor('editor');
                   </script>

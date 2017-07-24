@@ -122,6 +122,9 @@ Route::get('/admin/article/delete/{id}','Admin\ArticleController@delete');
 Route::get('/admin/article/show/{id}','Admin\ArticleController@show');
 // ajax更改状态
 Route::post('/admin/article/ajaxstatus','Admin\ArticleController@ajaxStatus');
+Route::post('/admin/article/ajaxtop','Admin\ArticleController@ajaxTop');
+Route::post('/admin/article/ajaxchosen','Admin\ArticleController@ajaxChosen');
+Route::post('/admin/article/ajaxlunbo','Admin\ArticleController@ajaxLunbo');
 
 // 商品分类管理
 Route::resource('/admin/goods',"Admin\GoodsController");
@@ -157,14 +160,32 @@ Route::get('/home/user/index','Home\UserController@index');
 
 // Route::
 // home
-//
+// 前台主
 Route::get('/home/index','Home\IndexController@index');
-
+// 前台栏目
 Route::get('/home/column/{id}','Home\IndexController@column');
-
+// 前台文章详情
 Route::get('/home/show/{id}','Home\IndexController@show');
+// 前台业界资讯刷新
+Route::post('/home/refresh','Home\IndexController@refresh');
 
-
+// 前台个人中心文章
 Route::get('/home/user/article','Home\ArticleController@index');
-
+// 前台个人中心文章添加
 Route::get('/home/user/addarticle','Home\ArticleController@addarticle');
+// 前台个人中心文章执行添加
+Route::post('/home/user/insertarticle','Home\ArticleController@insertarticle');
+// 前台文章修改
+Route::get('/home/article/edit/{id}','Home\ArticleController@edit');
+// 前台文章执行修改
+Route::post('/home/article/update','Home\ArticleController@update');
+// 前台文章删除
+Route::get('/home/article/delete/{id}','Home\ArticleController@delete');
+// 前台文章评论
+Route::post('/home/article/comment','Home\ArticleController@comment');
+// 前台发送私信
+Route::post('/home/user/sixin','Home\ArticleController@ajaxSixin');
+// 前台个人中心接收私信
+Route::get('/home/user/sixin','Home\UserController@sixin');
+
+

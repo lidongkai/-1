@@ -7,44 +7,45 @@
   <meta name="description" content="雷锋网是国内最早关注人工智能和智能硬件领域的互联网科技媒体，内容涵盖人工智能、智能硬件、机器人、智能驾驶、ARVR、网络安全、物联网、未来医疗、金融科技等9大领域。雷锋网致力于连接和服务学术界、工业界与投资界，为用户提供更专业的互联网科技资讯和培训服务，让用户读懂智能与未来。" />
     <meta name="sogou_site_verification" content="ilkqV8FehD"/>
     <meta name="renderer" content="webkit">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    
     <link rel="stylesheet" href="{{asset('/css/app.css')}}">
 
         <link rel="stylesheet"  type="text/css" href="/leiphone/css/common.css"  />
         
       <link rel="stylesheet"  type="text/css" href="/leiphone/css/list.css" />
 
-    <link rel="stylesheet" type="text/css" href="/leiphone/css/jquery.mcustomscrollbar.css"  />
-    <link rel="stylesheet" type="text/css" href="/leiphone/css/calendar.css"  />
+
     <link rel="stylesheet" type="text/css" href="/leiphone/css/index.css"  />    
     
 
+  
+  <link rel="stylesheet" type="text/css" href="/leiphone/css/set.css"  />
+  <link rel="stylesheet" type="text/css" href="/leiphone/css/tips.css"  />
+  
 
+<script type="text/javascript" src="/leiphone/js/bw-loader-411.4.5.js"></script>
     
-    
+      <script type="text/javascript" src="/leiphone/js/mobilecheck.js"></script>
    
    
-    <script  src="/leiphone/js/jquery-3.2.1.min.js"></script>
+   <script  src="/leiphone/js/jquery-3.2.1.min.js"></script>
    
     <script  src="/leiphone/js/bootstrap.min.js"></script>
-   
     <link href="/leiphone/css/bootstrap.min.css" rel="stylesheet">
-
-    <script  src="/leiphone/js/tips.js"></script>
-    <script src="/leiphone/js/jquery-sea.js"></script>
-    <script src="/leiphone/js/sea.js"></script>
-   
-    <script  src="/leiphone/js/aq_auth.js"></script>
-    <script  src="js/9052.js"></script>
-   
-   
-   
+   <script src="/leiphone/js/jquery-sea.js"></script>
+   <script  src="/leiphone/js/global.js"></script>
+  
+    
+    
+  
+    
+      <script src="/leiphone/js/com_banner.js"></script>
     <script src="/leiphone/js/list.js"></script>
-    <script  src="/leiphone/js/mobilecheck.js"></script>
-    <script  src="/leiphone/js/com_banner.js"></script>
+    
+
+    
    
-    <script  src="/leiphone/js/global.js"></script>
-    <script  src="/leiphone/js/index.js"></script>
-    <script  src="/leiphone/js/calendarNews.js"></script>  
 
 </head>
 <body>
@@ -87,8 +88,8 @@
             <div class="yp-header-message"  style="margin-top:22px;font-size:16px;">
             <a data-toggle="modal" data-target="#register" href="">注册</a>
             </div>
-            <div class="yp-header-message" style="margin-top:22px;font-size:16px;">
-            <a data-toggle="modal" data-target="#login" href="">登录</a>
+            <div  class="yp-header-message" style="margin-top:22px;font-size:16px;">
+            <a id="loginkk" data-toggle="modal" data-target="#login" href="">登录</a>
             </div>
         </div>
         @endif
@@ -221,7 +222,7 @@ $.ajaxSetup({
         if(data == '0')
         {
           alert('恭喜,登录成功');
-          location.href = '/home/layout';
+          location.href = location.href;
           // $('#hidd').hide();
         }
         if(data == '1')
@@ -275,6 +276,12 @@ $.ajaxSetup({
     });
 
    </script>
+
+   <script>
+  var liW=388;
+  var currentMonthNews = {"ret":0,"data":{"2017-07-07":[{"title":"CCF-GAIR 2017 | \u6df1\u5733","url":"http:\/\/gair.leiphone.com\/"}],"2017-07-08":[{"title":"CCF-GAIR 2017 | \u6df1\u5733","url":"http:\/\/gair.leiphone.com\/"}],"2017-07-09":[{"title":"CCF-GAIR 2017 | \u6df1\u5733","url":"http:\/\/gair.leiphone.com\/"},{"title":"\u963f\u91cc\u4e91\u5b89\u5168\u5cf0\u4f1a","url":"none"}],"2017-07-22":[{"title":"BlackHat \u00ae\ufe0f USA 2017 | \u7f8e\u56fd\u62c9\u65af\u7ef4\u52a0\u65af ","url":"https:\/\/www.blackhat.com\/us-17\/"},{"title":"CCAI 2017 | \u676d\u5dde","url":"http:\/\/ccai.caai.cn\/"},{"title":"KDD Summer School - \u6570\u636e\u9a71\u52a8\u667a\u80fd | \u6210\u90fd","url":"http:\/\/kddchina.org\/#\/Content\/summerschool"},{"title":"CVPR 2017 | \u590f\u5a01\u5937\uff0c\u7f8e\u56fd","url":"http:\/\/cvpr2017.thecvf.com\/"}],"2017-07-28":[{"title":"RSAC\u00ae\ufe0f Asia | \u65b0\u52a0\u5761","url":"https:\/\/www.rsaconference.com\/events\/ap17"},{"title":"\u4e2d\u56fd\u673a\u5668\u5b66\u4e60\u4f1a\u8bae CCML2017 | \u5929\u6d25","url":"http:\/\/ccml2017.org.cn\/"}],"2017-07-27":[{"title":"DEFCON 25 | \u7f8e\u56fd\u62c9\u65af\u7ef4\u52a0\u65af","url":"https:\/\/defcon.org\/html\/defcon-25\/dc-25-index.html"},{"title":"\u4e2d\u56fd\u673a\u5668\u5b66\u4e60\u4f1a\u8bae CCML2017 | \u5929\u6d25","url":"http:\/\/ccml2017.org.cn\/"}],"2017-07-23":[{"title":"CCAI 2017 | \u676d\u5dde","url":"http:\/\/ccai.caai.cn\/"},{"title":"KDD Summer School - \u6570\u636e\u9a71\u52a8\u667a\u80fd | \u6210\u90fd","url":"http:\/\/kddchina.org\/#\/Content\/summerschool"},{"title":"CVPR 2017 | \u590f\u5a01\u5937\uff0c\u7f8e\u56fd","url":"http:\/\/cvpr2017.thecvf.com\/"}],"2017-06-30":[{"title":"2017\u5168\u7403\u673a\u5668\u5b66\u4e60\u6280\u672f\u5927\u4f1a | \u5317\u4eac","url":"http:\/\/ml-summit.org\/"}],"2017-07-26":[{"title":"\u4e2d\u56fd\u673a\u5668\u5b66\u4e60\u4f1a\u8bae CCML2017 | \u5929\u6d25","url":"http:\/\/ccml2017.org.cn\/"},{"title":"CVPR 2017 IEEE\u56fd\u9645\u8ba1\u7b97\u673a\u89c6\u89c9\u4e0e\u6a21\u5f0f\u8bc6\u522b\u4f1a\u8bae | \u590f\u5a01\u5937\uff0c\u7f8e\u56fd","url":"http:\/\/cvpr2017.thecvf.com\/"}],"2017-07-24":[{"title":"KDD Summer School - \u6570\u636e\u9a71\u52a8\u667a\u80fd | \u6210\u90fd","url":"http:\/\/kddchina.org\/#\/Content\/summerschool"},{"title":"CVPR 2017 | \u590f\u5a01\u5937\uff0c\u7f8e\u56fd","url":"http:\/\/cvpr2017.thecvf.com\/"}],"2017-07-21":[{"title":"CVPR 2017 | \u590f\u5a01\u5937\uff0c\u7f8e\u56fd","url":"http:\/\/cvpr2017.thecvf.com\/"}],"2017-07-25":[{"title":"CVPR 2017 | \u590f\u5a01\u5937\uff0c\u7f8e\u56fd","url":"http:\/\/cvpr2017.thecvf.com\/"}],"2017-07-30":[{"title":"ACL 2017 \u56fd\u9645\u8ba1\u7b97\u8bed\u8a00\u5b66\u9876\u7ea7\u4f1a\u8bae | \u6e29\u54e5\u534e\uff0c\u52a0\u62ff\u5927","url":"http:\/\/acl2017.org\/"}]}};
+    seajs.use(['https://www.leiphone.com/resWeb/js/index/index','https://www.leiphone.com/resWeb/js/index/calendarNews']);
+  </script>
 </body>
 
   @yield('content')

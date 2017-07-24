@@ -1,0 +1,49 @@
+/***个人中心【雷锋】模块样式***
+*
+*/
+.contRtModel2 .partBox .hd{padding: 16px 25px;border:1px solid #efeeee;background-color:#fff;height: 100px;border-radius: 15px; }
+.contRtModel2 .partBox .hd .l-mess{float: left;border-right: 1px dotted #cecece;}
+.contRtModel2 .partBox .hd .m-mess{float: left;padding: 0 20px;border-right:1px dotted #cecece;height: 100px;}
+.contRtModel2 .partBox .hd .r-mess{float: left;/*width:278px;*/max-width: 220px;padding-left: 55px;line-height: 24px;font-size: 14px;color: #000;position: relative;margin-top: 18px; word-break: break-word;height: 72px;overflow: hidden;}
+.contRtModel2 .partBox .hd .l-mess .face{float: left;}
+.contRtModel2 .partBox .hd .l-mess .face img{width: 100px;height: 100px;border-radius: 50%;}
+.contRtModel2 .partBox .hd .l-mess .face-name{overflow: hidden;padding-left: 20px;padding-right: 20px;float: left;}
+.contRtModel2 .partBox .hd .l-mess .nickname{width: 115px;}
+.contRtModel2 .partBox .hd .l-mess .nickname a{padding-top: 20px;color:#000;font-size: 16px;display: inline-block; width: 100%;white-space: nowrap;overflow: hidden; text-overflow: ellipsis;}
+.contRtModel2 .partBox .hd .l-mess p img{padding-top: 10px;}
+.contRtModel2 .partBox .hd .m-mess p{color: #000;font-size: 14px;padding-top: 20px;}
+.contRtModel2 .partBox .hd .m-mess p a.q{margin-left: 10px;display: inline-block;width: 21px;height: 21px;text-align: center;font-size: 16px;line-height: 21px;border-radius: 50%;background-color: #bfbfbf;color: #fff;}
+.contRtModel2 .partBox .hd .r-mess em{position: absolute;background: url('../images/common/home-ico.png') no-repeat -59px -78px;width: 19px;height: 18px;left:24px;}
+.contRtModel2 .partBox .noRead-mess{margin: 20px 0;}
+.contRtModel2 .partBox .noRead-mess span{display: inline-block;height: 30px;line-height: 30px;padding: 0 25px;background-color: #fceedf;color: #333;font-size: 14px;border-radius: 15px;}
+.contRtModel2 .partBox .noRead-mess span em{width: 6px;height: 6px;border-radius: 50%;background-color: #ff6600;vertical-align: middle;display: inline-block;margin-right: 8px;}
+.contRtModel2 .partBox .noRead-mess span i,
+.contRtModel2 .partBox .noRead-mess span a{color:#ff6600;padding: 0 2px;display: inline-block; }
+.contRtModel2 .partBox .main-list{border:1px solid #efeeee;background-color: #fff;padding: 0 50px 80px 30px;min-height: 600px;}
+.contRtModel2 .partBox .list ul{overflow: hidden;padding-bottom: 20px;}
+.contRtModel2 .partBox .list h1{padding:35px 0 10px 6px;font-size: 16px;}
+.contRtModel2 .partBox .list li{padding: 10px 6px 25px 6px;}
+.contRtModel2 .partBox .CollectList li{border-top: 1px dashed #cdcdcd;padding-top: 15px;}
+.contRtModel2 .partBox .CollectList li.first{border-top: 0;}
+.contRtModel2 .partBox .CollectList li:hover{background-color: #f2f2f2;}
+.contRtModel2 .partBox .list li .tit{overflow: hidden;}
+.contRtModel2 .partBox .list li .name{float: left;width: 520px;}
+.contRtModel2 .partBox .list li .name a{display: inline-block;width: 100%;overflow: hidden;white-space: nowrap;text-overflow:ellipsis;color: #cd441b;font-size: 14px;}
+.contRtModel2 .partBox .list li .time{color: #ccc;font-size: 12px;float: right;}
+.contRtModel2 .partBox .list li .descri{font-size: 12px;color: #999;padding-top: 8px;overflow: hidden;white-space: nowrap;text-overflow:ellipsis;}
+.contRtModel2 .partBox .list .more{text-align: right;}
+.contRtModel2 .partBox .list .more a{color:#333;font-size: 14px;}
+.contRtModel2 .partBox .commentList h1{padding-bottom: 0}
+.contRtModel2 .partBox .commentList li{border-bottom: 1px dashed #cdcdcd;padding-top: 20px;}
+.contRtModel2 .partBox .commentList li .name a{font-size: 12px;}
+.contRtModel2 .partBox .commentList li .descri{color: #333;font-size: 14px;}
+.contRtModel2 .partBox .commentList li .descri em{display: inline-block;vertical-align: middle;background: url('../images/common/home-ico.png') no-repeat -61px -101px;width: 16px;height: 13px;margin-right: 10px;}
+
+/*无收藏，无评论*/
+.contRtModel2 .partBox .CollectList .no-collect,
+.contRtModel2 .partBox .commentList .no-comment,
+.contRtModel2 .partBox .CollectList .no-post{padding: 40px 0 20px 0;text-align: center;color: #ccc;font-size: 14px;}
+.contRtModel2 .partBox .CollectList .no-collect em,
+.contRtModel2 .partBox .commentList .no-comment em,
+.contRtModel2 .partBox .CollectList .no-post em{display: block;margin: 0 auto 15px auto;background: url('../images/common/home-ico.png') no-repeat -1px -150px;width: 56px;height: 53px;}
+.contRtModel2 .partBox .commentList .no-comment em{background-position:-2px -211px;width: 48px;height: 44px;}
