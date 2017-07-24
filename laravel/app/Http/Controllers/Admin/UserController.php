@@ -131,7 +131,7 @@ class UserController extends Controller
     		//头像更新
     		if($request->hasFile('photo'))
     		{
-    			if($request->file('photo')->isVaild())
+    			if($request->file('photo')->isValid())
     			{
     				$ext = $request->file('photo')->extension();
 

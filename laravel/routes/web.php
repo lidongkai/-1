@@ -54,6 +54,18 @@ Route::group(['middleware'=>'adminlogin'],function(){
 			//修改
 			Route::post('/admin/links/update','Admin\LinksController@update');
 			Route::post('/admin/links/insert','Admin\LinksController@insert');
+
+			//网络配置
+			Route::get('/admin/config/index','Admin\ConfigController@index');
+
+			//网络配置修改页
+			Route::get('admin/config/edit/{id}','Admin\ConfigController@edit');
+
+			//网络配置执行添加
+			Route::post('admin/config/update','Admin\ConfigController@update');
+
+			//ajax修改状态
+
 });
 
 
@@ -75,6 +87,8 @@ Route::get('kit/captcha/{tmp}', 'Admin\KitController@captcha');
 
 // ajax更改状态
 Route::post('/admin/user/ajaxstatus','Admin\UserController@ajaxStatus');
+
+Route::post('/admin/config/ajaxstatus','Admin\ConfigController@ajaxstatus');
 
 Route::post('/admin/links/ajaxstatus','Admin\LinksController@ajaxStatus');
 
@@ -158,11 +172,31 @@ Route::get('/home/loginout','Home\LoginController@Loginout');
 Route::get('/home/user/index','Home\UserController@index');
 
 
+
 // Route::
 // home
 // 前台主
 Route::get('/home/index','Home\IndexController@index');
 // 前台栏目
+
+//前台完善资料
+Route::get('/home/user/information','Home\UserController@information');
+
+//前台完善添加信息
+Route::post('/home/user/add','Home\UserController@add');
+
+//前台更改密码模板
+Route::get('/home/user/safe','Home\UserController@safe');
+
+//用户前台修改密码
+Route::post('/home/user/update','Home\UserController@update');
+
+
+Route::get('/home/index','Home\IndexController@index');
+
+
+
+
 Route::get('/home/column/{id}','Home\IndexController@column');
 // 前台文章详情
 Route::get('/home/show/{id}','Home\IndexController@show');
@@ -173,6 +207,7 @@ Route::post('/home/refresh','Home\IndexController@refresh');
 Route::get('/home/user/article','Home\ArticleController@index');
 // 前台个人中心文章添加
 Route::get('/home/user/addarticle','Home\ArticleController@addarticle');
+
 // 前台个人中心文章执行添加
 Route::post('/home/user/insertarticle','Home\ArticleController@insertarticle');
 // 前台文章修改
@@ -187,5 +222,10 @@ Route::post('/home/article/comment','Home\ArticleController@comment');
 Route::post('/home/user/sixin','Home\ArticleController@ajaxSixin');
 // 前台个人中心接收私信
 Route::get('/home/user/sixin','Home\UserController@sixin');
+
+
+//短信验证
+Route::post('/home/sendmessage','Home\SendMessageController@sendmessage');
+
 
 

@@ -1,16 +1,16 @@
 @extends('home.layout')
 
 @section('content')
-<link rel="stylesheet" type="text/css" href="/leiphone/css/jiazaitoubu.css">
-    
-   
-   
+
+    <link rel="stylesheet" type="text/css" href="/leiphone/css/jiazaitoubu.css">
+
     <link rel="stylesheet" type="text/css" href="/leiphone/css/center.css">
     <!--城市联动-->
     <link rel="stylesheet" type="text/css" href="/leiphone/css/city.css">
     <script src="/leiphone/js/popt.js"></script>
     <script src="/leiphone/js/cityjson.js"></script>
     <script src="/leiphone/js/cityset.js"></script>
+
 <div class="now_positionm">
 <span>当前位置：</span><a href="#">首页></a><a href="#">资料管理</a>
 </div>
@@ -40,20 +40,25 @@
                 <b></b>
             </div>
             <span class="gjszmdm">
+
                 <a href="/home/user/information" class="center_in_self"><font>详细资料</font></a>
                 <a href="#" class="center_in_self"><font>安全中心</font></a>
                 <a href="#" class="center_in_self"><font>修改信息</font></a>
+                <a href="/home/user/information" class="center_in_self"><font>完善资料</font></a>
+                <a href="/home/user/safe" class="center_in_self"><font>修改密码</font></a>
+
             </span>
             <!--一条开始-->
-            <div class="centers_listm_one_in">
-                <img src="/leiphone/picture/ddgl.png"/>
-                <em>我的文章</em>
-                <b></b>
-            </div>
+            
             <span class="gjszmdm">
+
                 <a href="/home/user/article" class="center_in_self"><font>我的文章</font></a>
                 <a href="/home/user/addarticle" class="center_in_self"><font>发表文章</font></a>
                 <a href="#" class="center_in_self"><font>我的收藏</font></a>
+
+                <a href="#" class="center_in_self"><font>我的订单</font></a>
+                <a href="#" class="center_in_self"><font>我的预约</font></a>
+                <a href="#" class="center_in_self"><font>评价订单</font></a>
                 <a href="#" class="center_in_self"><font>订单投诉</font></a>
             </span>
             <!--一条开始-->
@@ -94,10 +99,15 @@
     </div>
     <!--right-->
     <div class="centers_mr">
+
    @yield('user')
         
     </div>
 </div>   
+
+
+
+
 
      
 @endsection

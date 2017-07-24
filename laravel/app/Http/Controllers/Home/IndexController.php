@@ -16,6 +16,7 @@ class IndexController extends Controller
     			['status',1],
     			['chosen',1]
     			])->get();
+
         if($request->skip)
         {
             $skip = $request->skip;
@@ -36,7 +37,23 @@ class IndexController extends Controller
                 ['lunbo',1]
             ])->take(4)->get();
 
-    	return view ('home.index.index',['request'=>$request->all(),'data'=>$data,'data1'=>$data1,'data2'=>$data2,'data3'=>$data3,'data4'=>$data4,'data5'=>$data5]);
+
+
+
+
+        $dataz1 = \DB::table('links')->get();
+        // dd($data3);
+
+        $data8 = \DB::table('config')->get();
+        $data8 = $data8[0]->status;
+        if($data8 == '1')
+        {
+            return view ('home.index.index',['request'=>$request->all(),'data'=>$data,'data1'=>$data1,'data2'=>$data2,'data3'=>$data3,'data4'=>$data4,'data5'=>$data5,'dataz1'=>$dataz1]);
+        }else
+        {
+            return view('home.down.index');
+        }
+    	
 
     }
 

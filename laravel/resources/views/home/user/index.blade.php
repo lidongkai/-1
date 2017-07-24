@@ -1,3 +1,4 @@
+
 @extends('home.user.layout')
 
 @section('user')
@@ -83,4 +84,6 @@
             </div>
         </div>
     </div>
-@endsection
+@endsection    
+
+

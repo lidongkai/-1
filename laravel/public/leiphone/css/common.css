@@ -1,5 +1,11 @@
+
 /*
 	é›·é”‹ç½‘å…¬å…±æ ·å¼ common.css
+=======
+﻿
+/*
+	雷锋网公共样式 common.css
+>>>>>>> 12c8517c4da6e4ef5a7709f1612e61c70f99e0d3
 */
 @charset "utf-8";
 /* =s Reset (by wuyue) */
@@ -175,8 +181,13 @@ input:focus{outline: 0;}
 .yp-header-user .user-link li.l4 i {background-position:  -330px -12px;width: 19px;height: 20px;top: 5px;}
 .yp-header-user .user-link li.l5 i {background-position:  -355px -12px;width: 19px;height: 20px;top: 5px;}
 
+
 /*å¯¼èˆªæ æ¶ˆæ¯*/
 .yp-header-message{float:right; width:52px;position: relative;height: 60px;margin-right: 15px;}
+
+/*导航栏消息*/
+.yp-header-message{float:right; position: relative;height: 60px;margin-right: 15px;}
+>>>>>>> 12c8517c4da6e4ef5a7709f1612e61c70f99e0d3
 .yp-header-message .bell{position: absolute; display: block;;width:52px;height: 68px;border-top: 0;border-bottom: 0;}
 .yp-header-message .bell{
   -webkit-transition:all 0s;
