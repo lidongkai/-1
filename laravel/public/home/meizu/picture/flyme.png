@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge;charset=utf-8">
+    <title>魅族-你的访问出错了</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="//store.res.meizu.com/resources/php/store/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    <link href="//store.res.meizu.com/resources/php/store/favicon.ico" rel="icon" type="image/x-icon" />
+
+    <meta name="keywords" content="魅族在线商店，魅族MX4，魅族MX3，魅族MX2，魅族手机配件">
+    <meta name="description" content="到魅族在线商店购买魅族MX4、魅族MX3、魅族MX2、以及魅族手机配件。" />
+
+    <!-- common css -->
+        <link rel="stylesheet" href="//store.res.meizu.com/resources/php/store/static/common/pkg/site-base.css?_dv=20160505" />
+
+<!--[if lt IE 9]>
+<script>
+  var c = ["log","debug","info","warn","exception","assert","dir","dirxml","trace","group","groupCollapsed","groupEnd","profile","profileEnd","count","clear","time","timeEnd","timeStamp","table","error"];
+  window.console = {};
+  for(var i = 0; i < c.length; i++){
+    window.console[c[i]] = function(){
+
+    }
+  }
+</script>
+<![endif]-->
+    <link rel="stylesheet" href="//store.res.meizu.com/resources/php/store/css/store_index.css?20160411" />
+    <style>
+        .section{background-color: #fff; padding: 48px 0;}
+        .container{width: 1040px; margin: 0 auto;}
+        .container h1{font-size: 30px;font-weight: 200; margin-bottom: 35px; color: #333333;margin-top: 15px;}
+        .btn{background-color: #00c3f5; width: 280px; height: 60px; text-align: center; display: inline-block;color: #fff; font-size: 22px; line-height: 60px;border-radius: 2px;}
+        #count{margin-right: 8px;color: #fff600;}
+        .container > .block{padding: 33px 60px; position: relative;}
+        .container > .block .link_area{position: absolute; right: 150px;top: 130px;}
+    </style>
+
+</head>
+<body>
+<!-- common header -->
+
+<div class="site-topbar clearfix">
+  <div class="mzcontainer">
+    <div class="topbar-nav">
+      <a href="http://www.meizu.com" target="_blank">魅族官网</a>
+      <a href="http://store.meizu.com/index.html">魅族商城</a>
+      <a href="http://www.flyme.cn" target="_blank">Flyme</a>
+      <a href="http://retail.meizu.com/index.html" target="_blank">专卖店</a>
+      <a href="http://service.meizu.com/index.html" target="_blank">服务</a>
+      <a href="http://bbs.meizu.cn" target="_blank">社区</a>
+    </div>
+    <div class="topbar-right">
+      <ul class="topbar-info">
+        <li class="topbar-info-msg" id="MzTopbarMsg">
+          <a class="topbar-link" href="/member/message/index" target="_blank">消息</a>
+          <span class="msg-tag" id="MzMsgTag"></span>
+        </li>
+        <li class="topbar-order-msg">
+          <a class="topbar-link" href="/member/myorder/index" target="_blank">我的订单</a>
+          <span class="msg-tag" id="MzOrderMsgTag"></span>
+        </li>
+        <li class="mz_login">
+          <a class="topbar-link site-login" href="https://member.meizu.com/login/login.html?appuri=http://store.meizu.com/accounts/login.htm&sid=&service=store&useruri=http://store.meizu.com:80/not_found/?create_url=static" data-href="https://member.meizu.com/login/login.html?appuri=http://store.meizu.com/accounts/login.htm&sid=&service=store&useruri=">登录</a>
+        </li>
+        <li class="mz_login">
+          <a class="topbar-link" href="https://member.meizu.com/register" target="_blank">注册</a>
+        </li>
+        <li class="topbar-info-member" style="display:none;">
+          <a class="topbar-link" href="/member/index" target="_blank">
+            <span id="MzUserName" class="site-member-name">MEIZU</span>的商城
+          </a>
+          <div class="site-member-items">
+            <a class="site-member-link" href="/member/address/index" target="_blank">地址管理</a>
+            <a class="site-member-link" href="/member/repurchase_ticket/index" target="_blank">我的回购券</a>
+            <a class="site-member-link" href="/member/suggest/index" target="_blank">问题反馈</a>
+            <a class="site-member-link site-logout" href="http://store.meizu.com/member/logout.htm?useruri=http://store.meizu.com" data-href="http://store.meizu.com/member/logout.htm?useruri=http://store.meizu.com">退出</a>
+          </div>
+        </li>
+      </ul>
+      <div class="topbar-info-pop"></div>
+    </div>
+  </div>
+</div>
+
+<div class="site-header">
+  <div class="mzcontainer">
+    <div class="header-logo">
+      <a href="http://www.meizu.com" target="_blank">
+      <img src="//store.res.meizu.com/resources/php/store/images/logo-header.png"
+        srcset="//store.res.meizu.com/resources/php/store/images/logo-header@2x.png 2x"
+        width="115"
+        height="20"
+        alt="魅族科技" />
+      </a>
+    </div>
+
+
+    <div class="header-cart" id="MzHeaderCart">
+      <a href="http://store.meizu.com/cart" target="_blank">
+        <div class="header-cart-wrap">
+          <span class="header-cart-icon"></span>
+            购物车
+          <span id="MzHeaderCartNum" class="header-cart-num" data-extcls="existence">0</span>
+          <div class="header-cart-spacer"></div>
+        </div>
+      </a>
+      <div class="header-cart-detail">
+
+      </div>
+    </div>
+  </div>
+  <div id="MzNavMenu" class="header-nav-menu">
+    <div class="mzcontainer">
+
+    </div>
+  </div>
+</div>
+
+
+<div class="section">
+    <div class="container">
+        <div class="block">
+            <img src="//store.res.meizu.com/resources/php/store/static/lastVersion/images/404img.png" width="422" height="353" />
+            <div class="link_area">
+                <h1>您访问的页面君不存在！</h1>
+                <a href="http://store.meizu.com/index.html" class="btn"><span id="count">5</span>秒后进入首页</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- common js -->
+<script charset="utf-8" src="//store.res.meizu.com/resources/php/store/static/common/pkg/site-lib.js?_dv=20160505"></script>
+<script type="text/javascript" src="//store.res.meizu.com/resources/php/store/static/common/pkg/site-base.js?_dv=20160505"></script>
+<script>var $=require("common:lib/jquery/jquery-1.11.3");require("common:lib/jquery/jquery-migrate-1.2.1"),window.$=$,window.jQuery=$,window.jquery=$,$(function(){require("common:widgets/site-topbar/topbar"),require("common:widgets/site-header/header")});</script>
+<script>
+    $(window).on("load",function(){
+        var cd = document.getElementById("count"), count = 5;
+        function countDown(){
+            cd.innerHTML = count--;
+            if(count > 0){
+                setTimeout(countDown,1000);
+            }else{
+                setTimeout(function(){window.location.href="http://store.meizu.com/index.html";},500);
+            }
+        }
+        countDown();
+    })
+</script>
+
+<!-- common footer -->
+
+<div class="site-footer">
+  <div class="mzcontainer">
+    <div class="site-footer-service">
+      <ul class="clearfix">
+        <li class="service-item">
+          <span class="service-icon service-icon-seven"></span>
+          <p class="service-desc">
+            <span class="service-desc-bold">7天</span>
+            <span class="service-desc-normal">无理由退货</span>
+          </p>
+        </li>
+        <li class="service-split-line">
+          <span></span>
+        </li>
+        <li class="service-item">
+          <span class="service-icon service-icon-fifty"></span>
+          <p class="service-desc">
+            <span class="service-desc-bold">15天</span>
+            <span class="service-desc-normal">换货保障</span>
+          </p>
+        </li>
+        <li class="service-split-line">
+          <span></span>
+        </li>
+        <li class="service-item">
+          <span class="service-icon service-icon-one"></span>
+          <p class="service-desc">
+            <span class="service-desc-bold">1年</span>
+            <span class="service-desc-normal">免费保修</span>
+          </p>
+        </li>
+        <li class="service-split-line">
+          <span></span>
+        </li>
+        <li class="service-item">
+          <span class="service-icon service-icon-speed"></span>
+          <p class="service-desc">
+            <span class="service-desc-bold">百城</span>
+            <span class="service-desc-normal">速达</span>
+          </p>
+        </li>
+        <li class="service-split-line">
+          <span></span>
+        </li>
+        <li class="service-item">
+          <span class="service-icon service-icon-by"></span>
+          <p class="service-desc">
+            <span class="service-desc-bold">全场</span>
+            <span class="service-desc-normal">包邮</span>
+          </p>
+        </li>
+        <li class="service-split-line">
+          <span></span>
+        </li>
+        <li class="service-item">
+          <span class="service-icon service-icon-map"></span>
+          <p class="service-desc">
+            <span class="service-desc-bold">2000多家</span>
+            <span class="service-desc-normal">专卖店</span>
+          </p>
+        </li>
+      </ul>
+    </div>
+    <div class="site-footer-navs clearfix">
+      <div class="footer-nav-item">
+        <h4 class="footer-nav-title">帮助说明</h4>
+        <ul>
+          <li><a href="http://store.meizu.com/explain/payment_help.html" target="_blank">支付方式</a></li>
+          <li><a href="http://store.meizu.com/explain/deliverynote.html" target="_blank">配送说明</a></li>
+          <li><a href="http://store.meizu.com/explain/warranty_services.html" target="_blank">售后服务</a></li>
+          <li><a href="http://store.meizu.com/explain/payment_helps.html" target="_blank">付款帮助</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-item">
+        <h4 class="footer-nav-title">Flyme</h4>
+        <ul>
+          <li><a target="_blank" href="https://cloud.flyme.cn/">云服务</a></li>
+          <li><a target="_blank" href="http://www.flyme.cn/firmware.jsp">固件下载</a></li>
+          <li><a target="_blank" href="http://app.flyme.cn/">软件商店</a></li>
+          <li><a target="_blank" href="http://finder.flyme.cn/">查找手机</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-item">
+        <h4 class="footer-nav-title">关于我们</h4>
+        <ul>
+          <li><a target="_blank" href="http://www.meizu.com/about.html">关于魅族</a></li>
+          <li><a target="_blank" href="http://hr.meizu.com/">加入我们</a></li>
+          <li><a target="_blank" href="http://www.meizu.com/contact.html">联系我们</a></li>
+          <li><a target="_blank" href="http://www.meizu.com/legalStatement.html">法律声明</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-item">
+        <h4 class="footer-nav-title">关注我们</h4>
+        <ul>
+          <li><a target="_blank" href="http://weibo.com/meizumobile">新浪微博</a></li>
+          <li><a target="_blank" href="http://t.qq.com/meizu_tech">腾讯微博</a></li>
+          <li><a target="_blank" href="http://user.qzone.qq.com/2762957059">QQ空间</a></li>
+          <li>
+            <a class="meizu-footer-wechat" >
+              官方微信
+              <img src="//www2.res.meizu.com/zh_cn/images/common/weixin.png?v=2015" alt="微信二维码">
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-nav-custom">
+        <h4 class="nav-custom-title">24小时全国服务热线</h4>
+        <a href="tel:400-788-3333"><h3 class="nav-custom-number">400-788-3333</h3></a>
+        <a  class="nav-custom-btn" href="javascript:void(0);" onclick="window.open('http://live-i.meizu.com/live800/chatClient/chatbox.jsp?companyID=8957&configID=4&enterurl='+ encodeURIComponent(document.URL) + '&pagereferrer=' + encodeURIComponent(document.referrer) + '&info=&k=1', '_blank','height=775,width=1200,fullscreen=3,top=100,left=100,status=yes,toolbar=no,menubar=no,resizable=no,scrollbars=no,location=no,titlebar=no,fullscreen=no');">
+          <img src="//store.res.meizu.com/resources/php/store/static/common/widgets/site-footer/20x21xiaoshi.png" width="20" height="21">
+          24小时在线客服
+        </a>
+      </div>
+    </div>
+    <div class="site-footer-end">
+      <p>
+        &copy;2016 Meizu Telecom Equipment Co., Ltd. All rights reserved.
+        <a target="_blank" href="http://www.miitbeian.gov.cn/" hidefocus="true">备案号：粤ICP备13003602号-2</a>
+        <a target="_blank" href="http://www2.res.meizu.com/zh_cn/images/common/icp2.jpg" hidefocus="true">经营许可证编号：粤B2-20130198</a>
+        <a target="_blank" href="http://www2.res.meizu.com/zh_cn/images/common/com_licence.jpg" hidefocus="true">营业执照</a>
+        <a target="_blank" rel="nofollow" href="http://210.76.65.188/" hidefocus="true">
+          <img src="//www2.res.meizu.com/zh_cn/images/common/footer-copy-1.png">
+        </a>
+        <a target="_blank" rel="nofollow" href="http://210.76.65.188/webrecord/innernet/Welcome.jsp?bano=4404013010531" hidefocus="true">
+          <img src="//www2.res.meizu.com/zh_cn/images/common/footer-copy-2.png">
+        </a>
+        <a target="_blank" rel="nofollow" href="https://credit.szfw.org/CX20151204012550820380.html" hidefocus="true">
+          <img src="//store.res.meizu.com/resources/php/store/static/common/widgets/site-footer/trust-icon.png">
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
+
+
+<!-- common tongji code -->
+<script>
+  var __mzt = __mzt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//sccom.res.meizu.com/js/analytics-min.js";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+<script type="text/javascript" charset="utf-8">
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = ('https:' == document.location.protocol ? 'https://tongji-res.meizu.com' : 'http://tongji-res1.meizu.com') + '/resources/tongji/flow.js';
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+<script type="text/javascript">
+  var _hmt = _hmt || [];
+  (function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?2a0c04774115b182994cfcacf4c122e9";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+  })();
+</script></body>
+</html>
+
+

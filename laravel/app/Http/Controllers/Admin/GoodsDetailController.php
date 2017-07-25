@@ -28,23 +28,7 @@ class GoodsDetailController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
-    // // 递归查询多级分类
-    // public function getGoodsByPid($pid){
-
-    //     // 根据pid查询子分类
-    //     $data = \DB::table('goods')->where('pid',$pid)->get();
-
-    //     $allData = [];
-    //     foreach($data as $key=>$val){
-    //         $val->sub = $this->getGoodsByPid($val->id);
-    //         $allData[] = $val;
-    //     }
-
-    //     return $allData;
-    // }
-
-
+ 
     public function create()
     {   
  
@@ -210,4 +194,22 @@ class GoodsDetailController extends Controller
             return back()->with(['info' => '删除失败']);
         }
     }
+ 
+
+    // 修改商品状态
+    public function ajaxa(Request $request){
+         // dd($request->all());
+
+        $res=\DB::table('goodsDetail')->where('id',$request->id)->update(['status'=>$request->status]);
+        
+        if($res)
+        {
+            return response()->json('1');
+        }else
+        {
+            return response()->json('2');
+        }
+
+    }
+ 
 }

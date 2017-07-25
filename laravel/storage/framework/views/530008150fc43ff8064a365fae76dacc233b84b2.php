@@ -1,3 +1,6 @@
+  
+
+
 <?php $__env->startSection('user'); ?>
   
 <link rel="stylesheet" type="text/css" href="/leiphone/css/leiphone.css"  />
@@ -55,7 +58,7 @@
                                 </div>
                         </li>
                     </ul>
-                    <div class="more">
+                    <div class="mor" >
                         <a href="/home/user/shouclist">查看更多<?php echo e($nums); ?>条收藏</a>
                     </div>
                 </div>
@@ -80,7 +83,7 @@
                             </li>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </ul>
-                    <div class="more">
+                    <div class="mor">
                         <a href="/home/user/commentlist">查看更多<?php echo e($num); ?>条评论</a>
                     </div>
                 </div>
@@ -90,5 +93,6 @@
 <?php $__env->stopSection(); ?>    
 
 
+ 
 
 <?php echo $__env->make('home.user.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

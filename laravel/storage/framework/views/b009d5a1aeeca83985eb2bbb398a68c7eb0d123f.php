@@ -10,44 +10,49 @@
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
     
     <link rel="stylesheet" href="<?php echo e(asset('/css/app.css')); ?>">
+ 
+     <link href="//store.res.meizu.com/layout/img/favicon-2e71785f44.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="//store.res.meizu.com/layout/img/favicon-2e71785f44.ico" rel="icon" type="image/x-icon" />
 
 
         <link rel="stylesheet"  type="text/css" href="/leiphone/css/common.css"  />
         
       <link rel="stylesheet"  type="text/css" href="/leiphone/css/list.css" />
 
-
-    <link rel="stylesheet" type="text/css" href="/leiphone/css/index.css"  />    
-    
-
-  
-  <link rel="stylesheet" type="text/css" href="/leiphone/css/set.css"  />
-  <link rel="stylesheet" type="text/css" href="/leiphone/css/tips.css"  />
+ 
+    <link rel="stylesheet" type="text/css" href="/leiphone/css/jquery.mcustomscrollbar.css"  />
+    <link rel="stylesheet" type="text/css" href="/leiphone/css/calendar.css"  />
+    <link rel="stylesheet" type="text/css" href="/leiphone/css/index.css"  />  
   
 
-<script type="text/javascript" src="/leiphone/js/bw-loader-411.4.5.js"></script>
-    
-      <script type="text/javascript" src="/leiphone/js/mobilecheck.js"></script>
-   
-   
-   <script  src="/leiphone/js/jquery-3.2.1.min.js"></script>
-   
-    <script  src="/leiphone/js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv-3ed50bb69a.js" type="text/javascript"></script>
+    <script src="js/es5-shim-50bbaee56e.js" type="text/javascript"></script>
+    <![endif]-->
+
+ 
+
+ 
+    <script  src="/leiphone/js/jquery-3.2.1.min.js"></script>  
+    <script  src="/leiphone/js/bootstrap.min.js"></script> 
     <link href="/leiphone/css/bootstrap.min.css" rel="stylesheet">
-   <script src="/leiphone/js/jquery-sea.js"></script>
-   <script  src="/leiphone/js/global.js"></script>
-  
     
-    
-  
-    
-      <script src="/leiphone/js/com_banner.js"></script>
+    <script src="/leiphone/js/jquery-sea.js"></script>
+    <script src="/leiphone/js/sea.js"></script>
+    <script  src="/leiphone/js/aq_auth.js"></script> 
     <script src="/leiphone/js/list.js"></script>
-    
+    <script  src="/leiphone/js/mobilecheck.js"></script>
+    <script  src="/leiphone/js/com_banner.js"></script>
+    <script  src="/leiphone/js/global.js"></script>
+    <script  src="/leiphone/js/index.js"></script>
+    <script  src="/leiphone/js/calendarNews.js"></script>  
+ 
+ 
 
     
    
 
+ 
 </head>
 <body>
 
@@ -81,7 +86,7 @@
         </div>
          <?php else: ?>
         <!-- 用户消息 -->
-        <div id="hidd">
+        <div id="hidd" style="float:right;">
             <div class="yp-header-message"  style="margin-top:22px;font-size:16px;">
             <a data-toggle="modal" data-target="#register" href="">注册</a>
             </div>
@@ -91,6 +96,7 @@
         </div>
         <?php endif; ?>
 
+
         <form action="/home/article/search" method="get" class="navbar-form navbar-left" style="margin-top:13px;" role="search">
          
           <div class="form-group">
@@ -98,9 +104,9 @@
           </div>
           <button type="submit" class="btn btn-default">搜索</button>
         </form>
-  </div>
-        
+       
     </div>
+
 </header> 
 
      <!-- 注册窗口 -->
@@ -200,6 +206,10 @@
          </div>
       </div>
    </div>
+    
+    
+   
+
    <script>
 $.ajaxSetup({
     headers: {
@@ -222,7 +232,14 @@ $.ajaxSetup({
         if(data == '0')
         {
           alert('恭喜,登录成功');
+ 
+ 
+          location.href = '/home/shop/index';
+ 
           location.href = location.href;
+ 
+ 
+  
           // $('#hidd').hide();
         }
         if(data == '1')
@@ -289,22 +306,9 @@ $.ajaxSetup({
  
     
 
-<footer class='yp-footer'>
-
+<footer class='yp-footer'> 
 <!-- 友情链接，热门关键字 -->
-<div class="yp-footer-link">
-<div class="wrapper">
-<div class="tab_tit clr">
 
-</div>
-<div class="tab_con">
-<ul>
-<li class='cur'>
-<a href="http://it.sohu.com/" target="_blank"></a>
-</ul>
-</div>
-</div>
-</div>
 
 <div class="yp-footer-msg">
 <div class="wrapper clr">
@@ -336,6 +340,7 @@ $.ajaxSetup({
 </div>
 </div>
 <br/><br/><br/>
+ 
     <!-- copyRight -->
     <div class="yp-copyright">
         <div class="wrapper">
@@ -350,12 +355,7 @@ $.ajaxSetup({
                 </a>
             </p>
         </div>
-    </div>
-</footer>
-
-
-
-
+    </div> 
     
 </body>
 </html>

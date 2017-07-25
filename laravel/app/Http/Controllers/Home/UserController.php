@@ -9,16 +9,16 @@ use DB;
 class UserController extends Controller
 {
     //
-    public function index()
-
-    {	
-
+    public function index() 
+    {
+        
     	$res = \DB::table('sixin')->where([
     		['zuoz',session('master')->username],
     		['status',1]
     		]
     		)->count();
     	
+
     	$data = \DB::table('comment')->where('uid',session('master')->id)->take(1)->orderBy('ctime','desc')->get();
         $data1 = \DB::table('shouc')->where('useid',session('master')->id)->first();
         $nums = \DB::table('shouc')->where('useid',session('master')->id)->count();
@@ -31,14 +31,14 @@ class UserController extends Controller
     {
     	 $data = $request->except('_token','remember_token');
 
-    }
-
+    } 
 
     public function sixin(Request $request)
     {
     	$data = \DB::table('sixin')->where('zuoz',session('master')->username)->orderBy('stime','desc')->paginate(10);
     	\DB::table('sixin')->where('zuoz',session('master')->username)->update(['status'=>0]);
     	return view('home.user.sixin',['request'=>$request->all(),'data'=>$data]);
+
     } 
 
     public function commentlist(Request $request)
@@ -76,6 +76,9 @@ class UserController extends Controller
         $data = \DB::table('shouc')->where('useid',session('master')->id)->paginate(4);
         return view('home.user.shouclist',['request'=>$request->all(),'data'=>$data]);
     }
+
+    
+
     //完善资料
     public function information(Request $request)
     {
@@ -87,16 +90,28 @@ class UserController extends Controller
     //完善添加
     public function add(Request $request)
     {   
+ 
+
+        // dump($_POST);
+    	// dd($request);
+    	// dump(session('master')->id);//3
 
     	$data = $request->except('_token');
-    	
+    	// dd($data);
+ 
 
 
     	//处理头像
 
     	//查询原来头像
     	$oldPhoto = \DB::table('users')->where('id',session('master')->id)->first()->photo;
+ 
+    	// dd($oldPhoto);
+        // dd($request->file('photo'));
+        // dd($request->file('photo'));
+ 
     	
+ 
     	if($request->hasFile('photo'))
             {
                 if($request->file('photo')->isValid())
@@ -208,7 +223,9 @@ class UserController extends Controller
         {
             return back()->with(['info'=>'旧密码不正确,请重新填写']);
         }
-
+ 
+ 
+ 
     }
 }
 

@@ -7,6 +7,11 @@
         <a href="/home/column/<?php echo e($val->id); ?>"  class=" "><h4><?php echo e($val->name); ?></h4></a>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </div>
+    <div class="wrapper">
+        
+        <a href="/home/shop/index"  class=" "><h4>积分商城</h4</a>
+      
+    </div>
    
 </nav>
 

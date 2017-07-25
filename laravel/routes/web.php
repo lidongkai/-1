@@ -15,9 +15,11 @@
 
 
 
+ 
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+ 
 
 
 //群组
@@ -142,7 +144,14 @@ Route::post('/admin/article/ajaxlunbo','Admin\ArticleController@ajaxLunbo');
 Route::resource('/admin/goods',"Admin\GoodsController");
  
 // 商品管理
-Route::resource('/]admin/goodsDetail',"Admin\GoodsDetailController"); 
+
+
+
+Route::resource('/admin/goodsDetail',"Admin\GoodsDetailController"); 
+ 
+Route::post('/admin/goodsDetail/ajaxa',"Admin\GoodsDetailController@ajaxa"); 
+ 
+
 // 递归
 Route::get('/admin/getAllGoods',"Admin\GoodsController@get");
 
@@ -153,6 +162,52 @@ Route::post('/admin/order/update/{id}',"Admin\OrderController@update");
  
 Route::resource('/admin/goodsDetail',"Admin\GoodsDetailController");
 Route::get('/admin/getAllGoods',"Admin\GoodsController@get");
+ 
+
+// 前台积分商城
+Route::get('/home/shop/index',"home\ShopController@index");
+Route::get('/home/shop/show',"home\ShopController@show");
+Route::get('/home/shop/detail/{id}',"home\ShopController@detail");
+
+// 购物车
+Route::get('/home/shopcar/index',"home\ShopCarController@index");
+Route::post('/home/shopcar/ajaxc',"home\ShopCarController@ajaxc");
+Route::get('/home/shopcar/delete/{id}',"home\ShopCarController@delete");
+Route::post('/home/shopcar/update',"home\ShopCarController@update");
+Route::post('/home/shopcar/update1',"home\ShopCarController@update1");
+// 订单
+Route::get('/home/order/add',"home\OrderController@add");
+Route::get('/home/order/ajaxg',"home\OrderController@ajaxg");
+Route::post('/home/order/ajaxp',"home\OrderController@ajaxp");
+Route::get('/home/order/sureOrder',"home\OrderController@sureOrder");
+Route::post('/home/order/insert',"home\OrderController@insert");
+
+Route::post('/home/order/doadd',"home\OrderController@doadd");
+Route::get('/home/order/delete/{id}',"home\OrderController@delete");
+// 前台个人中心订单
+Route::get('/home/user/order',"home\OrderController@index");
+// 前台个人中心订单详情
+Route::get('/home/user/orderDetail/{id}',"home\OrderController@detail");
+// 前台个人中心地址
+Route::get('/home/user/address',"home\AddressController@index");
+
+
+
+
+// ajax
+Route::post('/home/shop/ajax',"home\ShopController@ajax");
+Route::post('/home/shop/ajaxs',"home\ShopController@ajaxs");
+
+// 轮播图
+Route::post('/admin/turn/insert',"admin\TurnController@insert"); 
+Route::get('/admin/turn/add',"admin\TurnController@add");
+Route::get('/admin/turn/index',"admin\TurnController@index");
+Route::get('/admin/turn/edit/{id}',"admin\TurnController@edit");
+Route::post('/admin/turn/update/{id}',"admin\TurnController@update"); 
+Route::post('/admin/turn/delete/{id}',"admin\TurnController@delete"); 
+
+Route::post('/home/shop/ajaxb',"home\ShopController@ajaxb");
+ 
  
 //前台登录主页
 Route::get('/home/layout','Home\LoginController@layout');
@@ -170,6 +225,20 @@ Route::get('/home/loginout','Home\LoginController@Loginout');
 Route::get('/home/user/index','Home\UserController@index');
 
 
+ 
+//前台完善资料
+Route::get('/home/user/information','Home\UserController@information');
+
+//前台完善添加信息
+Route::post('/home/user/add','Home\UserController@add');
+
+//前台更改密码模板
+Route::get('/home/user/safe','Home\UserController@safe');
+
+//用户前台修改密码
+Route::post('/home/user/update','Home\UserController@update');
+
+ 
 
 // Route::
 // home
@@ -186,6 +255,10 @@ Route::post('/home/user/add','Home\UserController@add');
 //前台更改密码模板
 Route::get('/home/user/safe','Home\UserController@safe');
 
+ 
+Route::get('/home/user/article','Home\ArticleController@index');
+ 
+ 
 //用户前台修改密码
 Route::post('/home/user/update','Home\UserController@update');
 
@@ -235,3 +308,4 @@ Route::post('/home/sendmessage','Home\SendMessageController@sendmessage');
 
 
 
+ 

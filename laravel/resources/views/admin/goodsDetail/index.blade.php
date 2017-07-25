@@ -93,6 +93,9 @@
                   <th>商品图片</th> 
                   <th>商品价格</th> 
                   <th>库存量</th> 
+ 
+                  <th>商品状态</th>
+ 
                   <th>操作</th>
                 </tr>
                 </thead>
@@ -103,8 +106,15 @@
                   <td class="goodsName"><a href="{{ url('/admin/goodsDetail') }}/{{ $val->id }}">{{ $val->goodsName }}</a> </td> 
                   <td class="tid">{{ $val->good_name }}</td>  
                   <td class="picture"><a href="{{ url('/admin/goodsDetail') }}/{{ $val->id }}"><img style="width:50px;height:50px" src="/uploads/avatar/{{ $val->picture }}"></a></td> 
+ 
+                  <td>{{ $val->price }}</td> 
+                  <td>{{ $val->stock }}</td> 
+                  <td>  
+                  <button class="btn btn-primary tds">{{$val->status ==1 ? "推荐" : "普通"}}</button>   
+ 
                   <td class="price">{{ $val->price }}</td> 
                   <td class="price">{{ $val->stock }}</td> 
+ 
                   <td>
                   <!-- <a href="{{ url('/admin/goodsDetail') }}/{{ $val->id }}">详情</a>  -->
                   <a href="{{ url('/admin/goodsDetail') }}/{{ $val->id }}/edit">编辑</a> 
@@ -152,6 +162,58 @@
 @section('js')
 
 <script type="text/javascript">  
+ 
+
+$.ajaxSetup({
+      headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+  });
+
+$('.tds').on('click',function(){
+    var id = $(this).parents('.parent').find('.ids').html(); 
+    
+        var sta ='';  
+        var oldSta = $(this).html(); 
+        if(oldSta == "普通")
+      {
+        oldSta = "推荐";
+      }else
+      {
+        oldSta = "普通";
+      }
+ 
+      if(oldSta == "推荐")
+      {
+        sta = 1;
+      }else
+      {
+        sta = 0;
+      }
+    $(this).html(oldSta);
+
+    $.ajax('/admin/goodsDetail/ajaxa',{ 
+        type:'post',
+        data:{id:id,status:sta},
+        success:function(data){
+           
+          if(data == '1')
+          {
+            alert('修改成功');
+          }else
+          {
+            alert('修改失败');
+          }
+        },
+        error:function(data){
+          alert('数据异常');
+        },
+        dataType:'json'
+      });
+
+    });
+
+ 
   $(".alert").on('click',function(){
     $(".alert").hide();
   });
@@ -160,5 +222,8 @@
      $(this).parent().next().submit(); 
    });
 
+ 
+
+ 
 </script>  
 @endsection

@@ -1,4 +1,4 @@
-
+  
 @extends('home.user.layout')
 
 @section('user')
@@ -57,7 +57,7 @@
                                 </div>
                         </li>
                     </ul>
-                    <div class="more">
+                    <div class="mor" >
                         <a href="/home/user/shouclist">查看更多{{$nums}}条收藏</a>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                             </li>
                             @endforeach
                         </ul>
-                    <div class="more">
+                    <div class="mor">
                         <a href="/home/user/commentlist">查看更多{{$num}}条评论</a>
                     </div>
                 </div>
@@ -92,3 +92,4 @@
 @endsection    
 
 
+ 

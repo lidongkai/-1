@@ -467,6 +467,9 @@
 
 
  
+<<<<<<< HEAD
+
+=======
 <div class="yp-footer-link">
 <div class="wrapper">
 <div class="tab_tit clr">
@@ -482,6 +485,7 @@
 </div>
 </div>
 </div>
+>>>>>>> 7b74b8e6bfbb28f622ee765ccc02056b1e462bcd
 
 <?php $__env->stopSection(); ?>
 
