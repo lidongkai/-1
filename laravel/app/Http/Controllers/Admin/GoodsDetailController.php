@@ -28,23 +28,7 @@ class GoodsDetailController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
-    // // 递归查询多级分类
-    // public function getGoodsByPid($pid){
-
-    //     // 根据pid查询子分类
-    //     $data = \DB::table('goods')->where('pid',$pid)->get();
-
-    //     $allData = [];
-    //     foreach($data as $key=>$val){
-    //         $val->sub = $this->getGoodsByPid($val->id);
-    //         $allData[] = $val;
-    //     }
-
-    //     return $allData;
-    // }
-
-
+ 
     public function create()
     {   
  

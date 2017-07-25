@@ -68,11 +68,11 @@
                   <th>ID</th>
                   <th>标题</th>
                   <th>描述</th>
-                  <th>封面图片</th>
+                  <!-- <th>封面图片</th> -->
                   <!-- <th>上传时间</th> -->
                   
                   <th>作者</th>
-                  <th>状态</th>
+                  <th>状态 | 加精 | 置顶 |轮播</th>
                   
                   <th>操作</th>
                 </tr>
@@ -84,14 +84,15 @@
                   <td class="ids">{{$val->id}}</td>
                   <td class=""><a href="{{url('/admin/article/show')}}/{{$val->id}}">{{$val->atitle}}</a></td>
                   <td class="" style="overflow:hidden;white-space:nowrap;">{{$val->descript}}</td>
-                  <td><img style="width:30%" src="/uploads/article/{{$val->picture}}" alt=""></td>
+                  <!-- <td><img style="width:30%" src="/uploads/article/{{$val->picture}}" alt=""></td> -->
             
                   
                   <td class="">{{$val->aname}}</td>
 
                   <td ><button class="tds" >{{$val->status ==1 ? "开启" : "禁用"}}</button>
                   <button class="tdc" >{{$val->chosen ==1 ? "精选" : "普通"}}</button>
-                  <button class="tdt" >{{$val->top ==1 ? "置顶" : "普通"}}</button></td>
+                  <button class="tdt" >{{$val->top ==1 ? "置顶" : "普通"}}</button>
+                  <button class="tdl" >{{$val->lunbo ==1 ? "轮播" : "普通"}}</button></td>
                   <td><a href="{{url('/admin/article/edit')}}/{{$val->id}}">编辑</a> | <a class="del" href="#" data-toggle="modal" data-target="#myModal">删除</a></td>
                 </tr>
 				@endforeach
@@ -262,6 +263,57 @@
 
     
       $.ajax('/admin/article/ajaxtop',{
+        type:'POST',
+        data:{id:id,chosen:cho},
+        success:function(data){
+          
+          
+          if(data == '1')
+          {
+            
+          }else
+          {
+            alert('修改失败');
+          }
+        },
+        error:function(data){
+          alert('数据异常');
+        },
+        dataType:'json',
+      });
+
+    });
+
+
+
+    $('.tdl').click(function(){
+    var id = $(this).parent().parent('.parent').find('.ids').html();
+    
+        var cho ='';  
+        var oldCho = $(this).html();
+        if(oldCho == "轮播")
+      {
+        oldCho = "普通";
+      }else
+      {
+        oldCho = "轮播";
+      }
+
+    
+
+      if(oldCho == "轮播")
+      {
+        cho = 1;
+      }else
+      {
+        cho = 0;
+      }
+    $(this).html(oldCho);
+       
+
+
+    
+      $.ajax('/admin/article/ajaxlunbo',{
         type:'POST',
         data:{id:id,chosen:cho},
         success:function(data){

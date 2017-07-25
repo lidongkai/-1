@@ -1,11 +1,11 @@
-@extends('home.user.index')
+@extends('home.user.layout')
 
 @section('user')
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        我的文章
+        <b style="font-size:20px">我的文章</b>
         <small>添加</small></h1>
       
     </section>
@@ -37,7 +37,7 @@
                 {{session('info')}}
               </div>
             @endif  
-            <form role="form" action="/admin/article/insert" method="post" enctype="multipart/form-data">
+            <form role="form" action="/home/user/insertarticle" method="post" enctype="multipart/form-data">
               <div class="box-body">
               {{csrf_field()}}
                 <div class="form-group">

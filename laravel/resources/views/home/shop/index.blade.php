@@ -1,4 +1,4 @@
- 
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -51,6 +51,7 @@
              <a href="/home/loginout">退出</a>
               <!-- </ul> -->
               </div>
+               <div class="yp-header-message" style="margin-top:22px;font-size:16px;">积分:{{ session('master')->score }}</div>
               <div class="yp-header-message" style="margin-top:22px;font-size:16px;">{{ session('master')->username }}</div>
         </div>
 
@@ -184,7 +185,7 @@
   
 <!-- common header -->
     <!--小广告-->
-    <div class="home-settlement" style="background-color: rgb(255,255,255);" id="homeSettlement">
+    <div class="home-settlement" style="background-color: rgb(255,255,255);width:1250px" id="homeSettlement">
         <div class="mzcontainer">
             <img src="{{ url('home/meizu/picture/cgbj0vlwi8-aegraaacpzukv5ia939.jpg')}}" alt=" " class="home-settlement-img"
                  style="width: 1920px;
@@ -198,7 +199,7 @@
                    data-mdesc="顶通1"></a>
         </div>
     </div>
- >
+ 
 <script>
     var layoutHeaderData = {
         header: [{"id":25,"href":"https://lists.meizu.com/page/list?categoryid=73","commodityType":0,"name":"全部分类","children":[
@@ -256,12 +257,7 @@
 </script>
 <div class="layout-header clearfix">                            
     <div class="mzcontainer">
-        <div class="layout-header-logo">
-            <a target="_blank" href="http://www.meizu.com" class="layout-header-logo-link" alt="魅族科技"
-               data-mdesc="魅族logo跳转链接" data-mtype="store_index_logo">
-                <i class="layout-font layout-font-logo"></i>
-            </a>
-        </div>
+         
         <ul class="layout-header-nav clearfix" id="layoutHeaderNav">
                 <li class="layout-header-nav-item">
                     <a href="" class="layout-header-nav-link" data-mdesc="导航第1个"
@@ -276,7 +272,7 @@
                        data-mtype="store_index_dh_3">魅蓝手机</a>
                 </li>
                 <li class="layout-header-nav-item">
-                    <a href="https://lists.meizu.com/page/list?categoryid=76&features=80%3A8%2C18136%2C20098&click=store_index_dh_4" class="layout-header-nav-link" data-mdesc="导航第4个"
+                    <a href="" class="layout-header-nav-link" data-mdesc="导航第4个"
                        data-mtype="store_index_dh_4">MX手机</a>
                 </li>
                 <li class="layout-header-nav-item">
@@ -291,7 +287,7 @@
         <div class="layout-header-nav-downmenu" id="layoutHeaderNavDownmenu"></div>
     </div>
 </div>  
-<div class="home" style="width:1500px">
+<div class="home" style="width:1350px;top:-10px">
 <div class="home-carousel" id="homeCarousel">
     @foreach($data3 as $key=>$val)
         <div class="home-carousel-child" style="background-color: #FFFFFF;">
@@ -311,13 +307,11 @@
         </li> 
         @endforeach
         <div id="div" class="home-right" style="width:250px;height:480px;position: absolute;left:244px;top:0;background:#FFF;display:none">
-             <table id="example2" class="table table-bordered table-hover tab" style="border:1px;cellspacing="10" cellpadding="30"">
-                
-                <tr class="trs">
+           <table id="example2" class="table table-bordered table-hover tab" style="border:1px;cellspacing="100" cellpadding="130""> 
+              <tr class="trs">
                 <td></td>
-                </tr>
-                  
-              </table> 
+              </tr> 
+            </table> 
         </div>
 </ul> 
 <ul class="mzcontainer home-server" id="homeServer">
@@ -408,119 +402,68 @@
         <i class="home-font goToTop"></i>
     </a>
 </div>        </div>
-<div class="layout-footer clearfix">
-    <div class="mzcontainer">
-        <ul class="layout-footer-service clearfix">
-            <li class="layout-footer-service-item">
-                <i class="layout-font layout-font-foot1"></i>
-                <p class="layout-service-text">
-                    <span class="layout-service-name">7天</span>无理由退货
-                </p>
-            </li>
-            <li class="layout-footer-service-item">
-                <i class="layout-font layout-font-foot2"></i>
-                <p class="layout-service-text">
-                    <span class="layout-service-name">15天</span>换货保障
-                </p>
-            </li>
-            <li class="layout-footer-service-item">
-                <i class="layout-font layout-font-foot3"></i>
-                <p class="layout-service-text">
-                    <span class="layout-service-name">1年</span>免费保修
-                </p>
-            </li>
-            <li class="layout-footer-service-item">
-                <i class="layout-font layout-font-foot4"></i>
-                <p class="layout-service-text">
-                    <span class="layout-service-name">百城</span>速达
-                </p>
-            </li>
-            <li class="layout-footer-service-item">
-                <i class="layout-font layout-font-foot5"></i>
-                <p class="layout-service-text">
-                    <span class="layout-service-name">全场</span>包邮
-                </p>
-            </li>
-            <li class="layout-footer-service-item">
-                <i class="layout-font layout-font-foot6"></i>
-                <p class="layout-service-text">
-                    <span class="layout-service-name">2000多家</span>专卖店
-                </p>
-            </li>
-        </ul>
-        <ul class="layout-footer-nav clearfix">
-            <li class="layout-footer-nav-item">
-                <p class="layout-footer-nav-title">帮助说明</p>
-                <ul class="layout-footer-nav-list">
-                    <li><a class="layout-footer-nav-link" target="_blank" href="https://hd.meizu.com/rules/payment_help.html" data-mdesc="帮助说明下第1个坑" data-mtype="store_index_yw_support_1">支付方式</a></li>
-                    <li><a class="layout-footer-nav-link" target="_blank" href="https://hd.meizu.com/rules/deliverynote.html" data-mdesc="帮助说明下第2个坑" data-mtype="store_index_yw_support_2">配送说明</a></li>
-                    <li><a class="layout-footer-nav-link" target="_blank" href="http://store.meizu.com/explain/warranty_services.html" data-mdesc="帮助说明下第3个坑" data-mtype="store_index_yw_support_3">售后服务</a></li>
-                    <li><a class="layout-footer-nav-link" target="_blank" href="https://hd.meizu.com/rules/payment_helps.html" data-mdesc="帮助说明下第4个坑" data-mtype="store_index_yw_support_4">付款帮助</a></li>
-                </ul>
-            </li>
-            <li class="layout-footer-nav-item">
-                <p class="layout-footer-nav-title">Flyme</p>
-                <ul class="layout-footer-nav-list">
-                    <li><a class="layout-footer-nav-link" href="https://open.flyme.cn/" target="_blank" data-mdesc="Flyme下第1个坑" data-mtype="store_index_yw_flyme_1">开放平台</a></li>
-                    <li><a class="layout-footer-nav-link" href="http://www.flyme.cn/firmware.jsp" target="_blank" data-mdesc="Flyme下第2个坑" data-mtype="store_index_yw_flyme_2">固件下载</a></li>
-                    <li><a class="layout-footer-nav-link" href="http://app.flyme.cn/" target="_blank" data-mdesc="Flyme下第3个坑" data-mtype="store_index_yw_flyme_3">软件商店</a></li>
-                    <li><a class="layout-footer-nav-link" href="http://finder.flyme.cn/" target="_blank" data-mdesc="Flyme下第4个坑" data-mtype="store_index_yw_flyme_4">查找手机</a></li>
-                </ul>
-            </li>
-            <li class="layout-footer-nav-item">
-                <p class="layout-footer-nav-title">关于我们</p>
-                <ul class="layout-footer-nav-list">
-                    <li><a class="layout-footer-nav-link" target="_blank" href="http://www.meizu.com/about.html" data-mdesc="关于我们下第1个坑" data-mtype="store_index_yw_about_1">关于魅族</a></li>
-                    <li><a class="layout-footer-nav-link" target="_blank" href="http://hr.meizu.com/" data-mdesc="关于我们下第2个坑" data-mtype="store_index_yw_about_2">加入我们</a></li>
-                    <li><a class="layout-footer-nav-link" target="_blank" href="http://www.meizu.com/contact.html" data-mdesc="关于我们下第3个坑" data-mtype="store_index_yw_about_3">联系我们</a></li>
-                    <li><a class="layout-footer-nav-link" target="_blank" href="http://www.meizu.com/legalStatement.html" data-mdesc="关于我们下第4个坑" data-mtype="store_index_yw_about_4">法律声明</a></li>
-                </ul>
+<footer class='yp-footer'> 
+<!-- 友情链接，热门关键字 -->
+ 
+<div class="wrapper">
+<div class="tab_tit clr">
 
-            </li>
-            <li class="layout-footer-nav-item">
-                <p class="layout-footer-nav-title">关注我们</p>
-                <ul class="layout-footer-nav-list">
-                    <li><a class="layout-footer-nav-link" target="_blank" href="http://weibo.com/meizumobile" data-mdesc="关注我们下第1个坑" data-mtype="store_index_yw_follow_1">新浪微博</a></li>
-                    <li><a class="layout-footer-nav-link" target="_blank" href="http://t.qq.com/meizu_tech" data-mdesc="关注我们下第2个坑" data-mtype="store_index_yw_follow_2">腾讯微博</a></li>
-                    <li><a class="layout-footer-nav-link" target="_blank" href="http://user.qzone.qq.com/2762957059" data-mdesc="关注我们下第3个坑" data-mtype="store_index_yw_follow_3">QQ空间</a></li>
-                    <li>
-                        <a class="layout-footer-nav-link layout-footer-nav-wechat" href="javascript:;" data-mdesc="关注我们下第4个坑" data-mtype="store_index_yw_follow_4">
-                            官方微信
-                            <img class="layout-footer-nav-wechat-img" src="{{ asset('home/meizu/picture/weixin.png')}}" alt="微信二维码">
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="layout-footer-nav-item ">
-                <p class="layout-footer-nav-title tel">24小时全国服务热线</p>
-                <p><a class="layout-footer-nav-tel" href="tel:400-788-3333" data-mdesc="服务热线电话号码" data-mtype="store_index_yw_tel">400-788-3333</a></p>
-                <p>
-                    <a class="layout-footer-nav-btn" href="javascript:;" data-mdesc="在线客服按钮" data-mtype="store_index_yw_service" onclick="window.open('http://live-i.meizu.com/live800/chatClient/chatbox.jsp?companyID=8957&amp;configID=4&amp;enterurl='+ encodeURIComponent(document.URL) + '&amp;pagereferrer=' + encodeURIComponent(document.referrer) + '&amp;info=&amp;k=1', '_blank','height=775,width=1200,fullscreen=3,top=100,left=100,status=yes,toolbar=no,menubar=no,resizable=no,scrollbars=no,location=no,titlebar=no,fullscreen=no');">
-                        <i class="layout-font layout-font-talk"></i>24小时在线客服
-                    </a>
-                </p>
-            </li>
-        </ul>
-        <div class="layout-footer-copyright">
-            珠海市魅族通讯设备有限公司 &copy;2017 Meizu Telecom Equipment Co., Ltd. All rights reserved.
-            <a class="layout-footer-copyright-link" hidefocus="true" href="http://www.miitbeian.gov.cn/" target="_blank" data-mdesc="底部版权信息第1个坑" data-mtype="store_index_yw_copyright_1">备案号：粤ICP备13003602号-2</a>
-            <a class="layout-footer-copyright-link" hidefocus="true" href="//www2.res.meizu.com/zh_cn/images/common/icp2.jpg" target="_blank" data-mdesc="底部版权信息第2个坑" data-mtype="store_index_yw_copyright_2">经营许可证编号：粤B2-20130198</a>
-            <a class="layout-footer-copyright-link" hidefocus="true" href="//www2.res.meizu.com/zh_cn/images/common/com_licence.jpg" target="_blank" data-mdesc="底部版权信息第3个坑" data-mtype="store_index_yw_copyright_3">营业执照</a>
-            <a class="layout-footer-copyright-link" hidefocus="true" href="http://210.76.65.188/" rel="nofollow" target="_blank" data-mdesc="底部版权信息第4个坑" data-mtype="store_index_yw_copyright_4">
-                <i class="layout-icon layout-icon-license"></i>
-            </a>
-            <a class="layout-footer-copyright-link" hidefocus="true" href="http://210.76.65.188/webrecord/innernet/Welcome.jsp?bano=4404013010531" rel="nofollow" target="_blank" data-mdesc="底部版权信息第5个坑" data-mtype="store_index_yw_copyright_5">
-                <i class="layout-icon layout-icon-wel"></i>
-            </a>
-            <a class="layout-footer-copyright-link" hidefocus="true" href="https://credit.szfw.org/CX20151204012550820380.html" rel="nofollow" target="_blank" data-mdesc="底部版权信息第6个坑" data-mtype="store_index_yw_copyright_6">
-                <i class="layout-icon layout-icon-trust"></i>
-            </a>
-          <a class="layout-footer-copyright-link" hidefocus="true" href="http://si.trustutn.org/info?sn=749160913024249024251&certType=1" rel="nofollow" target="_blank" data-mdesc="底部版权信息第7个坑" data-mtype="store_index_yw_copyright_7">
-                <i class="layout-icon layout-icon-official"></i>
-            </a>
-        </div>
-    </div>
 </div>
+<div class="tab_con">
+<ul>
+<li class='cur'>
+<a href="http://it.sohu.com/" target="_blank"></a>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="yp-footer-msg">
+<div class="wrapper clr">
+<!-- links -->
+<div class="links" style="text-align:center">
+<a rel="nofollow" href="https://www.leiphone.com/us/concact">联系我们</a>
+<a rel="nofollow" href="https://www.leiphone.com/us/index">关于我们</a>
+<a rel="nofollow" href="https://www.leiphone.com/news/201611/0nOqnvNoxI6vX4L9.html">加入我们</a>
+<a rel="nofollow" href="https://www.leiphone.com/us/feedback">意见反馈</a>
+<a rel="nofollow" href="https://www.leiphone.com/contribute/index">投稿</a>
+</div>
+<!-- 下载app -->
+<div class="downLoad-app">
+<div class="qrcode">
+<!-- /site/download -->
+<img src="/leiphone/picture/downcode.jpg" width="96" height="96" alt="" />
+</div>
+<div class="txt">
+<p>下载雷锋网客户端</p>
+<a rel="nofollow" href="https://itunes.apple.com/cn/app/lei-feng-wang-yi-dong-hu-lian/id579529120?mt=8" target="_blank" class='iPhone'><em></em>iPhone</a>
+<a rel="nofollow" href="https://android.myapp.com/myapp/detail.htm?apkName=com.leiphone.app" target="_blank" class='Android'><em></em>Android</a>
+</div>
+</div>
+<!-- 关注-->
+<div class="contact">
+<a rel="nofollow" href="mailto:web@leiphone.com " class='eml sub_a'><em></em></a>
+<a rel="nofollow" href="https://www.weibo.com/p/1006062118746300" target="_blank" class='sina sub_a'><em></em></a>
+</div>
+</div>
+</div>
+<br/><br/><br/>
+ 
+    <!-- copyRight -->
+    <div class="yp-copyright">
+        <div class="wrapper">
+            <p>Copyright © 2011-2018 www.leiphone.com 雷锋网-移动互联网智能终端第一媒体 All Rights Reserved <a target="_blank" style="color:#9baab6;" href="https://www.miitbeian.gov.cn">粤ICP备11095991号-1</a>
+                <img src="/leiphone/picture/anquan.png" alt="">
+                &nbsp;&nbsp;
+                <a href="http://szcert.ebs.org.cn/0ee69ac3-f114-4bd9-9ea1-a5a04f7cd44b" rel="nofollow" target="_blank"></a>
+                                &nbsp;&nbsp;
+                <a rel="nofollow" href="" target="_blank" style="color:#9baab6">ICP证粤B2-20150332</a>
+                <a rel="nofollow" href="" target="_blank" rel="nofollow" style="float:right">
+                    <img src="/leiphone/picture/hzs4.png">
+                </a>
+            </p>
+        </div>
+    </div> 
  
 <script src="{{ asset('home/meizu/js/layout-ca70dcecd0.js')}}" type="text/javascript"></script>
   <script  src="/leiphone/js/jquery-3.2.1.min.js"></script>
@@ -669,12 +612,11 @@ $.ajaxSetup({
       }
     });
 
-    $('.lis').hover(
-
-       
+    $('.lis').hover( 
         function(){
              $('#div').css('display','block');
              var id = $(this).attr('id');
+             var ob = $(this);
 
              $.ajax('/home/shop/ajaxb',{
                 type:'POST',
@@ -686,8 +628,8 @@ $.ajaxSetup({
 
                     // 遍历
                      $.each(data, function(i,n){  
-                         str += "<tr class='trs' value="+n.id+"><td>"+n.name+"</td></tr>";
-                         // console.log(n);
+                         str += "<tr class='trs' style='color:red;' value="+n.id+"><td>"+n.name+"</td></tr>";
+                         // console.log(n); 
                      }); 
                     // 写入 
                     $('.tab').html(str);
@@ -700,7 +642,7 @@ $.ajaxSetup({
              }); 
         },
         function(){
-             $('#div').css('display','none');
+             $('#div').css('display','none'); 
         }
         );
 
@@ -711,3 +653,4 @@ $.ajaxSetup({
 </body>
 </html>
 
+ 

@@ -1,15 +1,16 @@
+  
+   <?php $__env->startSection('content'); ?>
 <!DOCTYPE html>
 <!-- saved from url=(0044)https://ordercenter.meizu.com/order/add.html -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>确认订单-魅族商城</title>
+    <title>确认订单-雷锋网</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
     <link href="https://store.res.meizu.com/layout/img/favicon-2e71785f44.ico" rel="shortcut icon" type="image/x-icon">
     <link href="https://store.res.meizu.com/layout/img/favicon-2e71785f44.ico" rel="icon" type="image/x-icon">
-    <meta name="description" content="魅族商城是魅族面向全国服务的官方电子商务平台,提供魅族PRO系列、魅族MX系列和魅蓝系列等产品的预约和购买.官方正品,全国联保.">
-    <meta name="keywords" content="魅族官方在线商店、魅族在线商城、魅族官网在线商店、魅族商城">
+     
     <link rel="stylesheet" href="<?php echo e(asset('home/meizu/css/layout-51312a08ab.css')); ?>">
 
     <!--[if lt IE 9]>
@@ -30,11 +31,7 @@
 </script>
 <div class="layout-header clearfix layout-header-order login" id="layoutHeader">
     <div class="mzcontainer">
-        <div class="layout-header-logo">
-            <a target="_blank" href="http://www.meizu.com/" class="layout-header-logo-link" alt="魅族科技" data-mdesc="购物车页头logo" data-mtype="store_cart_yt_logo">
-                <i class="layout-font layout-font-logo"></i>
-            </a>
-        </div>
+         
         <ul class="layout-header-bread">
             <li class="layout-header-bread-block ">购物车</li>
             <li class="layout-header-bread-block active">确认订单</li>
@@ -42,26 +39,19 @@
             <li class="layout-header-bread-block ">完成</li>
         </ul>
         <ul class="layout-header-right">
-            <li class="layout-header-right-item">
-                <a class="layout-header-right-link" href="https://ordercenter.meizu.com/list/index.html" target="_blank" data-mdesc="购物车页头-我的订单" data-mtype="store_cart_yt_order">我的订单</a>
+             
+            <li class="layout-header-service-item layout-header-service-cart" id="layoutHeaderCart">
+                <a class="layout-header-service-link" href="<?php echo e(url('/home/shopcar/index')); ?>" data-mtype="wmz_public_yt_cart">
+                    <i class="layout-font layout-font-cart1"></i> 
+                    <img style="width:60px;height:60px" src="<?php echo e(asset('/uploads/logo/1.jpg')); ?>">
+                </a>
             </li>
             <li class="layout-header-right-item signout">
                 <a class="layout-header-right-link" data-mdesc="购物车页头-登录" data-mtype="store_cart_yt_login" href="javascript:window.location.href=&#39;https://login.flyme.cn/vCodeLogin?sid=unionlogin&amp;service=store&amp;autodirct=true&amp;useruri=http://store.meizu.com/member/login.htm?useruri=&#39;+ encodeURIComponent(encodeURIComponent(window.location.href));">登录</a>
             </li>
             <li class="layout-header-right-item signout">
                 <a class="layout-header-right-link" data-mdesc="购物车页头-注册" data-mtype="store_cart_yt_register" target="_blank" href="https://member.meizu.com/register">注册</a>
-            </li>
-            <li class="layout-member signin">
-                <a class="layout-member-link" target="_blank" href="http://me.meizu.com/member/index"><span class="layout-member-username" id="topbarUser">用户573200368</span>的商城<i class="layout-member-triangle"></i></a>
-                <ul class="layout-member-downmenu">
-                    <li class="layout-member-downmenu-item"><a class="layout-member-downmenu-link" data-mdesc="我的商城下拉框1" data-mtype="store_index_yt_my_1" target="_blank" href="https://me.meizu.com/member/address/index">地址管理</a></li>
-                    <li class="layout-member-downmenu-item"><a class="layout-member-downmenu-link" data-mdesc="页头-收藏" data-mtype="store_index_yt_collect" target="_blank" href="https://me.meizu.com/member/favorite/index">我的收藏</a></li>
-                    <li class="layout-member-downmenu-item"><a class="layout-member-downmenu-link" data-mdesc="我的商城下拉框2" data-mtype="store_index_yt_my_2" target="_blank" href="https://mcycle.meizu.com/repo/ticket/list">我的回购券</a></li>
-                    <li class="layout-member-downmenu-item"><a class="layout-member-downmenu-link" data-mdesc="我的商城下拉框3" data-mtype="store_index_yt_my_3" target="_blank" href="https://me.meizu.com/member/advice/index">问题反馈</a></li>
-                    <li class="layout-member-downmenu-item"><a class="layout-member-downmenu-link exit" data-mdesc="我的商城下拉框4" data-mtype="store_index_yt_my_4" href="javascript:window.location.href=&#39;http://store.meizu.com/member/logout.htm?useruri=&#39;+ encodeURIComponent(encodeURIComponent(window.location.href));">退出</a></li>
-                </ul>
-            </li>
-
+            </li> 
         </ul>
     </div>
 </div>
@@ -694,3 +684,5 @@ $.ajaxSetup({
 </script>
 
 </body></html>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('home.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

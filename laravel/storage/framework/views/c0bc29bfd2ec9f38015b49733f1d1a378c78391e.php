@@ -467,7 +467,25 @@
 
 
  
+<<<<<<< HEAD
 
+=======
+<div class="yp-footer-link">
+<div class="wrapper">
+<div class="tab_tit clr">
+<a href="javascript:;" class='cur'>友情链接</a>
+</div>
+<div class="tab_con">
+<ul>
+<li class='cur'>
+<?php $__currentLoopData = $data3; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $k=>$v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+<a href="<?php echo e($v->weburl); ?>" target="_blank"><?php echo e($v->webname); ?></a>
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+</ul>
+</div>
+</div>
+</div>
+>>>>>>> 7b74b8e6bfbb28f622ee765ccc02056b1e462bcd
 
 <?php $__env->stopSection(); ?>
 

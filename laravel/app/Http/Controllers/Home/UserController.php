@@ -9,16 +9,18 @@ use DB;
 class UserController extends Controller
 {
     //
-    public function index()
+    public function index() 
     {
-        // dd(session('master'));
-        $id = session('master')->id;
-        // dd($id);
-        $tb = DB::table('userdetail')->where('uid',$id)->first();
-        // dd($tb);
-         // session(['tb'=>$tb]);
-    	return view('home.user.index',['tb'=>$tb]);
+        
+    	$res = \DB::table('sixin')->where([
+    		['zuoz',session('master')->username],
+    		['status',1]
+    		]
+    		)->count();
+    	
+    	$data = \DB::table('comment')->where('uid',session('master')->id)->orderBy('ctime','desc')->get();
 
+    	return view('home.user.index',['data'=>$data,'res'=>$res]); 
 
     }
 
@@ -26,8 +28,14 @@ class UserController extends Controller
     {
     	 $data = $request->except('_token','remember_token');
 
-    }
+    } 
 
+    public function sixin(Request $request)
+    {
+    	$data = \DB::table('sixin')->where('zuoz',session('master')->username)->orderBy('stime','desc')->paginate(10);
+    	\DB::table('sixin')->where('zuoz',session('master')->username)->update(['status'=>0]);
+    	return view('home.user.sixin',['request'=>$request->all(),'data'=>$data]);
+    }     
     //完善资料
     public function information(Request $request)
     {
@@ -39,7 +47,7 @@ class UserController extends Controller
     //完善添加
     public function add(Request $request)
     {   
-
+ 
 
         // dump($_POST);
     	// dd($request);
@@ -47,15 +55,20 @@ class UserController extends Controller
 
     	$data = $request->except('_token');
     	// dd($data);
+ 
 
 
     	//处理头像
 
     	//查询原来头像
     	$oldPhoto = \DB::table('users')->where('id',session('master')->id)->first()->photo;
+ 
     	// dd($oldPhoto);
         // dd($request->file('photo'));
         // dd($request->file('photo'));
+ 
+    	
+ 
     	if($request->hasFile('photo'))
             {
                 if($request->file('photo')->isValid())
@@ -167,6 +180,9 @@ class UserController extends Controller
         {
             return back()->with(['info'=>'旧密码不正确,请重新填写']);
         }
+ 
+ 
+ 
     }
 }
 

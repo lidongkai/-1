@@ -1,6 +1,11 @@
 @extends('home.layout')
 
 @section('content')
+@if(session('info'))
+  <div class="alert alert-danger">
+    {{session('info')}}
+  </div>
+@endif  
 <link rel="stylesheet" type="text/css" href="/leiphone/css/artcont_web_admin_2.css">
     <link rel="stylesheet" type="text/css" href="/leiphone/css/main_2.css" media="all" />
 <div class="wrapper">
@@ -16,9 +21,9 @@
 <!-- 发送私信 -->
 <div class="sendMsg-pop">
     <a href="javascript:;" class="closePop"><em></em></a>
-    <div class="title">发私信给<span>思佳</span></div>
-    <div class="main">
-        <textarea placeholder='私信内容'></textarea>
+    <div class="title">发私信给<span id="zuoz">{{$data->aname}}</span></div>
+    <div>
+        <textarea id="cons" cols="43" rows="7"  style="resize:none"  placeholder='私信内容'></textarea>
     </div>
     <div class="btns">
         <a href="javascript:;" class="send-button">发送</a>
@@ -140,34 +145,45 @@
                             -->        
                         </div>
                         <div class="submit clr commentForm" id="">
-                            <div class="text">
-                                <textarea name="Comment[content]" placeholder="我有话要说……" ></textarea>
-                            </div>
-                            <div class="sub clr publishtosina">
-                                <span class="emotionc emotion0" data-emotion="0">表情</span>
-                                <label><input id="" type="checkbox" name="pushForWeibo"> 同步到新浪微博</label>
+                            <form action="/home/article/comment" method="post">
+                                {{csrf_field()}}
+                                <input type="hidden" name="aid" value="{{$data->id}}">
+                                <div class="text">
+                                    <textarea name="comment" placeholder="我有话要说……" ></textarea>
+                                </div>
+                                <div class="sub clr publishtosina">
+                                    
+                                    
                                 <div class="qqFace" style="position:absolute; display:none; z-index:10"></div>
                                 <button type="submit" title="提交">提交</button>
                                 </div>
+                            </form>
                         </div>
-                        <!-- <div class="jcWords">
-                            <h3><strong>精彩评论</strong></h3>
-                            <ul class="comment-say">
-                                
-                            </ul>
-                        </div>
+                       
                         <div class="words">
-                            <h3><strong>最新评论</strong><span></span>条评论<i></i></h3>
+                            <h3><strong>最新评论</strong></h3>
                         <ul class="comment-say">
-                            
+                            @foreach($data1 as $key=>$val)
+
+                            @php
+                            $res = \DB::table('users')->where('id',$val->uid)->first();
+                            @endphp
+                            <li class="comment-say-li clr comment-level-1">
+                                <div class="csl-img">
+                                    <a href=""><img src="/uploads/avatar/{{$res->photo}}" width="40" height="40"></a>
+                                </div>
+
+                                <div class="csl-body">
+                                    <div class='cont'>
+                                        <a href="">{{$res->username}}</a><span class="time">{{$val->ctime}}</span>
+                                    </div>
+                                    <div class="des">{{$val->comment}}</div>
+                                </div>
+                            </li>
+                            @endforeach
                         </ul>
-                        <div id="comment-say-more" class="comment-say-more">
-
-                            <span>加载更多</span>
-                            <em>没有更多了</em>
-
+                        
                         </div>
-                    </div> -->
                     </div>
                 </div>
                 <!-- 评论 -->
@@ -184,16 +200,19 @@
             <div class="article-right">
                  <div class="aboutAur-main">
                         <div class="aboutAur-msg">
-                            <a href="https://www.leiphone.com/author/sijia893" class="avater" target="_blank" rel="nofollow">
-                                <img src="picture/5878780854683_100_100_2.jpg" alt=""  width="80" height="80" />
+                        @php
+                        $res1 = \DB::table('users')->where('username',$data->aname)->first();
+                        @endphp
+                            <a href="个人详情" class="avater" target="_blank" rel="nofollow">
+                                <img src="/uploads/avatar/{{$res1->photo}}" alt=""  width="80" height="80" />
                             </a>
                             <div class="name">
-                                <a href="https://www.leiphone.com/author/sijia893" target="_blank" rel="nofollow"><span>思佳</span><em class='gold'></em></a>
+                                <a href="" target="_blank" rel="nofollow"><span>{{$data->aname}}</span><em class='gold'></em></a>
                             </div>
                             <p class='profession'>编辑</p>
                             <div class="saying">
                                 <em class='l-quote'></em>
-                                <span>相信文字的分量。多多交流，微信（859258333）。</span>
+                                <span>个性签名</span>
                                 <em class='r-quote'></em>
                             </div>
                             <div class="operate-btn">
@@ -210,7 +229,9 @@
                             </div>
                         </div>
 
-
+                        
+                       
+                       
                             <!-- 作者的文章 -->
                 
                         <div class="mouthHot-article">
@@ -296,4 +317,65 @@
             </div>
         </div>
     </div>
+
+
+    @if(session('master'))
+     <script type="text/javascript">
+     $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    
+        $('.btns').click(function(){
+
+            $('.sendMsg-pop').css('display','block');
+         });
+
+        $('.send-button').click(function(){
+            var zuoz = $('#zuoz').html();
+            var cons = $('#cons').val();
+            if(!cons)
+            {
+                alert('私信内容不能为空');
+                return;
+            }
+
+            $.ajax('/home/user/sixin',{
+                type:'POST',
+                data:{zuoz:zuoz,cons:cons},
+                success:function(data){
+                    
+                     if(data == '1')
+                    {
+                      alert('发送成功');
+                       $('.sendMsg-pop').css('display','none');
+                    }else
+                    {
+                        alert('发送失败');
+                    }
+                },
+                error:function(data){
+                    alert('数据异常');
+                },
+                dataType:'json',
+            });
+                
+        });
+
+        $('.closePop').click(function(){
+
+            $('.sendMsg-pop').css('display','none');
+        });
+            
+    </script>
+    @else
+    <script type="text/javascript">
+        $('.btns').click(function(){
+            alert('请先登录哦');
+            $('#loginkk').click();
+            
+        });
+    </script>  
+    @endif 
 @endsection    

@@ -13,7 +13,7 @@
     </div>
    
 </nav>
-<link rel="stylesheet" type="text/css" href="/leiphone/css/list.css" media="all" />
+
 
 <div class="lph-main clr">
     <div class="wrapper">
@@ -21,20 +21,9 @@
             <!-- 模块一 -->
             <div class="lph-picShow list-picShow clr">
                 <div class="lph-slider list-slider">
-                    <a href="javascript:;" class="arrow prev"><em></em></a>
-                    <a href="javascript:;" class="arrow next"><em></em></a>
-                    <ul>
-                                    <li>
-                            <div class="pic">
-                                <a href="/banner/homepageUrl/id/1836" target="_blank">
-                                    <img src="/uploads/img/1.jpg" alt="" />
-                                </a>
-                            </div>
-                            <div class="txt">
-                                <a href="/banner/homepageUrl/id/1836">黑客 Jayson E.Street 讲述｜我如何一边搭飞机一边抢银行</a>
-                            </div>
-                            <div class="shadow"></div>
-                        </li>
+                    
+                    
+                            
                                     <li>
                             <div class="pic">
                                 <a href="/banner/homepageUrl/id/1833" target="_blank">
@@ -46,23 +35,6 @@
                             </div>
                            <div class="shadow"></div>
                         </li>
-                                    <li>
-                            <div class="pic">
-                                <a href="/banner/homepageUrl/id/2412" target="_blank">
-                                    <img src="/leiphone/picture/59195d17c133f.png" alt="" />
-                                </a>
-                            </div>
-                            <div class="txt">
-                                <a href="/banner/homepageUrl/id/2412">勒索蠕虫病毒新变种 WannaCry 2.0 究竟长啥样？怎么防？</a>
-                            </div>
-                            <div class="shadow"></div>
-                        </li>
-                                </ul>
-                    <div class="btns">
-                                    <a href="javascript:;" class="cur"></a>
-                                    <a href="javascript:;" ></a>
-                                    <a href="javascript:;" ></a>
-                                </div>
                 </div>
                 <div class="list-topPush">
                 <ul>
@@ -108,6 +80,11 @@
                     <ul class="clr">
                         
 						@foreach($data1 as $k=>$v)
+
+                        @php
+                        $res = \DB::table('users')->where('username',$v->aname)->first();
+                       
+                        @endphp
 						<li>
 							<div class="box">
 								<div class="img">
@@ -124,12 +101,10 @@
 									<div class="des">
 										{{$v->descript}}			</div>
 									<div class="msg clr">
-										<a href="https://www.leiphone.com/author/zhouxiang759" target="_blank" class="aut" rel="nofollow">
-											<img src="picture/7_100_100_1.jpg" width="50" height="50" alt=""/>周翔				</a>
+										<a href="" target="_blank" class="aut" rel="nofollow">
+											<img src="/uploads/avatar/{{$res->photo}}" width="50" height="50" alt=""/>{{$v->aname}}				</a>
 										<div class="time">{{$v->ctime}}</div>
-										<div class="tags">
-											<em></em>
-													            <a href="https://www.leiphone.com/tag/%E8%B5%9B%E9%97%A8%E9%93%81%E5%85%8B" title="赛门铁克"  target="_blank">赛门铁克</a><a href="https://www.leiphone.com/tag/%E4%BB%A5%E8%89%B2%E5%88%97" title="以色列"  target="_blank">以色列</a><a href="https://www.leiphone.com/tag/fireglass" title="fireglass"  target="_blank">fireglass</a><a href="https://www.leiphone.com/tag/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8" title="网络安全"  target="_blank">网络安全</a>		            				</div>
+										
 									</div>
 								</div>
 							</div>

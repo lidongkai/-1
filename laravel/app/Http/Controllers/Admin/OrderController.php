@@ -10,17 +10,14 @@ class OrderController extends Controller
     public function index(Request $request){
 
     	$num = $request->input('num',10); 
-        $keywords = $request->input('keywords','');
-     
-        $data = \DB::table('order')->where('ordernum','like','%'.$keywords.'%')->paginate($num);
- 
+        $keywords = $request->input('keywords',''); 
+        $data = \DB::table('order')->where('ordernum','like','%'.$keywords.'%')->paginate($num); 
     	return view('admin.order.index',['data'=>$data,'request' => $request->all(),'title'=>'订单列表']);
     }
  
     public function update(Request $request,$id){
     	 
     	$status = $request->input('status');  
-    	
     	$res = \DB::table('order')->where('id',$id)->update(['status'=>$status]);
  		 if($res){
             return redirect('/admin/order/index');

@@ -448,22 +448,37 @@
             
           </ul>
         </li>
+<<<<<<< HEAD
  
         <li class="treeview">
           <a href="#">
             <i class="fa fa-dashboard"></i>
             <span>轮播图管理</span>
+=======
+
+        <li class=" treeview">
+          <a href="#">
+            <i class="fa fa-dashboard"></i> <span>网络配置</span>
+>>>>>>> 7b74b8e6bfbb28f622ee765ccc02056b1e462bcd
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
+<<<<<<< HEAD
             <li><a href="{{ url('/admin/turn/index') }}"><i class="fa fa-circle-o"></i> 轮播图列表</a></li>
             <li><a href="{{ url('/admin/turn/add') }}"><i class="fa fa-circle-o"></i> 轮播图添加</a></li>
             
           </ul>
         </li>
  
+=======
+            <li ><a href="{{ url('/admin/config/index') }}"><i class="fa fa-circle-o"></i>配置信息</a></li>
+          </ul>
+
+
+        </li>
+>>>>>>> 7b74b8e6bfbb28f622ee765ccc02056b1e462bcd
         
         
       </ul>

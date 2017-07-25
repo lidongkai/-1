@@ -1,0 +1,173 @@
+/***个人中心【账号设置】模块样式***
+*
+*/
+/*修改资料*/
+.setBox{min-height:900px;}
+input:focus,select:focus,textarea:focus{outline: 0;}
+.setBox .basicMess{padding:30px 60px 50px 60px;font-size: 14px;color: #282828;}
+.setBox .basicMess .form-group{padding:15px 0; display: block;overflow: hidden;}
+.setBox .basicMess .nickname input,
+.setBox .basicMess .email input{width:300px; border:1px solid #cfcfcf; height:34px; line-height: 34px\9; outline:none; float:left; text-indent:5px; }
+.setBox .basicMess .tit{height:34px; line-height: 34px; width:60px; text-align: right; float:left; margin-right: 10px;}
+.setBox .basicMess select{float:left; position: relative; top:4px;height: 32px;}
+.setBox .basicMess .addr select{margin-right:10px;}
+.setBox .basicMess .birth .date{float:left; height:34px; line-height: 34px; padding:0 10px;}
+.setBox .basicMess .description textarea{padding: 5px;height: 120px;line-height: 20px;}
+.setBox .basicMess p.division{margin:40px 0;}
+.setBox .basicMess .account .disable span{display:none;}
+.setBox .basicMess .submit{width:116px; height:46px; line-height:46px; cursor:pointer; border:0; background:#282828; color:#fff;font-size: 14px;border-radius: 5px;}
+
+.setBox .basicMess .bindAcc{padding-top: 40px;}
+.setBox .basicMess .bindAcc h1{font-size: 14px;color: #000;padding-bottom: 35px;}
+.setBox .basicMess .bindAcc li{width: 140px;text-align: center;float: left;border-left: 1px solid #dfdfdf;}
+.setBox .basicMess .bindAcc li.first{border-left: 0}
+.setBox .basicMess .bindAcc .ico{text-align: center;padding-bottom: 16px;}
+.setBox .basicMess .bindAcc .ico em{display: inline-block;background: url('../images/common/home-ico.png') no-repeat }
+.setBox .basicMess .bindAcc .wechat em{background-position: -2px -39px;width: 29px;height: 28px;}
+.setBox .basicMess .bindAcc .qq em{background-position: 0 -76px;width: 28px;height: 30px;}
+.setBox .basicMess .bindAcc .sina em{background-position: -1px -108px;width: 32px;height: 28px;}
+.setBox .basicMess .bindAcc .bind-a{text-align: center;}
+.setBox .basicMess .bindAcc .bind-a a{width: 80px;height: 30px;line-height: 30px;text-align: center;display:inline-block;background-color: #333;color: #fff;font-size: 14px;border-radius:4px;}
+.setBox .basicMess .bindAcc .bind-a.havBind a{background:transparent;color: #666;}
+
+/*修改头像*/
+.setBox .editFace{padding:55px;min-height: 800px;}
+.setBox .editFace .top-group{overflow: hidden;}
+.setBox .editFace .face{width:100px; height: 100px;float: left;margin-right: 20px;margin-bottom: 10px; }
+.setBox .editFace .face img{display: block;}
+.setBox .editFace .upload-button{   font-family: Microsoft Yahei;width:100px; height:40px;line-height: 40px;border:0;outline: 0;background:#333; color:#fff; text-align:center; border-radius: 3px;}
+.setBox .editFace .notice{color:#666; height: 20px; line-height: 20px;padding-top: 15px;color: #282828;font-size: 14px;}
+.setBox .editFace .upload-field{overflow: hidden;position: relative;}
+.upload-field #upload_avatar{opacity: 0;filter:alpha(opacity=0);}
+.setBox .editFace .upload-field object{position: absolute;opacity: 0;filter:alpha(opacity=0);z-index: 3}
+.setBox .editFace .upload-field a{display: block;width: 130px;height: 36px;background: #333;color: #fff;text-align: center;border-radius: 3px;line-height: 36px;position: relative;z-index: 1}
+.setBox .editFace .upload-field img{display: block;}
+.setBox .editFace .new-face{padding-top: 50px;}
+.setBox .editFace .save-setting{  font-family: Microsoft Yahei;width:100px; height:40px;line-height: 40px;border:0;outline: 0;background:#333; color:#fff; text-align:center; border-radius: 3px;margin-top: 15px;}
+
+/*安全中心*/
+.setBox .safeCenter{padding: 40px 50px 0 50px;}
+.setBox .safeCenter h1{font-size: 16px;color: #000;padding-bottom: 12px;}
+.setBox .safeCenter li{padding:28px 0;/*overflow: hidden;*/;position: relative;}
+.setBox .safeCenter li .ico{margin-right: 20px;text-align: center;float: left;width: 32px;}
+.setBox .safeCenter li .ico em{margin-top: 7px;background: url('../images/common/home-ico.png') no-repeat;vertical-align: middle;display: inline-block;}
+.setBox .safeCenter li em.pw-ico{background-position:  -2px -2px;width: 26px;height: 32px;margin-top: 4px;}
+.setBox .safeCenter li em.phe-ico{background-position: -36px -2px;;width: 22px;height: 32px;}
+.setBox .safeCenter li em.eml-ico{background-position: -65px -2px;;width: 32px;height: 21px;margin-top: 10px;}
+.setBox .safeCenter li em.wx-ico{background-position: -4px -269px;;width: 34px;height: 28px;}
+.setBox .safeCenter li .tips{float: left;font-size: 14px;color: #333;line-height: 20px;width: 300px;}
+.setBox .safeCenter li .tips .p2{font-size: 12px;color: #999;}
+.setBox .safeCenter li .edit-a {float: right;}
+.setBox .safeCenter li .edit-a a{width: 100px;height: 40px;line-height: 40px;padding: 0;text-align:center;background-color: #2492e6;font-size: 14px;color: #fff;display: inline-block;border-radius: 5px;}
+.setBox .safeCenter li .edit-a .bindSoon{background-color: #333;}
+.setBox .safeCenter li .unbind{float: left;/*right: -100px;top: 36px;*/height: 30px;line-height: 30px;background: #2492e6;padding: 0 10px;color: #fff;font-size: 14px;border-radius: 5px;}
+
+.setBox .safeCenter li .bindStatus{float: left;width: 200px;text-align: center;}
+.setBox .safeCenter li .bindStatus a{line-height: 40px;font-size: 14px;}
+.setBox .safeCenter li .bindStatus a.succ{color: #1FAE5F;}
+.setBox .safeCenter li .bindStatus a.danger{color: #e31b20;}
+
+/*安全中心-修改密码*/
+.setBox .editPW{padding: 40px 0 0 50px;}
+.setBox .editPW h1{font-size: 16px;color: #000;}
+.setBox .editPW h2{font-size: 14px;color: #666;padding: 10px 0;}
+.setBox .editPW .row{padding-top: 30px;overflow: hidden;}
+.setBox .editPW .row .tit{width: 80px;line-height: 34px;float: left;text-align: right;font-size: 14px;color: #333;}
+.setBox .editPW .row .inp{overflow: hidden;padding-left: 16px;}
+.setBox .editPW .row .inp input[type="password"]{width: 230px;padding: 3px 5px;height: 26px;line-height: 26px;border:1px solid #d2d2d2;}
+.setBox .editPW .row .inp .tips{font-size: 14px;color: #ff3333;padding-left: 20px;}
+.setBox .editPW .row .inp .tips.error{color: #ff3333;}
+.setBox .editPW .row .inp .tips.succ{color: #0eae55;}
+.setBox .editPW .row .inp .tips i{display: inline-block;margin-right: 5px;vertical-align: middle;background: url('../images/common/home-ico.png') no-repeat;}
+.setBox .editPW .row .inp .tips.error i{background-position: -36px -39px;width: 16px;height: 16px;}
+.setBox .editPW .row .inp .tips.succ i{background-position:  -36px -58px;width: 17px;height: 18px;}
+.setBox .editPW .row .submit{background-color: #333;color: #fff;font-size: 14px;color: #fff;width: 116px;height: 46px;text-align: center;line-height: 46px;border-radius: 5px;display: inline-block;outline: 0;border: 0;margin-top: 12px;cursor: pointer;}
+.setBox .editPW .row .submit:hover{opacity: 0.9;fliter:alpha(opacity=90);}
+
+
+/*安全中心-绑定手机*/
+.setBox .safeCenter.bindPhone{padding-right: 50px;}
+.bindPhone h2{color: #999;font-size: 14px;}
+.bindPhone .row{/*overflow: hidden;*/padding-top: 20px;font-size: 14px;}
+.bindPhone .row .inp{float: left;}
+.bindPhone .row.row2{padding-bottom: 20px;}
+.bindPhone .row .name{float: left;width: 90px;padding-left: 5px;color: #333;line-height: 42px;}
+.bindPhone .row .inp input[type="text"]{border:1px solid #d2d2d2;padding: 5px 10px;width: 160px;height: 30px;line-height: 30px;}
+.bindPhone .row .inp .tips{padding-left: 15px;}
+.bindPhone .row .inp .tips.error i{background: url('../images/common/home-ico.png') no-repeat -36px -39px;width: 16px;height: 16px;vertical-align: middle;display: inline-block;margin-right: 3px;}
+.bindPhone .row .inp .tips.error{color: #ff3333; display: none;}
+.bindPhone .row .inp .tips.succ i{background-position: -36px -58px;width: 17px;height: 18px;}
+.bindPhone .row .inp .tips.succ{color: #0eae55;}
+.bindPhone .row .inp .getCode{padding:10px 15px; outline: none; border:1px solid #d2d2d2;font-size: 14px;float: left;cursor: pointer;background-color:#333; color: #fff; border:0;}
+.bindPhone .row .inp .getCode-disable{background-color: #eee;color: #999;}
+.bindPhone .row .inp .fail-tips{float: left;position: relative;width: 110px;text-align: right;color: #d36b4b;cursor: pointer;}
+.bindPhone .row .inp .fail-tips span{display: inline-block;line-height: 35px;}
+.bindPhone .row .inp .fail-tips .tips-mess{opacity:0; -webkit-transition: all .3s;
+-o-transition: all .3s;
+transition: all .3s; border-radius: 5px;text-align: left;position: absolute;right:-322px;top:-12px;width: 290px;padding:10px;border:1px solid #cd441a;font-size: 12px;line-height: 20px;color: #eda58f;}
+.bindPhone .row .inp .fail-tips .tips-mess .arrows{position: absolute;background: url('../images/common/home-ico.png') no-repeat -36px -80px;width: 9px;height: 15px;left: -9px;top:21px;}
+.bindPhone .row .inp .fail-tips .tips-mess li{position: relative;padding:3px 10px;white-space: nowrap;font-size: 12px;height: auto;}
+.bindPhone .row .inp .fail-tips .tips-mess li .dot{position: absolute;left:0;top:11px;width: 4px;height: 4px;background-color: #d36b4b;}
+.bindPhone .row .inp .fail-tips:hover .tips-mess{opacity: 1;}
+.bindPhone .row.row3{padding-top: 0;}
+.bindPhone .row.row3 .inp input[type="text"]{width: 80px;}
+.bindPhone .row.btn{padding-top: 28px;}
+.bindPhone .row.btn .inp input{width: 116px;height: 46px;text-align: center;line-height: 46px;display: inline-block;background-color: #333;color: #fff;font-size: 14px;border: 0;outline: 0;cursor: pointer;outline: 0;border:0;border-radius: 5px;}
+.bindPhone .row .inp .havBphe{display: none;position: relative;padding: 8px 12px;border:1px solid #cd441a;border-radius: 5px;margin-top:20px;}
+.bindPhone .row .inp .havBphe em{position: absolute;background: url('../images/common/home-ico.png') no-repeat -36px -101px;width: 14px;height: 8px;left: 13px;top:-8px;}
+.bindPhone .row .inp .havBphe p i{display: inline-block;background: url('../images/common/home-ico.png') no-repeat -36px -39px;width: 16px;height: 16px;vertical-align: middle;margin-right: 5px;}
+.bindPhone .row .inp .havBphe p{color: #ff3333;font-size: 14px;}
+.bindPhone .row .inp .havBphe .btnYN{padding-top: 10px;}
+.bindPhone .row .inp .havBphe .btnYN a{padding: 6px 18px;display: inline-block;font-size: 14px;color: #fff;border-radius:3px;}
+.bindPhone .row .inp .havBphe .btnYN a.yes{background-color: #333;margin-left: 21px;}
+.bindPhone .row .inp .havBphe .btnYN a.no{background-color: #818181;margin-left: 30px;}
+.bindSucc-pop{display: none;position: absolute;left: 50%;margin-left: -50px;top:400px;width: 202px;height: 60px;border:2px solid #1fcf6d;border-radius: 2px;font-size: 16px;line-height: 60px;color: #333;text-align: center;}
+.bindSucc-pop em{display: inline-block;background: url('../images/common/home-ico.png') no-repeat -62px -40px;vertical-align: middle;width: 32px;height: 32px;margin-right: 10px;}
+
+/*安全中心-绑定邮箱*/
+.bindEmail h2{color: #999;font-size: 14px;}
+.bindEmail .row{overflow: hidden;padding-top: 20px;font-size: 14px;}
+.bindEmail .row .inp{float: left;}
+.bindEmail .row .name{float: left;width: 90px;padding-left: 5px;color: #333;line-height: 42px;}
+.bindEmail .row .inp input[type="text"]{border:1px solid #d2d2d2;padding: 5px 10px;width: 200px;height: 30px;line-height: 30px;}
+.bindEmail .row.btn{padding-top: 28px;}
+.bindEmail .row.btn .inp input{width: 116px;height: 46px;text-align: center;line-height: 46px;display: inline-block;background-color: #333;color: #fff;font-size: 14px;border: 0;outline: 0;cursor: pointer;outline: 0;border:0;border-radius: 5px;}
+
+/*安全中心，已绑定*/
+.setBox .safeCenter li .edit-a.havBind a{background-color:#fff;color: #999;width: auto;padding-right: 29px;position: relative;}
+.setBox .safeCenter li .edit-a.havBind a span{max-width: 180px;overflow: hidden;display: inline-block;text-overflow: ellipsis;white-space: nowrap;}
+.setBox .safeCenter li .edit-a.havBind a  em{content: "";position: absolute;right: 0;top:9px;vertical-align: middle;margin-left: 6px;background: url('../images/common/home-ico.png') no-repeat -36px -119px;width: 24px;height: 20px;}
+
+
+/*解绑手机号，邮箱*/
+.unbind-mask{
+	position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    display: none;
+    background: rgba(0,0,0,.65);
+}
+.unbind-pop{width:450px;position: fixed;z-index: 100;left: 50%;margin-left: -225px;background: #fff;top: 200px;}
+.unbind-pop .tit{height: 50px;line-height: 50px;margin: 0 30px;font-size: 16px;text-align: center;border-bottom: 1px solid #e6e6e6;position: relative;}
+.unbind-pop .tit .cls{
+	position: absolute;
+	background: url('/resWeb/images/common/yzEmail-sprite.png') no-repeat 0 -19px;
+	width: 15px;
+	height: 16px;
+	right: -20px;
+	top: 12px;
+	cursor: pointer;
+}
+.unbind-pop .main{padding:35px 30px;font-size: 14px;}
+.unbind-pop .row{padding-bottom: 25px;}
+.unbind-pop .row span{float: left;width: 70px;line-height: 36px;}
+.unbind-pop .row input{width: 200px;height: 28px;line-height: 28px;padding: 4px;border:1px solid #e6e6e6;}
+.unbind-pop .row1 input{width: 310px;}
+.unbind-pop .row input:focus{box-shadow: 0 0 10px rgba(35,142,231,0.3);border-color: rgba(35,142,231,0.6);}
+.unbind-pop .row button{float: right;padding: 0 10px;cursor: pointer;height: 36px;line-height: 36px;background:#333947;border: 0;outline: 0;color: #fff;border-radius: 3px;-webkit-border-radius: 3px;}
+.unbind-pop .row button.getCode-disable{background: #ccc;}
+.unbind-pop .btns{padding-top: 10px;}
+.unbind-pop .btns input{display: block;cursor: pointer;height: 40px;line-height: 40px;text-align: center;border-radius: 5px;-webkit-border-radius: 5px;background:#238EE7;color: #fff;width: 100%;border: 0;outline: 0;}

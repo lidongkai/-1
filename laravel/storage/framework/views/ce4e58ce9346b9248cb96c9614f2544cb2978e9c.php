@@ -1,30 +1,17 @@
-<!DOCTYPE html>
-<!-- saved from url=(0044)https://ordercenter.meizu.com/order/add.html -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>确认订单-魅族商城</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
-    <link href="https://store.res.meizu.com/layout/img/favicon-2e71785f44.ico" rel="shortcut icon" type="image/x-icon">
-    <link href="https://store.res.meizu.com/layout/img/favicon-2e71785f44.ico" rel="icon" type="image/x-icon">
-    <meta name="description" content="魅族商城是魅族面向全国服务的官方电子商务平台,提供魅族PRO系列、魅族MX系列和魅蓝系列等产品的预约和购买.官方正品,全国联保.">
-    <meta name="keywords" content="魅族官方在线商店、魅族在线商城、魅族官网在线商店、魅族商城">
-    <link rel="stylesheet" href="<?php echo e(asset('home/meizu/css/layout-51312a08ab.css')); ?>">
+  
 
-    <!--[if lt IE 9]>
-    <script src="//store.res.meizu.com/layout/js/html5shiv-3ed50bb69a.js" type="text/javascript"></script>
-    <script src="//store.res.meizu.com/layout/js/es5-shim-50bbaee56e.js" type="text/javascript"></script>
-    <![endif]-->
-    <link href="<?php echo e(asset('home/meizu/css/add-e7067b7417.css')); ?>" rel="stylesheet" charset="UTF-8">
-</head>
-<body>
-<!-- common header -->
+<?php $__env->startSection('user'); ?>
+ 
+<link rel="stylesheet" href="<?php echo e(asset('home/meizu/css/layout-51312a08ab.css')); ?>">
+<link href="<?php echo e(asset('home/meizu/css/add-e7067b7417.css')); ?>" rel="stylesheet" charset="UTF-8">
+
 <script charset="utf-8" src="<?php echo e(asset('home/meizu/js/v.js')); ?>"></script>
 <script src="<?php echo e(asset('home/meizu/js/hm.js')); ?>"></script>
 <script src="<?php echo e(asset('home/meizu/js/flow.js')); ?>"></script>
 <script src="<?php echo e(asset('home/meizu/js/analytics-min.js')); ?>"></script>
 <script src="<?php echo e(asset('/admin/adminlte/plugins/jQuery/jquery-2.2.3.min.js')); ?>"></script>
+<link href="https://store.res.meizu.com/layout/img/favicon-2e71785f44.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="https://store.res.meizu.com/layout/img/favicon-2e71785f44.ico" rel="icon" type="image/x-icon">
 <script>
     var layoutHeaderData = false;
 </script>
@@ -34,7 +21,7 @@
         <div class="mzcontainer">
             <div class="order-address" id="addressModule">
                 <div class="order-address-title">
-                    收货人信息
+                    我的地址
                     <div class="order-address-title-tips" id="orderAddressHasOldTips">
                         <i class="order-address-tips-icon"></i>因配送地址库升级，部分地址需升级后方可使用！
                     </div>
@@ -201,6 +188,9 @@
     
   </div>
 </div>
+
+
+
 <script type="text/javascript">
 
 $.ajaxSetup({
@@ -397,4 +387,6 @@ $.ajaxSetup({
     })();
 </script>
 
-</body></html>
+ <?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('home.user.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

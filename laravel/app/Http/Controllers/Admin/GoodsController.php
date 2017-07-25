@@ -37,8 +37,7 @@ class GoodsController extends Controller
         $data =  \DB::table('goods')->select('*',\DB::raw("concat(path,',',id) AS sort_path"))->orderBy('sort_path')->get();
 
         // 处理
-        foreach($data as $key=>$val){
-
+        foreach($data as $key=>$val){ 
             $num = substr_count($val->path,','); 
             $data[$key]->name = str_repeat('|---', $num).$data[$key]->name;
         }
@@ -52,12 +51,9 @@ class GoodsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-  
-         
-          $this->validate($request, [
-            'name' => 'required|unique:posts|max:255', 
- 
+    { 
+        $this->validate($request, [
+            'name' => 'required|unique:posts|max:255',  
         ],[
             'name.required' => '分类名称不能为空',
             'name.unique' => '分类名称已存在',

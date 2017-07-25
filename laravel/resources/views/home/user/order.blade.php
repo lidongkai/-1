@@ -1,3 +1,6 @@
+  @extends('home.user.layout')
+
+@section('user')
 <!DOCTYPE html>
  
 <html>
@@ -5,6 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script charset="utf-8" src="{{ asset('home/meizu/js/v.js')}}"></script>
 <script src="{{ asset('home/meizu/js/hm.js')}}"></script>
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <script src="{{ asset('home/meizu/js/flow.js')}}"></script>
 <script src="{{ asset('home/meizu/js/analytics-min.js')}}"></script>
     
@@ -42,7 +46,7 @@
  
 <header class="layout-header clearfix" id="layoutHeader">
     <div class="mzcontainer"> 
-    <div class="store-wrap">
+    <div class="store-wrap" style="position:absolute;left:-250px">
         <div class="crumbs">
             <a href="http://store.meizu.com/index.html">首页 &gt;&nbsp;</a><a href="http://me.meizu.com/member/index">我的商城 &gt;&nbsp;</a><a href="http://ordercenter.meizu.com/list/index.html?type=-1&amp;selectStatus=0" class="active">我的订单&nbsp;</a>
         </div>
@@ -88,12 +92,12 @@
                     <div class="shop j-shop">
                            <div class="item b-t clearfix j-iamMain">
                               <a class="productDetail nameWidth" href="http://detail.meizu.com/item/lexin_S1.html" target="_blank">
-                              <img src="./我的订单-魅族商城_files/1463117675-47778.png" class="f-fl"></a>
+                              <img src="{{ asset('/uploads/avatar/1.png') }}" class="f-fl"></a>
                               <div class="describe f-fl">
                                   <div class="vertic clearfix">
                                       <span class="clearfix">
                                           <a class="productDetail nameWidth" href="{{ url('/home/shop/detail') }}/{{ $v->gid }}" target="_blank">
-                                          {乐心体重秤S1 wifi传输 微信互联 黑色}</a>
+                                          专业卖魅族手机</a>
                                           <p>
                                             ￥99
  
@@ -109,30 +113,35 @@
 
               </div>
             </td>
-            <td class="b-r w125 center price b-t">
+            <td class="b-r w125  price b-t">
                 <div class="priceDiv">
                     ￥ {{ $v->total }}
                     
                 </div>
             </td>
-            <td class="b-r w125 center state b-t">
+            <td class="b-r w125  state b-t">
                 <div class="stateDiv">
-                       <div>已取消<br></div>
-                      
+                        @if($v->status == 1)
+                       <div>出库中<br></div>
+                       @endif 
+                       @if($v->status == 2)
+                       <div>派发中<br></div>
+                       @endif
+                       @if($v->status == 3)
+                       <div>已完成<br></div>
+                       @endif
                 </div>
             </td>
-            <td class="w125 center opreat b-t">
+            <td class="w125 opreat b-t">
                 <ul>
-                    <li class="more"><a href="http://ordercenter.meizu.com/detail.html?sn=51071837482130650101&amp;isOld=0&amp;isCart=1" target="_blank">查看详情</a></li>
+                    <li class="more"><a href="{{ url('/home/user/orderDetail') }}/{{ $v->id }}" target="_blank">查看详情</a></li> 
                 </ul>
             </td>
         </tr> 
         <tr class="b-b b-l b-r show-more-order j-showOrder hide">
             <td colspan="4">还有<span class="j-orderNum"></span>种商品<i class="iconfont icon-arrow-xx"></i></td>
         </tr>
-        <tr class="empty">
-            <td></td>
-        </tr>
+         
       @endforeach
 </tbody>
 </table>
@@ -143,31 +152,12 @@
         </div>
     </div>
 
-    <!-- common js -->
-
-    <!-- end content -->
+     
  
-<script src="{{ asset('home/meizu/js/layout-62d6bf1d71.js')}}" type="text/javascript"></script><div class="store-cart store-cart-hide" style="top: 64px; left: 968.5px;"></div><div class="layout-user-downmenu layout-user-downmenu-login">
-  <ul class="layout-user-downmenu-list">
-    <li class="layout-user-downmenu-item">
-      <a href="http://ordercenter.meizu.com/list/index.html" class="layout-user-downmenu-link" data-mtype="wmz_public_grzx_myorder">我的订单<span class="layout-user-downmenu-num" id="layoutUserOrderNum"></span></a>
-    </li>
-    <li class="layout-user-downmenu-item">
-      <a href="http://me.meizu.com/member/message/index" class="layout-user-downmenu-link" data-mtype="wmz_public_grzx_notice">消息通知<span class="layout-user-downmenu-num" id="layoutUserMsgNum">2</span></a>
-    </li>
-    <li class="layout-user-downmenu-item">
-      <a href="http://me.meizu.com/member/favorite/index" class="layout-user-downmenu-link" data-mtype="wmz_public_grzx_favorites">我的收藏</a>
-    </li>
-    <li class="layout-user-downmenu-item">
-      <a href="http://store.meizu.com/mformy/index" class="layout-user-downmenu-link" data-mtype="wmz_public_grzx_mformy">M码通道</a>
-    </li>
-    <li class="layout-user-downmenu-item">
-      <a href="javascript:window.location.href=&#39;http://store.meizu.com/member/logout.htm?useruri=&#39;+ encodeURIComponent(encodeURIComponent(window.location.href));" class="layout-user-downmenu-link" data-mtype="wmz_public_grzx_quit">退出登录</a>
-    </li>
-  </ul>
-</div>
+ 
 <script type="text/javascript" src="{{ asset('home/meizu/js/order-newPayment-4c82a7e919.js')}}"></script>
- 
+
+  
 <script>
     var __mzt = __mzt || [];
     (function () {
@@ -199,3 +189,4 @@
 </script>
 
 </body></html>
+@endsection

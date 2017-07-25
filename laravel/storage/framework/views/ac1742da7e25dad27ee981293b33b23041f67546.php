@@ -2,8 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8"/>
-  <title>雷锋网_读懂智能&amp;未来</title>
-    <meta name="keywords" content="智能硬件,虚拟现实,VR,AR,移动互联网,互联网媒体,移动终端" />
+  <title>雷锋网_读懂智能&amp;未来</title> 
   <meta name="description" content="雷锋网是国内最早关注人工智能和智能硬件领域的互联网科技媒体，内容涵盖人工智能、智能硬件、机器人、智能驾驶、ARVR、网络安全、物联网、未来医疗、金融科技等9大领域。雷锋网致力于连接和服务学术界、工业界与投资界，为用户提供更专业的互联网科技资讯和培训服务，让用户读懂智能与未来。" />
     <meta name="sogou_site_verification" content="ilkqV8FehD"/>
     <meta name="renderer" content="webkit">
@@ -50,6 +49,7 @@
              <a href="/home/loginout">退出</a>
               <!-- </ul> -->
               </div>
+              <div class="yp-header-message" style="margin-top:22px;font-size:16px;">积分:<?php echo e(session('master')->score); ?></div>
               <div class="yp-header-message" style="margin-top:22px;font-size:16px;"><?php echo e(session('master')->username); ?></div>
         </div>
 
@@ -451,37 +451,39 @@ $.ajaxSetup({
         </div>
     </div>
 </section>
-
-<section class="pages" id="pages">
-</section>
+ 
 
             <section class="more-brands" style="display: none"></section>
             <section class="list-floorad" style="display: none"></section>
 
-    <section class="recommend" id="recommend">
-        <div class="recommend-hd">
-            <h2 class="mod-title">为您推荐</h2>
-            <div class="mod-control" id="recommendDirectionNav">
-                <a class="vm-prev flex-prev iconfont" id="J_recommendPrev" data-mtype="sotre_list_tj_a" href="#">
-                </a>
-                <a class="vm-next flex-next iconfont" id="J_recommendNext" data-mtype="sotre_list_tj_b" href="#">
-                </a>
+    <div class="home-hot mzcontainer">
+    <div class="home-hot-header clearfix">
+        <div class="home-hot-title">热品推荐</div>
+        <div class="home-hot-ctrl clearfix">
+            <div class="home-hot-ctrl-btn disabled" id="homeHotCtrlPrev" data-mtype="store_main_rp_a" data-mdesc="">
+                <i class="home-font prev1"></i>
+            </div>
+            <div class="home-hot-ctrl-btn disabled" id="homeHotCtrlNext" data-mtype="store_main_rp_b" data-mdesc="">
+                <i class="home-font next1"></i>
             </div>
         </div>
-        <div class="recommend-slider" id="J_recommendSlider">
-            <ul class="recommend-slider-wrap">
+    </div>
+    <div class="home-hot-content lazyload" id="homeHotContent" style="width:1241px;position: relative; overflow: hidden;">
+
+         <ul class="recommend-slider-wrap" id="uls" style=" position: absolute; width: 2482px;">
+        <?php $__currentLoopData = $data2; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <li class="rs-item">
-                            <a data-mtype="store_list_tj_1" class="rs-item-wrap" title="魅蓝 Note5"
-                                   href="//detail.meizu.com/item/meilannote5.html?click=store_list_tj_1"
+                            <a data-mtype="store_list_tj_1" class="rs-item-wrap" title="<?php echo e($val->goodsName); ?>"
+                                   href="<?php echo e(url('/home/shop/detail')); ?>/<?php echo e($val->id); ?>"
                                 target="_blank">
                                 <div class="mod-pic">
-                                        <img class="lazy" data-original="//openfile.meizu.com/group1/M00/00/C7/Cix_s1hGE96AUG5fAAtuFSxnh1Q216.png@480x480.jpg" width="180" height="180">
+                                        <img class="lazy" src="/uploads/avatar/<?php echo e($val->picture); ?>" width="180" height="180">
                                     </div>
                                 <div class="mod-desc">
-                                    <h4 class="vm-title">魅蓝 Note5 </h4>
+                                    <h4 class="vm-title"><?php echo e($val->goodsName); ?> </h4>
                                     <h6 class="vm-subtitle" title="6期免息  16G直降100元">6期免息  16G直降100元</h6>
                                     <p class="vm-price">
-                                        <span>¥</span><span class="vm-price-text">899</span>
+                                        <span>¥</span><span class="vm-price-text"><?php echo e($val->price); ?></span>
                                     </p>
                                 </div>
                                     <span class="mod-sign" style="background-color: #f0415f;">
@@ -489,73 +491,10 @@ $.ajaxSetup({
                                     </span>
                             </a>
                         </li>
-                        <li class="rs-item">
-                            <a data-mtype="store_list_tj_2" class="rs-item-wrap" title="魅蓝 5s"
-                                   href="//detail.meizu.com/item/meilan5s.html?click=store_list_tj_2"
-                                target="_blank">
-                                <div class="mod-pic">
-                                        <img class="lazy" data-original="//openfile.meizu.com/group1/M00/01/1D/CnQOjVij9TqAWnwcAAndI9Fz2pU075.png@480x480.jpg" width="180" height="180">
-                                    </div>
-                                <div class="mod-desc">
-                                    <h4 class="vm-title">魅蓝 5s </h4>
-                                    <h6 class="vm-subtitle" title="购机享3期免息">购机享3期免息</h6>
-                                    <p class="vm-price">
-                                        <span>¥</span><span class="vm-price-text">888</span>
-                                    </p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="rs-item">
-                            <a data-mtype="store_list_tj_3" class="rs-item-wrap" title="魅族 MX6"
-                                   href="//detail.meizu.com/item/mx6.html?click=store_list_tj_3"
-                                target="_blank">
-                                <div class="mod-pic">
-                                        <img class="lazy" data-original="//openfile.meizu.com/group1/M00/00/19/Cix_s1eNvdmALdX_AA7OmPNvWD8560.png@480x480.jpg" width="180" height="180">
-                                    </div>
-                                <div class="mod-desc">
-                                    <h4 class="vm-title">魅族 MX6 </h4>
-                                    <h6 class="vm-subtitle" title="全金属 拍照旗舰">全金属 拍照旗舰</h6>
-                                    <p class="vm-price">
-                                        <span>¥</span><span class="vm-price-text">1599</span>
-                                    </p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="rs-item">
-                            <a data-mtype="store_list_tj_4" class="rs-item-wrap" title="魅蓝 Max"
-                                   href="//detail.meizu.com/item/meilan_max1.html?click=store_list_tj_4"
-                                target="_blank">
-                                <div class="mod-pic">
-                                        <img class="lazy" data-original="//openfile.meizu.com/group1/M00/00/4F/Cix_s1fM2_iASNMvAAscQInnNPY866.png@480x480.jpg" width="180" height="180">
-                                    </div>
-                                <div class="mod-desc">
-                                    <h4 class="vm-title">魅蓝 Max </h4>
-                                    <h6 class="vm-subtitle" title="大屏长续航 享3期免息">大屏长续航 享3期免息</h6>
-                                    <p class="vm-price">
-                                        <span>¥</span><span class="vm-price-text">1699</span>
-                                    </p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="rs-item">
-                            <a data-mtype="store_list_tj_5" class="rs-item-wrap" title="魅族 休闲旅行双肩包"
-                                   href="//detail.meizu.com/item/meizu_bag.html?click=store_list_tj_5"
-                                target="_blank">
-                                <div class="mod-pic">
-                                        <img class="lazy" data-original="//openfile.meizu.com/group1/M00/00/49/CnQOjVfJIReAKnozAAVBTlzLU4U593.png@480x480.jpg" width="180" height="180">
-                                    </div>
-                                <div class="mod-desc">
-                                    <h4 class="vm-title">魅族 休闲旅行双肩包 </h4>
-                                    <h6 class="vm-subtitle" title="曲面一体式设计 多功能隔层">曲面一体式设计 多功能隔层</h6>
-                                    <p class="vm-price">
-                                        <span>¥</span><span class="vm-price-text">199</span>
-                                    </p>
-                                </div>
-                            </a>
-                        </li>
-            </ul>
-        </div>
-    </section>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
+        </ul>
+    </div>
+</div>
     </div>
 </main>
 
@@ -584,119 +523,68 @@ $.ajaxSetup({
 </div>
 
 </body>
-<div class="layout-footer clearfix">
-    <div class="mzcontainer">
-        <ul class="layout-footer-service clearfix">
-            <li class="layout-footer-service-item">
-                <i class="layout-font layout-font-foot1"></i>
-                <p class="layout-service-text">
-                    <span class="layout-service-name">7天</span>无理由退货
-                </p>
-            </li>
-            <li class="layout-footer-service-item">
-                <i class="layout-font layout-font-foot2"></i>
-                <p class="layout-service-text">
-                    <span class="layout-service-name">15天</span>换货保障
-                </p>
-            </li>
-            <li class="layout-footer-service-item">
-                <i class="layout-font layout-font-foot3"></i>
-                <p class="layout-service-text">
-                    <span class="layout-service-name">1年</span>免费保修
-                </p>
-            </li>
-            <li class="layout-footer-service-item">
-                <i class="layout-font layout-font-foot4"></i>
-                <p class="layout-service-text">
-                    <span class="layout-service-name">百城</span>速达
-                </p>
-            </li>
-            <li class="layout-footer-service-item">
-                <i class="layout-font layout-font-foot5"></i>
-                <p class="layout-service-text">
-                    <span class="layout-service-name">全场</span>包邮
-                </p>
-            </li>
-            <li class="layout-footer-service-item">
-                <i class="layout-font layout-font-foot6"></i>
-                <p class="layout-service-text">
-                    <span class="layout-service-name">2000多家</span>专卖店
-                </p>
-            </li>
-        </ul>
-        <ul class="layout-footer-nav clearfix">
-            <li class="layout-footer-nav-item">
-                <p class="layout-footer-nav-title">帮助说明</p>
-                <ul class="layout-footer-nav-list">
-                    <li><a class="layout-footer-nav-link" target="_blank" href="https://hd.meizu.com/rules/payment_help.html" data-mdesc="帮助说明下第1个坑" data-mtype="store_index_yw_support_1">支付方式</a></li>
-                    <li><a class="layout-footer-nav-link" target="_blank" href="https://hd.meizu.com/rules/deliverynote.html" data-mdesc="帮助说明下第2个坑" data-mtype="store_index_yw_support_2">配送说明</a></li>
-                    <li><a class="layout-footer-nav-link" target="_blank" href="http://store.meizu.com/explain/warranty_services.html" data-mdesc="帮助说明下第3个坑" data-mtype="store_index_yw_support_3">售后服务</a></li>
-                    <li><a class="layout-footer-nav-link" target="_blank" href="https://hd.meizu.com/rules/payment_helps.html" data-mdesc="帮助说明下第4个坑" data-mtype="store_index_yw_support_4">付款帮助</a></li>
-                </ul>
-            </li>
-            <li class="layout-footer-nav-item">
-                <p class="layout-footer-nav-title">Flyme</p>
-                <ul class="layout-footer-nav-list">
-                    <li><a class="layout-footer-nav-link" href="https://open.flyme.cn/" target="_blank" data-mdesc="Flyme下第1个坑" data-mtype="store_index_yw_flyme_1">开放平台</a></li>
-                    <li><a class="layout-footer-nav-link" href="http://www.flyme.cn/firmware.jsp" target="_blank" data-mdesc="Flyme下第2个坑" data-mtype="store_index_yw_flyme_2">固件下载</a></li>
-                    <li><a class="layout-footer-nav-link" href="http://app.flyme.cn/" target="_blank" data-mdesc="Flyme下第3个坑" data-mtype="store_index_yw_flyme_3">软件商店</a></li>
-                    <li><a class="layout-footer-nav-link" href="http://finder.flyme.cn/" target="_blank" data-mdesc="Flyme下第4个坑" data-mtype="store_index_yw_flyme_4">查找手机</a></li>
-                </ul>
-            </li>
-            <li class="layout-footer-nav-item">
-                <p class="layout-footer-nav-title">关于我们</p>
-                <ul class="layout-footer-nav-list">
-                    <li><a class="layout-footer-nav-link" target="_blank" href="http://www.meizu.com/about.html" data-mdesc="关于我们下第1个坑" data-mtype="store_index_yw_about_1">关于魅族</a></li>
-                    <li><a class="layout-footer-nav-link" target="_blank" href="http://hr.meizu.com/" data-mdesc="关于我们下第2个坑" data-mtype="store_index_yw_about_2">加入我们</a></li>
-                    <li><a class="layout-footer-nav-link" target="_blank" href="http://www.meizu.com/contact.html" data-mdesc="关于我们下第3个坑" data-mtype="store_index_yw_about_3">联系我们</a></li>
-                    <li><a class="layout-footer-nav-link" target="_blank" href="http://www.meizu.com/legalStatement.html" data-mdesc="关于我们下第4个坑" data-mtype="store_index_yw_about_4">法律声明</a></li>
-                </ul>
+<footer class='yp-footer'> 
+<!-- 友情链接，热门关键字 -->
+ 
+<div class="wrapper">
+<div class="tab_tit clr">
 
-            </li>
-            <li class="layout-footer-nav-item">
-                <p class="layout-footer-nav-title">关注我们</p>
-                <ul class="layout-footer-nav-list">
-                    <li><a class="layout-footer-nav-link" target="_blank" href="http://weibo.com/meizumobile" data-mdesc="关注我们下第1个坑" data-mtype="store_index_yw_follow_1">新浪微博</a></li>
-                    <li><a class="layout-footer-nav-link" target="_blank" href="http://t.qq.com/meizu_tech" data-mdesc="关注我们下第2个坑" data-mtype="store_index_yw_follow_2">腾讯微博</a></li>
-                    <li><a class="layout-footer-nav-link" target="_blank" href="http://user.qzone.qq.com/2762957059" data-mdesc="关注我们下第3个坑" data-mtype="store_index_yw_follow_3">QQ空间</a></li>
-                    <li>
-                        <a class="layout-footer-nav-link layout-footer-nav-wechat" href="javascript:;" data-mdesc="关注我们下第4个坑" data-mtype="store_index_yw_follow_4">
-                            官方微信
-                            <img class="layout-footer-nav-wechat-img" src="<?php echo e(asset('home/meizu/picture/weixin.png')); ?>" alt="微信二维码">
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="layout-footer-nav-item ">
-                <p class="layout-footer-nav-title tel">24小时全国服务热线</p>
-                <p><a class="layout-footer-nav-tel" href="tel:400-788-3333" data-mdesc="服务热线电话号码" data-mtype="store_index_yw_tel">400-788-3333</a></p>
-                <p>
-                    <a class="layout-footer-nav-btn" href="javascript:;" data-mdesc="在线客服按钮" data-mtype="store_index_yw_service" onclick="window.open('http://live-i.meizu.com/live800/chatClient/chatbox.jsp?companyID=8957&amp;configID=4&amp;enterurl='+ encodeURIComponent(document.URL) + '&amp;pagereferrer=' + encodeURIComponent(document.referrer) + '&amp;info=&amp;k=1', '_blank','height=775,width=1200,fullscreen=3,top=100,left=100,status=yes,toolbar=no,menubar=no,resizable=no,scrollbars=no,location=no,titlebar=no,fullscreen=no');">
-                        <i class="layout-font layout-font-talk"></i>24小时在线客服
-                    </a>
-                </p>
-            </li>
-        </ul>
-        <div class="layout-footer-copyright">
-            珠海市魅族通讯设备有限公司 &copy;2017 Meizu Telecom Equipment Co., Ltd. All rights reserved.
-            <a class="layout-footer-copyright-link" hidefocus="true" href="http://www.miitbeian.gov.cn/" target="_blank" data-mdesc="底部版权信息第1个坑" data-mtype="store_index_yw_copyright_1">备案号：粤ICP备13003602号-2</a>
-            <a class="layout-footer-copyright-link" hidefocus="true" href="//www2.res.meizu.com/zh_cn/images/common/icp2.jpg" target="_blank" data-mdesc="底部版权信息第2个坑" data-mtype="store_index_yw_copyright_2">经营许可证编号：粤B2-20130198</a>
-            <a class="layout-footer-copyright-link" hidefocus="true" href="//www2.res.meizu.com/zh_cn/images/common/com_licence.jpg" target="_blank" data-mdesc="底部版权信息第3个坑" data-mtype="store_index_yw_copyright_3">营业执照</a>
-            <a class="layout-footer-copyright-link" hidefocus="true" href="http://210.76.65.188/" rel="nofollow" target="_blank" data-mdesc="底部版权信息第4个坑" data-mtype="store_index_yw_copyright_4">
-                <i class="layout-icon layout-icon-license"></i>
-            </a>
-            <a class="layout-footer-copyright-link" hidefocus="true" href="http://210.76.65.188/webrecord/innernet/Welcome.jsp?bano=4404013010531" rel="nofollow" target="_blank" data-mdesc="底部版权信息第5个坑" data-mtype="store_index_yw_copyright_5">
-                <i class="layout-icon layout-icon-wel"></i>
-            </a>
-            <a class="layout-footer-copyright-link" hidefocus="true" href="https://credit.szfw.org/CX20151204012550820380.html" rel="nofollow" target="_blank" data-mdesc="底部版权信息第6个坑" data-mtype="store_index_yw_copyright_6">
-                <i class="layout-icon layout-icon-trust"></i>
-            </a>
-          <a class="layout-footer-copyright-link" hidefocus="true" href="http://si.trustutn.org/info?sn=749160913024249024251&certType=1" rel="nofollow" target="_blank" data-mdesc="底部版权信息第7个坑" data-mtype="store_index_yw_copyright_7">
-                <i class="layout-icon layout-icon-official"></i>
-            </a>
-        </div>
-    </div>
 </div>
+<div class="tab_con">
+<ul>
+<li class='cur'>
+<a href="http://it.sohu.com/" target="_blank"></a>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="yp-footer-msg">
+<div class="wrapper clr">
+<!-- links -->
+<div class="links" style="text-align:center">
+<a rel="nofollow" href="https://www.leiphone.com/us/concact">联系我们</a>
+<a rel="nofollow" href="https://www.leiphone.com/us/index">关于我们</a>
+<a rel="nofollow" href="https://www.leiphone.com/news/201611/0nOqnvNoxI6vX4L9.html">加入我们</a>
+<a rel="nofollow" href="https://www.leiphone.com/us/feedback">意见反馈</a>
+<a rel="nofollow" href="https://www.leiphone.com/contribute/index">投稿</a>
+</div>
+<!-- 下载app -->
+<div class="downLoad-app">
+<div class="qrcode">
+<!-- /site/download -->
+<img src="/leiphone/picture/downcode.jpg" width="96" height="96" alt="" />
+</div>
+<div class="txt">
+<p>下载雷锋网客户端</p>
+<a rel="nofollow" href="https://itunes.apple.com/cn/app/lei-feng-wang-yi-dong-hu-lian/id579529120?mt=8" target="_blank" class='iPhone'><em></em>iPhone</a>
+<a rel="nofollow" href="https://android.myapp.com/myapp/detail.htm?apkName=com.leiphone.app" target="_blank" class='Android'><em></em>Android</a>
+</div>
+</div>
+<!-- 关注-->
+<div class="contact">
+<a rel="nofollow" href="mailto:web@leiphone.com " class='eml sub_a'><em></em></a>
+<a rel="nofollow" href="https://www.weibo.com/p/1006062118746300" target="_blank" class='sina sub_a'><em></em></a>
+</div>
+</div>
+</div>
+<br/><br/><br/>
+ 
+    <!-- copyRight -->
+    <div class="yp-copyright">
+        <div class="wrapper">
+            <p>Copyright © 2011-2018 www.leiphone.com 雷锋网-移动互联网智能终端第一媒体 All Rights Reserved <a target="_blank" style="color:#9baab6;" href="https://www.miitbeian.gov.cn">粤ICP备11095991号-1</a>
+                <img src="/leiphone/picture/anquan.png" alt="">
+                &nbsp;&nbsp;
+                <a href="http://szcert.ebs.org.cn/0ee69ac3-f114-4bd9-9ea1-a5a04f7cd44b" rel="nofollow" target="_blank"></a>
+                                &nbsp;&nbsp;
+                <a rel="nofollow" href="" target="_blank" style="color:#9baab6">ICP证粤B2-20150332</a>
+                <a rel="nofollow" href="" target="_blank" rel="nofollow" style="float:right">
+                    <img src="/leiphone/picture/hzs4.png">
+                </a>
+            </p>
+        </div>
+    </div> 
  
 <script src="<?php echo e(asset('/home/meizu/js/layout-ca70dcecd0.js')); ?>" type="text/javascript"></script>
 
@@ -777,6 +665,39 @@ $.ajaxSetup({
             });
         }) 
 </script>
+<script type="text/javascript">
+
+        var os = '-';
+        var inte = null;
+        
+        function run()
+        {
+            inte = setInterval(function(){
+                // 获取 left
+                var left = $('#uls').position().left;
+                
+                // 判断
+                if(left <= -1241)
+                {
+                    os = '+';
+                }
+
+                if(left >= 0)
+                {
+                    os = '-';
+                }
+
+                $('#uls').animate({
+                    'left': os+'=1241px'
+                }, 500);
+
+            }, 4000);
+
+        }
+
+        // 入口。
+        run(); 
+    </script>
  
     
 </body>

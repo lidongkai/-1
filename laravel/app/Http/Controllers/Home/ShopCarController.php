@@ -20,10 +20,7 @@ class ShopCarController extends Controller
 
      public function ajaxc(Request $request){ 
      	$data = $request->all(); 
-     	// dd($data);
-     	// dd(session('master')); 
-
-
+     	// dd($data); 
      	if($request->session()->exists('master')){
 
      		// 同一个用户加了两次该商品
@@ -72,9 +69,7 @@ class ShopCarController extends Controller
      	// 存入session
      	session(['shop'=>$data]); 
      	return response()->json('3');
-     	} 
-
-
+     	}  
      }
 
      // 删除购物车商品

@@ -12,44 +12,28 @@ class OrderController extends Controller
    public function index(Request $request){ 
       // 获取当前用户
       $id = $request->session()->get('master')->id; 
-      $data = \DB::table('order')->where('uid',$id)->get(); 
-        
-      foreach($data as $key=>$val){
-         // $data1[] = explode(',',(rtrim($val->gid,',')));
-         $data0[] = $val->ordernum; 
-      } 
-      foreach($data0 as $a){
-         $dataGood[] = \DB::table('order')->where('ordernum',$a)->first();
-
-               foreach($dataGood as $b){
-                  $dataGid[] = $b->gid;
-
-                        // dd($dataGid);
-                     foreach($dataGid as $key=>$val){
-                        $data1[] = explode(',',(rtrim($val,',')));
-                        
-                     }  
-
-                     foreach($data1 as $k=>$v){
-                        $data2 = $v;
-                           foreach($data2 as $a=>$b){
-                           $data3[] = $b;
-                           }
-                     }
-                     
-                     // dd($data3);
-                     foreach($data3 as $value){
-                        // echo $value;
-                       $data4[] = \DB::table('goodsdetail')->where('id',$value)->first(); 
-                     }
-               }
-               
-   }
-     
-      dd($data4); 
-
+      $data = \DB::table('order')->where('uid',$id)->get();  
       return view('home.user.order',['data'=>$data]);
    }
+
+   // 订单详情
+   public function detail(Request $request,$id){
+     
+    // echo($id); 
+      $data0 = \DB::table('order')->where('id',$id)->first()->gid;
+      $data2 = \DB::table('order')->where('id',$id)->first();
+      $total = $data2->total;
+      $ordernum = $data2->ordernum;
+      $address = $data2->addre;
+      $data3 = \DB::table('address')->where('id',$address)->first();
+      $gid = explode(',',(rtrim($data0,',')));
+      // dd($gid);
+      foreach($gid as $k=>$v){
+         $data1[] = \DB::table('goodsdetail')->where('id',$v)->first(); 
+      } 
+      // dd($data3);
+    return view('home.user.orderDetail',['data1'=>$data1,'total'=>$total,'ordernum'=>$ordernum,'data3'=>$data3]);
+   } 
 
 	// 处理订单地址及商品
 	// 订单去结算页面
@@ -59,14 +43,12 @@ class OrderController extends Controller
    	$aid = $request->session()->get('master')->id;
 
    	$data = \DB::table('shopcar')->where('status',1)->where('uid',$aid)->get();   
-   	$data2 = \DB::table('address')->where('aid',$aid)->get();
-
+   	$data2 = \DB::table('address')->where('aid',$aid)->get(); 
    	return view('home.order.add',['data'=>$data,'data2'=>$data2]);
    }
  
    // 订单地址
-   public function ajaxg(Request $request){
-
+   public function ajaxg(Request $request){ 
    	// dd($request->all());
    	$upid = $request->input('upid');
    	$data = \DB::table('district')->where('upid',$upid)->get();

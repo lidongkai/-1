@@ -1,4 +1,4 @@
-@extends('home.user.index')
+@extends('home.user.layout')
 
 @section('user')
 <div class="public_m1">
