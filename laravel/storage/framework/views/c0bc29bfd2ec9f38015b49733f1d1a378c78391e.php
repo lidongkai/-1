@@ -33,51 +33,20 @@
 			        <a href="javascript:;" class="arrow prev" ><em></em></a>
 			        <a href="javascript:;" class="arrow next" ><em></em></a>
 			        <ul>
-			                        <li>
+                        <?php $__currentLoopData = $data5; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $z=>$x): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+			            <li>
 			                <div class="pic">
-			                    <a href="/banner/homepageUrl/id/2535" target="_blank">
-			                        <img src="/leiphone/picture/595e460db2ce5.jpg" alt="" />
+			                    <a href="/home/show/<?php echo e($x->id); ?>" target="_blank">
+			                        <img src="/uploads/article/<?php echo e($x->picture); ?>" width="388px" height="391px" alt="" />
 			                    </a>
 			                </div>
 			                <div class="txt">
-			                    <a href="/banner/homepageUrl/id/2535">CCF-GAIR 2017 峰会现场直播</a>
+			                    <a href="/home/show/<?php echo e($x->id); ?>"><?php echo e($x->atitle); ?></a>
 			                </div>
 			                <div class="shadow"></div>
 			            </li>
-			                        <li>
-			                <div class="pic">
-			                    <a href="/banner/homepageUrl/id/2534" target="_blank">
-			                        <img src="picture/595da78f037c0.png" alt="" />
-			                    </a>
-			                </div>
-			                <div class="txt">
-			                    <a href="/banner/homepageUrl/id/2534">一年让股价翻了六倍，AMD 能否在苏妈治下重振旗鼓？</a>
-			                </div>
-			                <div class="shadow"></div>
-			            </li>
-			                        <li>
-			                <div class="pic">
-			                    <a href="/banner/homepageUrl/id/2533" target="_blank">
-			                        <img src="picture/595c8a4734bb2.png" alt="" />
-			                    </a>
-			                </div>
-			                <div class="txt">
-			                    <a href="/banner/homepageUrl/id/2533">3 天就能改装一辆自动驾驶汽车，陆奇揭开阿波罗计划全貌</a>
-			                </div>
-			                <div class="shadow"></div>
-			            </li>
-			                        <li>
-			                <div class="pic">
-			                    <a href="/banner/homepageUrl/id/2528" target="_blank">
-			                        <img src="picture/5959b201a8884.png" alt="" />
-			                    </a>
-			                </div>
-			                <div class="txt">
-			                    <a href="/banner/homepageUrl/id/2528">深圳地铁设女性优先车厢引强烈争议，AI 能做点什么？</a>
-			                </div>
-			                <div class="shadow"></div>
-			            </li>
-			                    </ul>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+			        </ul>
 			        			<div class="btns">
 			                        <a href="javascript:;" class="cur"></a>
 			                        <a href="javascript:;" ></a>
@@ -92,29 +61,26 @@
 		    <div class="module">
 		        <!-- 第一列 -->
 		        <div class="rows clr rowOne ">
-		            <div class="column line colTxt">
-		                <table>
-		                    <tr>
-		                        <td>
-		                                                        <a href="/banner/homepageUrl/id/2521" target="_blank">揭密 | 初代 iPhone 真正诞生的前 6 个月                                                        </a>
-		                        </td>
-		                    </tr>
-		                </table>
-		            </div>
-		                        <div class="column picTxt">
-		                <a href="/banner/homepageUrl/id/2517" target="_blank">
+                    
+                    <?php $__currentLoopData = $data4; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $keys=>$values): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+		            <div class="column picTxt">
+		                <a href="/home/show/<?php echo e($values->id); ?>" target="_blank">
 		                    <div class="pic">
-		                        <img src="/leiphone/picture/59546a282f372.png" width="195" height="195" />
+		                        <img src="/uploads/article/<?php echo e($values->picture); ?>" width="195" height="195" />
 		                    </div>
 		                    <div class="txt">
-		                        70 + 公司 12 大领域，尽览无人机生态全景                    </div>
+		                        <?php echo e($values->atitle); ?>                   </div>
 		                    <div class="cover"></div>
 		                </a>
 		                <div class="shadow"></div>
 		            </div>
-		                    </div>
+                    
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+		        </div>
 		        <!-- 第二列 -->
-		        <div class="rows clr">
+		        <!-- <div class="rows clr">
 		                        <div class="column line picTxt">
 		                <a href="/banner/homepageUrl/id/2507" target="_blank">
 		                    <div class="pic">
@@ -134,7 +100,7 @@
 		                    </tr>
 		                </table>
 		            </div>
-		        </div>
+		        </div> -->
 		    </div>
 		</div>
 
@@ -148,12 +114,12 @@
             <li>
                 <div class="box">
                     <div class="pic">
-                        <a href="https://www.leiphone.com/latest/index/id/4072" target="_blank">
+                        <a href="/home/show/<?php echo e($va->id); ?>" target="_blank">
                             <img src="/uploads/article/<?php echo e($va->picture); ?>" alt="" />
                         </a>
                     </div>
                     <div class="txt">
-                        <a href="https://www.leiphone.com/latest/index/id/4072" target="_blank">
+                        <a href="/home/show/<?php echo e($va->id); ?>" target="_blank">
                             <?php echo e($va->atitle); ?>                       </a>
                     </div>
                 </div>
@@ -172,7 +138,12 @@
                       
                         
             					<?php $__currentLoopData = $data1; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $k=>$v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            
+
+                                <?php 
+                                $res = \DB::table('users')->where('username',$v->aname)->first();
+                               
+                                 ?>
+                            
                                 <li>
                                     <div class="box">
                                         <div class="img">
@@ -190,15 +161,17 @@
                                                <?php echo e($v->descript); ?>            </div>
                                             <div class="msg clr">
                                                 <a href="" target="_blank" class="aut" rel="nofollow">
-                                                    <img src="/leiphone/picture/default.jpg" width="50" height="50" alt=""/><?php echo e($v->aname); ?>               </a>
+                                                    <img src="/uploads/avatar/<?php echo e($res->photo); ?>" width="50" height="50" alt=""/><?php echo e($v->aname); ?>               </a>
+                    
                                                 <div class="time"><?php echo e($v->ctime); ?></div>
                                                 <div class="tags">
                                                     <em></em>
-                                                                        <a href="" title="智能音箱"  target="_blank">智能音箱</a><a href="" title="echo"  target="_blank">echo</a><a href="" title="Dueros"  target="_blank">Dueros</a>                                    </div>
+                                                                       <!--  <a href="" title="智能音箱"  target="_blank">智能音箱</a><a href="" title="echo"  target="_blank">echo</a><a href="" title="Dueros"  target="_blank">Dueros</a>   -->                                  </div>
                                             </div>
                                         </div>
                                     </div>
                                 </li>
+                                
             					<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             
             
@@ -227,24 +200,22 @@
         <div class="box2">
             <div class="box3">
                 <div class="refresh">
-                    <div class="line">
-                        <div class="circle">
-                            <em></em>
-                        </div>
-                    </div>
+
+                    <div class="btns"><a href="javascript:;">刷新</a></div>
                 </div>
                 <div class="title"><span>业界资讯</span></div>
                 <div class="list"> 
                     <div id="scroll2">
-                                                <ul class="cont">
-                                                        <li>
-                                <div class="time">2小时前</div>
+                        <ul class="cont">
+                            <?php $__currentLoopData = $data3; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <li>
+                                <div class="time" id="ctime"><?php echo e($value->ctime); ?></div>
                                 <div class="headTit">   
-                                    <a href="https://www.leiphone.com/news/201707/A5d6QIOFWStohkiu.html" target="_blank">索尼PSVR发布《遥远星际》简体中文版 寄望四款本土VR游戏</a>
+                                    <a id="atitle" href="" target="_blank"><?php echo e($value->atitle); ?></a>
                                 </div>  
                             </li>
-                             
-                                                    </ul>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </ul>
                     </div>
                     <div class="scroll-bar" id='scroll-bar2'><b></b></div>
                                         <div class="cover"></div>
@@ -466,22 +437,70 @@
 </div>
 
 
+
+
+ <script type="text/javascript">
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    var skip = 0;
+   
+    $('.btns').click(function(){
+
+        skip+=6;
+        $.ajax('/home/refresh',{
+                type:'POST',
+                data:{skip:skip},
+                
+
+                success:function(data){
+                    
+                 var scr = $("#scroll2>ul");
+                    
+                 scr.empty();
+               
+                var nei ="";
+                 
+                $.each(data,function(i,n){
+
+                nei += "<li><div class='time' id='ctime'>"+n.ctime+"</div><div class='headTit'><a id='atitle' href='/home/show/"+n.id+"' target='_blank'>"+n.atitle+"</a></div></li>";
+                
+                // console.log(nei);
+                });
+                
+                scr.append(nei);
+                 
+
+                },
+                error:function(data){
+                    alert('数据异常');
+                },
+                dataType:'json',
+            });
+    });
+    </script>
+
  
 <div class="yp-footer-link">
-<div class="wrapper">
-<div class="tab_tit clr">
-<a href="javascript:;" class='cur'>友情链接</a>
+    <div class="wrapper">
+        <div class="tab_tit clr">
+            <a href="javascript:;" class='cur'>友情链接</a>
+        </div>
+        
+        <div class="tab_tit clr">
+            <ul>
+            <li class='cur'>
+            <?php $__currentLoopData = $dataz1; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $k=>$v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <a href="<?php echo e($v->weburl); ?>" target="_blank"><?php echo e($v->webname); ?></a>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </ul>
+        </div>
+    </div>
 </div>
-<div class="tab_con">
-<ul>
-<li class='cur'>
-<?php $__currentLoopData = $data3; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $k=>$v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-<a href="<?php echo e($v->weburl); ?>" target="_blank"><?php echo e($v->webname); ?></a>
-<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-</ul>
-</div>
-</div>
-</div>
+
 
 <?php $__env->stopSection(); ?>
 

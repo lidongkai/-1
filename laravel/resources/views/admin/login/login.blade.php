@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | 登录 </title>
+  <title>雷锋网 | 登录 </title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -17,15 +17,10 @@
   <!-- iCheck -->
   <link rel="stylesheet" href="/admin/adminlte/plugins/iCheck/square/blue.css">
 
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
 </head>
+
 <body class="hold-transition login-page">
-<div class="login-box">
+  <div class="login-box">
   <div class="login-logo">
     <a href="#"><b>{{ config('app.name') }}</b></a>
   </div>
@@ -54,7 +49,7 @@
       </div>
       <div class="row">
         <div class="col-xs-8">
-          <div class="checkbox icheck">
+          <div class="checkbox icheck col-xs-8">
             <label>
               <input name="remember_me" type="checkbox">记住我
             </label>
@@ -67,13 +62,6 @@
         <!-- /.col -->
       </div>
     </form>
-
-<!--     <div class="social-auth-links text-center">
-      <p>- OR -</p>
-      <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i>QQ</a>
-      <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i>WX</a>
-    </div> -->
-    <!-- /.social-auth-links -->
 
     <a href="{{ url('/admin/forgot') }}">忘记密码</a><br>
 

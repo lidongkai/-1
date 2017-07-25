@@ -1,5 +1,7 @@
 <?php $__env->startSection('content'); ?>
+
     <link rel="stylesheet" type="text/css" href="/leiphone/css/jiazaitoubu.css">
+
     <link rel="stylesheet" type="text/css" href="/leiphone/css/center.css">
     <!--城市联动-->
     <link rel="stylesheet" type="text/css" href="/leiphone/css/city.css">
@@ -38,14 +40,16 @@
             <span class="gjszmdm">
                 <a href="/home/user/information" class="center_in_self"><font>完善资料</font></a>
                 <a href="/home/user/safe" class="center_in_self"><font>修改密码</font></a>
+                <a href="/home/user/detail" class="center_in_self"><font>详细资料</font></a>
             </span>
             <!--一条开始-->
-            <div class="centers_listm_one_in">
-                <img src="/leiphone/picture/ddgl.png"/>
-                <em>我的文章</em>
-                <b></b>
-            </div>
+            
             <span class="gjszmdm">
+
+                <a href="/home/user/article" class="center_in_self"><font>我的文章</font></a>
+                <a href="/home/user/addarticle" class="center_in_self"><font>发表文章</font></a>
+                <a href="#" class="center_in_self"><font>我的收藏</font></a>
+
                 <a href="#" class="center_in_self"><font>我的订单</font></a>
                 <a href="#" class="center_in_self"><font>我的预约</font></a>
                 <a href="#" class="center_in_self"><font>评价订单</font></a>
@@ -90,9 +94,13 @@
     <!--right-->
     <div class="centers_mr">
 
-        <?php echo $__env->yieldContent('user'); ?>
+   <?php echo $__env->yieldContent('user'); ?>
+        
     </div>
-</div>
+</div>   
+
+
+
 
 
      

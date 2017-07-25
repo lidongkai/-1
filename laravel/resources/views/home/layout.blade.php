@@ -10,74 +10,49 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     
     <link rel="stylesheet" href="{{asset('/css/app.css')}}">
-
-
-        <link rel="stylesheet"  type="text/css" href="/leiphone/css/common.css"  />
-        
-      <link rel="stylesheet"  type="text/css" href="/leiphone/css/list.css" />
-
-
+    <link rel="stylesheet"  type="text/css" href="/leiphone/css/common.css"  />    
+    <link rel="stylesheet"  type="text/css" href="/leiphone/css/list.css" />
     <link rel="stylesheet" type="text/css" href="/leiphone/css/index.css"  />    
-    
+    <link rel="stylesheet" type="text/css" href="/leiphone/css/set.css"  />
+    <link rel="stylesheet" type="text/css" href="/leiphone/css/tips.css"  />
 
-  
-  <link rel="stylesheet" type="text/css" href="/leiphone/css/set.css"  />
-  <link rel="stylesheet" type="text/css" href="/leiphone/css/tips.css"  />
-  
-
-<script type="text/javascript" src="/leiphone/js/bw-loader-411.4.5.js"></script>
-    
-      <script type="text/javascript" src="/leiphone/js/mobilecheck.js"></script>
-   
-   
-   <script  src="/leiphone/js/jquery-3.2.1.min.js"></script>
-   
+    <script type="text/javascript" src="/leiphone/js/bw-loader-411.4.5.js"></script>
+    <script type="text/javascript" src="/leiphone/js/mobilecheck.js"></script>
+    <script  src="/leiphone/js/jquery-3.2.1.min.js"></script>
     <script  src="/leiphone/js/bootstrap.min.js"></script>
     <link href="/leiphone/css/bootstrap.min.css" rel="stylesheet">
-   <script src="/leiphone/js/jquery-sea.js"></script>
-   <script  src="/leiphone/js/global.js"></script>
-  
-    
-    
-  
-    
-      <script src="/leiphone/js/com_banner.js"></script>
+    <script src="/leiphone/js/jquery-sea.js"></script>
+    <script  src="/leiphone/js/global.js"></script>
+    <script src="/leiphone/js/com_banner.js"></script>
     <script src="/leiphone/js/list.js"></script>
     
-
-    
-   
-
 </head>
 <body>
 
 <!-- header start-->
 <header class="yp-header">
     <div class="yp-header-top clr">
-        <a class="yp-header-logo" href="/home/index">
-            <img src="/leiphone/picture/lph-headerlogo.png"  alt="雷锋网">
-                        <span>读懂<h1>智能</h1>&未来</span>
-        </a>
+      <a class="yp-header-logo" href="/home/index">
+        <img src="/leiphone/picture/lph-headerlogo.png"  alt="雷锋网">
+          <span>读懂<h1>智能</h1>&未来</span>
+      </a>
 
-        <!-- 用户登录 -->
-        @if(session('master'))
-         <div id="hidd">
-            <div class="yp-header-message"  style="margin-top:22px;font-size:16px;">
-             <a href="/home/loginout">退出</a>
-              </div>
-              <div class="yp-header-message" style="margin-top:22px;font-size:16px;">积分:{{ session('master')->score }}</div>
-              <div class="yp-header-message" style="margin-top:22px;font-size:16px;">{{ session('master')->username }}</div>
-
-        </div>
-
-        <div class="yp-header-user-box">
-            <div class="yp-header-user">
-                <!-- <input type="hidden" id="is_login_tag_status" value="1"> -->
-                <div class="user-main user-haslg">
-                    <div class="avatar"><a href="/home/user/index"><img width="36" height="36" src="/uploads/avatar/{{ session('master')->photo }}" alt=""></a></div>
-                </div>
-               
+      <!-- 用户登录 -->
+      @if(session('master'))
+      <div id="hidd">
+          <div class="yp-header-message"  style="margin-top:22px;font-size:16px;">
+           <a href="/home/loginout">退出</a>
             </div>
+            <div class="yp-header-message" style="margin-top:22px;font-size:16px;">积分:{{ session('master')->score }}</div>
+            <div class="yp-header-message" style="margin-top:22px;font-size:16px;">{{ session('master')->username }}</div>
+      </div>
+
+      <div class="yp-header-user-box">
+        <div class="yp-header-user">
+          <div class="user-main user-haslg">
+            <div class="avatar"><a href="/home/user/index"><img width="36" height="36" src="/uploads/avatar/{{ session('master')->photo }}" alt=""></a></div>
+          </div>   
+        </div>
         </div>
          @else
         <!-- 用户消息 -->
@@ -99,7 +74,6 @@
                 <input class="submit2" type="submit" value="">
             </form>
         </div>
-        
     </div>
 </header> 
 
@@ -111,44 +85,42 @@
                       <button class="close" data-dismiss="modal">
                           <span>&times;</span>
                      </button>
-                </div>
+                  </div>
+                  
                   <div class="modal-title">
                     <h1 class="text-center">注册</h1>
-                </div>
+                  </div>
 
         <div id="show" style="display:none" class="alert alert-danger"></div>
-
-                 <div class="modal-body">
-                      <!-- <form class="form-group" action="{{ url('home/login/register') }}" method="post"> -->
-                 
-                              {{ csrf_field() }}
-                              <div class="form-group">
-                                  <label for="">用户名</label>
-                                 <input id="rname" class="form-control" name="username" type="text" placeholder="6-15位字母或数字">
-                              </div>
-                             <div class="form-group">
-                                <label for="">密码</label>
-                                  <input id="rpass" class="form-control" name="password" type="password" placeholder="至少6位字母或数字">
-                             </div>
-                              <div class="form-group">
-                                  <label for="">再次输入密码</label>
-                                  <input id="repass" class="form-control" name="repass" type="password" placeholder="至少6位字母或数字">
-                              </div>
-                              <div class="form-group">
-                                  <label for="">邮箱</label>
-                                  <input id="email" class="form-control" name="email" type="email" placeholder="例如:123@123.com">
-                              </div>
-                                <!-- <div class="form-group has-feedback">
-                                <input id="code" type="text" name="code" class="form-control" placeholder="请输入验证码">
-                                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                                <a onclick="javascript:re_captcha();" ><img src="{{ URL('kit/captcha/1') }}"  alt="验证码" title="刷新图片" width="100" height="40" id="c2c98f0de5a04167a9e427d883690ff6" border="0"></a>
-                              </div> -->
-                              <div class="text-right">
-                                  <button id="subs" class="btn btn-primary" type="">提交</button>
-                                  <button class="btn btn-danger" data-dismiss="modal">取消</button>
-                              </div>
-                              <a href="" data-toggle="modal" data-dismiss="modal" data-target="#login">已有账号？点我登录</a>
-                      <!-- </form> -->
+             <div class="modal-body">
+                  {{ csrf_field() }}
+                  <div class="form-group">
+                      <label for="">用户名</label>
+                      <input id="rname" class="form-control" name="username" type="text" placeholder="6-15位字母或数字">
+                  </div>
+                  <div class="form-group">
+                      <label for="">密码</label>
+                      <input id="rpass" class="form-control" name="password" type="password" placeholder="至少6位字母或数字">
+                  </div>
+                  <div class="form-group">
+                      <label for="">再次输入密码</label>
+                      <input id="repass" class="form-control" name="repass" type="password" placeholder="至少6位字母或数字">
+                  </div>
+                  <div class="form-group">
+                      <label for="">邮箱</label>
+                      <input id="email" class="form-control" name="email" type="email" placeholder="例如:123@123.com">
+                  </div>
+                    <!-- <div class="form-group has-feedback">
+                    <input id="code" type="text" name="code" class="form-control" placeholder="请输入验证码">
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    <a onclick="javascript:re_captcha();" ><img src="{{ URL('kit/captcha/1') }}"  alt="验证码" title="刷新图片" width="100" height="40" id="c2c98f0de5a04167a9e427d883690ff6" border="0"></a>
+                  </div> -->
+                  <div class="text-right">
+                      <button id="subs" class="btn btn-primary" type="">提交</button>
+                      <button class="btn btn-danger" data-dismiss="modal">取消</button>
+                  </div>
+                  <a href="" data-toggle="modal" data-dismiss="modal" data-target="#login">已有账号？点我登录</a>
+          <!-- </form> -->
                   </div>
               </div>
           </div>
@@ -166,37 +138,34 @@
                      <h1 class="text-center">登录</h1>                  
                   </div>
                   <div class="modal-body">
-                  @if(session('info'))
-              <div class="alert alert-danger">
-                {{ session('info') }}
-              </div>
-            @endif
-                <!-- <form class="form-group" action="{{ url('home/login/login') }}" method="post"> -->
-                <!-- <form class="form-group" onsubmit="return doSubmit()" action="" method="post"> -->
-                          {{ csrf_field() }}
+                        @if(session('info'))
+                        <div class="alert alert-danger">
+                        {{ session('info') }}
+                        </div>
+                        @endif
+                        {{ csrf_field() }}
                    <label for="" >用户名</label>
                    <input id='username' class="form-control" type="text" placeholder="请输入用户名" name="username">
                    </div>
-                   <div class="form-group">
+                   <div class="modal-body">
                     <label for="">密码</label>
                     <input id="password" class="form-control" type="password" placeholder="请输入密码" name="password">
                     </div>
-                   <div class="text-right">
+                   <div class="text-center">
                    <div class="checkbox icheck">
-                  <label>
+                 <!--  <label>
                   <input name="remember_me" type="checkbox">记住我
-                  </label>
+                  </label> -->
                   </div>
-                       <button id="btns" class="btn btn-primary" type="">登录</button>
-                      <!-- <input type="" id="bts" class="btn btn-primary" value="登录">
-                        --><button class="btn btn-danger" data-dismiss="modal">取消</button>
+                      <button id="btns" class="btn btn-primary" type="">登录</button>
+                      <button class="btn btn-danger" data-dismiss="modal">取消</button>
                   </div>                             
                   <a href="" data-toggle="modal" data-dismiss="modal" data-target="#register">还没有账号？点我注册</a>
                 <!-- </form>                  -->
             </div>
          </div>
       </div>
-   </div>
+
    <script>
 $.ajaxSetup({
     headers: {
@@ -281,10 +250,7 @@ $.ajaxSetup({
   </script>
 </body>
 
-  @yield('content')
-
- 
-    
+  @yield('content') 
 
 <footer class='yp-footer'>
 
@@ -293,12 +259,6 @@ $.ajaxSetup({
 <div class="wrapper">
 <div class="tab_tit clr">
 
-</div>
-<div class="tab_con">
-<ul>
-<li class='cur'>
-<a href="http://it.sohu.com/" target="_blank"></a>
-</ul>
 </div>
 </div>
 </div>
@@ -350,9 +310,5 @@ $.ajaxSetup({
     </div>
 </footer>
 
-
-
-
-    
 </body>
 </html>

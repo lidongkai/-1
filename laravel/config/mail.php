@@ -57,7 +57,7 @@ return [
 
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', '18810690431@sina.cn'),
-        'name' => env('MAIL_FROM_NAME', 'CMS新闻管理系统'),
+        'name' => env('MAIL_FROM_NAME', '雷锋网'),
     ],
 
     /*

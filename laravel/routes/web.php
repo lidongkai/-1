@@ -11,15 +11,6 @@
 |
 */
 
-
-
-
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-
 //群组
 Route::group(['middleware'=>'adminlogin'],function(){
 
@@ -64,119 +55,73 @@ Route::group(['middleware'=>'adminlogin'],function(){
 			//网络配置执行添加
 			Route::post('admin/config/update','Admin\ConfigController@update');
 
-			//ajax修改状态
+			Route::get('/admin/column/index','Admin\ColumnController@index');
+			// 添加栏目
+			Route::get('/admin/column/add','Admin\ColumnController@add');
+			// 执行添加
+			Route::post('/admin/column/insert','Admin\ColumnController@insert');
+			// 编辑栏目
+			Route::get('/admin/column/edit/{id}','Admin\ColumnController@edit');
+			// 执行修改
+			Route::post('/admin/column/update','Admin\ColumnController@update');
+			// 删除栏目
+			Route::get('/admin/column/delete/{id}','Admin\ColumnController@delete');
+			// ajax更改状态
+			Route::post('/admin/user/ajaxstatus','Admin\UserController@ajaxStatus');
 
+			Route::post('/admin/config/ajaxstatus','Admin\ConfigController@ajaxstatus');
+
+			Route::post('/admin/links/ajaxstatus','Admin\LinksController@ajaxStatus');
+
+			Route::post('/admin/links/ajaxrename','Admin\LinksController@ajaxRename');
+
+			// 添加文章
+			Route::get('/admin/article/add','Admin\ArticleController@add');
+			// 执行添加
+			Route::post('/admin/article/insert','Admin\ArticleController@insert');
+			// 文章列表主页
+			Route::get('/admin/article/index','Admin\ArticleController@index');
+			Route::post('/admin/article/index','Admin\ArticleController@index');
+			// 文章修改
+			Route::get('/admin/article/edit/{id}','Admin\ArticleController@edit');
+			// 执行修改
+			Route::post('/admin/article/update','Admin\ArticleController@update');
+			// 执行删除
+			Route::get('/admin/article/delete/{id}','Admin\ArticleController@delete');
+			// 文章详情页
+			Route::get('/admin/article/show/{id}','Admin\ArticleController@show');
+			// ajax更改状态
+			Route::post('/admin/article/ajaxstatus','Admin\ArticleController@ajaxStatus');
+			Route::post('/admin/article/ajaxtop','Admin\ArticleController@ajaxTop');
+			Route::post('/admin/article/ajaxchosen','Admin\ArticleController@ajaxChosen');
+			Route::post('/admin/article/ajaxlunbo','Admin\ArticleController@ajaxLunbo');
+
+			
+			// 商品分类管理
+			Route::resource('/admin/goods',"Admin\GoodsController");
+			 
+			// 商品管理
+			Route::resource('/admin/goodsDetail',"Admin\GoodsDetailController"); 
+			// 递归
+			Route::get('/admin/getAllGoods',"Admin\GoodsController@get");
+
+			// 订单管理
+			Route::get('/admin/order/index',"Admin\OrderController@index"); 
+			Route::get('/admin/order/delete/{id}',"Admin\OrderController@delete");
+			Route::post('/admin/order/update/{id}',"Admin\OrderController@update");
+			 
+			Route::resource('/admin/goodsDetail',"Admin\GoodsDetailController");
+			Route::get('/admin/getAllGoods',"Admin\GoodsController@get");
 });
 
+//前台群组
+Route::group(['middleware'=>'homelogin'],function(){
 
-
-//ajax
-Route::post('/admin/user/ajaxrename','Admin\UserController@ajaxRename');
-
-//后台登录
-Route::get('/admin/login','Admin\LoginController@login');
-
-//执行登录
-Route::post('/admin/dologin','Admin\LoginController@doLogin');
-
-//退出
-Route::get('/admin/logout','Admin\LoginController@logout');
-
-//验证码
-Route::get('kit/captcha/{tmp}', 'Admin\KitController@captcha');
-
-// ajax更改状态
-Route::post('/admin/user/ajaxstatus','Admin\UserController@ajaxStatus');
-
-Route::post('/admin/config/ajaxstatus','Admin\ConfigController@ajaxstatus');
-
-Route::post('/admin/links/ajaxstatus','Admin\LinksController@ajaxStatus');
-
-Route::post('/admin/links/ajaxrename','Admin\LinksController@ajaxRename');
-//邮件
-Route::get('/admin/send','Admin\MailController@send');
-
-//忘记密码
-Route::get('/admin/forgot','Admin\ForgotController@forgot');
-Route::post('/admin/sendemail','Admin\ForgotController@sendEmail');
-
- 
-
-Route::get('/admin/column/index','Admin\ColumnController@index');
-// 添加栏目
-Route::get('/admin/column/add','Admin\ColumnController@add');
-// 执行添加
-Route::post('/admin/column/insert','Admin\ColumnController@insert');
-// 编辑栏目
-Route::get('/admin/column/edit/{id}','Admin\ColumnController@edit');
-// 执行修改
-Route::post('/admin/column/update','Admin\ColumnController@update');
-// 删除栏目
-Route::get('/admin/column/delete/{id}','Admin\ColumnController@delete');
-
-
-// ajax 操作
-Route::post('/admin/column/ajaxrename','Admin\ColumnController@ajaxRename');
-
-
-// 添加文章
-Route::get('/admin/article/add','Admin\ArticleController@add');
-// 执行添加
-Route::post('/admin/article/insert','Admin\ArticleController@insert');
-// 文章列表主页
-Route::get('/admin/article/index','Admin\ArticleController@index');
-Route::post('/admin/article/index','Admin\ArticleController@index');
-// 文章修改
-Route::get('/admin/article/edit/{id}','Admin\ArticleController@edit');
-// 执行修改
-Route::post('/admin/article/update','Admin\ArticleController@update');
-// 执行删除
-Route::get('/admin/article/delete/{id}','Admin\ArticleController@delete');
-// 文章详情页
-Route::get('/admin/article/show/{id}','Admin\ArticleController@show');
-// ajax更改状态
-Route::post('/admin/article/ajaxstatus','Admin\ArticleController@ajaxStatus');
-Route::post('/admin/article/ajaxtop','Admin\ArticleController@ajaxTop');
-Route::post('/admin/article/ajaxchosen','Admin\ArticleController@ajaxChosen');
-Route::post('/admin/article/ajaxlunbo','Admin\ArticleController@ajaxLunbo');
-
-// 商品分类管理
-Route::resource('/admin/goods',"Admin\GoodsController");
- 
-// 商品管理
-Route::resource('/admin/goodsDetail',"Admin\GoodsDetailController"); 
-// 递归
-Route::get('/admin/getAllGoods',"Admin\GoodsController@get");
-
-// 订单管理
-Route::get('/admin/order/index',"Admin\OrderController@index"); 
-Route::get('/admin/order/delete/{id}',"Admin\OrderController@delete");
-Route::post('/admin/order/update/{id}',"Admin\OrderController@update");
- 
-Route::resource('/admin/goodsDetail',"Admin\GoodsDetailController");
-Route::get('/admin/getAllGoods',"Admin\GoodsController@get");
- 
-//前台登录主页
-Route::get('/home/layout','Home\LoginController@layout');
-
-//前台登录ajax方法
-Route::post('/home/login/ajaxlogin',"Home\LoginController@ajaxLogin");
-
-//前台注册方法
-Route::post('/home/login/register','Home\LoginController@register');
-
-//前台退出
-Route::get('/home/loginout','Home\LoginController@Loginout');
-
+			
 //前台用户中心页
 Route::get('/home/user/index','Home\UserController@index');
 
 
-
-// Route::
-// home
-// 前台主
-Route::get('/home/index','Home\IndexController@index');
 // 前台栏目
 
 //前台完善资料
@@ -191,17 +136,9 @@ Route::get('/home/user/safe','Home\UserController@safe');
 //用户前台修改密码
 Route::post('/home/user/update','Home\UserController@update');
 
-
-Route::get('/home/index','Home\IndexController@index');
-
-
-
+Route::get('/home/user/detail','Home\UserController@detail');
 
 Route::get('/home/column/{id}','Home\IndexController@column');
-// 前台文章详情
-Route::get('/home/show/{id}','Home\IndexController@show');
-// 前台业界资讯刷新
-Route::post('/home/refresh','Home\IndexController@refresh');
 
 // 前台个人中心文章
 Route::get('/home/user/article','Home\ArticleController@index');
@@ -224,8 +161,65 @@ Route::post('/home/user/sixin','Home\ArticleController@ajaxSixin');
 Route::get('/home/user/sixin','Home\UserController@sixin');
 
 
+});
+
+// 前台主
+Route::get('/home/index','Home\IndexController@index');
+//ajax
+Route::post('/admin/user/ajaxrename','Admin\UserController@ajaxRename');
+
+//后台登录
+Route::get('/admin/login','Admin\LoginController@login');
+
+//执行登录
+Route::post('/admin/dologin','Admin\LoginController@doLogin');
+
+//退出
+Route::get('/admin/logout','Admin\LoginController@logout');
+
+//验证码
+Route::get('kit/captcha/{tmp}', 'Admin\KitController@captcha');
+
+//邮件
+Route::get('/admin/send','Admin\MailController@send');
+
+//忘记密码
+Route::get('/admin/forgot','Admin\ForgotController@forgot');
+Route::post('/admin/sendemail','Admin\ForgotController@sendEmail');
+
+ 
+
+
+
+
+// ajax 操作
+Route::post('/admin/column/ajaxrename','Admin\ColumnController@ajaxRename');
+
+ 
+//前台登录主页
+Route::get('/home/layout','Home\LoginController@layout');
+
+//前台登录ajax方法
+Route::post('/home/login/ajaxlogin',"Home\LoginController@ajaxLogin");
+
+//前台注册方法
+Route::post('/home/login/register','Home\LoginController@register');
+
+//前台退出
+Route::get('/home/loginout','Home\LoginController@Loginout');
+
+
+// 前台文章详情
+Route::get('/home/show/{id}','Home\IndexController@show');
+// 前台业界资讯刷新
+Route::post('/home/refresh','Home\IndexController@refresh');
+
+
+
+
 //短信验证
 Route::post('/home/sendmessage','Home\SendMessageController@sendmessage');
+Route::post('/home/getmessage','Home\SendMessageController@getmessage');
 
 
 

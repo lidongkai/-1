@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0436dcecfaa0f0b8964a3ee89cf8071e",
+    "content-hash": "cfe783044ffd4775535c23970ea506d5",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -834,16 +834,16 @@
         },
         {
             "name": "predis/predis",
-            "version": "v1.1.0",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nrk/predis.git",
-                "reference": "0e17edbefb50c6cbd1acc4a6f6ef06399deb1af2"
+                "reference": "f0210e38881631afeafb56ab43405a92cafd9fd1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/nrk/predis/0e17edbefb50c6cbd1acc4a6f6ef06399deb1af2.zip",
-                "reference": "0e17edbefb50c6cbd1acc4a6f6ef06399deb1af2",
+                "url": "https://files.phpcomposer.com/files/nrk/predis/f0210e38881631afeafb56ab43405a92cafd9fd1.zip",
+                "reference": "f0210e38881631afeafb56ab43405a92cafd9fd1",
                 "shasum": ""
             },
             "require": {
@@ -880,7 +880,7 @@
                 "predis",
                 "redis"
             ],
-            "time": "2016-06-01T22:06:21+00:00"
+            "time": "2016-06-16T16:22:20+00:00"
         },
         {
             "name": "psr/log",

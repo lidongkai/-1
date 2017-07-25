@@ -6,7 +6,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        用户管理
+        后台主页
         <small>
           @if(session('info'))
             <p class="text-danger">{{ session('info') }}</p>
@@ -15,7 +15,7 @@
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i>主页</a></li>
-        <li class="active">用户管理</li>
+        <li class="active">后台主页</li>
       </ol>
     </section>
 

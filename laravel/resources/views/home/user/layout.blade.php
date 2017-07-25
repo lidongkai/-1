@@ -40,13 +40,9 @@
                 <b></b>
             </div>
             <span class="gjszmdm">
-
-                <a href="/home/user/information" class="center_in_self"><font>详细资料</font></a>
-                <a href="#" class="center_in_self"><font>安全中心</font></a>
-                <a href="#" class="center_in_self"><font>修改信息</font></a>
                 <a href="/home/user/information" class="center_in_self"><font>完善资料</font></a>
                 <a href="/home/user/safe" class="center_in_self"><font>修改密码</font></a>
-
+                <a href="/home/user/detail" class="center_in_self"><font>详细资料</font></a>
             </span>
             <!--一条开始-->
             

@@ -41,31 +41,31 @@
                 <input type="radio" name="sex" value="w">女
                 </div>
                 </div>
-              <div class="form-group col-xs-8">
+                <div class="form-group col-xs-8">
                 <div class="col-xs-2">
                 <p style="font-size:16px">QQ:</p>
                 </div>
                 <div class="col-xs-6">
                 <input type="text" id='qqq' name="qq" class="form-control" placeholder="请输入QQ号" required="required"><span ></span>
-              </div>
-              </div>
-              <div class="form-group col-xs-10">
+                </div>
+                </div>
+                <div class="form-group col-xs-8">
                 <div class="col-xs-2">
                 <p style="font-size:16px">手机:</p>
                 </div>
-                <div class="col-xs-5">
+                <div class="col-xs-6">
                 <input type="text" id='phone' name="phone" class="form-control" placeholder="请输入手机号" required="required"><span ></span>
               </div>
-              <!-- <button class="btn btn-primary col-xs-2" id="code" disabled>获取验证码</button> -->
+              <a class="btn btn-primary col-xs-3" id="code">获取验证码</a>
               </div>
-             <!--  <div class="form-group col-xs-8" style="display:none" id="hid">
+              <div class="form-group col-xs-8" style="display:none" id="hid" required="required">
                 <div class="col-xs-2">
                 <p style="font-size:16px">验证码:</p>
                 </div>
                 <div class="col-xs-6">
                 <input type="text" id='coded' name="coded" class="form-control" placeholder="请输入验证码" required="required"><span ></span>
               </div>
-              </div> -->
+              </div>
               <div class="row">
                 <div class="col-xs-8">
                 </div>
@@ -75,7 +75,7 @@
                 <p style="font-size:16px">头像:</p>
                 </div>
                 <div class="col-xs-6">
-                <input type="file" id='photo' name="photo" class="form-control">
+                <input type="file" id='photo' name="photo" style="margin:14px;" required="required">
               </div>
               <br><br><br><br>
               <div class="form-group col-xs-8">
@@ -85,8 +85,13 @@
     </div>
   </div>
 </div>
-
 <script type="text/javascript">
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
 // alert(11);
 $('#nkname').blur(
 function()
@@ -179,59 +184,84 @@ if (phone=='') {
 {
   $('#phone').css('border-color',"green");
   $('#phone').next("span").first().html('');
-  // code.disabled = false;
+  code.disabled = false;
 }
 
 
 });
 
-// $('#code').click(function(){
+$('#code').on('click', function(){
 
-//     $('#hid').css('display','block');
-//     // var code = document.getElementById('code');
-//     var sec = 10;
+    $('#hid').css('display','block');
+    // var code = document.getElementById('code');
+    var sec = 30;
 
-//     var inte = setInterval(function(){
+    var inte = setInterval(function(){
 
-//       sec --;
+      sec --;
 
-//       if(sec <= 0)
-//       {
-//         code.innerHTML = '重新获取';
+      if(sec <= 0)
+      {
+        code.innerHTML = '重新获取';
 
-//          clearInterval(inte);
-//                 return ;
-//       }
-//       var str = sec;
-//       code.innerHTML = str;
-//     },1000);
+         clearInterval(inte);
+                return ;
+      }
+      var str = sec;
+      code.innerHTML = str;
+    },1000);
 
-// });
+    var phone = $('#phone').val();
+    console.log(phone);
+
+    $.ajax('/home/sendmessage', {
+      type:'POST',
+      data:{'phone':phone},
+      success:function(data){
+        console.log(data);
+      },
+      dataType:'json'
+    });
+
+});
 
 
-//   var coded = $('#coded').val();
+  
 
-//   $.ajaxSetup({
-//       headers: {
-//           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-//       }
-//   });
+  $('#coded').change(function()
+    {
+      var coded = $('#coded').val();
+      // alert(coded);
+    $.ajax('/home/getmessage',{
+    type:'POST',
+    data:{'coded':coded},
+    success:function(data)
+    {
+      if(data == 1)
+      {
+        // alert('恭喜.绑定成功');
+        $('#coded').next('span').first().html('恭喜,绑定成功');
+        $('$coded').css('border-color':'green');
+      }else{
+        // alert('验证码不正确');
+        $('#coded').next('span').first().html('抱歉,验证码有误,请重新验证');
+        $('#coded').css('border-color':'red');
+        return false;
+      }
+      
+    },
+    error:function(data)
+    {
+      alert('数据异常');
+    },
+    dataType:'json'
+    });
+  
+  }); 
+  
 
-// $.ajax('/home/sendmessage',{
-//   type:'POST',
-//   data:{phone:phone},
-//   success:function(data)
-//   {
-//     alert(111);
-//   },
-//   error:function(data)
-//   {
-//     alert(222);
-//   },
-//   dataType:'json'
-// });
-
+  
 
 </script>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('home.user.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('home.user.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

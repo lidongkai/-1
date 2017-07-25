@@ -23,8 +23,10 @@ class ForgotController extends Controller
     	{
     		return back()-with(['info'=>'该邮箱不存在']);
     	}
-    	\Mail::raw('这是封邮件',function($message) use($data) ){
-    	$message->to($data['email']);
-    	$message->subject('这是标题');
+    	\Mail::raw('这是封邮件',function($message),use($data))
+        {
+        	$message->to($data['email']);
+        	$message->subject('这是标题');
+        }
     }
 }

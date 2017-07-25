@@ -11,7 +11,7 @@
 <div class="hd clr">
     <div class="l-mess">
         <div class="face">
-            <a href="https://home.leiphone.com/info">
+            <a href="/home/user/detail">
                 <img src="/uploads/avatar/{{session('master')->photo}}" alt="" width="60">
             </a>
         </div>
@@ -31,6 +31,7 @@
     <div class="r-mess">
         <em></em>
         phpweb网站开发工程师    </div>
+
 </div>
 <div class="noRead-mess">
     <span><em></em>您有<a href="/home/user/sixin">{{$res}}</a>条未读消息</span>

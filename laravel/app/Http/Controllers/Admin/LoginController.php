@@ -48,6 +48,11 @@ class LoginController extends Controller
     		return back()->with(['info'=>'用户名不正确']);
     	}
     	
+        //状态
+        if($res->status == 0)
+        {
+            return back()->with(['info'=>'没有权限']);
+        }
 
     	// //判断密码
         $password = $res->password;

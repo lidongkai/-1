@@ -7,56 +7,52 @@
     <meta name="description" content="雷锋网是国内最早关注人工智能和智能硬件领域的互联网科技媒体，内容涵盖人工智能、智能硬件、机器人、智能驾驶、ARVR、网络安全、物联网、未来医疗、金融科技等9大领域。雷锋网致力于连接和服务学术界、工业界与投资界，为用户提供更专业的互联网科技资讯和培训服务，让用户读懂智能与未来。" />
     <meta name="sogou_site_verification" content="ilkqV8FehD"/>
     <meta name="renderer" content="webkit">
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
+    
     <link rel="stylesheet" href="<?php echo e(asset('/css/app.css')); ?>">
     <link rel="stylesheet"  type="text/css" href="/leiphone/css/common.css"  />    
     <link rel="stylesheet"  type="text/css" href="/leiphone/css/list.css" />
-    <link rel="stylesheet" type="text/css" href="/leiphone/css/jquery.mcustomscrollbar.css"  />
-    <link rel="stylesheet" type="text/css" href="/leiphone/css/calendar.css"  />
     <link rel="stylesheet" type="text/css" href="/leiphone/css/index.css"  />    
-    <script  src="/leiphone/js/jquery-3.2.1.min.js"></script>  
-    <script  src="/leiphone/js/bootstrap.min.js"></script> 
+    <link rel="stylesheet" type="text/css" href="/leiphone/css/set.css"  />
+    <link rel="stylesheet" type="text/css" href="/leiphone/css/tips.css"  />
+
+    <script type="text/javascript" src="/leiphone/js/bw-loader-411.4.5.js"></script>
+    <script type="text/javascript" src="/leiphone/js/mobilecheck.js"></script>
+    <script  src="/leiphone/js/jquery-3.2.1.min.js"></script>
+    <script  src="/leiphone/js/bootstrap.min.js"></script>
     <link href="/leiphone/css/bootstrap.min.css" rel="stylesheet">
-    <script  src="/leiphone/js/tips.js"></script>
     <script src="/leiphone/js/jquery-sea.js"></script>
-    <script src="/leiphone/js/sea.js"></script>
-    <script  src="/leiphone/js/aq_auth.js"></script>
-    <script  src="js/9052.js"></script>
-    <script src="/leiphone/js/list.js"></script>
-    <script  src="/leiphone/js/mobilecheck.js"></script>
-    <script  src="/leiphone/js/com_banner.js"></script>
     <script  src="/leiphone/js/global.js"></script>
-    <script  src="/leiphone/js/index.js"></script>
-    <script  src="/leiphone/js/calendarNews.js"></script>  
+    <script src="/leiphone/js/com_banner.js"></script>
+    <script src="/leiphone/js/list.js"></script>
+    
 </head>
 <body>
 
 <!-- header start-->
 <header class="yp-header">
     <div class="yp-header-top clr">
-        <a class="yp-header-logo" href="/home/index">
-            <img src="/leiphone/picture/lph-headerlogo.png"  alt="雷锋网">
-                        <span>读懂<h1>智能</h1>&未来</span>
-        </a>
+      <a class="yp-header-logo" href="/home/index">
+        <img src="/leiphone/picture/lph-headerlogo.png"  alt="雷锋网">
+          <span>读懂<h1>智能</h1>&未来</span>
+      </a>
 
-        <!-- 用户登录 -->
-        <?php if(session('master')): ?>
-         <div id="hidd">
-            <div class="yp-header-message"  style="margin-top:22px;font-size:16px;">
-             <a href="/home/loginout">退出</a>
-              </div>
-              <div class="yp-header-message" style="margin-top:22px;font-size:16px;">积分:<?php echo e(session('master')->score); ?></div>
-              <div class="yp-header-message" style="margin-top:22px;font-size:16px;"><?php echo e(session('master')->username); ?></div>
-
-        </div>
-
-        <div class="yp-header-user-box">
-            <div class="yp-header-user">
-                <!-- <input type="hidden" id="is_login_tag_status" value="1"> -->
-                <div class="user-main user-haslg">
-                    <div class="avatar"><a href="/home/user/index"><img width="36" height="36" src="/uploads/avatar/<?php echo e(session('master')->photo); ?>" alt=""></a></div>
-                </div>
-               
+      <!-- 用户登录 -->
+      <?php if(session('master')): ?>
+      <div id="hidd">
+          <div class="yp-header-message"  style="margin-top:22px;font-size:16px;">
+           <a href="/home/loginout">退出</a>
             </div>
+            <div class="yp-header-message" style="margin-top:22px;font-size:16px;">积分:<?php echo e(session('master')->score); ?></div>
+            <div class="yp-header-message" style="margin-top:22px;font-size:16px;"><?php echo e(session('master')->username); ?></div>
+      </div>
+
+      <div class="yp-header-user-box">
+        <div class="yp-header-user">
+          <div class="user-main user-haslg">
+            <div class="avatar"><a href="/home/user/index"><img width="36" height="36" src="/uploads/avatar/<?php echo e(session('master')->photo); ?>" alt=""></a></div>
+          </div>   
+        </div>
         </div>
          <?php else: ?>
         <!-- 用户消息 -->
@@ -64,8 +60,8 @@
             <div class="yp-header-message"  style="margin-top:22px;font-size:16px;">
             <a data-toggle="modal" data-target="#register" href="">注册</a>
             </div>
-            <div class="yp-header-message" style="margin-top:22px;font-size:16px;">
-            <a data-toggle="modal" data-target="#login" href="">登录</a>
+            <div  class="yp-header-message" style="margin-top:22px;font-size:16px;">
+            <a id="loginkk" data-toggle="modal" data-target="#login" href="">登录</a>
             </div>
         </div>
         <?php endif; ?>
@@ -78,7 +74,6 @@
                 <input class="submit2" type="submit" value="">
             </form>
         </div>
-        
     </div>
 </header> 
 
@@ -90,45 +85,43 @@
                       <button class="close" data-dismiss="modal">
                           <span>&times;</span>
                      </button>
-                </div>
+                  </div>
+                  
                   <div class="modal-title">
                     <h1 class="text-center">注册</h1>
-                </div>
+                  </div>
 
         <div id="show" style="display:none" class="alert alert-danger"></div>
+             <div class="modal-body">
+                  <?php echo e(csrf_field()); ?>
 
-                 <div class="modal-body">
-                      <!-- <form class="form-group" action="<?php echo e(url('home/login/register')); ?>" method="post"> -->
-                 
-                              <?php echo e(csrf_field()); ?>
-
-                              <div class="form-group">
-                                  <label for="">用户名</label>
-                                 <input id="rname" class="form-control" name="username" type="text" placeholder="6-15位字母或数字">
-                              </div>
-                             <div class="form-group">
-                                <label for="">密码</label>
-                                  <input id="rpass" class="form-control" name="password" type="password" placeholder="至少6位字母或数字">
-                             </div>
-                              <div class="form-group">
-                                  <label for="">再次输入密码</label>
-                                  <input id="repass" class="form-control" name="repass" type="password" placeholder="至少6位字母或数字">
-                              </div>
-                              <div class="form-group">
-                                  <label for="">邮箱</label>
-                                  <input id="email" class="form-control" name="email" type="email" placeholder="例如:123@123.com">
-                              </div>
-                                <!-- <div class="form-group has-feedback">
-                                <input id="code" type="text" name="code" class="form-control" placeholder="请输入验证码">
-                                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                                <a onclick="javascript:re_captcha();" ><img src="<?php echo e(URL('kit/captcha/1')); ?>"  alt="验证码" title="刷新图片" width="100" height="40" id="c2c98f0de5a04167a9e427d883690ff6" border="0"></a>
-                              </div> -->
-                              <div class="text-right">
-                                  <button id="subs" class="btn btn-primary" type="">提交</button>
-                                  <button class="btn btn-danger" data-dismiss="modal">取消</button>
-                              </div>
-                              <a href="" data-toggle="modal" data-dismiss="modal" data-target="#login">已有账号？点我登录</a>
-                      <!-- </form> -->
+                  <div class="form-group">
+                      <label for="">用户名</label>
+                      <input id="rname" class="form-control" name="username" type="text" placeholder="6-15位字母或数字">
+                  </div>
+                  <div class="form-group">
+                      <label for="">密码</label>
+                      <input id="rpass" class="form-control" name="password" type="password" placeholder="至少6位字母或数字">
+                  </div>
+                  <div class="form-group">
+                      <label for="">再次输入密码</label>
+                      <input id="repass" class="form-control" name="repass" type="password" placeholder="至少6位字母或数字">
+                  </div>
+                  <div class="form-group">
+                      <label for="">邮箱</label>
+                      <input id="email" class="form-control" name="email" type="email" placeholder="例如:123@123.com">
+                  </div>
+                    <!-- <div class="form-group has-feedback">
+                    <input id="code" type="text" name="code" class="form-control" placeholder="请输入验证码">
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    <a onclick="javascript:re_captcha();" ><img src="<?php echo e(URL('kit/captcha/1')); ?>"  alt="验证码" title="刷新图片" width="100" height="40" id="c2c98f0de5a04167a9e427d883690ff6" border="0"></a>
+                  </div> -->
+                  <div class="text-right">
+                      <button id="subs" class="btn btn-primary" type="">提交</button>
+                      <button class="btn btn-danger" data-dismiss="modal">取消</button>
+                  </div>
+                  <a href="" data-toggle="modal" data-dismiss="modal" data-target="#login">已有账号？点我登录</a>
+          <!-- </form> -->
                   </div>
               </div>
           </div>
@@ -146,39 +139,36 @@
                      <h1 class="text-center">登录</h1>                  
                   </div>
                   <div class="modal-body">
-                  <?php if(session('info')): ?>
-              <div class="alert alert-danger">
-                <?php echo e(session('info')); ?>
+                        <?php if(session('info')): ?>
+                        <div class="alert alert-danger">
+                        <?php echo e(session('info')); ?>
 
-              </div>
-            <?php endif; ?>
-                <!-- <form class="form-group" action="<?php echo e(url('home/login/login')); ?>" method="post"> -->
-                <!-- <form class="form-group" onsubmit="return doSubmit()" action="" method="post"> -->
-                          <?php echo e(csrf_field()); ?>
+                        </div>
+                        <?php endif; ?>
+                        <?php echo e(csrf_field()); ?>
 
                    <label for="" >用户名</label>
                    <input id='username' class="form-control" type="text" placeholder="请输入用户名" name="username">
                    </div>
-                   <div class="form-group">
+                   <div class="modal-body">
                     <label for="">密码</label>
                     <input id="password" class="form-control" type="password" placeholder="请输入密码" name="password">
                     </div>
-                   <div class="text-right">
+                   <div class="text-center">
                    <div class="checkbox icheck">
-                  <label>
+                 <!--  <label>
                   <input name="remember_me" type="checkbox">记住我
-                  </label>
+                  </label> -->
                   </div>
-                       <button id="btns" class="btn btn-primary" type="">登录</button>
-                      <!-- <input type="" id="bts" class="btn btn-primary" value="登录">
-                        --><button class="btn btn-danger" data-dismiss="modal">取消</button>
+                      <button id="btns" class="btn btn-primary" type="">登录</button>
+                      <button class="btn btn-danger" data-dismiss="modal">取消</button>
                   </div>                             
                   <a href="" data-toggle="modal" data-dismiss="modal" data-target="#register">还没有账号？点我注册</a>
                 <!-- </form>                  -->
             </div>
          </div>
       </div>
-   </div>
+
    <script>
 $.ajaxSetup({
     headers: {
@@ -255,12 +245,15 @@ $.ajaxSetup({
     });
 
    </script>
+
+   <script>
+  var liW=388;
+  var currentMonthNews = {"ret":0,"data":{"2017-07-07":[{"title":"CCF-GAIR 2017 | \u6df1\u5733","url":"http:\/\/gair.leiphone.com\/"}],"2017-07-08":[{"title":"CCF-GAIR 2017 | \u6df1\u5733","url":"http:\/\/gair.leiphone.com\/"}],"2017-07-09":[{"title":"CCF-GAIR 2017 | \u6df1\u5733","url":"http:\/\/gair.leiphone.com\/"},{"title":"\u963f\u91cc\u4e91\u5b89\u5168\u5cf0\u4f1a","url":"none"}],"2017-07-22":[{"title":"BlackHat \u00ae\ufe0f USA 2017 | \u7f8e\u56fd\u62c9\u65af\u7ef4\u52a0\u65af ","url":"https:\/\/www.blackhat.com\/us-17\/"},{"title":"CCAI 2017 | \u676d\u5dde","url":"http:\/\/ccai.caai.cn\/"},{"title":"KDD Summer School - \u6570\u636e\u9a71\u52a8\u667a\u80fd | \u6210\u90fd","url":"http:\/\/kddchina.org\/#\/Content\/summerschool"},{"title":"CVPR 2017 | \u590f\u5a01\u5937\uff0c\u7f8e\u56fd","url":"http:\/\/cvpr2017.thecvf.com\/"}],"2017-07-28":[{"title":"RSAC\u00ae\ufe0f Asia | \u65b0\u52a0\u5761","url":"https:\/\/www.rsaconference.com\/events\/ap17"},{"title":"\u4e2d\u56fd\u673a\u5668\u5b66\u4e60\u4f1a\u8bae CCML2017 | \u5929\u6d25","url":"http:\/\/ccml2017.org.cn\/"}],"2017-07-27":[{"title":"DEFCON 25 | \u7f8e\u56fd\u62c9\u65af\u7ef4\u52a0\u65af","url":"https:\/\/defcon.org\/html\/defcon-25\/dc-25-index.html"},{"title":"\u4e2d\u56fd\u673a\u5668\u5b66\u4e60\u4f1a\u8bae CCML2017 | \u5929\u6d25","url":"http:\/\/ccml2017.org.cn\/"}],"2017-07-23":[{"title":"CCAI 2017 | \u676d\u5dde","url":"http:\/\/ccai.caai.cn\/"},{"title":"KDD Summer School - \u6570\u636e\u9a71\u52a8\u667a\u80fd | \u6210\u90fd","url":"http:\/\/kddchina.org\/#\/Content\/summerschool"},{"title":"CVPR 2017 | \u590f\u5a01\u5937\uff0c\u7f8e\u56fd","url":"http:\/\/cvpr2017.thecvf.com\/"}],"2017-06-30":[{"title":"2017\u5168\u7403\u673a\u5668\u5b66\u4e60\u6280\u672f\u5927\u4f1a | \u5317\u4eac","url":"http:\/\/ml-summit.org\/"}],"2017-07-26":[{"title":"\u4e2d\u56fd\u673a\u5668\u5b66\u4e60\u4f1a\u8bae CCML2017 | \u5929\u6d25","url":"http:\/\/ccml2017.org.cn\/"},{"title":"CVPR 2017 IEEE\u56fd\u9645\u8ba1\u7b97\u673a\u89c6\u89c9\u4e0e\u6a21\u5f0f\u8bc6\u522b\u4f1a\u8bae | \u590f\u5a01\u5937\uff0c\u7f8e\u56fd","url":"http:\/\/cvpr2017.thecvf.com\/"}],"2017-07-24":[{"title":"KDD Summer School - \u6570\u636e\u9a71\u52a8\u667a\u80fd | \u6210\u90fd","url":"http:\/\/kddchina.org\/#\/Content\/summerschool"},{"title":"CVPR 2017 | \u590f\u5a01\u5937\uff0c\u7f8e\u56fd","url":"http:\/\/cvpr2017.thecvf.com\/"}],"2017-07-21":[{"title":"CVPR 2017 | \u590f\u5a01\u5937\uff0c\u7f8e\u56fd","url":"http:\/\/cvpr2017.thecvf.com\/"}],"2017-07-25":[{"title":"CVPR 2017 | \u590f\u5a01\u5937\uff0c\u7f8e\u56fd","url":"http:\/\/cvpr2017.thecvf.com\/"}],"2017-07-30":[{"title":"ACL 2017 \u56fd\u9645\u8ba1\u7b97\u8bed\u8a00\u5b66\u9876\u7ea7\u4f1a\u8bae | \u6e29\u54e5\u534e\uff0c\u52a0\u62ff\u5927","url":"http:\/\/acl2017.org\/"}]}};
+    seajs.use(['https://www.leiphone.com/resWeb/js/index/index','https://www.leiphone.com/resWeb/js/index/calendarNews']);
+  </script>
 </body>
 
-  <?php echo $__env->yieldContent('content'); ?>
-
- 
-    
+  <?php echo $__env->yieldContent('content'); ?> 
 
 <footer class='yp-footer'>
 
@@ -269,12 +262,6 @@ $.ajaxSetup({
 <div class="wrapper">
 <div class="tab_tit clr">
 
-</div>
-<div class="tab_con">
-<ul>
-<li class='cur'>
-<a href="http://it.sohu.com/" target="_blank"></a>
-</ul>
 </div>
 </div>
 </div>
@@ -326,9 +313,5 @@ $.ajaxSetup({
     </div>
 </footer>
 
-
-
-
-    
 </body>
 </html>

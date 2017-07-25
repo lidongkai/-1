@@ -16,17 +16,39 @@ class SendMessageController extends Controller
      */
 
     public function sendmessage(Request $request)
-    {
-    	//获取用户提交的手机号
-    	$phone = $request->phone;
-    	// dd($phone);
-    	$param = rand(1000,9999);
+    {   
+        // dump($request->coded);
+        // die;
+        //获取用户提交的手机号
+        $phone = $request->phone;
+        // dd($phone);
+        $param = rand(1000,9999);
 
-    	// 把验证码写入redis，十分钟内有效。
-        // \Cache::put($phone, $param, 10);
-
+        // 把验证码写入cookie，十分钟内有效。
+        \Cookie::queue('code', $param, 10);
+        // dump(\Cookie::queue('code'));
+        // die;
+        $templateId = 103796;
         return $res = $this->message($phone, $templateId, $param);
     }
+       
+        public function getmessage(Request $request)
+    {   
+        $coded = $request->coded;
+
+        //从Cookie中取出
+        $param =$request->Cookie('code');
+        // dd($param);
+        // 判断
+        if($coded == $param)
+        {
+            return response()->json('1');
+        }else
+        {
+            return response()->json('2');
+        }
+    }
+
 
      /**
      * 发送验证码短信

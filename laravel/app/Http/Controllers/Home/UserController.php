@@ -4,14 +4,15 @@ namespace App\Http\Controllers\Home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use DB;
+
 
 class UserController extends Controller
 {
-    //
+    
     public function index()
-
-    {	
+    {	 
+        $id = session('master')->id;
+        $tb = \DB::table('userdetail')->where('uid',$id)->first();
 
     	$res = \DB::table('sixin')->where([
     		['zuoz',session('master')->username],
@@ -21,9 +22,10 @@ class UserController extends Controller
     	
     	$data = \DB::table('comment')->where('uid',session('master')->id)->orderBy('ctime','desc')->get();
 
-    	return view('home.user.index',['data'=>$data,'res'=>$res]);
+    	return view('home.user.index',['data'=>$data,'res'=>$res,'tb'=>$tb]);
 
     }
+
 
     public function show(Request $request)
     {
@@ -42,30 +44,28 @@ class UserController extends Controller
     //完善资料
     public function information(Request $request)
     {
-         $id = session('master')->id; 
-         $tb = DB::table('userdetail')->where('uid',$id)->first();
+        $id = session('master')->id; 
+        $tb = \DB::table('userdetail')->where('uid',$id)->first();
     	return view('home.user.information',['tb'=>$tb]);
     }
+
+    
 
     //完善添加
     public function add(Request $request)
     {   
 
     	$data = $request->except('_token');
-    	
-
-
-    	//处理头像
 
     	//查询原来头像
     	$oldPhoto = \DB::table('users')->where('id',session('master')->id)->first()->photo;
     	
     	if($request->hasFile('photo'))
+        {
+            if($request->file('photo')->isValid())
             {
-                if($request->file('photo')->isValid())
-                {
-                    //获取后缀
-                    $ext = $request->file('photo')->extension();
+                //获取后缀
+                $ext = $request->file('photo')->extension();
     			//随机头像名
     			$filename = time().mt_rand(100000,999999).'.'.$ext;
                 // dd($filename);
@@ -75,18 +75,9 @@ class UserController extends Controller
     			//删除老图片
 				if(file_exists('/uploads/avatar/'.$oldPhoto) && $oldPhoto != 'default.jpg')
 				{
-                    //一会后处理
+                    //删除老图片
 					// unlink('uploads/avatar/'.$oldPhoto);
 				}
-                //将新图片路径及名称写入
-               
-
-    			//将头像添加到session中
-    			// $aa=$request->session()->push('master', 'photo');
-                // session(['master'=>$res]);
-                // $aa=$request->session();
-                // dd($aa);
-    			//存入session
 
     		}
     	}
@@ -133,11 +124,20 @@ class UserController extends Controller
     }
 
 
+    //用户详情
+    public function detail(Request $request)
+    {   
+        $id = session('master')->id; 
+        $tb = \DB::table('userdetail')->where('uid',$id)->first();
+        return view('home.user.detail',['tb'=>$tb]);
+    }
+
+
         //用户修改密码页
     public function safe(Request $request)
     {
          $id = session('master')->id; 
-         $tb = DB::table('userdetail')->where('uid',$id)->first();
+         $tb = \DB::table('userdetail')->where('uid',$id)->first();
         return view('home.user.safe',['tb'=>$tb]);
     }
 
@@ -149,7 +149,7 @@ class UserController extends Controller
         $data = $request->except('_token');
         $id = session('master')->id;
         // dd($id);
-    // dd($data['oldpwd']);
+        // dd($data['oldpwd']);
 
         $oldpwd = \DB::table('users')->where('id',session('master')->id)->first()->password;
         // dd($oldpwd);
