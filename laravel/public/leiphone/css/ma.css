@@ -1,0 +1,49 @@
+/*
+	雷锋网搜索结果页面
+*/
+.lphSerch-main .main{margin: 80px auto 0 auto;width: 820px;}
+.lphSerch-main .main .search-box input:focus{outline: 0;}
+.lphSerch-main .main .search-box{height: 58px;border:1px solid #E9E9E9;background: #fff;border-radius: 30px;-webkit-border-radius: 30px;}
+.lphSerch-main .main .search-box input[type='text']{float: left;border:0;height:32px;width: 670px;padding: 13px 20px;border-radius: 29px;-webkit-border-radius: 29px;}
+.lphSerch-main .main .search-box input[type='submit']{float:right;;width: 100px;height:58px;cursor: pointer;border:0;background: url(../images/yp_spirit.png) #ee5b2e no-repeat -435px 12px;border-radius: 28px;border-bottom-left-radius: 0;border-top-left-radius: 0;}
+
+.lphSerch-main .main .list{padding: 50px 0;}
+.lphSerch-main .main .list .noCnt{font-size: 15px;color: #717f89;text-align: center;}
+.lphSerch-main .main .list .tabs_tit a{float: left;border:2px solid transparent;padding: 0 28px;height: 32px;line-height: 32px;font-size: 16px;color: #4a5b65;border-radius: 18px;-webkit-border-radius: 18px;}
+.lphSerch-main .main .list .tabs_tit a.cur{border-color: #ABBABF;}
+.lphSerch-main .main .list li{padding: 25px 0;overflow: hidden;border-bottom:1px solid #E6E6E6;}
+.lphSerch-main .main .list li .txt{float: left;width: 510px;}
+.lphSerch-main .main .list li .txt .headTit{display: block;font-size: 18px;color: #31424e;line-height:25px;padding-top: 5px;}
+.lphSerch-main .main .list li .txt .headTit em{color: #ee5b2e;}
+.lphSerch-main .main .list li .txt .des{padding: 15px 0;font-size: 14px;color: #9baab6;line-height:22px;}
+.lphSerch-main .main .list li .txt .des em{color: #ee5b2e;}
+.lphSerch-main .list li .pic{float: right;width: 240px;height: 145px;}
+.lphSerch-main .list li .pic img{vertical-align: top;}
+.lphSerch-main .list li .txt .hlight{color: #ee5b2e;}
+.lphSerch-main .list li .msg{line-height: 25px;}
+.lphSerch-main .list li .msg .aut{font-size: 14px;color: #9baab6;float: left;width: 150px;}
+.lphSerch-main .list li .msg .aut img{vertical-align: top;margin-right: 8px;border-radius: 50%;-webkit-border-radius: 50%;width: 25px;height: 25px;}
+.lphSerch-main .list li .msg .time{font-size: 14px;color: #9baab6;float: left;}
+.lphSerch-main .list li .msg .tags{float: right;display: none;}
+.lphSerch-main .list li .msg .tags em{float: left;margin-top: 6px;background: url(../images/yp_spirit.png)  no-repeat -215px -46px;width: 14px;height: 14px;}
+.lphSerch-main .list li .msg .tags a{float: left;font-size: 14px;color: #9baab6;padding-left: 10px;}
+.lphSerch-main .list li .msg .tags a:hover{color: #ee5b2e;}
+/*作者*/
+.lphSerch-main .list .authorList .item{float: left;margin-top: 40px;width: 300px;border-right: 1px solid #E6E6E6;padding-right:108px}
+.lphSerch-main .list .authorList .itemR{width: 300px;padding-left:108px;border-right: 0;padding-right: 0;}
+.lphSerch-main .list .authorList .item .avater{width: 80px;float: left;}
+.lphSerch-main .list .authorList .item .avater img{vertical-align: top;border-radius: 50%;-webkit-border-radius: 50%;}
+.lphSerch-main .list .authorList .item .txt{padding-left: 20px;overflow: hidden;font-size: 14px;color: #5e6b73;}
+.lphSerch-main .list .authorList .item .txt .name{display: block;padding: 5px 0;}
+.lphSerch-main .list .authorList .item .txt .name em{display: inline-block;vertical-align: -7px;margin-left: 10px;background: url(../images/yp_spirit.png) no-repeat;width: 21px;height: 25px;}
+.lphSerch-main .list .authorList .item .txt .name.gold em{background-position: -235px -45px;}
+.lphSerch-main .list .authorList .item .txt .name.sliver em{background-position: -316px -44px;}
+.lphSerch-main .list .authorList .item .txt .saying{max-height: 72px;line-height: 24px;overflow: hidden;}
+
+/*海淘列表*/
+.lphSerch-main .list .haitaoList li{width: 256px;float: left;margin-left: 26px;margin-top: 35px;padding: 0;border-bottom: 0;overflow: hidden;} 
+.lphSerch-main .list .haitaoList li.first{margin-left: 0;}
+.lphSerch-main .list .haitaoList li .pic{width: 256px;height: 195px;}
+.lphSerch-main .list .haitaoList li .pic img{width:256px;}
+.lphSerch-main .list .haitaoList li .txt .headTit{font-size: 14px;color: #31424e;margin: 10px 0;white-space: nowrap;overflow: hidden;text-overflow:ellipsis;display: block;}
+.lphSerch-main .list .haitaoList li .txt .price{font-size: 14px;color: #ee5b2e;}

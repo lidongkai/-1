@@ -91,14 +91,14 @@
         </div>
         @endif
 
-        <div class="yp-header-search">
-           <form method="GET" name="allSearchForm" action="https://www.leiphone.com/search" style="height: 100%;">
-                <input type="hidden" name="site" value="">
-                <input class="text" type="text" name="s" autocomplete="off" value="">
-                <input class="submit" type="submit" value="">
-                <input class="submit2" type="submit" value="">
-            </form>
-        </div>
+        <form action="/home/article/search" method="get" class="navbar-form navbar-left" style="margin-top:13px;" role="search">
+         
+          <div class="form-group">
+            <input type="text" name="keyword" class="form-control" placeholder="搜索内容">
+          </div>
+          <button type="submit" class="btn btn-default">搜索</button>
+        </form>
+  </div>
         
     </div>
 </header> 

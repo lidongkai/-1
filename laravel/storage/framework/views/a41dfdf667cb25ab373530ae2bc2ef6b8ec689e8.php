@@ -448,6 +448,20 @@
             
           </ul>
         </li>
+
+        <li class=" treeview">
+          <a href="#">
+            <i class="fa fa-dashboard"></i> <span>网络配置</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li ><a href="<?php echo e(url('/admin/config/index')); ?>"><i class="fa fa-circle-o"></i>配置信息</a></li>
+          </ul>
+
+
+        </li>
         
         
       </ul>

@@ -49,17 +49,20 @@
 
             </span>
             <!--一条开始-->
-            
+            <div class="centers_listm_one_in">
+                <img src="/leiphone/picture/ddgl.png"/>
+                <em>文章管理</em>
+                <b></b>
+            </div>
             <span class="gjszmdm">
 
                 <a href="/home/user/article" class="center_in_self"><font>我的文章</font></a>
                 <a href="/home/user/addarticle" class="center_in_self"><font>发表文章</font></a>
-                <a href="#" class="center_in_self"><font>我的收藏</font></a>
+                <a href="/home/user/shouclist" class="center_in_self"><font>我的收藏</font></a>
+                <a href="/home/user/commentlist" class="center_in_self"><font>我的评论</font></a>
+                <a href="/home/user/sixin" class="center_in_self"><font>我的私信</font></a>
 
-                <a href="#" class="center_in_self"><font>我的订单</font></a>
-                <a href="#" class="center_in_self"><font>我的预约</font></a>
-                <a href="#" class="center_in_self"><font>评价订单</font></a>
-                <a href="#" class="center_in_self"><font>订单投诉</font></a>
+                
             </span>
             <!--一条开始-->
             <div class="centers_listm_one_in">

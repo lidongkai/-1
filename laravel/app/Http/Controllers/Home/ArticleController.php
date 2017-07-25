@@ -210,6 +210,15 @@ class ArticleController extends Controller
 	}
 
 
+    public function search(Request $request)
+    {
+        $data = \DB::table('column')->get();
+        $data1 = \DB::table('articles')->where('atitle','like','%'.$request->keyword.'%')->orWhere('descript','like','%'.$request->keyword.'%')->paginate(10); 
+
+        return view('home.index.search',['request'=>$request->all(),'data'=>$data,'data1'=>$data1]);
+    }
+
+
 	
     
 }

@@ -6,7 +6,7 @@
 			
     <div class="wrapper">
     	@foreach($data as $key=>$val)
-        <a href="/home/column/{{$val->id}}"  class=" ">{{$val->name}}</a>
+        <a href="/home/column/{{$val->id}}"  class=" "><h4>{{$val->name}}</h4></a>
         @endforeach
     </div>
    
@@ -233,24 +233,7 @@
         </div>
     
             <!-- 记者跑会日程 -->
-    <div class="calendarNews">
-    <div id="calNews"></div>
-    <div class="monthly">
-        <div class="monthly-header">
-            <a href="javascript:;" class="btn-back" title="返回"><em></em></a>
-            <h3 class='label-date'></h3>
-        </div>
-        <div id="calendarNewsScroll" class="monthly-event-list">
-            <div class="cont">
-                <!--<div class="monthly-list-item">
-                    <p><a href="#"><em></em>这是测试数据，请忽略！</a></p>
-                    <p><a href="#"><em></em>这是测试数据，请忽略！</a></p>
-                </div>-->
-            </div>
-        </div>
-    </div>
-    <!--<a href="javascript:;" class="btn-today">&lt; 今天</a>-->
-</div>    <!-- 硬创公开课 -->
+       <!-- 硬创公开课 -->
     <div class="ycLesson">
     <div class="rComTitle">
         硬创公开课

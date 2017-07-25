@@ -8,7 +8,7 @@
 			
     <div class="wrapper">
     	@foreach($data as $key=>$val)
-        <a href="/home/column/{{$val->id}}"  class=" ">{{$val->name}}</a>
+        <a href="/home/column/{{$val->id}}"  class=" "><h4>{{$val->name}}</h4></a>
         @endforeach
     </div>
    

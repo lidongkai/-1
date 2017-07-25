@@ -6,7 +6,7 @@
 			
     <div class="wrapper">
     	<?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <a href="/home/column/<?php echo e($val->id); ?>"  class=" "><?php echo e($val->name); ?></a>
+        <a href="/home/column/<?php echo e($val->id); ?>"  class=" "><h4><?php echo e($val->name); ?></h4></a>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </div>
    

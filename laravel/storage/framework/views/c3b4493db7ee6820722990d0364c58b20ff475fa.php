@@ -1,18 +1,17 @@
-@extends('home.user.layout')
-
-@section('user')
+<?php $__env->startSection('user'); ?>
 <div class="public_m1">
   <div class="public_m2">个人信息</div>
   <!--照片和内容-->    
   <div class="zp_nrm">
       <!--left-->
       <div class="zp_nrm_l" >
-          <img src="/uploads/avatar/{{ session('master')->photo }}" style="width:100px;height:100px;" /><br>
+          <img src="/uploads/avatar/<?php echo e(session('master')->photo); ?>" style="width:100px;height:100px;" /><br>
       </div>
       <!--right-->
       <div class="zp_nrm_r">
          <form action="/home/user/add" method="post" onsubmit="return dosubmit()" enctype="multipart/form-data">
-               {{ csrf_field() }}
+               <?php echo e(csrf_field()); ?>
+
               <div class="form-group col-xs-8">
                   <div class="col-xs-2">
                   <p style="font-size:16px">昵称:</p>
@@ -234,4 +233,5 @@ if (phone=='') {
 
 
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('home.user.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
