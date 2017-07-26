@@ -4,8 +4,13 @@
 			
     <div class="wrapper">
     	<?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <a href="/home/column/<?php echo e($val->id); ?>"  class=" "><?php echo e($val->name); ?></a>
+        <a href="/home/column/<?php echo e($val->id); ?>"  class=" "><h4><?php echo e($val->name); ?></h4></a>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+    </div>
+    <div class="wrapper">
+        
+        <a href="/home/shop/index"  class=" "><h4>积分商城</h4</a>
+      
     </div>
    
 </nav>
@@ -232,24 +237,7 @@
         </div>
     
             <!-- 记者跑会日程 -->
-    <div class="calendarNews">
-    <div id="calNews"></div>
-    <div class="monthly">
-        <div class="monthly-header">
-            <a href="javascript:;" class="btn-back" title="返回"><em></em></a>
-            <h3 class='label-date'></h3>
-        </div>
-        <div id="calendarNewsScroll" class="monthly-event-list">
-            <div class="cont">
-                <!--<div class="monthly-list-item">
-                    <p><a href="#"><em></em>这是测试数据，请忽略！</a></p>
-                    <p><a href="#"><em></em>这是测试数据，请忽略！</a></p>
-                </div>-->
-            </div>
-        </div>
-    </div>
-    <!--<a href="javascript:;" class="btn-today">&lt; 今天</a>-->
-</div>    <!-- 硬创公开课 -->
+       <!-- 硬创公开课 -->
     <div class="ycLesson">
     <div class="rComTitle">
         硬创公开课

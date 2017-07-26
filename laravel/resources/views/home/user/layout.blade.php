@@ -1,9 +1,13 @@
 @extends('home.layout')
 
 @section('content')
+ 
+    <link rel="stylesheet" type="text/css" href="/leiphone/css/jiazaitoubu.css">
+ 
 
     <link rel="stylesheet" type="text/css" href="/leiphone/css/jiazaitoubu.css">
 
+ 
     <link rel="stylesheet" type="text/css" href="/leiphone/css/center.css">
     <!--城市联动-->
     <link rel="stylesheet" type="text/css" href="/leiphone/css/city.css">
@@ -40,22 +44,36 @@
                 <b></b>
             </div>
             <span class="gjszmdm">
+ 
                 <a href="/home/user/information" class="center_in_self"><font>完善资料</font></a>
                 <a href="/home/user/safe" class="center_in_self"><font>修改密码</font></a>
                 <a href="/home/user/detail" class="center_in_self"><font>详细资料</font></a>
             </span>
             <!--一条开始-->
-            
+            <div class="centers_listm_one_in">
+                <img src="/leiphone/picture/ddgl.png"/>
+                <em>我的文章</em>
+                <b></b>
+            </div>
+            <span class="gjszmdm">
+                
+            </span>
+            <!--一条开始-->
+            <div class="centers_listm_one_in">
+                <img src="/leiphone/picture/ddgl.png"/>
+                <em>文章管理</em>
+                <b></b>
+            </div>
             <span class="gjszmdm">
 
                 <a href="/home/user/article" class="center_in_self"><font>我的文章</font></a>
                 <a href="/home/user/addarticle" class="center_in_self"><font>发表文章</font></a>
-                <a href="#" class="center_in_self"><font>我的收藏</font></a>
 
-                <a href="#" class="center_in_self"><font>我的订单</font></a>
-                <a href="#" class="center_in_self"><font>我的预约</font></a>
-                <a href="#" class="center_in_self"><font>评价订单</font></a>
-                <a href="#" class="center_in_self"><font>订单投诉</font></a>
+                <a href="/home/user/shouclist" class="center_in_self"><font>我的收藏</font></a>
+                <a href="/home/user/commentlist" class="center_in_self"><font>我的评论</font></a>
+                <a href="/home/user/sixin" class="center_in_self"><font>我的私信</font></a>
+
+                
             </span>
             <!--一条开始-->
             <div class="centers_listm_one_in">
@@ -64,12 +82,9 @@
                 <b></b>
             </div>
             <span class="gjszmdm">
-                <a href="#" class="center_in_self"><font>账户安全</font></a>
-                <a href="#" class="center_in_self"><font>账户余额</font></a>
-                <a href="#" class="center_in_self"><font>我的积分</font></a>
-                <a href="#" class="center_in_self"><font>积分兑换</font></a>
-                <a href="#" class="center_in_self"><font>我的经验</font></a>
-                <a href="#" class="center_in_self"><font>我的优惠卷</font></a>
+                <a href="{{ url('/home/user/order') }}" class="center_in_self"><font>我的订单</font></a>
+                <a href="{{ url('/home/user/address') }}" class="center_in_self"><font>我的地址</font></a>
+                 <a href="{{ url('/home/shopcar/index') }}" class="center_in_self"><font>我的购物车</font></a>  
             </span>    
             <!--一条开始-->
             <div class="centers_listm_one_in">
@@ -94,16 +109,11 @@
 		</script>
     </div>
     <!--right-->
-    <div class="centers_mr">
+    <div class="centers_mr" style="position:absolute;height:838px;width:1000px;left:246px">
 
-   @yield('user')
-        
+        @yield('user')
     </div>
-</div>   
-
-
-
-
-
+</div> 
+<div style="clear:both;"></div>
      
 @endsection

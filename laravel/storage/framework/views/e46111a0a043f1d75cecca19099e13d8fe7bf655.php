@@ -1,10 +1,12 @@
+  
+
+
 <?php $__env->startSection('user'); ?>
   
 <link rel="stylesheet" type="text/css" href="/leiphone/css/leiphone.css"  />
 	<div class="contRtModel2">
         <div class="lphMebBox yahei partBox">
 
-            
 <div class="hd clr">
     <div class="l-mess">
         <div class="face">
@@ -36,24 +38,31 @@
 
             <div class="main-list">
                 <div class="list CollectList">
-                    <h1>最新收藏</h1>
-                                        <ul>
-                                                    <li class="first">
-                                <div class="tit">
+                    <h1>我的收藏</h1>
+                    <ul>
+                        <?php if($data1): ?>
+                        <?php 
+                        $ress = \DB::table('articles')->where('id',$data1->arid)->first();
+                         ?>
+                        <li class="first">
+                            <div class="tit">
                                     <span class="name">
-                                        <a href="https://www.leiphone.com/news/201706/83X9xXtyltG9IYyZ.html">观点 | 微软漏洞防不胜防，应当推广国产基础软件</a>
+                                        <a href="/home/show/<?php echo e($ress->id); ?>"><?php echo e($ress->atitle); ?></a>
                                     </span>
                                     <span class="time">
-                                        2017-06-28 18:46:40                                    </span>
-                                </div>
+                                        <?php echo e($ress->ctime); ?>                                  </span>
+                            </div>
                                 <div class="descri">
-                                    在6月27日，新的病毒“Petrwrap”由乌克兰和俄罗斯开始爆发，逐渐蔓延到欧洲多国                                </div>
-                            </li>
-                                            </ul>
-                    <div class="more">
-                        <a href="https://home.leiphone.com/interact/collect/site/leiphone">查看更多1条收藏</a>
+                                    <?php echo e($ress->descript); ?>
+
+                                </div>
+                        </li>
+                        <?php endif; ?>
+                    </ul>
+                    <div class="mor" >
+                        <a href="/home/user/shouclist">查看更多<?php echo e($nums); ?>条收藏</a>
                     </div>
-                                    </div>
+                </div>
                 <div class="list commentList">
                     <h1>最新评论</h1>
                         <ul>
@@ -75,15 +84,16 @@
                             </li>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </ul>
-                    <div class="more">
-                        <a href="https://home.leiphone.com/interact/comment/site/leiphone">查看更多1条评论</a>
+                    <div class="mor">
+                        <a href="/home/user/commentlist">查看更多<?php echo e($num); ?>条评论</a>
                     </div>
-                                    </div>
+                </div>
             </div>
         </div>
     </div>
 <?php $__env->stopSection(); ?>    
 
 
+ 
 
 <?php echo $__env->make('home.user.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

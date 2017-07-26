@@ -6,7 +6,7 @@
   </div>
 <?php endif; ?>  
 <link rel="stylesheet" type="text/css" href="/leiphone/css/artcont_web_admin_2.css">
-    <link rel="stylesheet" type="text/css" href="/leiphone/css/main_2.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="/leiphone/css/main.css" media="all" />
 <div class="wrapper">
     <div class="lph-Nowsite clr">
         <a href='/home/index'><em class='ico'></em></a>
@@ -50,7 +50,7 @@
                             <table>
                                 <tr>
                                     <td class="aut">
-                                        本文作者：<a href="https://www.leiphone.com/author/sijia893" target="_blank" rel="nofollow"><?php echo e($data->aname); ?></a>
+                                        本文作者：<a href="" target="_blank" rel="nofollow"><?php echo e($data->aname); ?></a>
                                     </td>
                                                                 <td class="time">
                                         <?php echo e($data->ctime); ?>                           </td>
@@ -81,40 +81,70 @@
                                                                           
                                                   <!-- 正文内容结束 -->
                         </div>
-
-                        <!-- 分享 -->
+                        
+                        <!-- 收藏 -->
                         <div class="pageActive clr">
-                            <div class="mark-like-btn ">
-                                <a class="collect collect-no" href="javascript:;"><i></i><span>0</span>人收藏</a>
-                            </div>
-                            <!-- Baidu Button BEGIN -->
-                            <div  class="bdsharebuttonbox"  data-tag="share_166802">
-                                <span class="s-txt">分享：</span>
-                                <a href="javascript:void()" onclick="openYNote('https://www.leiphone.com/news/201707/xSx7Xv8cktsNpyaq.html','除了是全球首款L3自动驾驶的量产车，奥迪A8还带来了哪些亮点？', 'https://static.leiphone.com/uploads/new/article/pic/201707/5964ec6895830.jpg','leiphone','除了是全球首款L3自动驾驶的量产车，奥迪A8还带来了哪些亮点？')" class="youdao " title="收藏此篇文章到有道云笔记"><i></i></a>
-                                <a class="bds_tsina weibo-btn  " data-cmd="tsina"  title="分享到新浪微博"></a>
-                                <a class="weixin-btn bds_weixin" data-cmd="weixin" title="分享到微信"></a>
-                                <a class="bds_more more-btn" data-cmd="more"></a>
-                            </div>
-                            <script type="text/javascript">
-                                //在这里定义bds_config
-                                // var bds_config = {'snsKey':{'tsina':'2475906690'}};
-                                // var qcode = {
-                                //     api : "http://qr.liantu.com/api.php?text=",
-                                //     url :  window.location.href,
-                                //     exist : false,
-                                //     create : function(){
-                                //         if(!this.exist){
-                                //             var image = document.createElement('img');
-                                //             image.src = this.api + this.url;
-                                //             image.width = 120;
-                                //             this.exist = true;
-                                //             return image;
-                                //         }
-                                //     }
-                                // };
-                            </script>
 
-                        </div>
+                            <div class="mark-like-btn ">
+                                <input class="hids" type="hidden" value="<?php echo e($data->id); ?>">
+                                <a class="collect collect-no" href="javascript:;"><span><?php echo e($numsc); ?></span>人收藏</a>
+                            </div>
+                            
+                         </div> 
+
+                           
+                                <?php if(session('master')): ?>
+                                <script type="text/javascript">
+                                $.ajaxSetup({
+                                    headers: {
+                                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                    }
+                                });
+                                $('.mark-like-btn').click(function(){
+                                        var numsc = $(this).children().children('span').html();
+                                        var span = $(this).children().children('span');
+                                        var hids = $('.hids').val();
+                                         $.ajax('/home/shouc',{
+                                                type:'POST',
+                                                data:{hids:hids},
+                                                 success:function(data){
+                                                    if(data == 1)
+                                                    {
+                                                        alert('取消收藏');
+                                                      span.html(eval("numsc - 1"));  
+
+                                                    }else if(data == 2 )
+                                                    {
+                                                        alert('收藏成功');
+                                                         var src = parseInt(numsc)+1;
+                                                         span.html(src);
+                                                    }else
+                                                    {
+                                                        alert('收藏失败');
+                                                    }
+                                                    
+                                                
+                                                },
+                                                error:function(data){
+                                                    alert('数据异常');
+                                                },
+                                                dataType:'json',
+                                            });
+                                 });   
+                                </script>
+                                <?php else: ?>
+                                <script type="text/javascript">
+                                    $('.mark-like-btn').click(function(){
+                                        alert('请先登录哦');
+                                        
+                                        
+                                    });
+                                </script>  
+                                <?php endif; ?> 
+
+                          
+
+                        
                         <!-- 相关文章 -->
                         <!-- 相关文章 start -->
             
@@ -213,7 +243,7 @@
                             <p class='profession'>编辑</p>
                             <div class="saying">
                                 <em class='l-quote'></em>
-                                <span>个性签名</span>
+                                <span>busy!busy!busy to live</span>
                                 <em class='r-quote'></em>
                             </div>
                             <div class="operate-btn">
@@ -379,5 +409,10 @@
         });
     </script>  
     <?php endif; ?> 
+
+
+
+        
+
 <?php $__env->stopSection(); ?>    
 <?php echo $__env->make('home.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

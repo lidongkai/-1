@@ -9,7 +9,20 @@
         "gregwar/captcha": "1.1.2",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
+<<<<<<< HEAD
         "predis/predis": "^1.1"
+=======
+ 
+ 
+        "gregwar/captcha":"1.1.2",
+ 
+        "predis/predis": "1.1"
+  
+ 
+      
+
+ 
+>>>>>>> cf8cc81b324e41ab2406097a6823bae74cae28b0
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

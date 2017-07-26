@@ -75,17 +75,17 @@ class LoginController extends Controller
         // dd(111);
    $this->validate($request, 
         [
-        'username' => 'required|unique:users|min:5|max:18',
+        'username' => 'required|unique:users|min:3|max:12',
         'email'=> 'required|unique:users|email',
         'password'=>'required',
         'repwd'=>'same:password'
         ],
         
         [
-            'username.min'=>'用户名至少5个字符',
+            'username.min'=>'用户名至少3个字符',
             'username.required'=>'用户名不能为空',
             'username.unique'=>'用户名不能重复',
-            'username.max'=>'用户名最多不能超过18个字符',
+            'username.max'=>'用户名最多不能超过12个字符',
             'email.required'=>'邮箱不能为空',
             'email.unique'=>'邮箱已存在',
             'email.email'=>'请填写正确的邮箱',

@@ -226,8 +226,6 @@ $('#code').on('click', function(){
 });
 
 
-  
-
   $('#coded').change(function()
     {
       var coded = $('#coded').val();
@@ -239,13 +237,11 @@ $('#code').on('click', function(){
     {
       if(data == 1)
       {
-        // alert('恭喜.绑定成功');
-        $('#coded').next('span').first().html('恭喜,绑定成功');
-        $('$coded').css('border-color':'green');
-      }else{
-        // alert('验证码不正确');
-        $('#coded').next('span').first().html('抱歉,验证码有误,请重新验证');
-        $('#coded').css('border-color':'red');
+        alert('恭喜.绑定成功');
+  
+      }else
+      {
+        alert('验证码不正确,请重新验证');
         return false;
       }
       

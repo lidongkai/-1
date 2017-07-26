@@ -10,22 +10,54 @@
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
     
     <link rel="stylesheet" href="<?php echo e(asset('/css/app.css')); ?>">
-    <link rel="stylesheet"  type="text/css" href="/leiphone/css/common.css"  />    
-    <link rel="stylesheet"  type="text/css" href="/leiphone/css/list.css" />
-    <link rel="stylesheet" type="text/css" href="/leiphone/css/index.css"  />    
-    <link rel="stylesheet" type="text/css" href="/leiphone/css/set.css"  />
-    <link rel="stylesheet" type="text/css" href="/leiphone/css/tips.css"  />
 
-    <script type="text/javascript" src="/leiphone/js/bw-loader-411.4.5.js"></script>
-    <script type="text/javascript" src="/leiphone/js/mobilecheck.js"></script>
-    <script  src="/leiphone/js/jquery-3.2.1.min.js"></script>
-    <script  src="/leiphone/js/bootstrap.min.js"></script>
-    <link href="/leiphone/css/bootstrap.min.css" rel="stylesheet">
-    <script src="/leiphone/js/jquery-sea.js"></script>
-    <script  src="/leiphone/js/global.js"></script>
-    <script src="/leiphone/js/com_banner.js"></script>
-    <script src="/leiphone/js/list.js"></script>
     
+    
+
+ 
+     <link href="//store.res.meizu.com/layout/img/favicon-2e71785f44.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="//store.res.meizu.com/layout/img/favicon-2e71785f44.ico" rel="icon" type="image/x-icon" />
+
+
+        <link rel="stylesheet"  type="text/css" href="/leiphone/css/common.css"  />
+        
+      <link rel="stylesheet"  type="text/css" href="/leiphone/css/list.css" />
+
+ 
+    <link rel="stylesheet" type="text/css" href="/leiphone/css/jquery.mcustomscrollbar.css"  />
+    <link rel="stylesheet" type="text/css" href="/leiphone/css/calendar.css"  />
+    <link rel="stylesheet" type="text/css" href="/leiphone/css/index.css"  />  
+  
+
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv-3ed50bb69a.js" type="text/javascript"></script>
+    <script src="js/es5-shim-50bbaee56e.js" type="text/javascript"></script>
+    <![endif]-->
+
+ 
+
+ 
+    <script  src="/leiphone/js/jquery-3.2.1.min.js"></script>  
+    <script  src="/leiphone/js/bootstrap.min.js"></script> 
+    <link href="/leiphone/css/bootstrap.min.css" rel="stylesheet">
+    
+    <script src="/leiphone/js/jquery-sea.js"></script>
+    <script src="/leiphone/js/sea.js"></script>
+    <script  src="/leiphone/js/aq_auth.js"></script> 
+    <script src="/leiphone/js/list.js"></script>
+    <script  src="/leiphone/js/mobilecheck.js"></script>
+    <script  src="/leiphone/js/com_banner.js"></script>
+    <script  src="/leiphone/js/global.js"></script>
+    <script  src="/leiphone/js/index.js"></script>
+    <script  src="/leiphone/js/calendarNews.js"></script>  
+ 
+ 
+
+    
+   
+
+ 
+
 </head>
 <body>
 
@@ -56,7 +88,7 @@
         </div>
          <?php else: ?>
         <!-- 用户消息 -->
-        <div id="hidd">
+        <div id="hidd" style="float:right;">
             <div class="yp-header-message"  style="margin-top:22px;font-size:16px;">
             <a data-toggle="modal" data-target="#register" href="">注册</a>
             </div>
@@ -66,15 +98,19 @@
         </div>
         <?php endif; ?>
 
-        <div class="yp-header-search">
-           <form method="GET" name="allSearchForm" action="https://www.leiphone.com/search" style="height: 100%;">
-                <input type="hidden" name="site" value="">
-                <input class="text" type="text" name="s" autocomplete="off" value="">
-                <input class="submit" type="submit" value="">
-                <input class="submit2" type="submit" value="">
-            </form>
-        </div>
+
+
+        <form action="/home/article/search" method="get" class="navbar-form navbar-left" style="margin-top:13px;" role="search">
+         
+          <div class="form-group">
+            <input type="text" name="keyword" class="form-control" placeholder="搜索内容">
+          </div>
+          <button type="submit" class="btn btn-default">搜索</button>
+        </form>
+       
+
     </div>
+
 </header> 
 
      <!-- 注册窗口 -->
@@ -97,19 +133,19 @@
 
                   <div class="form-group">
                       <label for="">用户名</label>
-                      <input id="rname" class="form-control" name="username" type="text" placeholder="6-15位字母或数字">
+                      <input id="rname" class="form-control" name="username" type="text" placeholder="请输入用户名">
                   </div>
                   <div class="form-group">
                       <label for="">密码</label>
-                      <input id="rpass" class="form-control" name="password" type="password" placeholder="至少6位字母或数字">
+                      <input id="rpass" class="form-control" name="password" type="password" placeholder="请输入密码">
                   </div>
                   <div class="form-group">
                       <label for="">再次输入密码</label>
-                      <input id="repass" class="form-control" name="repass" type="password" placeholder="至少6位字母或数字">
+                      <input id="repass" class="form-control" name="repass" type="password" placeholder="请确认密码">
                   </div>
                   <div class="form-group">
                       <label for="">邮箱</label>
-                      <input id="email" class="form-control" name="email" type="email" placeholder="例如:123@123.com">
+                      <input id="email" class="form-control" name="email" type="email" placeholder="请输入正确的邮箱">
                   </div>
                     <!-- <div class="form-group has-feedback">
                     <input id="code" type="text" name="code" class="form-control" placeholder="请输入验证码">
@@ -169,6 +205,12 @@
          </div>
       </div>
 
+   </div>
+    
+    
+   
+
+
    <script>
 $.ajaxSetup({
     headers: {
@@ -191,7 +233,14 @@ $.ajaxSetup({
         if(data == '0')
         {
           alert('恭喜,登录成功');
+ 
+ 
+          location.href = '/home/shop/index';
+ 
           location.href = location.href;
+ 
+ 
+  
           // $('#hidd').hide();
         }
         if(data == '1')
@@ -255,16 +304,13 @@ $.ajaxSetup({
 
   <?php echo $__env->yieldContent('content'); ?> 
 
-<footer class='yp-footer'>
-
+<footer class='yp-footer'> 
 <!-- 友情链接，热门关键字 -->
-<div class="yp-footer-link">
-<div class="wrapper">
-<div class="tab_tit clr">
 
 </div>
 </div>
 </div>
+
 
 <div class="yp-footer-msg">
 <div class="wrapper clr">
@@ -296,6 +342,7 @@ $.ajaxSetup({
 </div>
 </div>
 <br/><br/><br/>
+ 
     <!-- copyRight -->
     <div class="yp-copyright">
         <div class="wrapper">
@@ -310,8 +357,13 @@ $.ajaxSetup({
                 </a>
             </p>
         </div>
+
     </div>
 </footer>
+
+
+    </div> 
+    
 
 </body>
 </html>

@@ -75,8 +75,8 @@ class IndexController extends Controller
     {
         $data = \DB::table('articles')->where('id',$request->id)->first();
         $data1 = \DB::table('comment')->where('aid',$request->id)->orderBy('ctime','desc')->get();
-      
-        return view('home.index.show',['data'=>$data,'data1'=>$data1]);
+        $numsc = \DB::table('shouc')->where('arid',$request->id)->count();
+        return view('home.index.show',['data'=>$data,'data1'=>$data1,'numsc'=>$numsc]);
     }
 
 

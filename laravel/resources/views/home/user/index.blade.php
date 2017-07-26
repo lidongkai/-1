@@ -1,4 +1,4 @@
-
+  
 @extends('home.user.layout')
 
 @section('user')
@@ -7,7 +7,6 @@
 	<div class="contRtModel2">
         <div class="lphMebBox yahei partBox">
 
-            
 <div class="hd clr">
     <div class="l-mess">
         <div class="face">
@@ -39,24 +38,30 @@
 
             <div class="main-list">
                 <div class="list CollectList">
-                    <h1>最新收藏</h1>
-                                        <ul>
-                                                    <li class="first">
-                                <div class="tit">
+                    <h1>我的收藏</h1>
+                    <ul>
+                        @if($data1)
+                        @php
+                        $ress = \DB::table('articles')->where('id',$data1->arid)->first();
+                        @endphp
+                        <li class="first">
+                            <div class="tit">
                                     <span class="name">
-                                        <a href="https://www.leiphone.com/news/201706/83X9xXtyltG9IYyZ.html">观点 | 微软漏洞防不胜防，应当推广国产基础软件</a>
+                                        <a href="/home/show/{{$ress->id}}">{{$ress->atitle}}</a>
                                     </span>
                                     <span class="time">
-                                        2017-06-28 18:46:40                                    </span>
-                                </div>
+                                        {{$ress->ctime}}                                  </span>
+                            </div>
                                 <div class="descri">
-                                    在6月27日，新的病毒“Petrwrap”由乌克兰和俄罗斯开始爆发，逐渐蔓延到欧洲多国                                </div>
-                            </li>
-                                            </ul>
-                    <div class="more">
-                        <a href="https://home.leiphone.com/interact/collect/site/leiphone">查看更多1条收藏</a>
+                                    {{$ress->descript}}
+                                </div>
+                        </li>
+                        @endif
+                    </ul>
+                    <div class="mor" >
+                        <a href="/home/user/shouclist">查看更多{{$nums}}条收藏</a>
                     </div>
-                                    </div>
+                </div>
                 <div class="list commentList">
                     <h1>最新评论</h1>
                         <ul>
@@ -78,13 +83,14 @@
                             </li>
                             @endforeach
                         </ul>
-                    <div class="more">
-                        <a href="https://home.leiphone.com/interact/comment/site/leiphone">查看更多1条评论</a>
+                    <div class="mor">
+                        <a href="/home/user/commentlist">查看更多{{$num}}条评论</a>
                     </div>
-                                    </div>
+                </div>
             </div>
         </div>
     </div>
 @endsection    
 
 
+ 
